@@ -58,10 +58,10 @@ const DatePicker = () => {
   
   
   return (
-    <div className="w-full">
+    <div className="w-full relative">
       <button
         onClick={() => setShowCalendar(!showCalendar)}
-        className="flex flex-wrap relative items-center jusify-between px-4 py-3 mt-5 3xl:px-6 3xl:py-5 3xl:mt-6 w-full rounded-xl bg-[#F5F5F7] "
+        className="flex flex-wrap items-center jusify-between px-4 py-3 mt-5 3xl:px-6 3xl:py-5 3xl:mt-6 w-full rounded-xl bg-[#F5F5F7] "
         aria-label="Select date"
       >
         <div className="flex items-center justify-between w-full  ">
@@ -81,7 +81,7 @@ const DatePicker = () => {
         
       </button>
       {showCalendar && (
-        <div className="bg-[#F5F5F7] w-full shadow-lg px-6 py-[22px] rounded-lg mt-2">
+        <div className="bg-[#F5F5F7] w-full absolute shadow-lg px-6 py-[22px] rounded-lg mt-2">
           <div className="flex justify-between items-center text-gray-700">
             <span className="font-semibold text-base leading-5 3xl:text-xl 3xl:leading-[28.28px] font-nunitoSans">{format(new Date(currentYear, currentMonth), "MMMM yyyy")}</span>
             <div className="flex space-x-2">
@@ -101,7 +101,7 @@ const DatePicker = () => {
                   key={idx}
                   className={`py-1.5 px-2 font-nunitoSans font-500 text-lg leading-7 3xl:text-2xl 3xl:leading-[32.74px] rounded-lg transition ${
                     unavailableDates.includes(day || 0) ? "text-[#989898] cursor-none" :
-                    day === tempDate?.getDate() ? "bg-[#333333] shadow-lg text-[#F5F5F7] cursor-pointer" : "hover:bg-gray-200 cursor-pointer"
+                    day === tempDate?.getDate() ? "bg-[#333333] shadow-xl text-[#F5F5F7] cursor-pointer" : "hover:bg-gray-200 cursor-pointer"
                   }`}
                   onClick={() => day && !unavailableDates.includes(day) && handleDateClick(new Date(currentYear, currentMonth, day))}
                 >

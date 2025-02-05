@@ -8,15 +8,15 @@ type Props = {}
 
 const BookinPage = (props: Props) => {
   return (
-    <section className='w-full h-screen overflow-hidden'>
-        <main className='max-w-[1728px] h-screen relative flex flex-wrap lg:flex-nowrap mx-auto'>
-          <Link href='/' className='absolute top-6 left-5 border-red-800 z-10'>
+    <section className='w-full lg:h-screen bg-[#FCFCFC] lg:overflow-hidden'>
+        <main className='max-w-[1728px] relative flex flex-wrap lg:flex-nowrap mx-auto'>
+          <Link href='/' className='absolute top-4 left-4 3xl:top-6 3xl:left-5 border-red-800 z-10'>
             <Image
               src='/icons/logo.svg'
               alt='logo'
-              width={140}
-              height={40}
-              className='object-cover'
+              width={80}
+              height={20}
+              className='object-cover w-[80px] h-5 lg:h-10 lg:w-[140px]'
             />
           </Link>
           <Carousel/>
