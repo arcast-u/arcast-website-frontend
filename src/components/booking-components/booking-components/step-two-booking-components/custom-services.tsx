@@ -102,27 +102,22 @@ const services = [
   ];
 
 function CustomServices() {
-  const [selectedServices, setSelectedServices] = useState<string[]>(["Podcast Trailer"]);
-    const handleServiceToggle = (serviceName: string) => {
-        setSelectedServices(prev => 
-          prev.includes(serviceName)
-            ? prev.filter(name => name !== serviceName)
-            : [...prev, serviceName]
-        );
-      };
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
+    
   return (
     <section className="3xl:mt-12 mt-10">
-        <h2 className="text-3xl font-medium text-zinc-800">
-        Choose custom services
-        <span className="text-2xl italic text-neutral-400">(optional)</span>
+        <h2 className="text-[28px] leading-8 3xl:text-[32px] font-nunitoSans font-medium 3xl:leading-[43.65px] text-[#333333]">
+          à la carte services
+        <span className="text-xl leading-[28.74px] 3xl:text-2xl italic 3xl:leading-[32.74px] text-[#989898]">(optional)</span>
         </h2>
         <div className="flex flex-col mt-6">
         {services.map((service, index) => (
             <ServiceOption
             key={index}
             {...service}
-            selected={selectedServices.includes(service.name)}
-            onSelect={() => handleServiceToggle(service.name)}
+            groupName="service-options" 
+            selected={selectedIndex === index}
+            onSelect={() => setSelectedIndex(index)}
             />
         ))}
         </div>

@@ -1,42 +1,81 @@
-import * as React from "react";
+import * as React from 'react';
+import { PricingFeature } from './package-feature';
 
-interface PackageCardProps {
+interface PricingFeature {
+  text: string;
+}
+interface PricingCardProps {
+  count: number;
   title: string;
-  description: string;
-  oldPrice: string;
-  newPrice: string;
-  features: string[];
-  isHighlighted: boolean;
+  originalPrice: string;
+  price: string;
+  features: PricingFeature[];
+  variant: 'light' | 'orange' | 'dark';
+  selectedPackage: number;
+  onSelect: (count: number) => void;
 }
 
-const PackageCard = ({ title, description, oldPrice, newPrice, features, isHighlighted }: PackageCardProps) => (
-  <article 
-    className={` ${isHighlighted ? "border-[0.5px] border-[#5081FF] border-solid" : ""}
-      flex flex-col justify-center px-5 py-4 3xl:px-6 3xl:py-5 w-full rounded-xl bg-[#F5F5F7]  mb-4 last:mb-0 cursor-pointer hover:scale-105 transition-colors`}
-    tabIndex={0}
-    role="button"
-    aria-pressed={isHighlighted}
-  >
-    <div className="flex flex-col font-nunitoSans w-full max-md:max-w-full">
-      <header className="flex flex-col font-normal justify-center w-full max-md:max-w-full">
-        <h3 className="text-lg leading-5 3xl:text-xl 3xl:leading-[27.28px] text-[#333333] max-md:max-w-full">{title}</h3>
-        <p className="mt-1 text-sm leading-5 3xl:text-base 3xl:leading-[21.28px] text-[#989898] max-md:max-w-full">{description}</p>
-      </header>
-      <div className="flex flex-col justify-center mt-3 3xl:mt-4 font-semibold">
-        <del className="text-xs 3xl:text-sm leading-[19.1px] text-[#DA6969]">{oldPrice}</del>
-        <h3 className="text-lg 3xl:text-xl leading-[27.28px] text-[#333333]">{newPrice}</h3>
+export const PackageCard = ({ title, originalPrice, price, features, variant, selectedPackage, onSelect, count }: PricingCardProps) => {
+  const bgColorClass = {
+    light: 'bg-[#EAEAEA]',
+    orange: 'bg-[#FF8C42]',
+    dark: 'bg-black'
+  }[variant];
+
+  const titleColorClass = {
+    light: 'text-[#333333]',
+    orange: 'text-[#F5F5F7]',
+    dark: 'text-[#FCFCFC]'
+  }[variant];
+
+  const priceColorClass = {
+    light: 'text-[#333333]',
+    orange: 'text-[#F5F5F7]',
+    dark: 'text-zinc-50'
+  }[variant];
+
+  const featuresColorClass = {
+    light: 'text-[#585858]',
+    orange: 'text-orange-100',
+    dark: 'text-[#FCFCFC]'
+  }[variant];
+
+  const dividerColorClass = {
+    light: 'bg-[#989898]',
+    orange: 'bg-[#FFE6D7]',
+    dark: 'bg-[#989898]'
+  }[variant];
+
+  return (
+    <div tabIndex={0}
+    role="button" className={`flex flex-col ${
+    count === selectedPackage ? "border-[0.5px] border-[#5081FF] border-solid" : ""
+    } justify-center font-nunitoSans 3xl:p-6 w-full ${bgColorClass} rounded-xl p-5`}
+    onClick={() => onSelect(count)}>
+      <div className="flex flex-wrap gap-6 items-start w-full ">
+        <p className={`flex-1 shrink font-normal text-lg 3xl:text-xl leading-[27.28px] ${titleColorClass}`}>
+          {title}
+        </p>
+        <div className="flex flex-col justify-center font-semibold">
+          <del className="3xl:text-sm text-xs leading-[15.1px] 3xl:leading-[19.1px] text-[#FF4242]">{originalPrice}</del>
+          <p className={`mt-1 text-lg leading-6 3xl:text-xl 3xl:leading-[27.28px] ${priceColorClass}`}>{price}</p>
+        </div>
+      </div>
+      <div className={`3xl:mt-4 mt-3 w-full min-h-[0.5px] ${dividerColorClass}`} />
+      <div className={`flex flex-col flex-1 justify-between 3xl:mt-4 mt-3 w-full font-medium ${featuresColorClass} `}>
+        <div className="flex flex-wrap gap-3 items-start w-full text-sm leading-[16.46px] 3xl:text-base 3xl:leading-[20.46px]">
+          {features.slice(0, 2).map((feature, index) => (
+            <PricingFeature key={index} feature={feature} variant={variant} />
+          ))}
+        </div>
+        <div className="flex flex-col mt-12 3xl:mt-[52px] w-full text-sm leading-[16.82px] 3xl:text-base 3xl:leading-[21.82px]">
+          {features.slice(2).map((feature, index) => (
+            <div key={index} className="mt-3 first:mt-0">
+              <PricingFeature feature={feature} variant={variant} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-    <hr className="mt-4 3xl:mt-6 w-full border-[0.5px] border-[#989898]" />
-    <section className="flex flex-col mt-4 font-nunitoSans 3xl:mt-6 w-full text-base leading-[21.82px] font-medium text-[#989898]">
-      <h4 className="max-md:max-w-full">What is included</h4>
-      <ul className="list-disc pl-6">
-        {features.map((feature, index) => (
-          <li key={index} className="3xl:mt-2 mt-1.5 max-md:max-w-full">{feature}</li>
-        ))}
-      </ul>
-    </section>
-  </article>
-);
-
-export default PackageCard;
+  );
+}

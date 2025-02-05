@@ -12,7 +12,7 @@ const ReservationSummary: React.FC<ReservationSummaryProps> = ({
   onContinue
 }) => {
   return (
-    <div className="flex flex-wrap gap-10 justify-center items-center self-center mt-6 w-[35.7vw] max-w-[553px]">
+    <div className="flex flex-wrap gap-10 justify-center items-center self-center mt-6">
       <div className="flex flex-col flex-1 shrink justify-center self-stretch my-auto basis-12 min-w-[240px]">
         <div className="text-base text-neutral-400">
           {packageName}
