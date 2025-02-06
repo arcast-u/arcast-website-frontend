@@ -105,12 +105,12 @@ function CustomServices() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
     
   return (
-    <section className="3xl:mt-12 mt-10">
-        <h2 className="text-[28px] leading-8 3xl:text-[32px] font-nunitoSans font-medium 3xl:leading-[43.65px] text-[#333333]">
+    <section className="3xl:mt-12 mt-8 lg:mt-10">
+        <h2 className="header-text">
           à la carte services
         <span className="text-xl leading-[28.74px] 3xl:text-2xl italic 3xl:leading-[32.74px] text-[#989898]">(optional)</span>
         </h2>
-        <div className="flex flex-col mt-6">
+        <div className="flex flex-col mt-4 3xl:mt-5">
         {services.map((service, index) => (
             <ServiceOption
             key={index}

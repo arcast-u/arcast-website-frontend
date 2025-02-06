@@ -8,9 +8,10 @@ import NumberOfPeople from "./step-two-booking-components/number-of-people";
 import DateSelector from "./step-two-booking-components/date-selector";
 import SelectTime from "./step-two-booking-components/select-time";
 import SelectDuration from "./step-two-booking-components/select-duration";
-import CustomServices from "./step-two-booking-components/custom-services";
-import FormSection from "./step-3/form-section";
-import BookingSummary from "./step-3/booking-summary";
+// import CustomServices from "./step-two-booking-components/custom-services";
+import FormSection from "./step-three-booking-components/form-section";
+import BookingSummary from "./step-three-booking-components/booking-summary";
+import PackageSectionMobile from "./step-one-bookingComponents/package-section-mobile";
 
 
 const StudioBooking= () => {
@@ -31,19 +32,20 @@ const StudioBooking= () => {
   return (
     <main className="relative">
       <div className="flex flex-col w-full lg:h-screen lg:w-[35.7vw] bg-[#FCFCFC]">
-        <div className="flex-1 overflow-y-auto pb-24">
-          <div className=" relative mx-auto px-6 pt-6 3xl:px-8 3xl:pt-8">
+        <div className="flex-1 overflow-y-auto lg:pb-24">
+          <div className=" relative mx-auto px-6 pt-11 3xl:px-8 3xl:pt-8">
             <TabList tabs={tabs} currentStep={currentStep} setActiveIndex={setCurrentStep}/>
             {isStepOne && <div>
               <StudioCardList/>
               <PackageCardList/>
+              <PackageSectionMobile/>
             </div>}
-            {isStepTwo &&<div>
+            {isStepTwo &&<div className="pb-44">
               <NumberOfPeople/>
+              <SelectDuration hasBorder={false} hasHeader={true}/>
               <DateSelector/>
               <SelectTime/>
-              <SelectDuration hasBorder={false} hasHeader={true}/>
-              <CustomServices/>
+              {/* <CustomServices/> */}
               </div>
             }
             {isStepThree &&

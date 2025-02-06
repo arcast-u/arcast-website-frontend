@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
@@ -10,6 +11,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
+  cursor: none;
 }
 
 .font-hanken-grotesk {
@@ -26,3 +28,21 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+
+.header-text {
+  font-size: 24px;
+  line-height: 32.74px;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 500; 
+  color: #333333;
+}
+
+/* Media query for 3xl screens (1920px and above in Tailwind) */
+@media (min-width: 1700px) {
+  .header-text {
+    font-size: 32px;
+    line-height: 43.65px;
+  }
+}
+

@@ -1,6 +1,7 @@
 'use client'
 import React, {useState, useEffect} from "react";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import Image from "next/image";
 
 const images = [
   "/images/studio1.webp",
@@ -33,21 +34,22 @@ export const Carousel: React.FC = () => {
   }, [currentIndex]);
 
   return (
-    <div className="relative w-full border-green-950 lg:w-[64.3vw] lg:h-screen overflow-hidden">
+    <div className="relative w-full h-[39.4vh] border-green-950 lg:w-[64.3vw] lg:h-screen overflow-hidden">
       {/* Image Display */}
       {/* <div className="w-full"> */}
-        <img
+        <Image
           src={images[currentIndex]}
+          layout="fill"
           alt="Carousel Slide"
           className="w-full h-full object-cover "
         />
       {/* </div> */}
       
-      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 flex items-center justify-between w-full px-7 ">
+      <div className="absolute left-0 top-1/2 transform -translate-y-1/2 flex items-center justify-between w-full px-[32.2px] 3xl:px-7 ">
         {/* Left Arrow */}
         <button
           onClick={prevSlide}
-          className="border-[1.5px] border-[#FCFCFC] bg-opacity-50 text-white p-1 xl:p-3 rounded-md hover:scale-105"
+          className="border lg:border-[1.5px] border-[#FCFCFC] bg-opacity-50 text-white p-1 xl:p-3 rounded-md hover:scale-105"
         >
           <FaAngleLeft className="size-3 xl:size-5"/>
         </button>
