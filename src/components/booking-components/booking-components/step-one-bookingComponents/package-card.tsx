@@ -52,13 +52,13 @@ export const PackageCard = ({ title, originalPrice, price, features, variant, se
     count === selectedPackage ? "border-[0.5px] border-[#5081FF] border-solid" : ""
     } justify-center font-nunitoSans 3xl:p-6 w-full ${bgColorClass} rounded-xl p-5`}
     onClick={() => onSelect(count)}>
-      <div className="flex flex-wrap gap-6 items-start w-full ">
-        <p className={`flex-1 shrink font-normal text-lg 3xl:text-xl leading-[27.28px] ${titleColorClass}`}>
+      <div className="flex flex-wrap justify-between items-start w-full ">
+        <p className={`flex-1 shrink font-normal text-base 3xl:text-xl leading-[27.28px] ${titleColorClass}`}>
           {title}
         </p>
         <div className="flex flex-col justify-center font-semibold">
           <del className="3xl:text-sm text-xs leading-[15.1px] 3xl:leading-[19.1px] text-[#FF4242]">{originalPrice}</del>
-          <p className={`mt-1 text-lg leading-6 3xl:text-xl 3xl:leading-[27.28px] ${priceColorClass}`}>{price}</p>
+          <p className={`mt-1 text-base leading-6 3xl:text-xl 3xl:leading-[27.28px] ${priceColorClass}`}>{price}</p>
         </div>
       </div>
       <div className={`3xl:mt-4 mt-3 w-full min-h-[0.5px] ${dividerColorClass}`} />
