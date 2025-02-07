@@ -19,7 +19,7 @@ const PeopleCount= ({ counts, selectedCount, onCountSelect }: PeopleCountProps) 
             count === selectedCount ? "border-[0.5px] border-[#5081FF] text-[#333333]" : "text-[#989898]"
           }`}
         >
-          {count}
+          {count}{count === 4 ? "+" : ""}
         </button>
       ))}
     </div>

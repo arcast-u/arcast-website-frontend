@@ -31,7 +31,7 @@ const FormSection = () => {
     { code: "+81", country: "Japan" },
   ];
 
-  const handleChange = (e: { target: { id: any; value: any; }; }) => {
+  const handleChange = (e: { target: { id: string; value: string | number }; }) => {
     const { id, value } = e.target;
     setForm((prev) => ({ ...prev, [id]: value }));
   };
@@ -210,7 +210,7 @@ const FormSection = () => {
               textDecorationSkipInk: 'none',
             }}
           >
-            Yes, I'd like to receive my booking confirmation and updates.
+            Yes, I&apos;d like to receive my booking confirmation and updates.
           </label>
       </div>
       </div>
