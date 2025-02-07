@@ -15,7 +15,7 @@ const TimeSlot = ({ times, selectedTime, onTimeSelect }: TimeSlotProps) => {
           role="radio"
           aria-checked={time === selectedTime}
           onClick={() => onTimeSelect(time)}
-          className={`flex 3xl:px-6 3xl:py-5 lg:px-4 lg:py-3 p-3 my-auto rounded-xl bg-neutral-100 ${
+          className={`flex 3xl:px-6 3xl:py-5 lg:px-4 lg:py-3 p-3 my-auto cursor-none rounded-xl bg-neutral-100 ${
             time === selectedTime ? "border border-blue-500" : ""
           }`}
         >

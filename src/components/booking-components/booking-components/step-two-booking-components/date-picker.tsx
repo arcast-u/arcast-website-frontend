@@ -62,7 +62,7 @@ const DatePicker = () => {
     <div className="w-full relative">
       <button
         onClick={() => setShowCalendar(!showCalendar)}
-        className={`flex flex-wrap items-center jusify-between px-4 py-3 mt-4 3xl:px-6 3xl:py-5 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7] ${showCalendar === true ? "border-[0.5px] border-[#5081FF]" : ""}`}
+        className={`flex items-center jusify-between px-4 py-3 mt-4 3xl:px-6 3xl:py-5 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7] ${showCalendar === true ? "border-[0.5px] border-[#5081FF]" : ""}`}
         aria-label="Select date"
       >
         <div className="flex items-center justify-between w-full  ">

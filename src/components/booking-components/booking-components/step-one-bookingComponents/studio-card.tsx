@@ -36,7 +36,7 @@ const StudioCard = ({ title, seats, imgSrc, altText, selectedStudio, setSelected
   </div>
   {
     count !== 0 && (
-      <div className="absolute top-0 cursor-not-allowed right-0 flex justify-center pt-16 w-full h-full bg-[#F5F5F7]/50 rounded-xl">
+      <div className="absolute top-0 cursor-not-allowed right-0 flex justify-center pt-14 md:pt-32 lg:pt-16 w-full h-full bg-[#F5F5F7]/50 rounded-xl">
         <p className="text-[#333333] font-semibold text-sm leading-[19.1px] 3xl:leading-[27.28px] lg:text-base lg:leading-[25.82px] 3xl:text-xl">Fully Booked</p>
       </div>
     )

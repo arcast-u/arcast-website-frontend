@@ -53,7 +53,7 @@ const FormSection = () => {
     }
   };
   return (
-    <form onSubmit={(e) => e.preventDefault()} className="flex flex-col mt-8 lg:mt-10 3xl:mt-12 w-full  max-md:mt-10 ">
+    <form onSubmit={(e) => e.preventDefault()} className="flex flex-col mt-8 lg:mt-10 3xl:mt-12 w-full md:w-[90%] mx-auto lg:w-full max-md:mt-10 ">
       <div className="flex flex-col w-full">
         <h3 className="header-text">
           Enter Your Contact Information

@@ -9,7 +9,7 @@ type TotalCostProps = {
 };
 
 const TotalCost = ({ description, total, buttonText, onContinue }: TotalCostProps) => (
-  <footer className=" bg-zinc-50 shadow-lg border border-[#989898] rounded-2xl border-opacity-50">
+  <footer className=" bg-zinc-50 shadow-lg md:w-[90%] mx-auto lg:w-full border border-[#989898] rounded-2xl border-opacity-50">
     <div className="flex justify-between items-center mx-auto px-4 py-3 lg::py-4 lg:px-6 font-nunitoSans 3xl:py-[23px] w-full 3xl:px-8">
       <div className="flex flex-col flex-1 justify-center self-stretch my-auto basis-12 ">
         <p className="3xl:text-base lg:text-sm text-xs font-normal text-[#989898] leading-[16.37px] lg:leading-4 3xl:leading-[21.28px]">{description}</p>

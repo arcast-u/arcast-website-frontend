@@ -20,7 +20,7 @@ const DurationSelector= ({
       <button
         onClick={onDecrease}
         aria-label="Decrease duration"
-        className={`flex ${hasBorder === true ? 'border-[0.4px] border-[#989898] py-2 px-3 3xl:py-3 3xl:px-4' : 'py-4 px-3 3xl:py-3 3xl:px-5 '} justify-center items-center w-16 rounded-l-lg bg-[#F5F5F7]`}
+        className={`flex ${hasBorder === true ? 'border-[0.4px] border-[#989898] cursor-none py-2 px-3 3xl:py-3 3xl:px-4' : 'py-4 px-3 3xl:py-3 3xl:px-5 '} justify-center items-center w-16 rounded-l-lg bg-[#F5F5F7]`}
       >
         <FiMinus className="size-5 text-black stroke-[1.5px]"/>
       </button>

@@ -14,6 +14,10 @@ body {
   cursor: none;
 }
 
+button {
+  cursor: none;
+}
+
 .font-hanken-grotesk {
   font-family: 'Hanken Grotesk', serif;
 }

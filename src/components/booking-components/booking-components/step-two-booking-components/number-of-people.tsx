@@ -6,7 +6,7 @@ function NumberOfPeople() {
     const [selectedPeopleCount, setSelectedPeopleCount] = useState(3);
     const peopleCounts = [1, 2, 3, 4];
   return (
-    <section className="flex font-nunitoSans flex-col 3xl:mt-12 w-full mt-8 lg:mt-10">
+    <section className="flex font-nunitoSans flex-col md:w-[90%] mx-auto lg:w-full 3xl:mt-12 w-full mt-8 lg:mt-10">
         <h1 className="header-text">
         How many are recording?
         </h1>

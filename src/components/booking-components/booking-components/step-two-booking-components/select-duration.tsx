@@ -9,7 +9,7 @@ type Selector= {
 function SelectDuration({hasBorder, hasHeader}: Selector) {
      const [duration, setDuration] = useState(1);
   return (
-    <section className={`${hasHeader === true ? '3xl:mt-12 mt-8 lg:mt-10' : ''}`}>
+    <section className={`${hasHeader === true ? '3xl:mt-12 mt-8 lg:mt-10' : ''} md:w-[90%] mx-auto lg:w-full`}>
         {hasHeader === true ? <h2 className="header-text">
           How many hours would you need
         </h2> : ''}

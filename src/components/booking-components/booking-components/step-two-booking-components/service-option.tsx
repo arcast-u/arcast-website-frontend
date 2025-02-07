@@ -26,7 +26,7 @@ const ServiceOption: React.FC<ServiceOptionProps> = ({
       tabIndex={0}
       onClick={onSelect}
       onKeyDown={(e) => e.key === 'Enter' && onSelect()}
-      className="flex flex-col justify-center px-5 3xl:px-6 py-4 3xl:py-5 mt-5w-full mb-5 rounded-xl bg-[#F5F5F7] "
+      className="flex flex-col cursor-none justify-center px-5 3xl:px-6 py-4 3xl:py-5 mt-5w-full mb-5 rounded-xl bg-[#F5F5F7] "
       aria-pressed={selected}
     >
       <header className="flex flex-wrap justify-between font-nunitoSans items-center w-full text-lg leading-[26px] 3xl:text-xl 3xl:leading-[27.28px] text-[#333333]">
