@@ -1,5 +1,6 @@
 import * as React from "react";
 import { TbCaretDown } from "react-icons/tb";
+import Image from 'next/image';
 
 const BookingSummary = () => {
   return (
@@ -13,11 +14,13 @@ const BookingSummary = () => {
           <div className="flex flex-col justify-center py-5 3xl:py-7 rounded-xl">
             <div className="flex flex-col px-6 3xl:px-8">
               <div className="flex flex-wrap justify-between w-full">
-                <img
+                <Image
                   loading="lazy"
                   src="/images/checkout.webp"
+                  width={72}
+                  height={64}
                   alt="Studio"
-                  className="object-contain shrink-0 h-16 lg:h-auto my-auto w-20 rounded-lg aspect-square"
+                  className="object-contain shrink-0 h-16 lg:h-auto my-auto lg:w-20 rounded-lg aspect-square"
                 />
                 <div className="flex flex-col flex-1 shrink justify-between basis-0 ">
                   <div className="text-right text-sm leading-[19.1px] lg:text-lg lg:leading-[26px] 3xl:text-xl 3xl:leading-[27.8px]">Studio 1</div>

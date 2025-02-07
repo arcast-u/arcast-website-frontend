@@ -2,6 +2,7 @@
 import React, {useState} from "react";
 import { TbCaretDown, TbCaretLeft, TbCaretRight, TbCaretUp } from "react-icons/tb";
 import { format } from "date-fns";
+import Image from "next/image";
 
 
 
@@ -66,7 +67,10 @@ const DatePicker = () => {
       >
         <div className="flex items-center justify-between w-full  ">
           <div className="flex gap-4 items-center ">
-            <img src="/icons/calendar.svg" alt="Calendar" className="object-contain w-10 3xl:w-[54px]" />
+            <Image src="/icons/calendar.svg" 
+            width={44} height={44} 
+            alt="Calendar" 
+            className="object-contain 3xl:size-[54px]" />
             <div className="flex flex-col font-nunitoSans">
               <p className="3xl:text-base text-sm text-left font-normal text-[#989898]">Select a day</p>
               <p className="mt-1 text-base leading-5 3xl:text-xl 3xl:leading-[27.28px] text-left font-semibold text-[#333333]">
@@ -81,7 +85,7 @@ const DatePicker = () => {
         
       </button>
       {showCalendar && (
-        <div className="bg-[#F5F5F7] w-full absolute shadow-lg px-6 py-[22px] rounded-lg mt-2">
+        <div className="bg-[#F5F5F7] w-full absolute shadow-2xl px-6 py-[22px] rounded-lg mt-2">
           <div className="flex justify-between items-center text-gray-700">
             <span className="font-semibold text-base leading-5 3xl:text-xl 3xl:leading-[28.28px] font-nunitoSans">{format(new Date(currentYear, currentMonth), "MMMM yyyy")}</span>
             <div className="flex space-x-2">

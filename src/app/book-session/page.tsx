@@ -4,9 +4,8 @@ import { Carousel } from '@/components/booking-components/carousel-components/ca
 import Image from 'next/image';
 import Link from 'next/link';
 
-type Props = {}
 
-const BookinPage = (props: Props) => {
+const BookinPage = () => {
   return (
     <section className='w-full lg:h-screen bg-[#FCFCFC] lg:overflow-hidden'>
         <main className='max-w-[1728px] relative flex flex-wrap lg:flex-nowrap mx-auto'>
@@ -19,8 +18,13 @@ const BookinPage = (props: Props) => {
               className='object-cover lg:h-10 lg:w-[140px]'
             />
           </Link>
-          <Carousel/>
-          <StudioBooking/>
+          <div className='fixed top-0 left-0 z-[50] w-full h-[39.vh] lg:static lg:h-auto lg:w-auto'>
+            <Carousel/>
+          </div>
+          
+          <div className="mt-[39vh] lg:mt-0">
+            <StudioBooking />
+          </div>
         </main>
     </section>
   )

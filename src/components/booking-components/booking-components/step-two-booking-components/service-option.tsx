@@ -7,7 +7,6 @@ export type ServiceOptionProps = {
   description: string;
   imgSrc: string;
   selected: boolean;
-  imgAlt: string;
   onSelect: () => void;
   groupName: string;
 };
@@ -18,7 +17,6 @@ const ServiceOption: React.FC<ServiceOptionProps> = ({
   description,
   imgSrc,
   selected,
-  imgAlt,
   onSelect,
   groupName
 }) => {

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Hanken_Grotesk, Nunito_Sans, Mulish } from 'next/font/google';
+import Cursor from '@/components/custom-cursor';
 
 import './globals.css';
 
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body
         className={`${hankenGrotesk.variable} ${nunitoSans.variable}  ${mulish.variable} antialiased`}
       >
+        <Cursor/>
         {children}
       </body>
     </html>
