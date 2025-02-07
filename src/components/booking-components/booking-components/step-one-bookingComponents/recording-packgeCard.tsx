@@ -45,7 +45,7 @@ interface PackageFeature {
           >
             {title}
           </h3>
-          <div className="flex flex-col justify-center mt-3 max-w-full font-semibold w-[157px]">
+          <div className="flex flex-col justify-center mt-3 w-full font-semibold ">
             <del className="text-xs leading-[16.37px] text-red-500">{originalPrice}</del>
             <p className={`text-2xl leading-[32.74px] 3xl:leading-[43.65px] ${isDark ? 'text-zinc-50' : 'text-zinc-800'}`}>
               {price}
@@ -58,7 +58,7 @@ interface PackageFeature {
               key={index}
               className={`flex-1 shrink gap-2.5 self-stretch px-4 py-2.5 ${
                 index > 0 ? 'mt-3' : ''
-              } max-w-full rounded-lg border border-solid ${
+              } w-full rounded-lg border border-solid ${
                 isDark ? 'border-zinc-600' : 'border-neutral-400'
               } `}
               role="listitem"

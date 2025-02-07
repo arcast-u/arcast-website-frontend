@@ -1,6 +1,5 @@
 'use client'
 import { RecordingPackageCard } from './recording-packgeCard';
-import {useState} from 'react';
 
 interface props{
   selectedPackageIndex: number;
@@ -41,7 +40,7 @@ const packages = [
 export const RecordingPackageSelection = ({selectedPackageIndex, setSelectedPackageIndex}: props) => {
 
   return (
-    <main className="mx-auto w-full mt-10 max-w-[480px]">
+    <main className="mx-auto w-full mt-10 ">
       <h1 className="text-2xl font-medium text-zinc-800">
         Select your recording package
       </h1>

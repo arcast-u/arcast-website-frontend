@@ -15,7 +15,7 @@ const PeopleCount= ({ counts, selectedCount, onCountSelect }: PeopleCountProps) 
           role="radio"
           aria-checked={count === selectedCount}
           onClick={() => onCountSelect(count)}
-          className={`gap-10 self-stretch my-auto text-base leading-[21.82px] lg:leading-[27.28px] w-16 lg:text-xl py-4 px-5 3xl:w-20 flex item-center justify-center rounded-lg bg-[#F5F5F7] ${
+          className={`gap-10 self-stretch my-auto text-base cursor-none leading-[21.82px] lg:leading-[27.28px] w-16 lg:text-xl py-4 px-5 3xl:w-20 flex item-center justify-center rounded-lg bg-[#F5F5F7] ${
             count === selectedCount ? "border-[0.5px] border-[#5081FF] text-[#333333]" : "text-[#989898]"
           }`}
         >

@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${hankenGrotesk.variable} ${nunitoSans.variable}  ${mulish.variable} antialiased`}
+        className={`${hankenGrotesk.variable} ${nunitoSans.variable}  ${mulish.variable} antialiased cursor-none`}
       >
         <Cursor/>
         {children}

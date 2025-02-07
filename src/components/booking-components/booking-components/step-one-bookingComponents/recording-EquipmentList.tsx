@@ -1,10 +1,21 @@
 "use client";
 
-import React from 'react';
+import React, {useEffect, useState } from 'react';
 import EquipmentCard from './recording-EquipmentCard';
 
 
 const EquipmentSection = () => {
+  const [isMdScreen, setIsMdScreen] = useState(false);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMdScreen(window.innerWidth >= 768 && window.innerWidth < 1024); // Tailwind md: 768px - 1023px
+        };
+
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
   return (
     <section 
       className="pt-[5px] mt-4 items-center text-sm font-medium text-[#333333] leading-[19.1px] grid grid-cols-1 gap-3 3xl:gap-4"
@@ -48,7 +59,7 @@ const EquipmentSection = () => {
         <div className="w-[62vw] lg:w-[60vw] h-full">
             <EquipmentCard
                 imageSrc="/images/setting.png"
-                description={<>Full technical <br/>setup</>}
+                description={isMdScreen ? "Full technical setup" : <>Full technical <br/>setup</>}
             />
         </div>
       </div>

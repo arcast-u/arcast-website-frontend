@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 const BookingSummary = () => {
   return (
-    <div className="flex flex-col pb-10 3xl:pb-12 3xl:mt-12 mt-10 w-full ">
+    <div className="flex flex-col md:w-[90%] mx-auto lg:w-full pb-10 3xl:pb-12 3xl:mt-12 mt-10 w-full ">
       <div className="header-text">
         Booking Summary
       </div>

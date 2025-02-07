@@ -15,7 +15,7 @@ const studios = [
 const StudioCardList = () => {
   const [selectedStudio, setSelectedStudio] = useState(0);
   return(
-  <section className="mt-8 lg:mt-10 3xl:mt-12 ">
+  <section className="mt-8 lg:mt-10 md:w-[90%] mx-auto lg:w-full 3xl:mt-12 ">
     <h2 
       className="header-text">
       Pick your perfect setup
