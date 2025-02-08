@@ -1,9 +1,9 @@
 "use client"
 
 import * as React from "react"
+import { TbCaretLeft, TbCaretRight } from "react-icons/tb";
 import { DayPicker } from "react-day-picker"
 
-import { TbCaretLeft, TbCaretRight } from "react-icons/tb";
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
 
@@ -62,8 +62,6 @@ function Calendar({
     />
   )
 }
-
-
 Calendar.displayName = "Calendar"
 
 export { Calendar }
