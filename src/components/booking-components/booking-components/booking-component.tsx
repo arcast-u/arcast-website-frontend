@@ -4,7 +4,7 @@ import TabList from "./navigation-tabList";
 import StudioCardList from "./step-one-bookingComponents/studio-cardList";
 import TotalCost from "./total-cost";
 import NumberOfPeople from "./step-two-booking-components/number-of-people";
-import DateSelector from "./step-two-booking-components/date-selector";
+// import DateSelector from "./step-two-booking-components/date-selector";
 import SelectTime from "./step-two-booking-components/select-time";
 import SelectDuration from "./step-two-booking-components/select-duration";
 // import CustomServices from "./step-two-booking-components/custom-services";
@@ -75,7 +75,7 @@ const StudioBooking= () => {
             {isStepTwo &&<div className="pb-48">
               <NumberOfPeople/>
               <SelectDuration hasBorder={false} hasHeader={true}/>
-              <DateSelector/>
+              {/* <DateSelector/> */}
               <SelectTime/>
               {/* <CustomServices/> */}
               </div>

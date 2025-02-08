@@ -22,18 +22,21 @@ function Calendar({
       classNames={{
         months: "flex flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0",
         month: "space-y-4",
-        caption: "flex justify-between items-center pt-1", // Space between buttons and label
+        caption: "flex justify-center pt-1 relative items-center",
         caption_label: "font-semibold text-base leading-5 3xl:text-xl 3xl:leading-[28.28px] font-nunitoSans",
-        nav: "flex items-center", // Keep buttons side by side on the left
-        nav_button: "h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100", // Removed border
-        nav_button_previous: "",
-        nav_button_next: "",
+        nav: "space-x-1 flex items-center",
+        nav_button: cn(
+          buttonVariants({ variant: "outline" }),
+          "h-7 w-7 bg-transparent p-0 opacity-50 hover:opacity-100"
+        ),
+        nav_button_previous: "absolute left-1",
+        nav_button_next: "absolute right-1",
         table: "w-full border-collapse space-y-1",
         head_row: "flex",
         head_cell:
-          " text-muted-foreground rounded-md w-[42px] md:w-[86px] lg:w-[42px] xl:w-[49px] text-center font-nunitoSans text-sm leading-4 3xl:text-base 3xl:leading-[21.82px] font-medium",
+          "text-muted-foreground rounded-md w-[42px] md:w-[86px] lg:w-[42px] xl:w-[49px] text-center font-nunitoSans text-sm leading-4 3xl:text-base 3xl:leading-[21.82px] font-medium",
         row: "flex w-full mt-2",
-        cell: " p-[3px] lg:px-[3px] xl:px-[7px] md:px-[25px] font-nunitoSans font-500 text-lg leading-7 3xl:text-2xl 3xl:leading-[32.74px] rounded-lg transition-colors relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
+        cell: "p-[3px] lg:px-[3px] xl:px-[7px] md:px-[25px] font-nunitoSans font-500 text-lg leading-7 3xl:text-2xl 3xl:leading-[32.74px] rounded-lg transition-colors relative [&:has([aria-selected].day-range-end)]:rounded-r-md [&:has([aria-selected].day-outside)]:bg-accent/50 [&:has([aria-selected])]:bg-accent first:[&:has([aria-selected])]:rounded-l-md last:[&:has([aria-selected])]:rounded-r-md focus-within:relative focus-within:z-20",
         day: cn(
           buttonVariants({ variant: "ghost" }),
           "h-9 w-9 p-0 font-normal aria-selected:opacity-100 hover:bg-gray-200"
