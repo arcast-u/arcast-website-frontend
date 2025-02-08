@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import DatePicker from './date-picker';
+// import DatePicker from './date-picker';
 
 function DateSelector() {
   return (
@@ -8,8 +8,7 @@ function DateSelector() {
         <h2 className="header-text">
         select your prefered date
         </h2>
-        <DatePicker 
-        />
+        {/* <DatePicker  /> */}
     </section>
   )
 }
