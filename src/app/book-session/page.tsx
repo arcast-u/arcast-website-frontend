@@ -7,7 +7,7 @@ import { Carousel } from '@/components/booking-components/carousel-components/ca
 const BookinPage = () => {
   return (
     <section className='w-full lg:h-screen bg-[#FCFCFC] lg:overflow-hidden'>
-        <main className='w-full max-w-[1728px] grid grid-cols-1 lg:flex mx-auto'>
+        <main className='w-full grid grid-cols-1 lg:flex '>
           
           <div className='fixed top-0 left-0 z-[20] w-full h-[39vh] lg:w-[64.3%] lg:static lg:h-auto '>
             <Carousel/>
