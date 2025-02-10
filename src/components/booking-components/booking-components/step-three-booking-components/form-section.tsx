@@ -100,7 +100,7 @@ const FormSection = () => {
         </label>
         <input
           id="recordingLocation"
-          type="email"
+          type="text"
           value={form.recordingLocation}
           onChange={handleChange}
           placeholder="Recording Location"
@@ -200,6 +200,7 @@ const FormSection = () => {
               setChecked(!checked);
               handleSubmit();
             }}
+            required
             className="w-4 h-4 3xl:w-5 3xl:h-5 rounded accent-[#FF8C42] focus:ring-0"
           />
           <label
