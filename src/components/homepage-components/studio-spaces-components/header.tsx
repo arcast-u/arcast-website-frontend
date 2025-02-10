@@ -2,7 +2,7 @@ import React from 'react';
 
 export const StudioHeader= () => {
   return (
-    <header className="flex gap-5 justify-between max-w-[1728px] mx-auto mt-10 3xl:mt-20 mb-[121px] px-[21px] lg:px-10 3xl:px-[100px] w-full text-[#333333]">
+    <header className="flex gap-5 justify-between mx-auto mt-10 mb-[51px] 3xl:mt-20 3xl:mb-[121px] w-full text-[#333333]">
       <div className="flex flex-col font-hankenGrotesk">
         <h1 className="text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px] font-medium max-md:text-4xl">
           Studio Spaces Designed for Every Story
