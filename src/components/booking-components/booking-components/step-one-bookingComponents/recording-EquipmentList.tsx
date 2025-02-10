@@ -24,27 +24,27 @@ const EquipmentSection = () => {
       <div className='flex gap-3 3xl:gap-4 '>
         <div className="w-[38vw] lg:w-[40vw]">
             <EquipmentCard
-            imageSrc="/images/video-camera.png"
+            imageSrc="/images/video-camera.webp"
             description="3x Sony cinema cameras"
             />
         </div>
         <div className="w-[62vw] lg:w-[60vw]">
             <EquipmentCard
-                imageSrc="/images/microphone.png"
-                description="Professional audio mixer and microphones"
+                imageSrc="/images/microphone1.webp"
+                description={isMdScreen ? "2x Shure microphone" : <>2x Shure<br/>microphone</>}
             />
         </div>
       </div>
       <div className='flex gap-3 '>
         <div className="w-[62vw] lg:w-[60vw]">
             <EquipmentCard
-            imageSrc="/images/vga-cable.png"
+            imageSrc="/images/vga-cable.webp"
             description="Necessary stands and cables"
             />
         </div>
         <div className="w-[38vw] lg:w-[40vw]">
             <EquipmentCard
-                imageSrc="/images/bulb-check.png"
+                imageSrc="/images/bulb-check.webp"
                 description="Complete lighting setup"
             />
         </div>
@@ -52,13 +52,13 @@ const EquipmentSection = () => {
       <div className='flex gap-3 '>
         <div className="w-[38vw] lg:w-[40vw]">
             <EquipmentCard
-            imageSrc="/images/microphone1.png"
+            imageSrc="/images/operator.webp"
             description="Recording operator"
             />
         </div>
         <div className="w-[62vw] lg:w-[60vw] h-full">
             <EquipmentCard
-                imageSrc="/images/setting.png"
+                imageSrc="/images/settings.webp"
                 description={isMdScreen ? "Full technical setup" : <>Full technical <br/>setup</>}
             />
         </div>
