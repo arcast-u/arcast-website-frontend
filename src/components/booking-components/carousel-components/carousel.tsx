@@ -2,6 +2,7 @@
 import React, {useState, useEffect} from "react";
 import { TbCaretLeft, TbCaretRight } from "react-icons/tb";
 import Image from "next/image";
+import Link from "next/link";
 
 const images = [
   "/images/studio1.webp",
@@ -34,7 +35,8 @@ export const Carousel: React.FC = () => {
   }, [currentIndex]);
 
   return (
-    <div className="relative w-full h-[39.4vh] border-green-950 lg:w-[64.3vw] lg:h-screen overflow-hidden">
+    <div className="relative w-full h-[39.4vh] border-green-950 lg:h-screen overflow-hidden">
+      
       {/* Image Display */}
       {/* <div className="w-full"> */}
         <Image
@@ -78,6 +80,18 @@ export const Carousel: React.FC = () => {
           
         ))}
       </div>
+
+      {/* logo */}
+      <Link href='/' className="absolute top-5 left-5 3xl:top-6 3xl:left-5  flex space-x-0.5">
+      <Image
+        src='/icons/logo.svg'
+        alt='logo'
+        width={84}
+        height={23.9}
+        className='object-cover lg:h-10 lg:w-[140px]'
+      />
+      </Link>
+      
     </div>
   );
 

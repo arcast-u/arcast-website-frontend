@@ -61,8 +61,8 @@ const StudioBooking= () => {
   const isStepThree = currentStep === 2;
 
   return (
-    <main className="relative mx-auto lg:mx-0">
-      <div className="flex flex-col w-full lg:h-screen lg:w-[35.7vw] bg-[#FCFCFC]">
+    <main className="relative border mx-auto lg:mx-0">
+      <div className="flex flex-col w-full lg:h-screen bg-[#FCFCFC]">
         <div className="flex-1 overflow-y-auto lg:pb-24">
           <div className=" relative mx-auto px-6 pt-11 3xl:px-8 3xl:pt-8">
             <TabList tabs={tabs} currentStep={currentStep} setActiveIndex={setCurrentStep}/>
