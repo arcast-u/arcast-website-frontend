@@ -45,8 +45,8 @@ button {
 /* Media query for 3xl screens (1920px and above in Tailwind) */
 @media (min-width: 1700px) {
   .header-text {
-    font-size: 32px;
-    line-height: 43.65px;
+    font-size: 30px;
+    line-height: 40.92px;
   }
 }
 @layer base {

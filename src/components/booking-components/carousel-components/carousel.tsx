@@ -1,6 +1,6 @@
 'use client'
 import React, {useState, useEffect} from "react";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa6";
+import { TbCaretLeft, TbCaretRight } from "react-icons/tb";
 import Image from "next/image";
 
 const images = [
@@ -49,17 +49,17 @@ export const Carousel: React.FC = () => {
         {/* Left Arrow */}
         <button
           onClick={prevSlide}
-          className="border lg:border-[1.5px] border-[#FCFCFC] bg-opacity-50 text-white p-1 xl:p-3 rounded-md hover:scale-105"
+          className=" bg-opacity-50 text-white p-1 xl:p-3 rounded-md hover:scale-105"
         >
-          <FaAngleLeft className="size-3 xl:size-5"/>
+          <TbCaretLeft className="size-3 xl:size-5"/>
         </button>
 
         {/* Right Arrow */}
         <button
           onClick={nextSlide}
-          className="border-[1.5px] border-[#FCFCFC] bg-opacity-50 text-white p-1 xl:p-3 rounded-md hover:scale-105"
+          className=" bg-opacity-50 text-white p-1 xl:p-3 rounded-md hover:scale-105"
         >
-          <FaAngleRight className="size-3 xl:size-5"  />
+          <TbCaretRight className="size-3 xl:size-5"  />
         </button>
         </div>
 
