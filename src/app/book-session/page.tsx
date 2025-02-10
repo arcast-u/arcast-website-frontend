@@ -8,7 +8,7 @@ import Link from 'next/link';
 const BookinPage = () => {
   return (
     <section className='w-full lg:h-screen bg-[#FCFCFC] lg:overflow-hidden'>
-        <main className='max-w-[1728px] relative grid grid-cols2 lg:flex mx-auto'>
+        <main className='max-w-[1728px] relative grid grid-cols-1 lg:flex'>
           <Link href='/' className='fixed top-5 left-5 3xl:top-6 3xl:left-5 border-red-800 z-30'>
             <Image
               src='/icons/logo.svg'
@@ -18,7 +18,7 @@ const BookinPage = () => {
               className='object-cover lg:h-10 lg:w-[140px]'
             />
           </Link>
-          <div className='fixed top-0 left-0 z-[20] w-full h-[39.vh] lg:static lg:h-auto lg:w-auto'>
+          <div className='fixed top-0 left-0 z-[20] w-full h-[39vh] lg:static lg:h-auto lg:w-auto'>
             <Carousel/>
           </div>
           
