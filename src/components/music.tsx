@@ -5,15 +5,15 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function AudioPlayer() {
-  const audioRef = useRef<HTMLAudioElement | null>(null); // ✅ Explicitly define the type
+    const audioRef = useRef<HTMLAudioElement | null>(null); // ✅ Explicitly define the type
 
-  useEffect(() => {
-    if (audioRef.current) {
-      audioRef.current.play().catch((error) => {
-        console.warn("Audio playback prevented:", error);
-      });
-    }
-  }, []);
+    useEffect(() => {
+      if (audioRef.current) {
+        audioRef.current.play().catch((error) => {
+          console.warn("Audio playback prevented:", error);
+        });
+      }
+    }, []);
 
   return (
     <div className="relative w-full h-[380px] flex justify-center items-center overflow-hidden">
@@ -35,6 +35,8 @@ export default function AudioPlayer() {
               className="rounded-full object-cover"
             />
           </div>
+          {/* Middle Element */}
+          <div className="size-[150px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-[0.75px] border-white backdrop-blur-sm"></div>
           {/* Audio Player */}
           <audio ref={audioRef} src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" loop />
         </div>
