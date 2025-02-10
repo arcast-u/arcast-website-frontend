@@ -23,6 +23,9 @@ export default {
   		'3xl': '1700px'
   	},
   	extend: {
+		animation: {
+			'spin-slow': 'spin 5s linear infinite', // 5-second spin duration
+		  },
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
