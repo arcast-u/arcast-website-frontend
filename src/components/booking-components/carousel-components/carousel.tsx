@@ -1,5 +1,5 @@
 'use client'
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useRef} from "react";
 import { TbCaretLeft, TbCaretRight } from "react-icons/tb";
 import Image from "next/image";
 import Link from "next/link";
@@ -17,6 +17,17 @@ const images = [
 
 export const Carousel: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const startX = useRef(0);
+  const endX = useRef(0);
+
+  // Auto-slide effect
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const prevSlide = () => {
     setCurrentIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
@@ -26,25 +37,50 @@ export const Carousel: React.FC = () => {
     setCurrentIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      nextSlide();
-    }, 5000);
+  const handleTouchStart = (e: React.TouchEvent) => {
+    startX.current = e.touches[0].clientX;
+  };
 
-    return () => clearInterval(interval);
-  }, [currentIndex]);
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    endX.current = e.changedTouches[0].clientX;
+    if (startX.current - endX.current > 50) {
+      nextSlide();
+    } else if (endX.current - startX.current > 50) {
+      prevSlide();
+    }
+  };
+
 
   return (
-    <div className="relative w-full h-[39.4vh] border-green-950 lg:h-screen overflow-hidden">
+    <div 
+    onTouchStart={handleTouchStart}
+    onTouchEnd={handleTouchEnd}
+    className="relative w-full h-[39.4vh] border-green-950 lg:h-screen overflow-hidden">
       
       {/* Image Display */}
+      <div
+        className="flex h-full whitespace-nowrap transition-transform duration-500 ease-in-out"
+        style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+      >
+        {images.map((img, index) => (
+          <div key={index} className="w-full flex-shrink-0 relative">
+            <Image
+              src={img}
+              width={1920}
+              height={1080}
+              alt={`carousel image ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
       {/* <div className="w-full"> */}
-        <Image
+        {/* <Image
           src={images[currentIndex]}
           layout="fill"
           alt="Carousel Slide"
           className="w-full h-full object-cover "
-        />
+        /> */}
       {/* </div> */}
       
       <div className="absolute left-0 top-1/2 transform -translate-y-1/2 flex items-center justify-between w-full px-[32.2px] 3xl:px-7 ">

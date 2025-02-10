@@ -1,6 +1,10 @@
-// import Hero from "@/components/homepage-components/hero";
 import Cursor from "@/components/custom-cursor";
-// import { StudioHeader } from '../components/homepage-components/studio-spaces-components/header';
+// import Hero from "@/components/homepage-components/hero";
+// import StudioSpace from "@/components/homepage-components/studio-spaces-components/studioSpace";
+// import Equipment from "@/components/homepage-components/equipment/equipment";
+// import { ProductionPartners } from "@/components/production-partners/production-partner";
+// import FAQSection from "@/components/faq/faq-section";
+// import Video from "@/components/video-section/video";
 // import AudioPlayer from "@/components/music";
 import BookinPage from "./book-session/page";
 
@@ -12,7 +16,11 @@ export default function Home() {
     <BookinPage/>
     {/* <AudioPlayer/> */}
     {/* <Hero/> 
-     <StudioHeader/> */}
+    <StudioSpace/>
+    <Equipment/>
+    <ProductionPartners/>
+    <Video/>
+    <FAQSection/> */}
   </main>
   );
 }
