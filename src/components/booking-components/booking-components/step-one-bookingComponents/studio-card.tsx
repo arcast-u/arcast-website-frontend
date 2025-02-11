@@ -3,18 +3,20 @@ import Image from "next/image";
 
 interface StudioCardProps {
   count: number;
-  imgSrc: string;
-  altText: string;
-  title: string;
-  seats: string;
+  name: string;
+  totalSeats: number;
+  location: string;
+  isFullyBooked: boolean;
+  imageUrl: string;
   selectedStudio: number;
   setSelectedStudio: (count: number) => void;
 }
+const img = "/images/studio1.webp"
 
-const StudioCard = ({ title, seats, imgSrc, altText, selectedStudio, setSelectedStudio, count }: StudioCardProps) => (
+const StudioCard = ({ imageUrl, name, location, totalSeats, isFullyBooked, selectedStudio, setSelectedStudio, count }: StudioCardProps) => (
   <div
   className={`flex flex-col relative shrink cursor-none justify-center py-2.5 px-3 3xl:px-5 3xl:py-4 rounded-xl ${
-    count === selectedStudio && count === 0 ? "border-[0.5px] border-[#5081FF] border-solid" : ""
+    count === selectedStudio && isFullyBooked === false ? "border-[0.5px] border-black border-solid" : ""
   } basis-0 ${ count === 0 ? "bg-black" : "bg-[#F5F5F7]"} transition-transform hover:scale-105`}
   tabIndex={0}
   role="button"
@@ -23,19 +25,19 @@ const StudioCard = ({ title, seats, imgSrc, altText, selectedStudio, setSelected
   <div className=" w-full 3xl:[288.5px] 3xl:h-[208px]">
     <Image
       loading="lazy" 
-      src={imgSrc} 
+      src={img || imageUrl} 
       width={137.5}
       height={110}
-      alt={altText} 
+      alt='studio card' 
       className="object-cover flex-1 w-full rounded-lg aspect-[1.3]" 
     />
   </div>
   <div className="flex flex-col font-nunitoSans mt-3 w-full">
-    <h3 className={`font-semibold text-sm leading-[19.1px] 3xl:leading-[21.82px] 3xl:text-base ${ count === 0 ? "text-[#FCFCFC]" : "text-[#333333]" }`}>{title}</h3>
-    <p className="mt-1 text-xs leading-[16.37px] 3xl:leading-[21.82px] 3xl:text-base font-normal text-[#989898]">{seats}</p>
+    <h3 className={`font-semibold text-sm leading-[19.1px] 3xl:leading-[21.82px] 3xl:text-base ${ count === 0 ? "text-[#FCFCFC]" : "text-[#333333]" }`}>{name}</h3>
+    <p className="mt-1 text-xs leading-[16.37px] 3xl:leading-[21.82px] 3xl:text-base font-normal text-[#989898]">{location || totalSeats}</p>
   </div>
   {
-    count !== 0 && (
+    isFullyBooked === true && (
       <div className="absolute top-0 cursor-not-allowed right-0 flex justify-center pt-14 md:pt-32 lg:pt-16 w-full h-full bg-[#F5F5F7]/50 rounded-xl">
         <p className="text-[#333333] font-semibold text-sm leading-[19.1px] 3xl:leading-[27.28px] lg:text-base lg:leading-[25.82px] 3xl:text-xl">Fully Booked</p>
       </div>
