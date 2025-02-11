@@ -1,5 +1,7 @@
 import type { Metadata } from 'next';
 import { Hanken_Grotesk, Nunito_Sans, Mulish } from 'next/font/google';
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Cursor from '@/components/custom-cursor';
 
 import './globals.css';
@@ -41,6 +43,7 @@ export default function RootLayout({
         className={`${hankenGrotesk.variable} ${nunitoSans.variable}  ${mulish.variable} antialiased cursor-none`}
       >
         <Cursor/>
+        <ToastContainer position="top-right" autoClose={3000} />
         {children}
       </body>
     </html>

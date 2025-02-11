@@ -1,18 +1,36 @@
 'use client'
 import React, {useState} from "react";
 import { TbCaretDown } from "react-icons/tb";
+import { BookingProps } from "@/lib/types";
 
-const FormSection = () => {
-  const [form, setForm] = useState({
-    fullName: "",
-    emailAddress: "",
-    phoneNumber: "",
-    whatsappNumber: "",
-    countryCode: "+971",
-    whatsappCountryCode: "+971",
-    discountCode:"",
-    recordingLocation: '',
-  });
+
+type BookingDetailsProps = {
+  
+  form: {
+    fullName: string;
+    email: string;
+    phoneNumber: string;
+    recordingLocation: string;
+    whatsappNumber: string;
+    countryCode: string;
+    whatsappCountryCode: string;
+    discountCode: string;
+  };
+  setForm: React.Dispatch<React.SetStateAction<{
+    fullName: string;
+    email: string;
+    phoneNumber: string;
+    recordingLocation: string;
+    whatsappNumber: string;
+    countryCode: string;
+    whatsappCountryCode: string;
+    discountCode: string;
+  }>>;
+  book: () => Promise<BookingProps | null>;
+};
+
+
+const FormSection = ({ form, setForm, book }: BookingDetailsProps) => {
   const [checked, setChecked] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [whatsappDropdownOpen, setwhatsappDropdownOpen] = useState(false);
@@ -46,12 +64,18 @@ const FormSection = () => {
   };
 
 
-  const handleSubmit = () => {
-    if (checked) {
-      console.log("Form Submitted", form);
-      // Handle form submission logic here (e.g., send to API)
+  const handleCheckboxChange = async () => {
+    const newChecked = !checked;
+    setChecked(newChecked); // Toggle checkbox state
+  
+    if (newChecked) {
+  
+        const response = await book(); 
+       console.log(response)
     }
   };
+  
+
   return (
     <form onSubmit={(e) => e.preventDefault()} className="flex flex-col mt-8 lg:mt-10 3xl:mt-12 w-full md:w-[90%] mx-auto lg:w-full max-md:mt-10 ">
       <div className="flex flex-col w-full">
@@ -78,15 +102,15 @@ const FormSection = () => {
           />
         </div>
         <label
-          htmlFor="emailAddress"
+          htmlFor="email"
           className="sr-only"
         >
           Email address
         </label>
         <input
-          id="emailAddress"
+          id="email"
           type="email"
-          value={form.emailAddress}
+          value={form.email}
           onChange={handleChange}
           placeholder="Email address"
           className="gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none "
@@ -96,7 +120,7 @@ const FormSection = () => {
           htmlFor="recordingLocation"
           className="sr-only"
         >
-          Email address
+          Recording Location
         </label>
         <input
           id="recordingLocation"
@@ -105,7 +129,7 @@ const FormSection = () => {
           onChange={handleChange}
           placeholder="Recording Location"
           className="gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none "
-          aria-label="Email address"
+          aria-label="recording location"
         />
         <div className="flex gap-4 items-start mt-3 relative 3xl:mt-5 w-full max-md:max-w-full">
           <button onClick={() => setDropdownOpen(!dropdownOpen)} className="flex gap-1 items-center 3xl:py-5 py-4 pr-3 3xl:pr-4 pl-4 3xl:pl-6 whitespace-nowrap rounded-xl bg-[#F5F5F7] text-[#333333] ">
@@ -196,10 +220,8 @@ const FormSection = () => {
           <input
             type="checkbox"
             checked={checked}
-            onChange={() => {
-              setChecked(!checked);
-              handleSubmit();
-            }}
+            role="button"
+            onChange={handleCheckboxChange}
             required
             className="w-4 h-4 3xl:w-5 3xl:h-5 rounded accent-[#FF8C42] focus:ring-0"
           />
