@@ -52,7 +52,7 @@ const StudioBooking= () => {
 
   useEffect(() => {
     async function fetchStudios() {
-        const apiUrl = `${process.env.NEXT_PUBLIC_ARCAST_API}/api/studios`;
+        const apiUrl = `https://arcast-ai-backend.vercel.app/api/studios`;
 
         try {
             const response = await fetch(apiUrl);
@@ -93,7 +93,7 @@ const StudioBooking= () => {
     if (!selectedStudio?.id || !date) return; 
   
     async function fetchDateTime(studioId: string) {
-      const apiUrl = `${process.env.NEXT_PUBLIC_ARCAST_API}/api/studios/${studioId}/availability?date=${date}`; 
+      const apiUrl = `https://arcast-ai-backend.vercel.app/api/studios/${studioId}/availability?date=${date}`; 
   
       try {
         const response = await fetch(apiUrl);
@@ -133,7 +133,7 @@ const StudioBooking= () => {
   
   // submit form
   const bookStudio = async (): Promise<BookingProps | null> => {
-    const url = `${process.env.NEXT_PUBLIC_ARCAST_API}/api/bookings`;
+    const url = `https://arcast-ai-backend.vercel.app/api/bookings`;
   
     const requestBody = {
       studioId: selectedStudio?.id,
