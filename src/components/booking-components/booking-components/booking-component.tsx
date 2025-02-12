@@ -7,12 +7,15 @@ import NumberOfPeople from "./step-two-booking-components/number-of-people";
 import DateSelector from "./step-two-booking-components/date-selector";
 import SelectTime from './step-two-booking-components/select-time';
 import SelectDuration from "./step-two-booking-components/select-duration";
-// import CustomServices from "./step-two-booking-components/custom-services";
+import CustomServices from "./step-two-booking-components/custom-services";
 import FormSection from "./step-three-booking-components/form-section";
 import BookingSummary from "./step-three-booking-components/booking-summary";
 import PackageSection from "./step-one-bookingComponents/package-section";
 import { PackageProps, StudioProps, AvailabilityItemProps, TimeSlotListProps, BookingProps } from "@/lib/types";
 import { toast } from "react-toastify";
+import Image from "next/image";
+import { DurationProvider } from "@/contex/durationContext";
+import EquipmentSection from "./step-one-bookingComponents/recording-EquipmentList";
 
 
 
@@ -43,7 +46,7 @@ const StudioBooking= () => {
       recordingLocation: '',
     });
 
-  const tabs = ["Step 1", "Step 2", "Step 3"];
+  const tabs = ["Step 1", "Step 2", "Step 3", "Step 4"];
   
 
 
@@ -90,45 +93,48 @@ const StudioBooking= () => {
 
   //  get studio availability
   useEffect(() => {
-    if (!selectedStudio?.id || !date) return; 
-  
+    if (!selectedStudio?.id || !date) return;
+
+    const formattedDate = date.toISOString().split("T")[0]; 
+
     async function fetchDateTime(studioId: string) {
-      const apiUrl = `https://arcast-ai-backend.vercel.app/api/studios/${studioId}/availability?date=${date}`; 
-  
+      const apiUrl = `https://arcast-ai-backend.vercel.app/api/studios/${studioId}/availability?date=${formattedDate}`;
+
       try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
           toast.error(`HTTP error! Status: ${response.status}`);
+          return;
         }
-  
+
         const data = await response.json();
-       
-        setDateData(data.availability); 
+        setDateData(data.availability);
 
         if (data.availability.length > 0) {
           const dayResponse = await fetch(`${apiUrl}&view=day`);
-          if (!response.ok) {
-            toast.error(`HTTP error! Status: ${response.status}`);
+          if (!dayResponse.ok) {
+            toast.error(`HTTP error! Status: ${dayResponse.status}`);
+            return;
           }
-  
-        const dayData = await dayResponse.json();
-        setTimeSlots(dayData.timeSlots)
-       
+
+          const dayData = await dayResponse.json();
+          setTimeSlots(dayData.timeSlots);
+          console.log(dayData.timeSlots);
         }
       } catch (error: unknown) {
-        
-        if (error instanceof Error) { 
-          toast.error(error.message); 
+        if (error instanceof Error) {
+          toast.error(error.message);
         } else {
           toast.error("An unexpected error occurred");
         }
-        return null;
       }
     }
-  
-    fetchDateTime(selectedStudio.id); 
+
+    fetchDateTime(selectedStudio.id);
   }, [selectedStudio?.id, date]); 
 
+ 
+  
  
   
   // submit form
@@ -190,10 +196,12 @@ const StudioBooking= () => {
   const isStepOne = currentStep === 0;
   const isStepTwo = currentStep === 1;
   const isStepThree = currentStep === 2;
+  const isStepFour = currentStep === 3;
 
 
 
   return (
+    <DurationProvider>
     <main className="relative border mx-auto lg:mx-0">
       <div className="flex flex-col w-full lg:h-screen bg-[#FCFCFC]">
         <div className="flex-1 overflow-y-auto lg:pb-24">
@@ -205,14 +213,26 @@ const StudioBooking= () => {
               setSelectedStudioIndex={setSelectedStudioIndex}
               studios={studio}
               />
-
+              <div className='3xl:mt-12 mt-8 md:w-[90%] mx-auto lg:w-full lg:mt-10 pb-10'>
+                <p className='header-text'>Included with every package</p>
+                <EquipmentSection/>
+              </div>
+              
+              <div className="w-full max-h-[250px]">
+                <Image src='/images/team.webp' width={400} height={194} alt='team members' className="object-cover w-full max-h-[250px]"/>
+              </div>
+            </div>
+          }
+            {isStepTwo &&<div className="">
               <PackageSection
                 selectedPackageIndex={selectedPackageIndex} 
                 setSelectedPackageIndex={setSelectedPackageIndex} 
                 packages={packages}/>
-            </div>
-          }
-            {isStepTwo &&<div className="pb-48">
+              
+              </div>
+            }
+            {isStepThree &&
+            <div>
               <NumberOfPeople seats={selectedStudio?.totalSeats}  
                selectedPeopleCount={selectedPeopleCount} 
                setSelectedPeopleCount={setSelectedPeopleCount}/>
@@ -226,29 +246,30 @@ const StudioBooking= () => {
                selectedTimeSlot={selectedTimeSlot}
                setSelectedTimeSlot={setSelectedTimeSlot}
               />
-              {/* <CustomServices/> */}
-              </div>
-            }
-            {isStepThree &&
-            <div>
-              <FormSection form={form} setForm={setForm} book={bookStudio}/>
-              <BookingSummary booking={receipt}/>
+              <CustomServices duration={duration} setDuration={setDuration}/>
             </div>
             }
-            
+            {
+              isStepFour &&
+              <div>
+                <FormSection form={form} setForm={setForm} book={bookStudio}/>
+                <BookingSummary booking={receipt}/>
+              </div>
+            }
           </div>
         </div> 
       </div>
       <div className="px-3 xl:pl-3 xl:pr-7 3xl:px-5 sticky bottom-[14px] lg:bottom-4 w-full">
       <TotalCost 
-        description={isStepOne || isStepTwo ? selectedPackage?.name : ''} 
-        total={isStepOne || isStepTwo ? selectedPackage?.price_per_hour : ''}
-        currency={isStepOne || isStepTwo ? selectedPackage?.currency : ''}
-        buttonText={isStepOne || isStepTwo ? 'Continue' : 'Continue'}
+        description={!isStepFour ? selectedPackage?.name : ''} 
+        total={!isStepFour ? selectedPackage?.price_per_hour : ''}
+        currency={!isStepFour ? selectedPackage?.currency : ''}
+        buttonText={!isStepFour ? 'Continue' : 'Continue'}
         onContinue={handleContinue}
       />
       </div>
     </main>
+    </DurationProvider>
   );
 };
 

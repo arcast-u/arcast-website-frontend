@@ -24,48 +24,55 @@ const EquipmentSection = () => {
       className="pt-[5px] mt-4 items-center text-sm font-medium text-[#333333] leading-[19.1px] grid grid-cols-1 gap-3 3xl:gap-4"
       aria-label="Available Equipment"
     >
-      <div className='flex gap-3 3xl:gap-4 '>
-        <div className="w-[40vw]">
+      <div className='grid grid-cols-2 gap-3 3xl:gap-4 '>
+        <div className="">
             <EquipmentCard
-            imageSrc="/images/video-camera.webp"
-            description={<>3x Sony cinema<br/>cameras</>}
+            imageSrc="/images/mixer.webp"
+            description={<>Audio Interface/mixer</>}
             />
         </div>
-        <div className="w-[60vw]">
+        <div className="">
             <EquipmentCard
                 imageSrc="/images/microphone1.webp"
-                description={<>2x Shure<br/>microphone</>}
+                description={<>Shure SM7 Microphone</>}
             />
         </div>
       </div>
-      <div className='flex gap-3 '>
-        <div className="w-[60vw]">
+      <div className='grid grid-cols-2 3xl:grid-cols-3 gap-3 '>
+        <div className="">
             <EquipmentCard
-            imageSrc="/images/vga-cable.webp"
-            description={<>Necessary stands and<br/>cables</>}
+            imageSrc="/images/headphone.webp"
+            description={<>Headphones</>}
             />
         </div>
-        <div className="w-[40vw]">
+        <div className="">
             <EquipmentCard
-                imageSrc="/images/bulb-check.webp"
-                description={<>Complete lighting<br/>setup</>}
+            imageSrc="/images/acoustic.webp"
+            description={<>Acoustic Panels</>}
+            />
+        </div>
+        <div className="">
+            <EquipmentCard
+                imageSrc="/images/video-camera.webp"
+                description={<>Sony cinema camera</>}
+            />
+        </div>
+        <div className='3xl:col-span-3 grid grid-cols-1 3xl:grid-cols-2 gap-3 '>
+        <div className="">
+            <EquipmentCard
+            imageSrc="/images/bulb-check.webp"
+            description={<>Soft boxes & LED panels</>}
+            />
+        </div>
+        <div className="h-full">
+            <EquipmentCard
+                imageSrc="/images/tripod.webp"
+                description={<>Tripods & Sliders</>}
             />
         </div>
       </div>
-      <div className='flex gap-3 '>
-        <div className="w-[40vw]">
-            <EquipmentCard
-            imageSrc="/images/operator.webp"
-            description={<>Recording<br/>operator</>}
-            />
-        </div>
-        <div className="w-[60vw] h-full">
-            <EquipmentCard
-                imageSrc="/images/settings.webp"
-                description={<>Full technical<br/>setup</>}
-            />
-        </div>
       </div>
+      
     </section>
   );
 };
