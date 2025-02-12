@@ -207,7 +207,7 @@ const StudioBooking= () => {
         <div className="flex-1 overflow-y-auto lg:pb-24">
           <div className=" relative mx-auto px-5 pt-11 3xl:px-8 3xl:pt-8">
             <TabList tabs={tabs} currentStep={currentStep} setActiveIndex={setCurrentStep}/>
-            {isStepOne && <div className="">
+            {isStepOne && <div className="pb-10">
               <StudioCardList
               selectedStudioIndex={selectedStudioIndex} 
               setSelectedStudioIndex={setSelectedStudioIndex}
@@ -219,7 +219,7 @@ const StudioBooking= () => {
               </div>
               
               <div className="w-full max-h-[250px] mt-4 rounded-[5px]">
-                <Image src='/images/team.webp' width={400} height={194} alt='team members' className="object-cover w-full rounded-[5px] max-h-[250px]"/>
+                <Image src='/images/team.webp' width={400} height={194} alt='team members' className="object-cover w-full rounded-md max-h-[250px]"/>
               </div>
             </div>
           }
