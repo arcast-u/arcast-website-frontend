@@ -48,7 +48,7 @@ const DatePicker = ({  date, setDate, dateData}: DateSelectorProps) => {
                   </p>
                 </div>
               </div>
-              {isOpen ?  <TbCaretDown className="size-5 text-[#333333] stroke-[1px]" /> : <TbCaretUp className="size-5 text-[#333333] stroke-[1px]" />}
+              {isOpen ?  <TbCaretUp className="size-5 text-[#333333] stroke-[1px]" /> : <TbCaretDown className="size-5 text-[#333333] stroke-[1px]" />}
             </div>
           </Button>
         </PopoverTrigger>
