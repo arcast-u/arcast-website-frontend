@@ -1,5 +1,4 @@
 import * as React from "react";
-import { TbCaretDown } from "react-icons/tb";
 import Image from 'next/image';
 import { BookingProps } from "@/lib/types";
 
