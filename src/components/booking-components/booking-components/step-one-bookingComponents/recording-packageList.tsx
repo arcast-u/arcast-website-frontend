@@ -14,10 +14,10 @@ export const RecordingPackageSelection = ({selectedPackageIndex, setSelectedPack
 
   return (
     <main className="mx-auto w-full mt-10 ">
-      <h1 className="text-2xl font-medium text-zinc-800">
+      <h1 className="header-text text-zinc-800">
         Select your recording package
       </h1>
-      <div className="flex flex-col gap-5 justify-center mt-4 w-full">
+      <div className="flex flex-col gap-5 justify-center mt-3 w-full">
       {packages?.map((packageItem, index) => (
         <div key={packageItem.id}>
         <RecordingPackageCard 

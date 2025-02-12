@@ -7,7 +7,7 @@ import NumberOfPeople from "./step-two-booking-components/number-of-people";
 import DateSelector from "./step-two-booking-components/date-selector";
 import SelectTime from './step-two-booking-components/select-time';
 import SelectDuration from "./step-two-booking-components/select-duration";
-import CustomServices from "./step-two-booking-components/custom-services";
+// import CustomServices from "./step-two-booking-components/custom-services";
 import FormSection from "./step-three-booking-components/form-section";
 import BookingSummary from "./step-three-booking-components/booking-summary";
 import PackageSection from "./step-one-bookingComponents/package-section";
@@ -119,7 +119,7 @@ const StudioBooking= () => {
 
           const dayData = await dayResponse.json();
           setTimeSlots(dayData.timeSlots);
-          console.log(dayData.timeSlots);
+          // console.log(dayData.timeSlots);
         }
       } catch (error: unknown) {
         if (error instanceof Error) {
@@ -205,7 +205,7 @@ const StudioBooking= () => {
     <main className="relative border mx-auto lg:mx-0">
       <div className="flex flex-col w-full lg:h-screen bg-[#FCFCFC]">
         <div className="flex-1 overflow-y-auto lg:pb-24">
-          <div className=" relative mx-auto px-6 pt-11 3xl:px-8 3xl:pt-8">
+          <div className=" relative mx-auto px-5 pt-11 3xl:px-8 3xl:pt-8">
             <TabList tabs={tabs} currentStep={currentStep} setActiveIndex={setCurrentStep}/>
             {isStepOne && <div className="">
               <StudioCardList
@@ -213,13 +213,13 @@ const StudioBooking= () => {
               setSelectedStudioIndex={setSelectedStudioIndex}
               studios={studio}
               />
-              <div className='3xl:mt-12 mt-8 md:w-[90%] mx-auto lg:w-full lg:mt-10 pb-10'>
+              <div className=' mt-8 md:w-[90%] mx-auto lg:w-full lg:mt-10 '>
                 <p className='header-text'>Included with every package</p>
                 <EquipmentSection/>
               </div>
               
-              <div className="w-full max-h-[250px]">
-                <Image src='/images/team.webp' width={400} height={194} alt='team members' className="object-cover w-full max-h-[250px]"/>
+              <div className="w-full max-h-[250px] mt-4 rounded-[5px]">
+                <Image src='/images/team.webp' width={400} height={194} alt='team members' className="object-cover w-full rounded-[5px] max-h-[250px]"/>
               </div>
             </div>
           }
@@ -232,7 +232,7 @@ const StudioBooking= () => {
               </div>
             }
             {isStepThree &&
-            <div>
+            <div className="pb-24">
               <NumberOfPeople seats={selectedStudio?.totalSeats}  
                selectedPeopleCount={selectedPeopleCount} 
                setSelectedPeopleCount={setSelectedPeopleCount}/>
@@ -246,7 +246,7 @@ const StudioBooking= () => {
                selectedTimeSlot={selectedTimeSlot}
                setSelectedTimeSlot={setSelectedTimeSlot}
               />
-              <CustomServices duration={duration} setDuration={setDuration}/>
+              {/* <CustomServices duration={duration} setDuration={setDuration}/> */}
             </div>
             }
             {

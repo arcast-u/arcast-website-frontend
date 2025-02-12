@@ -1,4 +1,4 @@
-import Cursor from "@/components/custom-cursor";
+// import Cursor from "@/components/custom-cursor";
 // import Hero from "@/components/homepage-components/hero";
 // import StudioSpace from "@/components/homepage-components/studio-spaces-components/studioSpace";
 // import Equipment from "@/components/homepage-components/equipment/equipment";
@@ -12,7 +12,7 @@ import BookinPage from "./book-session/page";
 export default function Home() {
   return (
   <main className="w-full bg-[#FCFCFC]">
-    <Cursor/>
+    {/* <Cursor/> */}
     <BookinPage/>
     {/* <AudioPlayer/> */}
     {/* <Hero/> 

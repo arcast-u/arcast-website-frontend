@@ -35,17 +35,17 @@ button {
 
 
 .header-text {
-  font-size: 24px;
-  line-height: 32.27px;
-  font-family: 'Nunito Sans', sans-serif;
-  font-weight: 500; 
+  font-size: 20px;
+  line-height: 31.27px;
+  font-family: 'Hanken Grotesk', sans-serif;
+  font-weight: 400; 
   color: #333333;
 }
 
 /* Media query for 3xl screens (1920px and above in Tailwind) */
 @media (min-width: 1700px) {
   .header-text {
-    font-size: 24px;
+    font-size: 20px;
     line-height: 31.27px;
   }
 }

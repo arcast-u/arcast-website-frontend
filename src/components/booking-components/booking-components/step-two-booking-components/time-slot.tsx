@@ -10,8 +10,8 @@ export type TimeSlotProps = {
 const TimeSlot = ({ times, selectedTime, onTimeSelect }: TimeSlotProps) => {
 
   const availableTimes = times.filter((time) => time.available);
-  console.log(times)
-  console.log(availableTimes);
+  // console.log(times)
+  // console.log(availableTimes);
   const formatTime = (isoString: string): string => {
     return new Date(isoString).toLocaleTimeString([], {
       hour: "2-digit",
@@ -21,7 +21,7 @@ const TimeSlot = ({ times, selectedTime, onTimeSelect }: TimeSlotProps) => {
   };
   
   return (
-    <div role="radiogroup" aria-label="Available time slots" className="grid grid-cols-4 gap-4 items-center mt-4  3xl:mt-5 w-full text-lg leading-7 font-nunitoSans 3xl:leading-[27.28px] 3xl:text-xl whitespace-nowrap text-[#333333]">
+    <div role="radiogroup" aria-label="Available time slots" className="grid grid-cols-4 gap-4 items-center mt-3  3xl:mt-5 w-full text-lg leading-7 font-nunitoSans 3xl:leading-[27.28px] 3xl:text-xl whitespace-nowrap text-[#333333]">
       {availableTimes.map((time) => (
         <button
           key={time.start}

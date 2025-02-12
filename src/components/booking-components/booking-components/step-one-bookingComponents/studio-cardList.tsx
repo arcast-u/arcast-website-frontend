@@ -23,12 +23,12 @@ const StudioCardList = ({
   setSelectedStudioIndex}: StudioListProps) => {
   
   return(
-  <section className="mt-8 lg:mt-10 md:w-[90%] mx-auto lg:w-full 3xl:mt-12 ">
+  <section className="mt-8 lg:mt-10 md:w-[90%] mx-auto lg:w-full ">
     <h2 
       className="header-text">
       Pick your perfect setup
     </h2>
-    <div className="mt-4 3xl:mt-5 grid grid-cols-2 gap-4">
+    <div className="mt-3 3xl:mt-5 grid grid-cols-2 gap-4">
       {studios?.map((studio, index) => (
         <StudioCard key={studio.id}
          count={index} 

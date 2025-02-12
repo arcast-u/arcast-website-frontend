@@ -1,30 +1,28 @@
 "use client";
 
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import EquipmentCard from './recording-EquipmentCard';
 
 
 const EquipmentSection = () => {
-  // const [isMdScreen, setIsMdScreen] = useState(false);
-  // const [isXlScreen, setIsXlScreen] = useState(false);
+  const [is2XlScreen, setIs2XlScreen] = useState(false);
 
 
-  //   useEffect(() => {
-  //       const handleResize = () => {
-  //           setIsMdScreen(window.innerWidth >= 768 && window.innerWidth < 1024); // Tailwind md: 768px - 1023px
-  //           setIsXlScreen(window.innerWidth >= 1300); // Tailwind md: 768px - 1023px
-  //       };
+    useEffect(() => {
+        const handleResize = () => {
+            setIs2XlScreen(window.innerWidth >= 1600); // Tailwind md: 768px - 1023px
+        };
 
-  //       handleResize();
-  //       window.addEventListener("resize", handleResize);
-  //       return () => window.removeEventListener("resize", handleResize);
-  //   }, []);
+        handleResize();
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
   return (
     <section 
-      className="pt-[5px] mt-4 items-center text-sm font-medium text-[#333333] leading-[19.1px] grid grid-cols-1 gap-3 3xl:gap-4"
+      className="pt-[5px] mt-3 items-center text-sm font-medium text-[#333333] leading-[19.1px] grid grid-cols-1 gap-[10px] lg:gap-3"
       aria-label="Available Equipment"
     >
-      <div className='grid grid-cols-2 gap-3 3xl:gap-4 '>
+      <div className='grid grid-cols-2 gap-[10px] lg:gap-3  '>
         <div className="">
             <EquipmentCard
             imageSrc="/images/mixer.webp"
@@ -38,26 +36,28 @@ const EquipmentSection = () => {
             />
         </div>
       </div>
-      <div className='grid grid-cols-2 3xl:grid-cols-3 gap-3 '>
+      <div className='grid grid-cols-3 gap-[10px] lg:gap-3 '>
         <div className="">
             <EquipmentCard
             imageSrc="/images/headphone.webp"
-            description={<>Headphones</>}
+            description={is2XlScreen ? "Headphones" :<>Head<br/>phones</>}
             />
         </div>
         <div className="">
             <EquipmentCard
             imageSrc="/images/acoustic.webp"
-            description={<>Acoustic Panels</>}
+            description={is2XlScreen ? "Acoustic Panels" : <>Acoustic<br/>Panels</>}
             />
         </div>
         <div className="">
             <EquipmentCard
                 imageSrc="/images/video-camera.webp"
-                description={<>Sony cinema camera</>}
+                description={is2XlScreen ? "Sony cinema camera" : <>Sony cinema<br/> camera</>}
             />
         </div>
-        <div className='3xl:col-span-3 grid grid-cols-1 3xl:grid-cols-2 gap-3 '>
+        
+      </div>
+      <div className='grid grid-cols-2 gap-[10px] lg:gap-3 '>
         <div className="">
             <EquipmentCard
             imageSrc="/images/bulb-check.webp"
@@ -71,8 +71,6 @@ const EquipmentSection = () => {
             />
         </div>
       </div>
-      </div>
-      
     </section>
   );
 };
