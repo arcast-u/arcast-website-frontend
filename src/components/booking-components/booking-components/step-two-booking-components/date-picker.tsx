@@ -52,7 +52,7 @@ const DatePicker = ({  date, setDate, dateData}: DateSelectorProps) => {
             </div>
           </Button>
         </PopoverTrigger>
-        <PopoverContent className="w-[100%] shadow-xl bg-[#F5F5F7] z-20 p-2">
+        <PopoverContent align="start" className="w-[100%] shadow-xl bg-[#F5F5F7] z-20 p-2">
           <Calendar
             mode="single"
             selected={tempDate}
