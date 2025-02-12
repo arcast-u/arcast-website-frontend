@@ -25,7 +25,7 @@ export const RecordingPackageSelection = ({selectedPackageIndex, setSelectedPack
           {...packageItem}
           count={index}
           selectedPackage={selectedPackageIndex}
-          onSelect={setSelectedPackageIndex} variant={index === 0 ? "light" : "dark"}  />
+          onSelect={setSelectedPackageIndex} variant={index === 0 ? "dark" : "light"}  />
         </div>
       ))}
         

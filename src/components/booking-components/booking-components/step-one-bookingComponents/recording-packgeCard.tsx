@@ -30,7 +30,7 @@ import { PackagePerkProps } from "@/lib/types";
     
     return (
       <section 
-        className={`px-5 py-4 cursor-none w-full rounded-xl lg:p-6 shadow-[0px_202px_56px_rgba(84,84,84,0)] ${
+        className={`px-5 py-4 cursor-none w-full rounded-xl lg:p-6 shadow-xl shadow-[#80808050] ${
           count === selectedPackage ? "border-[0.5px] border-black border-solid" : ""
           } ${
           isDark ? 'bg-black' : 'bg-zinc-100'
@@ -69,6 +69,7 @@ import { PackagePerkProps } from "@/lib/types";
             </div>
           ))}
         </div>
+        {count === 0 && <p className="text-[#FF8C42] text-center font-light font-nunitoSans pt-4 text-xs 3xl:text-sm leading-[19.1px]">For a single episode with up to 60 minutes of raw material.</p>}
       </section>
     );
   };

@@ -10,7 +10,7 @@ interface EquipmentCardProps {
 
 const EquipmentCard = ({ imageSrc, description }: EquipmentCardProps) => {
   return (
-    <article className="flex-1 pl-4 py-2.5 lg:px-6 lg:py-4 rounded-lg bg-zinc-100">
+    <article className="flex-1 pl-4 py-2.5 lg:pl-6 lg:py-4 rounded-lg bg-zinc-100">
       <Image
         loading="lazy"
         src={imageSrc}

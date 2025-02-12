@@ -17,7 +17,7 @@ function SelectDuration({hasBorder, hasHeader, duration, setDuration}: Selector)
         </h2> : ''}
         <DurationSelector
         duration={duration}
-        onIncrease={() => setDuration(duration + 1)}
+        onIncrease={() => setDuration(Math.min(10, duration + 1))}
         onDecrease={() => setDuration(Math.max(1, duration - 1))}
         hasBorder={hasBorder}
         />

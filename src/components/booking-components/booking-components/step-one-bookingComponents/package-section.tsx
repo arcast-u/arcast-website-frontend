@@ -1,5 +1,4 @@
 import React from 'react';
-import EquipmentSection from './recording-EquipmentList';
 import RecordingPackageSelection from './recording-packageList';
 import { PackageProps } from '@/lib/types';
 
@@ -12,8 +11,6 @@ interface PackageListProps{
 function PackageSection({selectedPackageIndex,setSelectedPackageIndex, packages}: PackageListProps) {
   return (
     <div className='3xl:mt-12 mt-8 md:w-[90%] mx-auto lg:w-full lg:mt-10 pb-10'>
-        <p className='header-text'>Included with every package</p>
-        <EquipmentSection />
         <RecordingPackageSelection selectedPackageIndex={selectedPackageIndex} setSelectedPackageIndex={setSelectedPackageIndex} packages={packages}/>
     </div>
   )

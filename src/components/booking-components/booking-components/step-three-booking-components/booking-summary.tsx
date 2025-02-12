@@ -26,7 +26,7 @@ const BookingSummary = ({booking}: BookingComponentProps) => {
 
 
   if (!booking) {
-    return <p className="text-center text-gray-500">Loading booking details...</p>;
+    return <p className="text-center mt-10 3xl:mt-12 text-gray-500">Loading booking details...</p>;
   }
 
   return (

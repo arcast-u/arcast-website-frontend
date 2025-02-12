@@ -10,6 +10,8 @@ export type TimeSlotProps = {
 const TimeSlot = ({ times, selectedTime, onTimeSelect }: TimeSlotProps) => {
 
   const availableTimes = times.filter((time) => time.available);
+  console.log(times)
+  console.log(availableTimes);
   const formatTime = (isoString: string): string => {
     return new Date(isoString).toLocaleTimeString([], {
       hour: "2-digit",
@@ -26,8 +28,9 @@ const TimeSlot = ({ times, selectedTime, onTimeSelect }: TimeSlotProps) => {
           role="radio"
           aria-checked={time.start === selectedTime}
           onClick={() => onTimeSelect(time.start)}
-          className={`flex 3xl:px-6 3xl:py-5 lg:px-4 lg:py-3 p-3 my-auto cursor-none rounded-xl bg-neutral-100 ${
-            time.start === selectedTime ? "border border-black" : ""
+          aria-label={`Select time ${formatTime(time.start)}`}
+          className={`flex 3xl:px-6 3xl:py-5 lg:px-4 lg:py-2 justify-center p-3 my-auto cursor-none rounded-xl bg-neutral-100 ${
+            time.start === selectedTime ? "border border-[#989898] shadow-lg shadow-[#808080]" : ""
           }`}
         >
           {formatTime(time.start)}
