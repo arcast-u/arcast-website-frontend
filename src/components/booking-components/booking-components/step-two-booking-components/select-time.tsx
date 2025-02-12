@@ -14,7 +14,7 @@ function SelectTime({ timeSlots, selectedTimeSlot, setSelectedTimeSlot }: TimeSl
 
   
   return (
-    <section className='mt-8 lg:mt-10 md:w-[90%] mx-auto lg:w-full 3xl:mt-12'>
+    <section className='mt-8 lg:mt-10 md:w-[90%] mx-auto lg:w-full'>
         <h3 className="header-text">
             Select your preferred time
         </h3>

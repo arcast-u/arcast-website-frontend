@@ -10,7 +10,7 @@ interface PackageListProps{
 
 function PackageSection({selectedPackageIndex,setSelectedPackageIndex, packages}: PackageListProps) {
   return (
-    <div className='3xl:mt-12 mt-8 md:w-[90%] mx-auto lg:w-full lg:mt-10 pb-10'>
+    <div className=' mt-8 md:w-[90%] mx-auto lg:w-full lg:mt-10 pb-10'>
         <RecordingPackageSelection selectedPackageIndex={selectedPackageIndex} setSelectedPackageIndex={setSelectedPackageIndex} packages={packages}/>
     </div>
   )

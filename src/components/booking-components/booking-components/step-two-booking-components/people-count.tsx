@@ -8,7 +8,7 @@ export type PeopleCountProps = {
 
 const PeopleCount= ({ counts, selectedCount, onCountSelect }: PeopleCountProps) => {
   return (
-    <div role="radiogroup" aria-label="Number of people" className="flex gap-4 items-center self-start font-nunitoSans mt-4 3xl:mt-5  text-lg 3xl:text-xl font-semibold whitespace-nowrap">
+    <div role="radiogroup" aria-label="Number of people" className="flex gap-4 items-center self-start font-hankenGrotesk mt-3 3xl:mt-5 text-lg 3xl:text-xl font-medium whitespace-nowrap">
       {counts.map((count) => (
         <button
           key={count}

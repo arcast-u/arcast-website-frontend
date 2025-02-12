@@ -77,13 +77,13 @@ const FormSection = ({ form, setForm, book }: BookingDetailsProps) => {
   
 
   return (
-    <form onSubmit={(e) => e.preventDefault()} className="flex flex-col mt-8 lg:mt-10 3xl:mt-12 w-full md:w-[90%] mx-auto lg:w-full max-md:mt-10 ">
+    <form onSubmit={(e) => e.preventDefault()} className="flex flex-col mt-8 lg:mt-10 w-full md:w-[90%] mx-auto lg:w-full max-md:mt-10 ">
       <div className="flex flex-col w-full">
         <h3 className="header-text">
           Enter Your Contact Information
         </h3>
       </div>
-      <div className="flex flex-col mt-5 text-[#989898] font-nunitoSans text-base leading-[21.82px] lg:text-lg lg:leading-6 fornt-normal 3xl:leading-[27.28px] 3xl:mt-6 w-full 3xl:text-xl ">
+      <div className="flex flex-col mt-5 text-[#989898] font-nunitoSans text-sm lg:text-base leading-3  lg:leading-6 fornt-normal 3xl:leading-[19.1px] 3xl:mt-6 w-full  ">
         <div className="flex gap-4 items-start w-full ">
           <label
             htmlFor="fullName"
@@ -97,7 +97,7 @@ const FormSection = ({ form, setForm, book }: BookingDetailsProps) => {
             value={form.fullName}
             onChange={handleChange}
             placeholder="Full name"
-            className="flex-1 shrink gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 w-full rounded-xl bg-[#F5F5F7] focus:outline-none"
+            className="flex-1 shrink gap-10 self-stretch px-5 py-4 w-full rounded-xl bg-[#F5F5F7] focus:outline-none"
             aria-label="Full name"
           />
         </div>
