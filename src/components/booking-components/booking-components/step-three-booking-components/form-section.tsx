@@ -1,6 +1,6 @@
 'use client'
 import React, {useState} from "react";
-import { TbCaretDown } from "react-icons/tb";
+import { TbCaretDown, TbCaretUp } from "react-icons/tb";
 import { BookingProps } from "@/lib/types";
 
 
@@ -83,7 +83,7 @@ const FormSection = ({ form, setForm, book }: BookingDetailsProps) => {
           Enter Your Contact Information
         </h3>
       </div>
-      <div className="flex flex-col mt-5 text-[#989898] font-nunitoSans text-sm lg:text-base leading-3  lg:leading-6 fornt-normal 3xl:leading-[19.1px] 3xl:mt-6 w-full  ">
+      <div className="flex flex-col mt-5 text-[#333333] font-nunitoSans text-sm lg:text-base leading-3  lg:leading-6 fornt-normal 3xl:leading-[19.1px] 3xl:mt-6 w-full  ">
         <div className="flex gap-4 items-start w-full ">
           <label
             htmlFor="fullName"
@@ -97,7 +97,7 @@ const FormSection = ({ form, setForm, book }: BookingDetailsProps) => {
             value={form.fullName}
             onChange={handleChange}
             placeholder="Full name"
-            className="flex-1 shrink gap-10 self-stretch px-5 py-4 w-full rounded-xl bg-[#F5F5F7] focus:outline-none"
+            className="flex-1 shrink gap-10 self-stretch  px-5 py-4 w-full rounded-xl bg-[#F5F5F7] focus:outline-none"
             aria-label="Full name"
           />
         </div>
@@ -135,7 +135,8 @@ const FormSection = ({ form, setForm, book }: BookingDetailsProps) => {
           <button onClick={() => setDropdownOpen(!dropdownOpen)} className="flex gap-1 items-center 3xl:py-5 py-4 pr-3 3xl:pr-4 pl-4 3xl:pl-6 whitespace-nowrap rounded-xl bg-[#F5F5F7] text-[#333333] ">
             <p className="self-stretch font-normal font-nunitoSans my-auto">
               {form.countryCode}</p>
-            <TbCaretDown className="w-5 stroke-[1px]"/>
+              {dropdownOpen ?  <TbCaretUp className="size-5 text-[#333333] stroke-[1px]" /> : <TbCaretDown className="size-5 text-[#333333] stroke-[1px]" />}
+            
           </button>
           {dropdownOpen && (
               <ul className="absolute left-0 w-1/2 top-full bg-[#F5F5F7] border border-gray-300 rounded-md mt-1 shadow-md z-10">
@@ -170,7 +171,7 @@ const FormSection = ({ form, setForm, book }: BookingDetailsProps) => {
           <button onClick={() => setwhatsappDropdownOpen(!whatsappDropdownOpen)} className="flex gap-1 items-center 3xl:py-5 py-4 pr-3 3xl:pr-4 pl-4 3xl:pl-6 whitespace-nowrap rounded-xl bg-[#F5F5F7] text-[#333333] ">
             <p className="self-stretch font-normal font-nunitoSans my-auto">
               {form.whatsappCountryCode}</p>
-            <TbCaretDown className="w-5 stroke-[1px]"/>
+              {whatsappDropdownOpen ?  <TbCaretUp className="size-5 text-[#333333] stroke-[1px]" /> : <TbCaretDown className="size-5 text-[#333333] stroke-[1px]" />}
           </button>
           {whatsappDropdownOpen && (
               <ul className="absolute left-0 w-1/2 top-full bg-[#F5F5F7] border border-gray-300 rounded-md mt-1 shadow-md z-10">
