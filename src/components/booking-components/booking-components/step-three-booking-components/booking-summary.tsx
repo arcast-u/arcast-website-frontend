@@ -1,5 +1,4 @@
 import * as React from "react";
-import { TbCaretDown } from "react-icons/tb";
 import Image from 'next/image';
 import { BookingProps } from "@/lib/types";
 
@@ -53,7 +52,6 @@ const BookingSummary = ({booking}: BookingComponentProps) => {
                   <div className="text-right text-xs leading-[19.1px] lg:text-sm  lg:leading-5">{booking?.studio?.name ?? "Unknown Studio"}</div>
                   <div className="flex gap-1 justify-center border-[0.4px] border-[#989898] items-center self-end px-3 py-2 3xl:px-4 3xl:py-2 3xl:mt-4 3xl:text-base 3xl:leading-[21.82px] text-xs leading-16.37 lg:text-sm lg:leading-[17.82px] rounded-lg text-[#989898]">
                     <p className="self-stretch">{booking?.numberOfSeats ?? 0} seats</p>
-                    <TbCaretDown className="w-5 stroke-[1px]"/>
                   </div>
                 </div>
               </div>
