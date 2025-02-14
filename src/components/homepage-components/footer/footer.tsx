@@ -26,7 +26,7 @@ const Footer = () => {
               <div className="text-[#333333] mt-8 3xl:mt-16">
                 {/* Location Section */}
                 <div className="flex items-start gap-2 mb-2">
-                    <HiOutlineLocationMarker className='3xl:size-6 size-4 my-auto stroke-[1.5px] text-[#333333]'/>
+                    <HiOutlineLocationMarker className='3xl:size-6 mt-1 size-4 stroke-[1.5px] text-[#333333]'/>
                     <p className="">Dubai Media City, Loft Offices 2, Entrance C, Office 210</p>
                 </div>
                 
@@ -178,7 +178,7 @@ const Footer = () => {
         </div>
 
         
-        {/* <div className='flex flex-wrap lg:flex-nowrap items-center justify-between mb-6 text-[#333333] text-xs'>
+        <div className='flex flex-wrap lg:flex-nowrap items-center justify-between mb-6 text-[#333333] text-xs'>
           <span className=''>© 2025 ARcast Studio. All Rights Reserved.</span>
           <div className='flex mt-4 space-x-6 sm:justify-center sm:mt-0'>
             
@@ -189,7 +189,7 @@ const Footer = () => {
               Terms of Service
             </a>
           </div>
-        </div> */}
+        </div>
       </div>
     </footer>
   );
