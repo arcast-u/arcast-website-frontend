@@ -24,9 +24,9 @@ const BookingSummary = ({booking}: BookingComponentProps) => {
     });
 
 
-  // if (!booking) {
-  //   return <p className="text-center mt-10 text-gray-500">Loading booking details...</p>;
-  // }
+  if (!booking) {
+    return <p className="text-center mt-10 text-gray-500">Loading booking details...</p>;
+  }
 
   return (
     <div className="flex flex-col md:w-[90%] mx-auto lg:w-full pb-10 mt-10 w-full ">

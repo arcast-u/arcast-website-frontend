@@ -26,12 +26,15 @@ type BookingDetailsProps = {
     whatsappCountryCode: string;
     discountCode: string;
   }>>;
+  checked: boolean;
+  setChecked: React.Dispatch<React.SetStateAction<boolean>>;
+  showWarning: boolean;
   book: () => Promise<BookingProps | null>;
 };
 
 
-const FormSection = ({ form, setForm, book }: BookingDetailsProps) => {
-  const [checked, setChecked] = useState(false);
+const FormSection = ({ form, setForm, book, checked, setChecked,showWarning }: BookingDetailsProps) => {
+  // const [checked, setChecked] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [whatsappDropdownOpen, setwhatsappDropdownOpen] = useState(false);
   const countryCodes = [
@@ -236,7 +239,11 @@ const FormSection = ({ form, setForm, book }: BookingDetailsProps) => {
           >
             Yes, I&apos;d like to receive my booking confirmation and updates.
           </label>
+          
       </div>
+      {showWarning && !checked && <p className="text-[#FF4242] text-sm leading-[19.1px] font-nunitoSans mt-2">
+            Please confirm to receive booking updates
+          </p>}
       </div>
     </form>
   );

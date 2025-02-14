@@ -1,12 +1,14 @@
 import React from 'react';
 import { StudioHeader } from './header';
-// import StudioSpacesCarousel from './studioSpaces-carousel';
+import StudioSpacesCarousel from './studioSpaces-carousel';
 
 function StudioSpace() {
   return (
-    <div className='w-full h-screen px-[21px] lg:px-10 3xl:px-[100px]'>
+    <div className='w-full h-screen pb-2 3xl:pb-6'>
         <StudioHeader/>
-        {/* <StudioSpacesCarousel/> */}
+        <div className='h-[64.8%]'>
+        <StudioSpacesCarousel/>
+        </div>
 
     </div>
   )

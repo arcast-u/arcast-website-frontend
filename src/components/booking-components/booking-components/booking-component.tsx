@@ -35,6 +35,8 @@ const StudioBooking= () => {
   const [duration, setDuration] = useState(1);
   const selectedPackage = packages?.[selectedPackageIndex] || null;
   const selectedStudio = studio?.[selectedStudioIndex] || null;
+   const [checked, setChecked] = useState<boolean>(false);
+   const [showWarning, setShowWarning] = useState<boolean>(false);
   const [form, setForm] = useState({
       fullName: "",
       email: "",
@@ -185,18 +187,24 @@ const StudioBooking= () => {
     }
   };
   
-  
-  // step navigation
-  const handleContinue = useCallback(() => {
-    if (currentStep < tabs.length - 1) {
-      setCurrentStep(prev => prev + 1);
-    }
-  }, [currentStep, tabs.length]);
-
   const isStepOne = currentStep === 0;
   const isStepTwo = currentStep === 1;
   const isStepThree = currentStep === 2;
   const isStepFour = currentStep === 3;
+  
+  // step navigation
+  const handleContinue = useCallback(() => {
+    if (isStepFour && !checked) {
+      setShowWarning(true);
+      return; // Prevent navigation if unchecked
+    }
+    // setShowWarning(false);
+    if (currentStep < tabs.length - 1) {
+      setCurrentStep(prev => prev + 1);
+    }
+  }, [currentStep, tabs.length, checked, isStepFour]);
+
+  
 
 
 
@@ -252,7 +260,14 @@ const StudioBooking= () => {
             {
               isStepFour &&
               <div>
-                <FormSection form={form} setForm={setForm} book={bookStudio}/>
+                <FormSection 
+                form={form} 
+                setForm={setForm} 
+                book={bookStudio}
+                checked={checked}
+                setChecked={setChecked}
+                showWarning={showWarning}
+                />
                 <BookingSummary booking={receipt}/>
               </div>
             }
