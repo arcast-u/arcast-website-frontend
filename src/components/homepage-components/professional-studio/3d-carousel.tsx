@@ -40,12 +40,12 @@ const Card = ({ title, price, style, description, src, isMultiCamVisible, isVisi
   <AnimatedDiv 
     style={style}
     onClick={onClick}
-    className={`${inFocus ? 'p-4 border-[0.8px] bg-transparent border-[#989898]' : ''} absolute w-[300px] h-[400px] bg-transparent rounded-2xl  flex flex-col items-center text-center cursor-pointer`}
+    className={`${inFocus ? "h-[90%] w-[90%] top-4  left-4" : "h-full w-full left-0 top-0"} absolute bg-transparent rounded-2xl  flex flex-col items-center text-center cursor-pointer`}
   >
     <Image src={src} alt={title} width={100} height={100} className={`w-full ${inFocus ? 'h-full' : 'h-[85%]'} relative shadow-lg object-cover rounded-2xl`}/>
     {/* Multi-Cam Recording Toggle */}
     {inFocus && <div 
-        className={` p-4 3xl:p-6 absolute w-[90%] font-medium bottom-4 font-nunitoSans rounded-2xl  cursor-pointer hover:shadow-lg transition ${isMultiCamVisible ? 'bg-white' : 'bg-transparent'}`}
+        className={` p-4 3xl:p-6 absolute w-[80%] font-medium bottom-7 font-nunitoSans rounded-2xl  cursor-pointer hover:shadow-lg transition ${isMultiCamVisible ? 'bg-white' : 'bg-transparent'}`}
         onClick={() => isVisible()}
       >
         <div className={`flex items-center  ${isMultiCamVisible ? 'text-[#333333] justify-between' : 'text-[#FCFCFC] gap-1'}`}>
@@ -145,7 +145,7 @@ const Carousel3D = () => {
   return (
     <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
       {/* Carousel Container */}
-      <div className="relative w-[300px] h-[400px] mb-8 lg:mb-0">
+      <div className="relative w-[300px] h-[400px] flex rounded-2xl p-4 border-[0.8px] bg-transparent border-[#989898] 3xl:h-full 3xl:w-[380px] mb-8 lg:mb-0">
         {cards.map((card, index) => (
           <Card
             key={index}

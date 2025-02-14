@@ -8,8 +8,8 @@ import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer className='px-[21px] lg:px-16 3xl:px-[100px]  '>
-      <div className='mx-auto max-w-[1500px] font-nunitoSans pt-5 3xl:pt-10 h-full flex flex-col border-t border-[#989898]'>
+    <footer className='px-[21px] lg:px-16 3xl:mt-72 3xl:px-[100px]  '>
+      <div className='mx-auto font-nunitoSans pt-5 3xl:pt-10 h-full flex flex-col border-t border-[#989898]'>
         <div className='flex-grow'>
           <div className='md:flex md:justify-between mb-32 text-[#989898]'>
             <div className='mb-6 md:mb-0'>
@@ -178,7 +178,7 @@ const Footer = () => {
         </div>
 
         
-        <div className='flex flex-wrap lg:flex-nowrap items-center justify-between mb-6 text-[#333333] text-xs'>
+        {/* <div className='flex flex-wrap lg:flex-nowrap items-center justify-between mb-6 text-[#333333] text-xs'>
           <span className=''>© 2025 ARcast Studio. All Rights Reserved.</span>
           <div className='flex mt-4 space-x-6 sm:justify-center sm:mt-0'>
             
@@ -189,7 +189,7 @@ const Footer = () => {
               Terms of Service
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </footer>
   );

@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useSpring, animated, config, SpringValue } from '@react-spring/web';
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { TbCaretLeft, TbCaretRight } from "react-icons/tb";
 import Image from 'next/image';
 
 interface SlideData {
@@ -59,7 +59,7 @@ const slides: SlideData[] = [
 
 const StudioSpacesCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [gapSize, setGapSize] = useState(240);
+  const [gapSize, setGapSize] = useState(280);
 
   // Update gap size on mount and window resize
   useEffect(() => {
@@ -74,7 +74,7 @@ const StudioSpacesCarousel = () => {
       } else if (width < 1700) { //small desktop
         setGapSize(180);
       } else { // desktop
-        setGapSize(240);
+        setGapSize(280);
       }
     };
 
@@ -167,14 +167,14 @@ const StudioSpacesCarousel = () => {
                     onClick={handlePrevious}
                     className="absolute left-6 top-1/2 -translate-y-1/2 z-10 w-7 h-7 border-[1.5px] border-white rounded flex items-center justify-center transition-colors"
                   >
-                    <IoIosArrowBack className="size-4 text-white" />
+                    <TbCaretLeft className="size-3 xl:size-5 text-white" />
                   </button>
 
                   <button
                     onClick={handleNext}
                     className="absolute right-6 top-1/2 -translate-y-1/2 z-10 w-7 h-7 border-[1.5px] border-white rounded flex items-center justify-center transition-colors"
                   >
-                    <IoIosArrowForward className="size-4 text-white"/>
+                    <TbCaretRight className="size-3 xl:size-5 text-white"/>
                   </button>
                 </>
               )}

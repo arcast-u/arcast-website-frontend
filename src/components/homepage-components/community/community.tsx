@@ -18,7 +18,7 @@ function Community() {
         </div>
         {/* desktop */}
         <div className=' hidden md:block relative w-full'>
-            <div className='absolute inset-0 z-10 bg-gradient-to-b from-[#FCFCFC] via-transparent to-[#FCFCFC]' />
+            <div className='absolute inset-0 z-10 bg-custom-gradient' />
             <Image 
                 src="/images/community.webp" 
                 alt="community" 

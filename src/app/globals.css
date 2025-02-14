@@ -42,6 +42,7 @@ button {
   color: #333333;
 }
 
+
 /* Media query for 3xl screens (1920px and above in Tailwind) */
 @media (min-width: 1700px) {
   .header-text {
