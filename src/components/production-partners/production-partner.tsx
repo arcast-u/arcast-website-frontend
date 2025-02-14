@@ -54,7 +54,7 @@ export const ProductionPartners = () => {
             Focus on your conversation, we&apos;ll handle the rest.
           </p>
         </header>
-        <div className="w-full h-full lg:w-[50%]">
+        <div className="grid gap-y-10 lg:gap-y-16 3xl:gap-y-24 w-full h-full lg:w-[50%]">
             {teamMembers.map((members, index) => (
               <TeamRow key={index} members={members} />
             ))}

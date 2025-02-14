@@ -5,12 +5,11 @@ interface TeamMemberProps {
   imageSrc: string;
   title: string;
   description: string;
-  count: number
 }
 
-export const TeamMember = ({ imageSrc, title, description, count }: TeamMemberProps) => {
+export const TeamMember = ({ imageSrc, title, description }: TeamMemberProps) => {
   return (
-    <div className={`w-full flex flex-col ${count !== 0 && count !== 1 ? ' mt-10 lg:mt-16 3xl:mt-24' : ''}`}>
+    <div className="w-full flex flex-col">
       <Image
         loading="lazy"
         src={imageSrc}
