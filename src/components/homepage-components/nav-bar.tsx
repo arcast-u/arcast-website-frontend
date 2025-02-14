@@ -4,7 +4,7 @@ import NavigationItem from './nav-item';
 import { GoGlobe } from "react-icons/go";
 import { TbCaretDown, TbCaretRight} from "react-icons/tb";
 import { IoIosMenu } from "react-icons/io";
-// import ChooseSetup from './studio-Dropdown';
+import ChooseSetup from './studio-Dropdown';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -30,12 +30,12 @@ const navigationItems: NavigationItemData[] = [
 const NavigationBar= () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
-  // const [isStudioOpen, setIsStudioOpen] = useState(false);
+  const [isStudioOpen, setIsStudioOpen] = useState(false);
   const bookSession = () => {router.push('/book-session');};
   return (
     <nav className="flex w-full justify-between items-center px-[21px] lg:px-10 lg:pt-4 lg:pb-5 3xl:px-[100px] 3xl:pt-6 py-2 3xl:pb-8 text-base font-medium " aria-label="Main Navigation">
-      <div className={`${isOpen ? 'bg-[#FCFCFC] rounded-t-xl pt-3' : 'bg-transparent'} flex relative w-full mx-auto justify-between gap-6 items-center self-stretch my-auto max-md:max-w-full`}>
-            {isOpen ?
+      <div className={`${isOpen || isStudioOpen ? 'bg-[#FCFCFC] rounded-t-xl pt-3' : 'bg-transparent'} flex relative w-full mx-auto justify-between gap-6 items-center self-stretch my-auto max-md:max-w-full`}>
+            {isOpen || isStudioOpen  ?
             <Image
             src="/icons/logodarv.svg"
             alt='logo'
@@ -59,6 +59,8 @@ const NavigationBar= () => {
                             path={item.path}
                             label={item.label}
                             hasDropdown={item.hasDropdown}
+                            openStudio={() => setIsStudioOpen(!isStudioOpen)}
+                            isStudioOpen={isStudioOpen}
                             />
                         </Link>
                     </li>
@@ -71,8 +73,8 @@ const NavigationBar= () => {
                     Book Your Session
                 </button>
                 <button className='lg:ml-6 cursor-none hover:scale-105 flex items-center gap-1 self-stretch '>
-                    <GoGlobe className={`${isOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-6 3xl:size-8 `}/>
-                    <TbCaretDown className={`${isOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-5 stroke-[1.5px]`}/>
+                    <GoGlobe className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-6 3xl:size-8 `}/>
+                    <TbCaretDown className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-5 stroke-[1.5px]`}/>
                 </button>
                 <button onClick={() => setIsOpen(!isOpen)} className='flex cursor-none hover:scale-105 3xl:ml-3 ml-2 lg:hidden items-center gap-1 self-stretch '>
                     <IoIosMenu className={`size-6 stroke-[1.5px] ${isOpen ? 'text-[#333333] mr-6' : 'text-[#FCFCFC]'}`}/>
@@ -95,7 +97,7 @@ const NavigationBar= () => {
           </ul>
           </div>
           )}
-          {/* {isStudioOpen && <ChooseSetup />} */}
+          {isStudioOpen && <ChooseSetup />}
         </div>
     </nav>
   );
