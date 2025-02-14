@@ -1,9 +1,29 @@
-import React from "react";
+'use client'
+import React, {useState} from "react";
 import { Mail, Phone } from "lucide-react";
-import { TbBuildings, TbClockHour4 } from "react-icons/tb";
+import { TbBuildings, TbClockHour4, TbCaretLeft, TbCaretRight } from "react-icons/tb";
 import Image from "next/image";
 
+
 const DubaiStudioLocation = () => {
+  const [imageIndex, setImageIndex] = useState<number>(0)
+  const images= [
+    "/images/image.webp",
+    "/images/studio6.webp",
+    "/images/studio11.webp",
+  ]
+
+  const handleImageChange = (direction: "next" | "prev") => {
+    setImageIndex((prevIndex) => {
+      const totalImages = images.length;
+      if (direction === "next") {
+        return (prevIndex + 1) % totalImages;
+      } else {
+        return (prevIndex - 1 + totalImages) % totalImages;
+      }
+    });
+  };
+  
   return (
     <div className="flex flex-col items-center mx-auto px-[21px] lg:px-10 3xl:px-[100px] py-10  lg:py-20 w-full text-[#333333] min-h-screen">
       <h2 className="text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px] font-medium font-hankenGrotesk">Find Our Studio in Dubai</h2>
@@ -19,14 +39,18 @@ const DubaiStudioLocation = () => {
                 <span className="font-medium text-xl leading-[27px] 3xl:text-2xl 3xl:leading-8 text-[#333333]">Nearby</span>
             </div>
             <p className="text-[#989898] font-medium text-base leading-6 3xl:text-xl 3xl:leading-7 3xl:mt-3 mt-1">OSN, Avani+ Palm View Dubai Hotel & Suites</p>
-            <div className="w-full flex-grow mt-6 p-0">
+            <div className="w-full relative flex-grow mt-6 p-0">
               <Image
-                  src="/images/image.webp" 
+                  src={images[imageIndex]} 
                   alt="Studio Interior"
                   width={373}
                   height={188}
                   className="w-full h-full rounded-lg object-cover "
               />
+              <div className="absolute top-1/2 -translate-y-1/2 flex px-5 w-full justify-between">
+                <TbCaretLeft onClick={() => handleImageChange("prev")} className="size-4 text-white" />
+                <TbCaretRight onClick={() => handleImageChange("next")} className="size-4 text-white" />
+              </div>
             </div>
           </div>
           {/* Opening Hours */}
@@ -49,7 +73,7 @@ const DubaiStudioLocation = () => {
 
         {/* Map Location */}
         <div className="bg-[#F5F5F7] p-6 3xl:py-10 3xl:px-[60px] relative rounded-xl shadow-md flex flex-col items-center">
-          <Image width={100} height={100} src="/images/location.webp" alt="Google Maps Location" className="w-full h-full rounded-r-[30px] rounded-l-[50px] lg:h-[580px] 3xl:h-[745.73px]" />
+          <Image width={100} height={100} src="/images/location.png" alt="Google Maps Location" className="w-full h-full rounded-r-[30px] rounded-l-[50px] lg:h-[580px] 3xl:h-[745.73px]" />
           <div className="absolute bottom-0 bg-gradient-to-t w-full flex flex-col h-[45%] items-center text-center justify-center from-[#F5F5F7] via-[#F5F5F7] to-transparent ">
             <p className="text-lg 3xl:text-[40px] font-semibold text-[#333333] mt-12">Studio location</p>
             <a

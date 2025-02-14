@@ -6,7 +6,7 @@ function StudioSpace() {
   return (
     <div className='w-full h-screen pb-2 3xl:pb-6'>
         <StudioHeader/>
-        <div className='h-[64.8%]'>
+        <div className='h-[70%] '>
         <StudioSpacesCarousel/>
         </div>
 

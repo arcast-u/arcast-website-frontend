@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSpring, animated, config, SpringValue } from '@react-spring/web';
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 import { ArrowUpRight } from 'lucide-react';
@@ -40,7 +40,7 @@ const Card = ({ title, price, style, description, src, isMultiCamVisible, isVisi
   <AnimatedDiv 
     style={style}
     onClick={onClick}
-    className={`${inFocus ? "h-[90%] w-[90%] top-4  left-4" : "h-full w-full left-0 top-0"} absolute bg-transparent rounded-2xl  flex flex-col items-center text-center cursor-pointer`}
+    className={`${inFocus ? "h-[90%] w-[90%] top-4  left-4 3xl:top-9 3xl:left-7" : "h-full w-full left-0 top-0"} absolute bg-transparent rounded-2xl  flex flex-col items-center text-center cursor-pointer`}
   >
     <Image src={src} alt={title} width={100} height={100} className={`w-full ${inFocus ? 'h-full' : 'h-[85%]'} relative shadow-lg object-cover rounded-2xl`}/>
     {/* Multi-Cam Recording Toggle */}
@@ -76,6 +76,26 @@ interface CardData {
 const Carousel3D = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMultiCamVisible, setMultiCamVisible] = useState(false);
+  const [gapSize, setGapSize] = useState(500);
+  
+    // Update gap size on mount and window resize
+  useEffect(() => {
+    const updateGapSize = () => {
+      const width = window.innerWidth;
+      if (width < 1200) { // mobile
+        setGapSize(300);
+      } else if (width < 1700) { //small desktop
+        setGapSize(320);
+      } else { // desktop
+        setGapSize(500);
+      }
+    };
+
+    updateGapSize();
+    window.addEventListener('resize', updateGapSize);
+    return () => window.removeEventListener('resize', updateGapSize);
+  }, []);
+  
   
   const cards: CardData[] = [
     {
@@ -119,7 +139,7 @@ const Carousel3D = () => {
     let adjustedPosition = position;
     if (position > totalCards / 2) adjustedPosition = position - totalCards;
     
-    const translateX = adjustedPosition * 320;
+    const translateX = adjustedPosition * gapSize;
     const scale = adjustedPosition === 0 ? 1 : 0.8;
     const opacity = Math.abs(adjustedPosition) > 1 ? 0.3 : 1;
     const zIndex = adjustedPosition === 0 ? 3 : 1;
@@ -143,9 +163,9 @@ const Carousel3D = () => {
   };
 
   return (
-    <div className="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+    <div className="relative w-full h-[500px] 3xl:h-[780px] flex items-center justify-center overflow-hidden">
       {/* Carousel Container */}
-      <div className="relative w-[300px] h-[400px] flex rounded-2xl p-4 border-[0.8px] bg-transparent border-[#989898] 3xl:h-full 3xl:w-[380px] mb-8 lg:mb-0">
+      <div className="relative w-[300px] h-[400px] 3xl:w-[520px] flex rounded-2xl p-4 border-[0.8px] bg-transparent border-[#989898] 3xl:h-[680px] mb-8 lg:mb-0">
         {cards.map((card, index) => (
           <Card
             key={index}
