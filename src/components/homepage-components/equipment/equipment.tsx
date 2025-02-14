@@ -3,17 +3,17 @@ import Image from 'next/image';
 
 function Equipment() {
   return (
-    <div className='bg-[#f5f5f7] w-full px-[21px] pt-10 3xl:pt-20 lg:px-10 3xl:px-[100px]'>
-        <header className="flex gap-5 justify-between mx-auto mb-[51px] 3xl:mb-[121px] w-full text-[#333333]">
+    <div className='bg-[#f5f5f7] w-full px-[21px] py-10 3xl:py-20 mt-20 lg:px-10 3xl:px-[100px]'>
+      <header className="flex gap-5 justify-between mx-auto mb-[51px] 3xl:mb-[121px] w-full text-[#333333]">
         <div className="flex flex-col font-hankenGrotesk">
           <h1 className="text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px] font-medium max-md:text-4xl">
               Professional-Grade, State of the Art Gear
           </h1>
-          <p className="mt-4 lg:w-[60%] 3xl:w-[45%] text-xl 3xl:text-[28px] leading-[27.28px] 3xl:leading-[38.19px] font-normal">
+          <p className="mt-4 lg:w-[65%] 3xl:w-[75%] text-xl 3xl:text-[28px] leading-[27.28px] font-nunitoSans 3xl:leading-[38.19px] font-normal">
           We invested in the best gear in the industry, so you can focus on what matters most - your content.
           </p>
         </div>
-    </header>
+      </header>
     <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-20 '>
       <div className=" grid justify-center relative">
         <div className='absolute'>

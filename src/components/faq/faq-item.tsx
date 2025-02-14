@@ -20,20 +20,20 @@ export const FAQItem: React.FC<FAQItemProps> = ({
 }) => {
   return (
     <>
-      <div className="w-full min-h-0 border border-solid border-neutral-400 max-md:max-w-full" />
-      <div className="mt-10 w-full max-md:max-w-full">
+      <div className="w-full min-h-[0.5px] bg-[#989898] " />
+      <div className="my-7 3xl:my-10 w-full max-md:max-w-full">
         <button
-          className="flex flex-wrap gap-10 justify-between items-center w-full text-2xl leading-none text-zinc-800 max-md:max-w-full"
+          className="flex flex-wrap gap-10 justify-between items-center w-full text-sm lg:text-base leading-6 3xl:text-2xl 3xl:leading-none text-[#333333]"
           onClick={onClick}
           aria-expanded={isOpen}
           aria-controls={`faq-answer-${question}`}
         >
-          <span className="self-stretch my-auto w-[517px] text-left max-md:max-w-full">
+          <span className="self-stretch font-nunitoSans text-left">
             {question}
           </span>
           {isOpen 
-              ? <TbMinus className='size-8 text-[#333333]'/>
-              : <MdOutlineAdd className='size-8 text-[#333333]'/>
+              ? <TbMinus className='size-4 3xl:size-6 text-[#333333]'/>
+              : <MdOutlineAdd className='size-4 3xl:size-6 text-[#333333]'/>
             }
            
           
@@ -41,14 +41,14 @@ export const FAQItem: React.FC<FAQItemProps> = ({
         {isOpen && answer && (
           <div
             id={`faq-answer-${question}`}
-            className="flex flex-col justify-center mt-6 max-w-full text-xl leading-relaxed w-[752px]"
+            className="w-[85%] lg:w-auto flex flex-col font-nunitoSans justify-center mt-6 max-w-full text-sm leading-5 3xl:text-xl 3xl:leading-8 text-[#989898]"
           >
             {answer}
           </div>
         )}
       </div>
       {!isLast && (
-        <div className="shrink-0 mt-10 h-0 border border-solid border-neutral-400 max-md:max-w-full" />
+        <div className="w-full min-h-[0.5px] bg-[#98989850] " />
       )}
     </>
   );
