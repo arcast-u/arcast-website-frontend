@@ -26,9 +26,13 @@ export default {
 		animation: {
 			'spin-slow': 'spin 5s linear infinite', // 5-second spin duration
 		  },
+		  backgroundImage: {
+			'custom-gradient': 'linear-gradient(#FCFCFC, #FCFCFC00, #FCFCFC00, #FCFCFC)',
+			},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+			
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
