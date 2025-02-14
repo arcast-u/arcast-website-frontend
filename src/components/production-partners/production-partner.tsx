@@ -42,7 +42,7 @@ export const ProductionPartners = () => {
   ];
 
   return (
-    <section className="flex min-h-screen overflow-hidden items-start py-10 3xl:py-20 px-[21px] lg:px-10 3xl:px-[100px] bg-zinc-50" aria-labelledby="production-partners-title">
+    <section className="flex overflow-hidden items-start py-10 3xl:pt-20 px-[21px] lg:px-10 3xl:px-[100px] bg-zinc-50" aria-labelledby="production-partners-title">
       <div className="flex flex-wrap lg:flex-nowrap gap-10 w-full justify-between">
         <header className="flex lg:w-[35%] flex-col text-[#333333] font-hankenGrotesk w-full">
           <h1 id="production-partners-title" className="text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px] font-medium max-md:text-4xl">

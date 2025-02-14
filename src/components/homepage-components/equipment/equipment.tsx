@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 function Equipment() {
   return (
-    <div className='bg-[#f5f5f7] w-full px-[21px] py-10 3xl:py-20 mt-20 lg:px-10 3xl:px-[100px]'>
+    <div className='bg-[#f5f5f7] w-full px-[21px] py-10 3xl:py-20 lg:mt-24 3xl:mt-0 lg:px-10 3xl:px-[100px]'>
       <header className="flex gap-5 justify-between mx-auto mb-[51px] 3xl:mb-[121px] w-full text-[#333333]">
         <div className="flex flex-col font-hankenGrotesk">
           <h1 className="text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px] font-medium max-md:text-4xl">

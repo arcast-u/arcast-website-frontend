@@ -41,7 +41,7 @@ export const FAQItem: React.FC<FAQItemProps> = ({
         {isOpen && answer && (
           <div
             id={`faq-answer-${question}`}
-            className="w-[85%] lg:w-auto flex flex-col font-nunitoSans justify-center mt-6 max-w-full text-sm leading-5 3xl:text-xl 3xl:leading-8 text-[#989898]"
+            className=" lg:w-auto flex flex-col font-nunitoSans justify-center mt-6 max-w-full text-sm leading-5 3xl:text-xl 3xl:leading-8 text-[#989898]"
           >
             {answer}
           </div>
