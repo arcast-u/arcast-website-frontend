@@ -1,10 +1,10 @@
 'use client'
-import React from 'react';
+import React, {useState} from 'react';
 import NavigationItem from './nav-item';
 import { GoGlobe } from "react-icons/go";
 import { TbCaretDown, TbCaretRight} from "react-icons/tb";
 import { IoIosMenu } from "react-icons/io";
-
+// import ChooseSetup from './studio-Dropdown';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -19,7 +19,7 @@ interface NavigationItemData {
 
 const navigationItems: NavigationItemData[] = [
   { label: 'Home', path: '/' },
-  { label: 'Studios', path: '/studios', hasDropdown: true },
+  { label: 'Studios', path: '', hasDropdown: true },
   { label: 'Packages', path: '/packages' },
   { label: 'Memberships', path: '/membership' },
   { label: 'About Us', path: '/about-us'},
@@ -29,7 +29,8 @@ const navigationItems: NavigationItemData[] = [
 
 const NavigationBar= () => {
   const router = useRouter();
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  // const [isStudioOpen, setIsStudioOpen] = useState(false);
   const bookSession = () => {router.push('/book-session');};
   return (
     <nav className="flex w-full justify-between items-center px-[21px] lg:px-10 lg:pt-4 lg:pb-5 3xl:px-[100px] 3xl:pt-6 py-2 3xl:pb-8 text-base font-medium " aria-label="Main Navigation">
@@ -94,6 +95,7 @@ const NavigationBar= () => {
           </ul>
           </div>
           )}
+          {/* {isStudioOpen && <ChooseSetup />} */}
         </div>
     </nav>
   );
