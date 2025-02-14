@@ -76,21 +76,22 @@ const DubaiStudioLocation = () => {
         </div>
 
         {/* Contact & Transport */}
-        <div>
-        <div className="bg-[#F5F5F7] p-6 3xl:py-10 3xl:px-[60px] rounded-xl shadow-md">
-          <h3 className="text-lg 3xl:text-[40px] font-medium text-[#333333] text-center">Contact</h3>
-          <div className="grid grid-cols-2 gap-3 mt-3">
-            <div className="flex flex-col items-center space-x-2 bg-[#FCFCFC] px-5 py-4 rounded-lg">
-              <Mail className="size-[14px] 3xl:size-[19.33px] text-orange-500" />
-              <span className="text-[#333333] text-sm font-normal leading-[19.1px] mt-4 3xl:mt-[22px]">hello@arcast.studio</span>
-            </div>
-            <div className="flex flex-col items-center space-x-2 bg-[#FCFCFC] px-5 py-4 rounded-lg">
-              <Phone className="size-[14px] 3xl:size-[19.33px]  text-orange-500" />
-              <span className="text-[#333333] text-sm font-normal leading-[19.1px] mt-4 3xl:mt-[22px]">+9716583657364</span>
+        <div className="flex flex-col gap-6 h-full">
+          <div className="bg-[#F5F5F7] p-6 3xl:py-10 3xl:px-[60px] rounded-xl shadow-md">
+            <h3 className="text-lg 3xl:text-[40px] font-medium text-[#333333] text-center">Contact</h3>
+            <div className="grid grid-cols-2 gap-3 mt-3">
+              <div className="flex flex-col items-center space-x-2 bg-[#FCFCFC] px-5 py-4 rounded-lg">
+                <Mail className="size-[14px] 3xl:size-[19.33px] text-orange-500" />
+                <span className="text-[#333333] text-sm font-normal leading-[19.1px] mt-4 3xl:mt-[22px]">hello@arcast.studio</span>
+              </div>
+              <div className="flex flex-col items-center space-x-2 bg-[#FCFCFC] px-5 py-4 rounded-lg">
+                <Phone className="size-[14px] 3xl:size-[19.33px]  text-orange-500" />
+                <span className="text-[#333333] text-sm font-normal leading-[19.1px] mt-4 3xl:mt-[22px]">+9716583657364</span>
+              </div>
             </div>
           </div>
-          </div>
-          <div className="bg-[#F5F5F7] p-6 3xl:py-10 3xl:px-[60px] mt-6 rounded-xl shadow-md">
+          {/* parking */}
+          <div className="bg-[#F5F5F7] p-6 3xl:py-10 3xl:px-[60px] rounded-xl flex-grow shadow-md">
             <h3 className="text-lg 3xl:text-[40px] font-medium text-[#333333] text-center ">Parking & Transport</h3>
             <div className="mt-4 3xl:mt-10 text-sm leading-5 3xl:text-xl 3xl:leading-7 left-7 space-y-3 text-[#333333]">
                 <p className="bg-[#FCFCFC] py-[14px] px-4 rounded-lg"><span className="text-[#989898]">Paid parking:</span> Media City parking</p>
@@ -98,7 +99,7 @@ const DubaiStudioLocation = () => {
                 <p className="bg-[#FCFCFC] py-[14px] px-4 rounded-lg"><span className="text-[#989898]">Closest Tram:</span> The Palm Jumeirah</p>
                 <p className="bg-[#FCFCFC] py-[14px] px-4 rounded-lg"><span className="text-[#989898]">Closest Bus:</span> Infotech Dubai Internet City 2</p>
             </div>
-        </div>
+          </div>
         </div>
       </div>
 

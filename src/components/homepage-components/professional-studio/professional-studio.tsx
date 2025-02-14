@@ -4,7 +4,7 @@ import Carousel3D from './3d-carousel';
 
 function ProfessionalStudio() {
   return (
-    <div className='w-full lg:h-screen pb-2 3xl:pb-4'>
+    <div className='w-full lg:h-screen pt-10 lg:pt-0 pb-2 3xl:pb-4'>
         <ProfessionalStudioHeader />
         <div className='h-[70%]'>
         
