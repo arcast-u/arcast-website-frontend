@@ -66,12 +66,12 @@ const NavigationBar= () => {
                     </li>
                     ))}
                 </ul>
-                <button onClick={bookSession}
-                    className="overflow-hidden cursor-none hidden hover:scale-105 lg:flex ml-10 xl:ml-14 3xl:ml-16 border border-[#FFC49D] gap-2.5 self-stretch px-3 py-2 3xl:px-4 3xl:py-3 my-auto bg-[#FF8C42] rounded-lg shadow-[0px_4px_4px_rgba(0,10,31,0.2)] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium 3xl:leading-[21.82px] 3xl:text-base "
-                    aria-label="Book Your Session"
-                    >
+                
+                <div onClick={bookSession} className=" w-fit ml-10 xl:ml-14 3xl:ml-16 hidden hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#64391E] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] ">
+                  <button className="flex-1 bg-[#FF8C42] w-fit px-3 py-2 3xl:px-4 3xl:py-3 rounded-lg">
                     Book Your Session
-                </button>
+                  </button>
+                </div>
                 <button className='lg:ml-6 cursor-none hover:scale-105 flex items-center gap-1 self-stretch '>
                     <GoGlobe className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-6 3xl:size-8 `}/>
                     <TbCaretDown className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-5 stroke-[1.5px]`}/>
@@ -82,19 +82,24 @@ const NavigationBar= () => {
             </div>
           {isOpen && (
             <div className="absolute top-10 left-0 w-full bg-[#FCFCFC] shadow-lg rounded-b-xl p-6 flex flex-col gap-4">
-            <ul className="flex flex-col font-nunitoSans  gap-4 text-2xl font-medium">
-            {navigationItems.map((item, index) => (
-              <li key={index}>
-                <Link 
-                  href={item.path} 
-                  className="flex gap-1 items-center py-2 text-[#333333] hover:bg-white"
-                >
-                  {item.label} 
-                  {item.hasDropdown && <TbCaretRight className="w-4 h-4" />}
-                </Link>
-              </li>
-            ))}
-          </ul>
+              <ul className="flex flex-col font-nunitoSans  gap-4 text-2xl font-medium">
+              {navigationItems.map((item, index) => (
+                <li key={index}>
+                  <Link 
+                    href={item.path} 
+                    className="flex gap-1 items-center py-2 text-[#333333] hover:bg-white"
+                  >
+                    {item.label} 
+                    {item.hasDropdown && <TbCaretRight className="w-4 h-4" />}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div onClick={bookSession} className="flex w-fit mt-4 hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#64391E] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans font-medium 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] ">
+              <button className="flex-1 bg-[#FF8C42] w-fit px-5 py-4 rounded-lg">
+                Book Your Session
+              </button>
+            </div>
           </div>
           )}
           {isStudioOpen && <ChooseSetup />}

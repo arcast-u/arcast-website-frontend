@@ -154,14 +154,14 @@ const StudioSpacesCarousel = () => {
                     onClick={() => handleImageChange("prev")}
                     className="absolute left-6 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded flex items-center justify-center transition-colors"
                   >
-                    <TbCaretLeft className="size-3 xl:size-5 text-white" />
+                    <TbCaretLeft className="size-5 text-white" />
                   </button>
 
                   <button
                     onClick={() => handleImageChange("next")}
                     className="absolute right-6 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded flex items-center justify-center transition-colors"
                   >
-                    <TbCaretRight className="size-3 xl:size-5 text-white" />
+                    <TbCaretRight className="size-5 text-white" />
                   </button>
 
                   {/* Button for Booking */}
@@ -182,7 +182,7 @@ const StudioSpacesCarousel = () => {
 
       {/* Slide Navigation */}
       <div className="absolute z-40 top-0 w-[90%] lg:w-auto lg:right-10 flex justify-between lg:justify-end gap-2">
-        <button onClick={handlePrevious} className="p-2 rounded-lg border-[1.5px] border-gray-500 shadow-sm">
+        <button onClick={handlePrevious} className="p-2 rounded-lg ml-9 lg:ml-0  border-[1.5px] border-gray-500 shadow-sm">
           <IoIosArrowBack className="size-4 text-gray-500" />
         </button>
 
