@@ -27,8 +27,8 @@ const NavigationItem: React.FC<NavigationItemProps> = ({ label, path, hasDropdow
             <TbCaretDown onClick={openStudio} className="size-5 stroke-[1px]"/>
             )}
             </button>
-        {isActive || isStudioOpen && hasDropdown && (
-            <div className={`w-full border border-solid ${isStudioOpen === true ? "text-[#333333]" : "text-[#FCFCFC]"} min-h-[1px]`} aria-hidden="true" />
+        {(isActive || (isStudioOpen && hasDropdown)) && (
+            <div className={`w-full border border-solid ${isStudioOpen && hasDropdown ? "bg-[#333333] border-[#333333]" : "bg-[#FCFCFC] border-[#FCFCFC]"} min-h-[1.5px]`} aria-hidden="true" />
         )}
       </div>
     </div>
