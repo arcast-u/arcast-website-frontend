@@ -2,6 +2,7 @@
 import React, {useState} from "react";
 import { Mail, Phone } from "lucide-react";
 import { TbBuildings, TbClockHour4, TbCaretLeft, TbCaretRight } from "react-icons/tb";
+import { MdArrowOutward } from "react-icons/md";
 import Image from "next/image";
 
 
@@ -28,7 +29,7 @@ const DubaiStudioLocation = () => {
     <div className="flex flex-col items-center mx-auto px-[21px] lg:px-10 3xl:px-[100px] py-10  lg:py-20 w-full text-[#333333] min-h-screen">
       <h2 className="text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px] font-medium font-hankenGrotesk">Find Our Studio in Dubai</h2>
       
-      <div className="grid grid-cols-1 font-nunitoSans lg:grid-cols-3 gap-6 mt-6 w-full">
+      <div className="grid grid-cols-1 font-nunitoSans md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 w-full">
         {/* Location Details */}
         <div className=" flex flex-col gap-6 h-full">
             <div className="bg-[#F5F5F7] flex-grow p-6 3xl:py-10 3xl:px-[60px] rounded-xl shadow-md w-full" >
@@ -72,17 +73,19 @@ const DubaiStudioLocation = () => {
         </div>
 
         {/* Map Location */}
-        <div className="bg-[#F5F5F7] p-6 3xl:py-10 3xl:px-[60px] relative rounded-xl shadow-md flex flex-col items-center">
-          <Image width={100} height={100} src="/images/location.png" alt="Google Maps Location" className="w-full h-full rounded-r-[30px] rounded-l-[50px] lg:h-[580px] 3xl:h-[745.73px]" />
-          <div className="absolute bottom-0 bg-gradient-to-t w-full flex flex-col h-[45%] items-center text-center justify-center from-[#F5F5F7] via-[#F5F5F7] to-transparent ">
-            <p className="text-lg 3xl:text-[40px] font-semibold text-[#333333] mt-12">Studio location</p>
+        <div className="bg-[#F5F5F7] h-full p-6 3xl:py-10 3xl:px-[60px] relative rounded-xl shadow-md flex flex-col border items-center">
+          <div className=" w-full md:w-auto h-full">
+          <Image width={100} height={100} src="/images/location.png" alt="Google Maps Location" className="w-full h-full " />
+          </div>
+          <div className="absolute bottom-0 bg-gradient-to-t w-full flex flex-col h-[45%] text-center justify-center from-[#F5F5F7] via-[#F5F5F7] to-transparent ">
+            <p className="text-lg 3xl:text-[40px] font-semibold text-[#333333] mt-36">Studio location</p>
             <a
                 href="https://maps.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 text-xs leading-4 3xl:text-xl 3xl:leading-7 font-medium underline mt-1"
+                className="text-blue-600 flex gap-1 justify-center text-xs leading-4 3xl:text-xl 3xl:leading-7 font-medium underline mt-1 md:mt-3 "
             >
-                View location & direction ↗
+                View location & direction <span className="text-[#FF8C42] "><MdArrowOutward className="size-4" /></span>
             </a>
           </div>
         </div>
@@ -106,10 +109,10 @@ const DubaiStudioLocation = () => {
           <div className="bg-[#F5F5F7] p-6 3xl:py-10 3xl:px-[60px] rounded-xl flex-grow shadow-md">
             <h3 className="text-lg 3xl:text-[40px] font-medium text-[#333333] text-center ">Parking & Transport</h3>
             <div className="mt-4 3xl:mt-10 text-sm leading-5 3xl:text-xl 3xl:leading-7 left-7 space-y-3 text-[#333333]">
-                <p className="bg-[#FCFCFC] py-[14px] px-4 rounded-lg"><span className="text-[#989898]">Paid parking:</span> Media City parking</p>
-                <p className="bg-[#FCFCFC] py-[14px] px-4 rounded-lg"><span className="text-[#989898]">Closest Metro:</span> Dubai Internet City Station</p>
-                <p className="bg-[#FCFCFC] py-[14px] px-4 rounded-lg"><span className="text-[#989898]">Closest Tram:</span> The Palm Jumeirah</p>
-                <p className="bg-[#FCFCFC] py-[14px] px-4 rounded-lg"><span className="text-[#989898]">Closest Bus:</span> Infotech Dubai Internet City 2</p>
+                <p className="bg-[#FCFCFC] py-[14px] lg:py-6 px-4 rounded-lg"><span className="text-[#989898]">Paid parking:</span> Media City parking</p>
+                <p className="bg-[#FCFCFC] py-[14px] lg:py-6 px-4 rounded-lg"><span className="text-[#989898]">Closest Metro:</span> Dubai Internet City Station</p>
+                <p className="bg-[#FCFCFC] py-[14px] lg:py-6 px-4 rounded-lg"><span className="text-[#989898]">Closest Tram:</span> The Palm Jumeirah</p>
+                <p className="bg-[#FCFCFC] py-[14px] lg:py-6 px-4 rounded-lg"><span className="text-[#989898]">Closest Bus:</span> Infotech Dubai Internet City 2</p>
             </div>
           </div>
         </div>
