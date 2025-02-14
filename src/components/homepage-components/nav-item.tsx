@@ -8,9 +8,11 @@ interface NavigationItemProps {
   label: string;
   path: string;
   hasDropdown?: boolean;
+  isStudioOpen?: boolean;
+  openStudio: () => void
 }
 
-const NavigationItem: React.FC<NavigationItemProps> = ({ label, path, hasDropdown }) => {
+const NavigationItem: React.FC<NavigationItemProps> = ({ label, path, hasDropdown, openStudio, isStudioOpen }) => {
     const pathname = usePathname();
     const isActive = pathname === path;
 
@@ -18,14 +20,15 @@ const NavigationItem: React.FC<NavigationItemProps> = ({ label, path, hasDropdow
   return (
     <div className='flex flex-col whitespace-nowrap'>
       <div className={`w-full ${hasDropdown ? '' : 'self-stretch'}`}>
-        <button className="flex justify-center cursor-none text-#FCFCFC font-normal font-nunitoSans text-sm 3xl:text-base leading-[21.82px] items-center">
+        <button 
+        className={`flex justify-center cursor-none ${isStudioOpen === true ? "text-[#333333]" : "text-[#FCFCFC]"} font-normal font-nunitoSans text-sm 3xl:text-base leading-[21.82px] items-center`}>
             <span className=" my-auto">{label}</span>
             {hasDropdown && (
-            <TbCaretDown className="size-5 stroke-[1px]"/>
+            <TbCaretDown onClick={openStudio} className="size-5 stroke-[1px]"/>
             )}
             </button>
-        {isActive && (
-            <div className="w-full border border-solid border-[#FCFCFC] min-h-[1px]" aria-hidden="true" />
+        {isActive || isStudioOpen && hasDropdown && (
+            <div className={`w-full border border-solid ${isStudioOpen === true ? "text-[#333333]" : "text-[#FCFCFC]"} min-h-[1px]`} aria-hidden="true" />
         )}
       </div>
     </div>

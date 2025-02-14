@@ -1,39 +1,39 @@
 import Image from "next/image";
 
 const setups = [
-  { id: 1, name: "Setup 1", image: "/images/setup1.jpg", available: true },
-  { id: 2, name: "Setup 2", image: "/images/setup2.jpg", available: false },
-  { id: 3, name: "Setup 3", image: "/images/setup3.jpg", available: false },
-  { id: 4, name: "Setup 4", image: "/images/setup4.jpg", available: false },
-  { id: 5, name: "Setup 5", image: "/images/setup5.jpg", available: false },
-  { id: 6, name: "Setup 6", image: "/images/setup6.jpg", available: false },
+  { id: 1, name: "Setup 1", image: "/images/studio1.webp", available: true },
+  { id: 2, name: "Setup 2", image: "/images/studio2.webp", available: false },
+  { id: 3, name: "Setup 3", image: "/images/studio3.webp", available: false },
+  { id: 4, name: "Setup 4", image: "/images/studio4.webp", available: false },
+  { id: 5, name: "Setup 5", image: "/images/studio5.webp", available: false },
+  { id: 6, name: "Setup 6", image: "/images/studio6.webp", available: false },
 ];
 
 const ChooseSetup = () => {
   return (
-    <section className="absolute top-10 left-0 w-full px-10 py-16">
-      <h2 className="text-4xl font-semibold text-gray-900 mb-8">Choose Your Setup</h2>
-      <div className="grid grid-cols-3 gap-6">
+    <section className="absolute bg-[#FCFCFC] rounded-b-xl top-12 flex justify-between left-0 w-full px-10 py-16">
+      <h2 className="text-3xl w-[16%] font-medium font-nunitoSans 3xl:text-5xl text-gray-900 mb-8">Choose Your Setup</h2>
+      <div className="grid grid-cols-3 w-[60%] gap-6">
         {setups.map((setup) => (
-          <div key={setup.id} className="relative rounded-lg overflow-hidden shadow-md">
+          <div key={setup.id} className="relative h-[200px] max-h-[308px] rounded-lg overflow-hidden shadow-md">
             <Image
               src={setup.image}
               alt={setup.name}
               width={500}
               height={300}
-              className={`w-full h-auto object-cover ${
+              className={`w-full h-full object-cover ${
                 !setup.available ? "opacity-50" : ""
               }`}
             />
             {!setup.available && (
               <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-40">
-                <p className="text-white text-xl font-semibold">Fully Booked</p>
+                <p className="text-[#333333] text-xl font-semibold">Fully Booked</p>
               </div>
             )}
             {setup.available && (
-              <div className="absolute bottom-0 bg-black bg-opacity-50 w-full p-4 text-white text-center">
-                <p className="text-lg font-medium">{setup.name}</p>
-                <button className="mt-2 border border-white px-4 py-2 text-sm rounded-md hover:bg-white hover:text-black transition-all">
+              <div className="absolute rounded-lg bottom-2 font-nunitoSans left-2 bg-black w-[90%] p-4 text-[#fcfcfc] text-center">
+                <p className=" text-xs 3xl:text-sm font-medium">{setup.name}</p>
+                <button className="text-[10px] w-full 3xl:text-xs mt-1 3xl:mt-2 border border-[#fcfcfc] font-medium px-4 py-2 text-sm rounded-md transition-all">
                   Book now
                 </button>
               </div>
