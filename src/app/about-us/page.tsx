@@ -7,9 +7,8 @@ import Video from '@/components/video-section/video';
 import CitySlider from '@/components/aboutUs-compnents/city-slider/page';
 
 
-type Props = {}
 
-const Page = (props: Props) => {
+const Page = () => {
   return (
     <div className='bg-[#0C0C0C] overflow-x-hidden'>
         <LandingPage/>

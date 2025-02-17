@@ -103,7 +103,7 @@ const CitySlider = () => {
           The Future of <span className="text-orange-500">ARcast</span>
         </h1>
         <p className="mt-4 lg:w-[50%] 3xl:w-[45%] text-xl 3xl:text-[28px] leading-[27.28px] font-nunitoSans text-[#FCFCFC] 3xl:leading-[38.19px] font-normal mb-8">
-          We're not just building studios - we&apos;re creating the future of
+          We&apos;re not just building studios - we&apos;re creating the future of
           professional content creation, one space at a time.
         </p>
       </div>
