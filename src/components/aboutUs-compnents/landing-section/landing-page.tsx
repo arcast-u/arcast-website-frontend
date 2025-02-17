@@ -5,7 +5,7 @@ import NavigationBar from '../../homepage-components/nav-bar';
 
 const LandingPage = () => {
   return (
-    <div className='md:h-screen overflow-hidden '>
+    <div className='md:h-screen overflow-hidden mb-5 '>
         <NavigationBar/>
         <div className='px-[21px] h-full flex md:items-center lg:items-start 2xl:items-center justify-center'>
         <div className=' mx-auto w-full md:w-[70%] lg:w-[45%] 3xl:w-[60%] '>
