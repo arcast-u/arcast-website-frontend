@@ -1,8 +1,8 @@
 import React from 'react'
 
-type Props = {}
 
-const Mission = (props: Props) => {
+
+const Mission = () => {
   return (
     <div className='px-[21px] lg:px-10 3xl:px-[100px] py-10 '>
       <div className='flex mx-auto w-full md:w-[70%] lg:w-[45%] 3xl:w-[60%] items-center flex-col h-full'>

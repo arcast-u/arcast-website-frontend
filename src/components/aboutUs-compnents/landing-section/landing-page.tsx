@@ -1,9 +1,9 @@
 import React from 'react'
 import NavigationBar from '../../homepage-components/nav-bar';
 
-type Props = {}
 
-const LandingPage = (props: Props) => {
+
+const LandingPage = () => {
   return (
     <div className='md:h-screen overflow-hidden '>
         <NavigationBar/>
