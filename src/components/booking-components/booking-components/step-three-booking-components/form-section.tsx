@@ -30,10 +30,11 @@ type BookingDetailsProps = {
   setChecked: React.Dispatch<React.SetStateAction<boolean>>;
   showWarning: boolean;
   book: () => Promise<BookingProps | null>;
+  selectedStudio: string | undefined;
 };
 
 
-const FormSection = ({ form, setForm, book, checked, setChecked,showWarning }: BookingDetailsProps) => {
+const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, selectedStudio }: BookingDetailsProps) => {
   // const [checked, setChecked] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [whatsappDropdownOpen, setwhatsappDropdownOpen] = useState(false);
@@ -86,7 +87,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning }: B
           Enter Your Contact Information
         </h3>
       </div>
-      <div className="flex flex-col mt-5 text-[#333333] font-nunitoSans text-sm lg:text-base leading-3  lg:leading-6 fornt-normal 3xl:leading-[19.1px] 3xl:mt-6 w-full  ">
+      <div className="flex flex-col mt-5 text-[#333333] font-nunitoSans text-sm lg:text-base leading-3  lg:leading-6 font-normal 3xl:leading-[19.1px] 3xl:mt-6 w-full  ">
         <div className="flex gap-4 items-start w-full ">
           <label
             htmlFor="fullName"
@@ -125,6 +126,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning }: B
         >
           Recording Location
         </label>
+        {selectedStudio === "Home Service" &&
         <input
           id="recordingLocation"
           type="text"
@@ -133,7 +135,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning }: B
           placeholder="Recording Location"
           className="gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none "
           aria-label="recording location"
-        />
+        />}
         <div className="flex gap-4 items-start mt-3 relative 3xl:mt-5 w-full max-md:max-w-full">
           <button onClick={() => setDropdownOpen(!dropdownOpen)} className="flex gap-1 items-center 3xl:py-5 py-4 pr-3 3xl:pr-4 pl-4 3xl:pl-6 whitespace-nowrap rounded-xl bg-[#F5F5F7] text-[#333333] ">
             <p className="self-stretch font-normal font-nunitoSans my-auto">
@@ -200,9 +202,9 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning }: B
             type="tel"
             value={form.whatsappNumber}
             onChange={handleChange}
-            placeholder="Phone number"
+            placeholder="Whatspp number"
             className="flex-1 shrink gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 rounded-xl focus:outline-none bg-[#F5F5F7] "
-            aria-label="Phone number"
+            aria-label="Whatsapp number"
           />
         </div>
         <label

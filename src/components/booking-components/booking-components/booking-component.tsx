@@ -8,6 +8,7 @@ import DateSelector from "./step-two-booking-components/date-selector";
 import SelectTime from './step-two-booking-components/select-time';
 import SelectDuration from "./step-two-booking-components/select-duration";
 // import CustomServices from "./step-two-booking-components/custom-services";
+import BookingConfirmation from "./step-three-booking-components/bookingConfirmation";
 import FormSection from "./step-three-booking-components/form-section";
 import BookingSummary from "./step-three-booking-components/booking-summary";
 import PackageSection from "./step-one-bookingComponents/package-section";
@@ -16,6 +17,7 @@ import { toast } from "react-toastify";
 import Image from "next/image";
 import { DurationProvider } from "@/contex/durationContext";
 import EquipmentSection from "./step-one-bookingComponents/recording-EquipmentList";
+import { useRouter } from "next/navigation";
 
 
 
@@ -37,6 +39,7 @@ const StudioBooking= () => {
   const selectedStudio = studio?.[selectedStudioIndex] || null;
    const [checked, setChecked] = useState<boolean>(false);
    const [showWarning, setShowWarning] = useState<boolean>(false);
+   const router = useRouter();
   const [form, setForm] = useState({
       fullName: "",
       email: "",
@@ -50,7 +53,7 @@ const StudioBooking= () => {
 
   const tabs = ["Step 1", "Step 2", "Step 3", "Step 4"];
   
-
+ 
 
 
   // get studios
@@ -191,21 +194,37 @@ const StudioBooking= () => {
   const isStepTwo = currentStep === 1;
   const isStepThree = currentStep === 2;
   const isStepFour = currentStep === 3;
+  const isComplete = currentStep === 4;
+
   
   // step navigation
+  // const handleContinue = useCallback(() => {
+  //   if (isStepFour && !checked) {
+  //     setShowWarning(true);
+  //     return; // Prevent navigation if unchecked
+  //   }
+  //   // setShowWarning(false);
+  //   if (currentStep < tabs.length - 1) {
+  //     setCurrentStep(prev => prev + 1);
+  //   }
+  //   // if (currentStep === 4) {
+  //   //   router.push('/');
+  //   // }
+  // }, [currentStep, tabs.length, checked, isStepFour]);
   const handleContinue = useCallback(() => {
     if (isStepFour && !checked) {
       setShowWarning(true);
-      return; // Prevent navigation if unchecked
+      return;
     }
-    // setShowWarning(false);
-    if (currentStep < tabs.length - 1) {
-      setCurrentStep(prev => prev + 1);
-    }
-  }, [currentStep, tabs.length, checked, isStepFour]);
+    
+    if(isComplete){
+      router.push('/')
+    } else{
+    setCurrentStep(prev => prev + 1);}
+  }, [checked, isStepFour,isComplete, router]);
 
   
-
+  
 
 
   return (
@@ -214,7 +233,7 @@ const StudioBooking= () => {
       <div className="flex flex-col w-full lg:h-screen bg-[#FCFCFC]">
         <div className="flex-1 overflow-y-auto lg:pb-24">
           <div className=" relative mx-auto px-5 pt-11 3xl:px-8 3xl:pt-8">
-            <TabList tabs={tabs} currentStep={currentStep} setActiveIndex={setCurrentStep}/>
+            {isComplete ? "" : <TabList tabs={tabs} currentStep={currentStep} setActiveIndex={setCurrentStep}/>}
             {isStepOne && <div className="pb-10">
               <StudioCardList
               selectedStudioIndex={selectedStudioIndex} 
@@ -266,9 +285,16 @@ const StudioBooking= () => {
                 book={bookStudio}
                 checked={checked}
                 setChecked={setChecked}
+                selectedStudio={selectedStudio?.name}
                 showWarning={showWarning}
                 />
                 <BookingSummary booking={receipt}/>
+                
+              </div>
+            }{
+              isComplete &&
+              <div>
+                <BookingConfirmation/>
               </div>
             }
           </div>
@@ -276,10 +302,10 @@ const StudioBooking= () => {
       </div>
       <div className="px-3 xl:pl-3 xl:pr-7 3xl:px-5 sticky bottom-[14px] lg:bottom-4 w-full">
       <TotalCost 
-        description={!isStepFour ? selectedPackage?.name : ''} 
-        total={!isStepFour ? selectedPackage?.price_per_hour : ''}
-        currency={!isStepFour ? selectedPackage?.currency : ''}
-        buttonText={!isStepFour ? 'Continue' : 'Continue'}
+        description={isStepOne || isComplete ? "" : selectedPackage?.name} 
+        total={isStepOne || isComplete  ? '' : selectedPackage?.price_per_hour}
+        currency={isStepOne || isComplete  ? '' : selectedPackage?.currency}
+        buttonText={!isComplete  ? 'Continue' : 'Go to HomePage'}
         onContinue={handleContinue}
       />
       </div>

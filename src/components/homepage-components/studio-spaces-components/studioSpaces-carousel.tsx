@@ -62,6 +62,33 @@ const StudioSpacesCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [imageIndex, setImageIndex] = useState(new Array(slides.length).fill(0)); // Track which image is displayed for each slide
   const [gapSize, setGapSize] = useState(280);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      handleNext();
+    } else if (isRightSwipe) {
+      handlePrevious();
+    }
+  };
 
   // Update gap size on mount and window resize
   useEffect(() => {
@@ -125,7 +152,10 @@ const StudioSpacesCarousel = () => {
   };
 
   return (
-    <div className="relative w-full h-full overflow-hidden">
+    <div
+    onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd} className="relative w-full h-full overflow-hidden">
       {/* Main Content */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[85%] h-[90%]">
         {slides.map((slide, index) => (

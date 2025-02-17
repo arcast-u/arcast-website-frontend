@@ -23,8 +23,16 @@ export default {
   		'3xl': '1700px'
   	},
   	extend: {
-		animation: {
-			'spin-slow': 'spin 5s linear infinite', // 5-second spin duration
+		  animation: {
+			'spin-slow': 'spin 5s linear infinite',
+			'marquee-up': 'marquee-up 15s linear infinite',
+			'marquee-up-delayed': 'marquee-up 20s linear infinite',
+		  },
+		  keyframes: {
+			'marquee-up': {
+			  '0%': { transform: 'translateY(0)' },
+			  '100%': { transform: 'translateY(-50%)' },
+			},
 		  },
 		  backgroundImage: {
 			'custom-gradient': 'linear-gradient(#FCFCFC, #FCFCFC00, #FCFCFC00, #FCFCFC)',

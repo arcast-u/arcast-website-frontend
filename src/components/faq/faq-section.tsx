@@ -14,7 +14,7 @@ export const FAQSection = () => {
         <div className='w-[80%]'>
           <p className="text-neutral-400">Our studio&apos;s prime location is in Dubai Media City</p>
           <div className="mt-2 3xl:mt-3">
-            <div className="flex flex-wrap gap-2 items-center text-neutral-400">
+            <div className="flex flex-wrap gap-2 items-start text-neutral-400">
               <HiOutlineLocationMarker className='3xl:size-6 size-4 stroke-[1.5px] text-[#989898]'/>
               <p className="flex-1 shrink self-stretch my-auto basis-0 max-md:max-w-full">
                 Loft Offices 3, Dubai - Ideal for corporate podcasts and business content.

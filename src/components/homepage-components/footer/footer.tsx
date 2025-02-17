@@ -26,8 +26,8 @@ const Footer = () => {
               <div className="text-[#333333] mt-8 3xl:mt-16">
                 {/* Location Section */}
                 <div className="flex items-start gap-2 mb-2">
-                    <HiOutlineLocationMarker className='3xl:size-6 mt-1 size-4 stroke-[1.5px] text-[#333333]'/>
-                    <p className="">Dubai Media City, Loft Offices 2, Entrance C, Office 210</p>
+                    <HiOutlineLocationMarker className='3xl:size-6 size-4 stroke-[1.5px] text-[#333333]'/>
+                    <p className="text-[13px] md:text-sm leading-[19.1px]">Dubai Media City, Loft Offices 2, Entrance C, Office 210</p>
                 </div>
                 
                 {/* Location Link */}
