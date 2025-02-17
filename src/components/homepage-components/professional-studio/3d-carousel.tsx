@@ -45,7 +45,7 @@ const Card = ({ title, price, style, description, src, isMultiCamVisible, isVisi
     <Image src={src} alt={title} width={100} height={100} className={`w-full ${inFocus ? 'h-full' : 'h-[85%]'} relative shadow-lg object-cover rounded-2xl`}/>
     {/* Multi-Cam Recording Toggle */}
     {inFocus && <div 
-        className={` p-4 3xl:p-6 absolute w-[80%] font-medium bottom-7 font-nunitoSans rounded-2xl  cursor-pointer hover:shadow-lg transition ${isMultiCamVisible ? 'bg-white' : 'bg-transparent'}`}
+        className={` p-3 3xl:p-4 absolute w-[88%] font-medium bottom-4 lg:bottom-7 font-nunitoSans rounded-2xl  cursor-pointer hover:shadow-lg transition ${isMultiCamVisible ? 'bg-white' : 'bg-transparent'}`}
         onClick={() => isVisible()}
       >
         <div className={`flex items-center  ${isMultiCamVisible ? 'text-[#333333] justify-between' : 'text-[#FCFCFC] gap-1'}`}>
@@ -184,14 +184,14 @@ const Carousel3D = () => {
       <div className="absolute bottom-4 w-[90%] lg:w-auto lg:right-10 flex justify-between lg:justify-end gap-2">
         <button 
           onClick={handlePrevious}
-          className=" p-2 rounded-lg border-[1.5px] border-gray-500 shadow-sm "
+          className="p-1 md:p-2 rounded-lg border-[1.5px] border-gray-500 shadow-sm "
         >
           <IoIosArrowBack className="size-4 text-gray-500" />
         </button>
         
         <button 
           onClick={handleNext}
-          className=" p-2 rounded-lg border-[1.5px] border-gray-500 shadow-sm"
+          className="p-1 md:p-2 rounded-lg border-[1.5px] border-gray-500 shadow-sm"
         >
           <IoIosArrowForward className="size-4 text-gray-500" />
         </button>

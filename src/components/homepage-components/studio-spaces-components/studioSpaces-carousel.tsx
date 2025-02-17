@@ -182,11 +182,11 @@ const StudioSpacesCarousel = () => {
 
       {/* Slide Navigation */}
       <div className="absolute z-40 top-0 w-[90%] lg:w-auto lg:right-10 flex justify-between lg:justify-end gap-2">
-        <button onClick={handlePrevious} className="p-2 rounded-lg ml-9 lg:ml-0  border-[1.5px] border-gray-500 shadow-sm">
+        <button onClick={handlePrevious} className="p-1 md:p-2 rounded-lg ml-9 lg:ml-0  border-[1.5px] border-gray-500 shadow-sm">
           <IoIosArrowBack className="size-4 text-gray-500" />
         </button>
 
-        <button onClick={handleNext} className="p-2 rounded-lg border-[1.5px] border-gray-500 shadow-sm">
+        <button onClick={handleNext} className="p-1 md:p-2 rounded-lg border-[1.5px] border-gray-500 shadow-sm">
           <IoIosArrowForward className="size-4 text-gray-500" />
         </button>
       </div>
