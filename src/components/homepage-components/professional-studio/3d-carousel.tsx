@@ -77,6 +77,33 @@ const Carousel3D = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isMultiCamVisible, setMultiCamVisible] = useState(false);
   const [gapSize, setGapSize] = useState(500);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
+
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe) {
+      handleNext();
+    } else if (isRightSwipe) {
+      handlePrevious();
+    }
+  };
   
     // Update gap size on mount and window resize
   useEffect(() => {
@@ -163,7 +190,10 @@ const Carousel3D = () => {
   };
 
   return (
-    <div className="relative w-full h-[500px] 3xl:h-[780px] flex items-center justify-center overflow-hidden">
+    <div
+    onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd} className="relative w-full h-[500px] 3xl:h-[780px] flex items-center justify-center overflow-hidden">
       {/* Carousel Container */}
       <div className="relative w-[300px] h-[400px] 3xl:w-[520px] flex rounded-2xl p-4 border-[0.8px] bg-transparent border-[#989898] 3xl:h-[680px] mb-8 lg:mb-0">
         {cards.map((card, index) => (

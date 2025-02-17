@@ -9,22 +9,32 @@ interface NavigationItemProps {
   path: string;
   hasDropdown?: boolean;
   isStudioOpen?: boolean;
-  openStudio: () => void
+  isContactOpen?: boolean;
+  openStudio: (value: boolean) => void;
+  openContact: (value: boolean) => void;
 }
 
-const NavigationItem: React.FC<NavigationItemProps> = ({ label, path, hasDropdown, openStudio, isStudioOpen }) => {
+const NavigationItem: React.FC<NavigationItemProps> = ({ label, path, hasDropdown, openStudio, isStudioOpen, openContact, isContactOpen }) => {
     const pathname = usePathname();
     const isActive = pathname === path;
+
+    const clickHandler = () => {
+      if (hasDropdown) {
+        openStudio(!isStudioOpen);
+      } else if (label === 'Contact Us') {
+        openContact(!isContactOpen);
+      }
+    };
 
     
   return (
     <div className='flex flex-col whitespace-nowrap'>
       <div className={`w-full ${hasDropdown ? '' : 'self-stretch'}`}>
-        <button 
+        <button  onClick={clickHandler}
         className={`flex justify-center cursor-none ${isStudioOpen === true ? "text-[#333333]" : "text-[#FCFCFC]"} font-normal font-nunitoSans text-sm 3xl:text-base leading-[21.82px] items-center`}>
             <span className=" my-auto">{label}</span>
             {hasDropdown && (
-            <TbCaretDown onClick={openStudio} className="size-5 stroke-[1px]"/>
+            <TbCaretDown className="size-5 stroke-[1px]"/>
             )}
             </button>
         {(isActive || (isStudioOpen && hasDropdown)) && (

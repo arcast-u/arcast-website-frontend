@@ -5,6 +5,7 @@ import { GoGlobe } from "react-icons/go";
 import { TbCaretDown, TbCaretRight} from "react-icons/tb";
 import { IoIosMenu } from "react-icons/io";
 import ChooseSetup from './studio-Dropdown';
+import ContactOverlay from '../contact-components/contact-overlay';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -23,7 +24,7 @@ const navigationItems: NavigationItemData[] = [
   { label: 'Packages', path: '/packages' },
   { label: 'Memberships', path: '/membership' },
   { label: 'About Us', path: '/about-us'},
-  { label: 'Contact Us', path: '/contact-us' },
+  { label: 'Contact Us', path: '' },
   { label: 'Blog', path: '/blog'},
 ];
 
@@ -31,10 +32,13 @@ const NavigationBar= () => {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const [isStudioOpen, setIsStudioOpen] = useState(false);
-  const bookSession = () => {router.push('/book-session');};
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
+
+  const bookSession = () => {router.push('/book-session')};
   return (
     <nav className="flex w-full justify-between items-center px-[21px] lg:px-10 lg:pt-4 lg:pb-5 3xl:px-[100px] 3xl:pt-6 py-2 3xl:pb-8 text-base font-medium " aria-label="Main Navigation">
-      <div className={`${isOpen || isStudioOpen ? 'bg-[#FCFCFC] rounded-t-xl pt-3 lg:pr-6' : 'bg-transparent'} flex relative w-full mx-auto justify-between gap-6 items-center self-stretch my-auto max-md:max-w-full`}>
+      <div className={`${isOpen || isStudioOpen ? 'bg-[#FCFCFC] rounded-t-xl pt-3 pb-2 lg:pr-6' : 'bg-transparent'} flex relative w-full mx-auto justify-between gap-6 items-center self-stretch my-auto max-md:max-w-full`}>
             {isOpen || isStudioOpen  ?
             <Image
             src="/icons/logodarv.svg"
@@ -61,6 +65,8 @@ const NavigationBar= () => {
                             hasDropdown={item.hasDropdown}
                             openStudio={() => setIsStudioOpen(!isStudioOpen)}
                             isStudioOpen={isStudioOpen}
+                            openContact={() => setIsContactOpen(!isContactOpen)}
+                            isContactOpen={isContactOpen}
                             />
                         </Link>
                     </li>
@@ -84,9 +90,19 @@ const NavigationBar= () => {
             <div className="absolute top-10 left-0 w-full bg-[#FCFCFC] shadow-lg rounded-b-xl p-6 flex flex-col gap-4">
               <ul className="flex flex-col font-nunitoSans  gap-4 text-2xl font-medium">
               {navigationItems.map((item, index) => (
-                <li key={index}>
+                <li onClick={(e) => {
+                  e.preventDefault();
+                  if (item.label === 'Studios') {
+                    setIsStudioOpen(!isStudioOpen);
+                  } else if (item.label === 'Contact Us') {
+                    setIsContactOpen(!isContactOpen);
+                  } else if (item.path) {
+                    router.push(item.path);
+                  }
+                }}
+                 key={index}>
                   <Link 
-                    href={item.path} 
+                    href={item.path || '#'} 
                     className="flex gap-1 items-center py-2 text-[#333333] hover:bg-white"
                   >
                     {item.label} 
@@ -103,6 +119,10 @@ const NavigationBar= () => {
           </div>
           )}
           {isStudioOpen && <ChooseSetup />}
+          <ContactOverlay 
+            isOpen={isContactOpen} 
+            onClose={() => setIsContactOpen(false)} 
+          />
         </div>
     </nav>
   );
