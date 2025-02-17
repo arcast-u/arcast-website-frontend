@@ -221,7 +221,7 @@ const StudioBooking= () => {
     if(isComplete){
       router.push('/')
     }
-  }, [checked, isStepFour]);
+  }, [checked, isStepFour,isComplete, router]);
 
   
   

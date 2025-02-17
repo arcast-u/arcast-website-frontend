@@ -1,6 +1,5 @@
 import React from 'react'
 import CommunityHeader from './community-header';
-import Image from 'next/image';
 import TestimonialMarquee from './testimonial';
 
 function Community() {
