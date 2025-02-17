@@ -67,7 +67,7 @@ const NavigationBar= () => {
                     ))}
                 </ul>
                 
-                <div onClick={bookSession} className=" w-fit ml-5 xl:ml-14 3xl:ml-16 hidden hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#64391E] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] ">
+                <div onClick={bookSession} className=" w-fit ml-4 xl:ml-14 3xl:ml-16 hidden hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#64391E] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] ">
                   <button className="flex-1 bg-[#FF8C42] w-fit px-3 py-2 3xl:px-4 3xl:py-3 rounded-lg">
                     Book Your Session
                   </button>
