@@ -59,10 +59,10 @@ const ContactOverlay = ({ isOpen, onClose }: ContactOverlayProps) => {
                 <div className='w-[87%]'>
                   <h1 className="text-2xl leading-8 font-medium font-hankenGrotesk text-[#333333] 3xl:text-3xl 3xl:leading-[39.9px] mb-2 3xl:mb-3">Contact Us</h1>
                   <p className="text-[#333333] font-normal text-sm 3xl:text-lg 3xl:leading-[24.55px] leading-[19.1px] mb-2">
-                    Whether you're ready to record or just have questions, we're here to help.
+                    Whether you&apos;re ready to record or just have questions, we&apos;re here to help.
                   </p>
                   <p className="text-[#333333] font-normal text-sm 3xl:text-lg 3xl:leading-[24.55px] leading-[19.1px]">
-                    Fill out the form below and we'll get back to you within 5 minutes.
+                    Fill out the form below and we&apos;ll get back to you within 5 minutes.
                   </p>
                 </div>
 

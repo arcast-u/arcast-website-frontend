@@ -25,7 +25,7 @@ const BookingConfirmation = () => {
       </p>
 
       {/* Contact Information */}
-      <div className="text-center text-base 3xl:text-xl mb-12">
+      <div className="text-center text-base 3xl:text-xl ">
         <p className="text-[#989898] mb-2">
           If you need assistance, contact us at
         </p>

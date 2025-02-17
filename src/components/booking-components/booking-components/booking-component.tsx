@@ -217,10 +217,10 @@ const StudioBooking= () => {
       return;
     }
     
-    setCurrentStep(prev => prev + 1);
     if(isComplete){
       router.push('/')
-    }
+    } else{
+    setCurrentStep(prev => prev + 1);}
   }, [checked, isStepFour,isComplete, router]);
 
   
@@ -302,9 +302,9 @@ const StudioBooking= () => {
       </div>
       <div className="px-3 xl:pl-3 xl:pr-7 3xl:px-5 sticky bottom-[14px] lg:bottom-4 w-full">
       <TotalCost 
-        description={!isStepOne || isComplete ? selectedPackage?.name : ''} 
-        total={!isStepOne || isComplete  ? selectedPackage?.price_per_hour : ''}
-        currency={!isStepOne || isComplete  ? selectedPackage?.currency : ''}
+        description={isStepOne || isComplete ? "" : selectedPackage?.name} 
+        total={isStepOne || isComplete  ? '' : selectedPackage?.price_per_hour}
+        currency={isStepOne || isComplete  ? '' : selectedPackage?.currency}
         buttonText={!isComplete  ? 'Continue' : 'Go to HomePage'}
         onContinue={handleContinue}
       />
