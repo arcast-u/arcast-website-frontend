@@ -1,15 +1,15 @@
-'use client'
-import React, {useState} from 'react'
+
+import React from 'react'
 import NavigationBar from '@/components/homepage-components/nav-bar';
-import TabList from '@/components/booking-components/booking-components/navigation-tabList';
-import { PricingDisplay } from '@/components/packages-components/pricingDisplay';
-import NewsletterSignup from '@/components/homepage-components/newsletter/newsletter';
-import Footer from '@/components/homepage-components/footer/footer';
+// import TabList from '@/components/booking-components/booking-components/navigation-tabList';
+// import { PricingDisplay } from '@/components/packages-components/pricingDisplay';
+// import NewsletterSignup from '@/components/homepage-components/newsletter/newsletter';
+// import Footer from '@/components/homepage-components/footer/footer';
 
 
 
 const Page = () => {
-  const [currentStep, setCurrentStep] = useState(0);
+  // const [currentStep, setCurrentStep] = useState(0);
   return (
     <div className='bg-[#FCFCFC]'>
       <NavigationBar/>
