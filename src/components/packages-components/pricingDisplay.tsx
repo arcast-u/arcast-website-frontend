@@ -1,0 +1,85 @@
+import React from 'react';
+import { PricingItemProps } from './starter-components/pricingItemOne';
+import { Timeline } from './starter-components/timelineOne';
+import Image from 'next/image';
+
+
+const pricingItems: PricingItemProps[] = [
+    {
+      imageSrc: "/images/custom3.webp",
+      title: "2 hours of Recording + Professional Edit",
+      price: "AED 1800",
+    },
+    {
+      imageSrc: "/images/custom3.webp",
+      title: "1 Standard Episode Edit",
+      price: "AED 440",
+    },
+    {
+      imageSrc: "/images/custom1.webp",
+      title: "1 Standard Reel",
+      price: "AED 176",
+    },
+    {
+      imageSrc: "/images/custom11.webp",
+      title: "Teleprompter ",
+      price: "AED 76",
+    },
+  ];
+
+export const PricingDisplay = () => {
+    return (
+      <div className="flex justify-center max-w-[1400px] mx-auto">
+        <div className="grid grid-cols-[1fr,auto,1fr] gap-10 items-start">
+          {pricingItems.map((item, index) => (
+            <React.Fragment key={index}>
+              {/* Left side */}
+              <div className={`flex justify-end ${index > 0 ? "mt-[17rem] max-md:mt-10" : "mt-0"}`}>
+                {index % 2 === 0 ? (
+                  <Image
+                    loading="lazy"
+                    width={287}
+                    height={260}
+                    src={item.imageSrc}
+                    alt={item.title || "Pricing item image"}
+                    className="object-contain rounded-xl 3xl:w-[453px] 3xl:h-[360px] self-start max-md:max-w-full"
+                  />
+                ) : (
+                  <div className="flex flex-col">
+                    <h2 className="3xl:text-2xl text-[#333333] font-hankenGrotesk font-normal text-base leading-5">{item.title}</h2>
+                    <p className="3xl:mt-2 mt-1 text-[#989898] 3xl:text-2xl font-nunitoSans text-lg leading-[19.1px] font-medium">{item.price}</p>
+                  </div>
+                )}
+              </div>
+  
+              {/* Timeline - only render once */}
+              {index === 0 && (
+                <div className="row-span-5">
+                  <Timeline />
+                </div>
+              )}
+  
+              {/* Right side */}
+              <div className={`${index > 0 ? "mt-[17rem] max-md:mt-10" : "mt-0"}`}>
+                {index % 2 === 0 ? (
+                  <div className="flex flex-col">
+                    <h2 className="3xl:text-2xl text-[#333333] font-hankenGrotesk font-normal text-base leading-5">{item.title}</h2>
+                    <p className="3xl:mt-2 mt-1 text-[#989898] 3xl:text-2xl font-nunitoSans text-lg leading-[19.1px] font-medium">{item.price}</p>
+                  </div>
+                ) : (
+                  <Image
+                    loading="lazy"
+                    width={287}
+                    height={260}
+                    src={item.imageSrc}
+                    alt={item.title || "Pricing item image"}
+                    className="object-contain rounded-xl 3xl:w-[453px] 3xl:h-[360px] max-md:max-w-full"
+                  />
+                )}
+              </div>
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    );
+  };
