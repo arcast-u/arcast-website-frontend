@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Hanken_Grotesk, Nunito_Sans, Mulish } from 'next/font/google';
+import { FacebookPixelScript } from '@/lib/metaTag';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cursor from '@/components/custom-cursor';
@@ -39,6 +40,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
+       <head>
+        <FacebookPixelScript />
+      </head>
       <body
         className={`${hankenGrotesk.variable} ${nunitoSans.variable}  ${mulish.variable} antialiased cursor-none`}
       >
