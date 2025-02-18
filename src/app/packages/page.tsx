@@ -1,6 +1,6 @@
-
+'use client'
 import React from 'react'
-import NavigationBar from '@/components/homepage-components/nav-bar';
+// import NavigationBar from '@/components/homepage-components/nav-bar';
 // import TabList from '@/components/booking-components/booking-components/navigation-tabList';
 // import { PricingDisplay } from '@/components/packages-components/pricingDisplay';
 // import NewsletterSignup from '@/components/homepage-components/newsletter/newsletter';
