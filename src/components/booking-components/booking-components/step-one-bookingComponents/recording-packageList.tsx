@@ -11,6 +11,11 @@ interface props{
 
 
 export const RecordingPackageSelection = ({selectedPackageIndex, setSelectedPackageIndex, packages}: props) => {
+  const sortedPackages = packages?.sort((a, b) => {
+    if (a.name === "Recording (Video + Audio)") return -1;
+    if (b.name === "Recording (Video + Audio)") return 1;
+    return 0;
+  });
 
   return (
     <main className="mx-auto w-full mt-10 ">
@@ -18,7 +23,7 @@ export const RecordingPackageSelection = ({selectedPackageIndex, setSelectedPack
         Select your recording package
       </h1>
       <div className="flex flex-col gap-5 justify-center mt-3 w-full">
-      {packages?.map((packageItem, index) => (
+      {sortedPackages?.map((packageItem, index) => (
         <div key={packageItem.id}>
         <RecordingPackageCard 
           features={packageItem.packagePerks || []} 

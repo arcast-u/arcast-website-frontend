@@ -23,6 +23,8 @@ import { useRouter } from "next/navigation";
 
 
 const StudioBooking= () => {
+  const [isStorageLoaded, setIsStorageLoaded] = useState(false);
+  const [currentStep, setCurrentStep] = useState(0);
   const [studio, setStudio] = useState<StudioProps[] | null>(null);
   const [packages, setPackages] = useState<PackageProps[] | null>(null);
   const [selectedPackageIndex, setSelectedPackageIndex] = useState<number>(0);
@@ -36,11 +38,9 @@ const StudioBooking= () => {
   const [duration, setDuration] = useState(1);
   const selectedPackage = packages?.[selectedPackageIndex] || null;
   const selectedStudio = studio?.[selectedStudioIndex] || null;
-  const [checked, setChecked] = useState<boolean>(false);
-  const [showWarning, setShowWarning] = useState<boolean>(false);
-  const router = useRouter();
-  const tabs = ["Step 1", "Step 2", "Step 3", "Step 4"];
-  const [currentStep, setCurrentStep] = useState(0);
+   const [checked, setChecked] = useState<boolean>(false);
+   const [showWarning, setShowWarning] = useState<boolean>(false);
+   const router = useRouter();
   const [form, setForm] = useState({
       fullName: "",
       email: "",
@@ -52,6 +52,7 @@ const StudioBooking= () => {
       recordingLocation: '',
     });
 
+  const tabs = ["Step 1", "Step 2", "Step 3", "Step 4"];
   
  
 
@@ -72,9 +73,9 @@ const StudioBooking= () => {
             const data = await response.json();
            
             setStudio(data);
-            if (data.length > 0) {
-              setPackages(data[0].packages || []); 
-            }
+            // if (data.length > 0) {
+            //   setPackages(data[0].packages || []); 
+            // }
         } catch (error: unknown) {
             
           if (error instanceof Error) { 
@@ -88,6 +89,7 @@ const StudioBooking= () => {
 
     fetchStudios();
   }, []);
+  
   
   useEffect(() => {
     if (studio && studio[selectedStudioIndex]) {
@@ -201,18 +203,87 @@ const StudioBooking= () => {
   const isComplete = currentStep === 4;
 
   
-  // step navigation
+  // Load saved state
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('bookingProgress');
+      if (saved) {
+        const savedState = JSON.parse(saved);
+        setCurrentStep(savedState.currentStep ?? 0);
+        setSelectedStudioIndex(savedState.selectedStudioIndex ?? 0);
+        setSelectedPackageIndex(savedState.selectedPackageIndex ?? 0);
+        setSelectedPeopleCount(savedState.selectedPeopleCount ?? 1);
+        if (savedState.date) {
+          setDate(new Date(savedState.date));
+        }
+        setSelectedTimeSlot(savedState.selectedTimeSlot ?? "10:00");
+        setDuration(savedState.duration ?? 1);
+        if (savedState.form) {
+          setForm(savedState.form);
+        }
+      }
+    } catch (error) {
+      console.error('Error loading saved state:', error);
+    } finally {
+      setIsStorageLoaded(true);
+    }
+  }, []);
+
+  // Save progress
+  useEffect(() => {
+    if (!isStorageLoaded) return; // Don't save until initial load is complete
+
+    const progressState = {
+      currentStep,
+      selectedStudioIndex,
+      selectedPackageIndex,
+      selectedPeopleCount,
+      date: date?.toISOString(),
+      selectedTimeSlot,
+      duration,
+      form
+    };
+    
+    try {
+      localStorage.setItem('bookingProgress', JSON.stringify(progressState));
+    } catch (error) {
+      console.error('Error saving state:', error);
+    }
+  }, [
+    isStorageLoaded,
+    currentStep,
+    selectedStudioIndex,
+    selectedPackageIndex,
+    selectedPeopleCount,
+    date,
+    selectedTimeSlot,
+    duration,
+    form
+  ]);
+
+  // Clear progress on completion
+  const clearProgress = useCallback(() => {
+    try {
+      localStorage.removeItem('bookingProgress');
+    } catch (error) {
+      console.error('Error clearing progress:', error);
+    }
+  }, []);
+
+  // Modified handle continue
   const handleContinue = useCallback(() => {
     if (isStepFour && !checked) {
       setShowWarning(true);
       return;
     }
     
-    if(isComplete){
-      router.push('/')
-    } else{
-    setCurrentStep(prev => prev + 1);}
-  }, [checked, isStepFour,isComplete, router]);
+    if(isComplete) {
+      clearProgress();
+      router.push('/');
+    } else {
+      setCurrentStep((prev: number) => prev + 1);
+    }
+  }, [checked, isStepFour, isComplete, router, clearProgress]);
 
   
   
