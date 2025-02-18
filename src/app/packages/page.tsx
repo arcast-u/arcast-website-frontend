@@ -1,4 +1,4 @@
-
+'use client'
 import React from 'react'
 import NavigationBar from '@/components/homepage-components/nav-bar';
 // import TabList from '@/components/booking-components/booking-components/navigation-tabList';
