@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 
 function Hero() {
   const router = useRouter();
-  const bookSession = () => {router.push('/book-session');};
+  const bookSession = () => {router.push('/bookings');};
   return (
     <div className="h-screen w-full mx-auto flex flex-col md:bg-[url('/images/studio6.webp')] bg-[url('/images/studio6.png')] bg-cover">
         <NavigationBar/>
