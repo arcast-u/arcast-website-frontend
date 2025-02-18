@@ -184,8 +184,11 @@ const StudioBooking= () => {
   
       
     } catch (error) {
-      console.error("Error booking studio:", error);
-      toast.error('Error booking studio');
+      if (error instanceof Error) {
+        toast.error(error.message);
+      } else {
+        toast.error("An unexpected error occurred");
+      }
       return null; // Handle error gracefully
     }
   };

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Hanken_Grotesk, Nunito_Sans, Mulish } from 'next/font/google';
 import { AnalyticScripts } from '@/lib/analyticScripts';
+import { LinkedInScripts } from '@/lib/linkedinscript';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cursor from '@/components/custom-cursor';
@@ -49,6 +50,7 @@ export default function RootLayout({
         <Cursor/>
         <ToastContainer position="top-right" autoClose={3000} />
         {children}
+        <LinkedInScripts/>
       </body>
     </html>
   );
