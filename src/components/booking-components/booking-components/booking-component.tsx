@@ -23,7 +23,6 @@ import { useRouter } from "next/navigation";
 
 
 const StudioBooking= () => {
-  const [currentStep, setCurrentStep] = useState(0);
   const [studio, setStudio] = useState<StudioProps[] | null>(null);
   const [packages, setPackages] = useState<PackageProps[] | null>(null);
   const [selectedPackageIndex, setSelectedPackageIndex] = useState<number>(0);
@@ -37,9 +36,11 @@ const StudioBooking= () => {
   const [duration, setDuration] = useState(1);
   const selectedPackage = packages?.[selectedPackageIndex] || null;
   const selectedStudio = studio?.[selectedStudioIndex] || null;
-   const [checked, setChecked] = useState<boolean>(false);
-   const [showWarning, setShowWarning] = useState<boolean>(false);
-   const router = useRouter();
+  const [checked, setChecked] = useState<boolean>(false);
+  const [showWarning, setShowWarning] = useState<boolean>(false);
+  const router = useRouter();
+  const tabs = ["Step 1", "Step 2", "Step 3", "Step 4"];
+  const [currentStep, setCurrentStep] = useState(0);
   const [form, setForm] = useState({
       fullName: "",
       email: "",
@@ -51,7 +52,6 @@ const StudioBooking= () => {
       recordingLocation: '',
     });
 
-  const tabs = ["Step 1", "Step 2", "Step 3", "Step 4"];
   
  
 
@@ -202,19 +202,6 @@ const StudioBooking= () => {
 
   
   // step navigation
-  // const handleContinue = useCallback(() => {
-  //   if (isStepFour && !checked) {
-  //     setShowWarning(true);
-  //     return; // Prevent navigation if unchecked
-  //   }
-  //   // setShowWarning(false);
-  //   if (currentStep < tabs.length - 1) {
-  //     setCurrentStep(prev => prev + 1);
-  //   }
-  //   // if (currentStep === 4) {
-  //   //   router.push('/');
-  //   // }
-  // }, [currentStep, tabs.length, checked, isStepFour]);
   const handleContinue = useCallback(() => {
     if (isStepFour && !checked) {
       setShowWarning(true);
