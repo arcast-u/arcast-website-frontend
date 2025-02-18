@@ -125,3 +125,24 @@ export interface BookingProps {
     discountCode: string | null;
     notionEntryId: string;
 }
+
+
+export interface StoredBookingData {
+  currentStep: number;
+  selectedStudioIndex: number;
+  selectedPackageIndex: number;
+  selectedPeopleCount: number;
+  selectedDate: string | null;
+  selectedTimeSlot: string;
+  duration: number;
+  form: {
+    fullName: string;
+    email: string;
+    phoneNumber: string;
+    whatsappNumber: string;
+    countryCode: string;
+    whatsappCountryCode: string;
+    discountCode: string;
+    recordingLocation: string;
+  };
+}
