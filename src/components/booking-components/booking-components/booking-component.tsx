@@ -46,8 +46,8 @@ const StudioBooking= () => {
       email: "",
       phoneNumber: "",
       whatsappNumber: "",
-      countryCode: "",
-      whatsappCountryCode: "",
+      countryCode: "+971",
+      whatsappCountryCode: "+971",
       discountCode:"",
       recordingLocation: '',
     });
@@ -94,7 +94,7 @@ const StudioBooking= () => {
   useEffect(() => {
     if (studio && studio[selectedStudioIndex]) {
       setPackages(studio[selectedStudioIndex].packages || []);
-      setSelectedPackageIndex(0); 
+      // setSelectedPackageIndex(0); 
     }
   }, [selectedStudioIndex, studio]);
 
@@ -181,7 +181,7 @@ const StudioBooking= () => {
         return data;
         
       } else{
-        toast.error(`HTTP error! Status: ${response.status}`);
+        toast.error(`An unexpected error occurred`);
         return null;
       }
   
