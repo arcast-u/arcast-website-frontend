@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSpring, animated, SpringValue } from '@react-spring/web'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import Image from 'next/image'
@@ -51,8 +51,28 @@ const CitySlider = () => {
   const [index, setIndex] = useState(0)
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
-
+  const [gapSize, setGapSize] = useState(10);
   const minSwipeDistance = 50;
+
+    // Update gap size on mount and window resize
+    useEffect(() => {
+      const updateGapSize = () => {
+        const width = window.innerWidth;
+        if (width < 640) { // mobile
+          setGapSize(100);
+        } else if (width < 1024) { // tablet
+          setGapSize(30);
+        } else if (width < 1200) { // notebook
+          setGapSize(15);
+        } else { // desktop
+          setGapSize(10);
+        }
+      };
+  
+      updateGapSize();
+      window.addEventListener('resize', updateGapSize);
+      return () => window.removeEventListener('resize', updateGapSize);
+    }, []);
 
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);
@@ -80,7 +100,7 @@ const CitySlider = () => {
 
   // Use styles object instead of destructuring
   const styles = useSpring({
-    transform: `translateX(-${index * 10}%)`,
+    transform: `translateX(-${index * gapSize}%)`,
     config: { tension: 280, friction: 60 }
   })
 
