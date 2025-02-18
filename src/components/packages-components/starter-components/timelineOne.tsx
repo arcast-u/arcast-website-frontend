@@ -23,7 +23,7 @@ export const Timeline = ({ maxSteps = 3 }: TimelineProps) => {
                 {!isLastStep && num}
               </div>
               {num < maxSteps && (
-                <div className="mt-4 w-[0.8px] border border-solid border-[#B3B3B3] mx-auto min-h-[400px]" role="presentation" aria-hidden="true" />
+                <div className="mt-4 w-[0.8px] border border-solid border-[#B3B3B3] mx-auto h-[250px] md:min-h-[400px]" role="presentation" aria-hidden="true" />
               )}
             </li>
           );
