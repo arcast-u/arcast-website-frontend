@@ -7,27 +7,32 @@ import Image from 'next/image';
 const pricingItems: PricingItemProps[] = [
     {
       imageSrc: "/images/custom3.webp",
-      title: "2 hours of Recording + Professional Edit",
-      price: "AED 1800",
+      title: "6 hours of Recording + Professional Edit",
+      price: "AED 5640",
     },
     {
-      imageSrc: "/images/custom3.webp",
-      title: "1 Standard Episode Edit",
-      price: "AED 440",
+      imageSrc: "/images/custom2.webp",
+      title: "2 Signature Reels",
+      price: "AED 880",
     },
     {
-      imageSrc: "/images/custom1.webp",
-      title: "1 Standard Reel",
-      price: "AED 176",
+      imageSrc: "/images/custom8.webp",
+      title: "Jingle",
+      price: "AED 720",
     },
     {
-      imageSrc: "/images/custom11.webp",
-      title: "Teleprompter ",
-      price: "AED 76",
+      imageSrc: "/images/custom7.webp",
+      title: "Podcast Branding",
+      price: "AED 6400",
+    },
+    {
+      imageSrc: "/images/custom15.webp",
+      title: "Subtitles for up to 2 episodes",
+      price: "AED 880",
     },
   ];
 
-export const PricingDisplay = () => {
+export const PricingDisplayUltimate = () => {
     return (
       <div className="flex justify-center max-w-[1400px]  mx-auto">
         <div className="grid grid-cols-[1fr,auto,1fr] gap-10 items-start">
@@ -55,7 +60,7 @@ export const PricingDisplay = () => {
               {/* Timeline - only render once */}
               {index === 0 && (
                 <div className="row-span-5">
-                  <Timeline  maxSteps={4} />
+                  <Timeline  maxSteps={5} />
                 </div>
               )}
   

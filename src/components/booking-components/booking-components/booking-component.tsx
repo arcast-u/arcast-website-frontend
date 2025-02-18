@@ -45,8 +45,8 @@ const StudioBooking= () => {
       email: "",
       phoneNumber: "",
       whatsappNumber: "",
-      countryCode: "+971",
-      whatsappCountryCode: "+971",
+      countryCode: "",
+      whatsappCountryCode: "",
       discountCode:"",
       recordingLocation: '',
     });
@@ -157,6 +157,7 @@ const StudioBooking= () => {
         fullName: form.fullName,
         email: form.email,
         phoneNumber: form.countryCode + form.phoneNumber,
+        whatsappNumber: form.whatsappCountryCode + form.whatsappNumber,
         recordingLocation: form.recordingLocation,
       }
     };

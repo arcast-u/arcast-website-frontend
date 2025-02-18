@@ -30,12 +30,12 @@ const NavigationBar= () => {
   const navigationItems: NavigationItemData[] = [
   { label: 'Home', path: '/' },
   { label: 'Studios', path: '', hasDropdown: true },
-  { label: 'Packages', path: '/packages' },
+  { label: 'Bundles', path: '/bundles' },
   { label: 'Memberships', path: '/membership' },
   { label: 'About Us', path: '/about-us'},
   { label: 'Contact Us', path: '' },
   { label: 'Blog', path: '/blog'},
-  ...(pathname === '/about-us' || pathname === '/packages' 
+  ...(pathname === '/about-us' || pathname === '/bundles' 
     ? [{ label: 'ENG | ARA', path: '' }] 
     : [])
   ];
@@ -45,7 +45,7 @@ const NavigationBar= () => {
   return (
     <nav className="flex w-full justify-between items-center px-[21px] lg:px-10 lg:pt-4 lg:pb-5 3xl:px-[100px] 3xl:pt-6 py-2 3xl:pb-8 text-base font-medium " aria-label="Main Navigation">
       <div className={`${isOpen || isStudioOpen ? 'bg-[#FCFCFC] rounded-t-xl pt-3 pb-2 lg:pr-6' : 'bg-transparent'} flex relative w-full mx-auto justify-between gap-6 items-center self-stretch my-auto max-md:max-w-full`}>
-            {isOpen || isStudioOpen || pathname === '/packages' ?
+            {isOpen || isStudioOpen || pathname === '/bundles' ?
             <Image
             src="/icons/logodarv.svg"
             alt='logo'
@@ -79,12 +79,13 @@ const NavigationBar= () => {
                     ))}
                 </ul>
                 
-                {pathname !== '/about-us' && pathname !== '/packages' && <div onClick={bookSession} className=" w-fit ml-4 xl:ml-14 3xl:ml-16 hidden hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#64391E] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] ">
+                {pathname !== '/about-us' && pathname !== '/bundles' && 
+                <div onClick={bookSession} className=" w-fit ml-4 xl:ml-14 3xl:ml-16 hidden hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#64391E] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] ">
                   <button className="flex-1 bg-[#FF8C42] w-fit px-3 py-2 3xl:px-4 3xl:py-3 rounded-lg">
                     Book Your Session
                   </button>
                 </div>}
-                {pathname !== '/about-us' && pathname !== '/packages' && <button className='lg:ml-6 cursor-none hover:scale-105 flex items-center gap-1 self-stretch '>
+                {pathname !== '/about-us' && pathname !== '/bundles' && <button className='lg:ml-6 cursor-none hover:scale-105 flex items-center gap-1 self-stretch '>
                     <GoGlobe className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-6 3xl:size-8 `}/>
                     <TbCaretDown className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-5 stroke-[1.5px]`}/>
                 </button>}

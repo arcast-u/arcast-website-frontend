@@ -7,27 +7,27 @@ import Image from 'next/image';
 const pricingItems: PricingItemProps[] = [
     {
       imageSrc: "/images/custom3.webp",
-      title: "2 hours of Recording + Professional Edit",
-      price: "AED 1800",
+      title: "4 hours of Recording + Professional Edit",
+      price: "AED 3760",
     },
     {
-      imageSrc: "/images/custom3.webp",
-      title: "1 Standard Episode Edit",
+      imageSrc: "/images/custom2.webp",
+      title: "2 Signature Reels",
+      price: "AED 880",
+    },
+    {
+      imageSrc: "/images/custom10.webp",
+      title: "Content Distribution",
       price: "AED 440",
     },
     {
-      imageSrc: "/images/custom1.webp",
-      title: "1 Standard Reel",
-      price: "AED 176",
-    },
-    {
-      imageSrc: "/images/custom11.webp",
-      title: "Teleprompter ",
-      price: "AED 76",
+      imageSrc: "/images/custom12.webp",
+      title: "Multicam Recording",
+      price: "AED 200",
     },
   ];
 
-export const PricingDisplay = () => {
+export const PricingDisplayPremium = () => {
     return (
       <div className="flex justify-center max-w-[1400px]  mx-auto">
         <div className="grid grid-cols-[1fr,auto,1fr] gap-10 items-start">
