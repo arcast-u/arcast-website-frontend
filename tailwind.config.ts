@@ -27,6 +27,7 @@ export default {
 			'spin-slow': 'spin 5s linear infinite',
 			'marquee-up': 'marquee-up 15s linear infinite',
 			'marquee-up-delayed': 'marquee-up 20s linear infinite',
+			'marquee-up-delayedMobile': 'marquee-up 40s linear infinite',
 		  },
 		  keyframes: {
 			'marquee-up': {

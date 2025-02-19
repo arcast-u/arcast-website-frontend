@@ -51,7 +51,7 @@ const EquipmentSection = () => {
         </div>
         <div className="">
             <EquipmentCard
-                imageSrc="/images/image 36.png.webp"
+                imageSrc="/images/image 36.png"
                 description={is2XlScreen ? "Sony cinema camera" : <>Sony cinema<br/> camera</>}
             />
         </div>
