@@ -39,7 +39,7 @@ const TestimonialMarquee = () => {
     <div className="relative overflow-hidden h-full">
       {/* Mobile View (1 column) */}
       <div className="md:hidden relative flex gap-4 overflow-hidden">
-        <div className="flex-1 animate-marquee-up-delayed">
+        <div className="flex-1 animate-marquee-up-delayedMobile">
           <div className="flex flex-col gap-4">
             {[...mobileImages, ...mobileImages].map((src, idx) => (
               <div 
