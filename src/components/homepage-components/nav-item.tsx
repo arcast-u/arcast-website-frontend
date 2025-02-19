@@ -31,7 +31,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({ label, path, hasDropdow
     <div className='flex flex-col whitespace-nowrap'>
       <div className={`w-full ${hasDropdown ? '' : 'self-stretch'}`}>
         <button  onClick={clickHandler}
-        className={`flex justify-center cursor-none ${isStudioOpen === true || pathname === '/bundles' 
+        className={`flex justify-center cursor-none ${isStudioOpen === true || pathname === '/bundles' || pathname === '/memberships'
         ? "text-[#333333]" 
         : "text-[#FCFCFC]"} font-normal font-nunitoSans text-sm 3xl:text-base leading-[21.82px] items-center`}>
             <span className=" my-auto">{label}</span>
@@ -40,7 +40,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({ label, path, hasDropdow
             )}
             </button>
         {(isActive || (isStudioOpen && hasDropdown)) && (
-            <div className={`w-full border border-solid ${isStudioOpen && hasDropdown || pathname === '/bundles' ? "bg-[#333333] border-[#333333]" : "bg-[#FCFCFC] border-[#FCFCFC]"} min-h-[1.5px]`} aria-hidden="true" />
+            <div className={`w-full border border-solid ${isStudioOpen && hasDropdown || pathname === '/bundles' || pathname === '/memberships' ? "bg-[#333333] border-[#333333]" : "bg-[#FCFCFC] border-[#FCFCFC]"} min-h-[1.5px]`} aria-hidden="true" />
         )}
       </div>
     </div>

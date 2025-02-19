@@ -48,7 +48,7 @@ import { PackagePerkProps } from "@/lib/types";
             {name}
           </h3>
           <div className="flex flex-col justify-center mt-3 w-full font-semibold ">
-            <del className="text-xs leading-[16.37px] text-red-500">990 {currency}</del>
+            {/* <del className="text-xs leading-[16.37px] text-red-500">580 {currency}</del> */}
             <p className={`text-2xl leading-[32.74px] font-medium font-hankenGrotesk 3xl:leading-[43.65px] ${isDark ? 'text-zinc-50' : 'text-zinc-800'}`}>
               {price_per_hour} {currency}<span className="text-sm">/hour</span>
             </p>
