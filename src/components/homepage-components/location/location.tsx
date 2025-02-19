@@ -10,8 +10,8 @@ import Link from "next/link";
 const DubaiStudioLocation = () => {
   const [imageIndex, setImageIndex] = useState<number>(0)
   const images= [
-    "/images/image.png",
-    "/images/studio6.png",
+    "/images/image.webp",
+    "/images/studio8.png",
     "/images/studio11.png",
   ]
 

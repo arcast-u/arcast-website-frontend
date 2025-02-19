@@ -194,7 +194,7 @@ const StudioSpacesCarousel = () => {
                   alt={slide.title}
                   fill
                   quality={100}
-                  className="object-cover 3xl:object-fit rounded-lg"
+                  className="object-fit rounded-lg"
                   priority
                 />
               </div>
