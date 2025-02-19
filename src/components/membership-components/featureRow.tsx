@@ -12,7 +12,7 @@ interface FeatureRowProps {
           {values.map((value, index) => (
             <div key={index} className="w-[33%] text-xl text-center text-black">
               {typeof value === 'boolean' ? (
-                value ? <Check /> : null
+                value ? <Check /> : <Minus/>
               ) : (
                 value
               )}

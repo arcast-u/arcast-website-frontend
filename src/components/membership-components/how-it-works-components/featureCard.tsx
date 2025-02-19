@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 
 interface FeatureCardProps {
   title: string;
@@ -22,10 +23,12 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
       aria-labelledby={`title-${title.toLowerCase().replace(/\s+/g, "-")}`}
     >
       {imageUrl && (
-        <img
+        <Image
           loading="lazy"
           src={imageUrl}
           alt=""
+            width={48}
+            height={48}
           className="object-contain w-12 aspect-square"
           aria-hidden="true"
         />
