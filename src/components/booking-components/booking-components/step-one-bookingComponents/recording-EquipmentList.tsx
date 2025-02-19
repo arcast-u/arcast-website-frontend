@@ -25,13 +25,13 @@ const EquipmentSection = () => {
       <div className='grid grid-cols-2 gap-[10px] lg:gap-3  '>
         <div className="">
             <EquipmentCard
-            imageSrc="/images/mixer.webp"
+            imageSrc="/images/image 41.png"
             description={<>Audio Interface/mixer</>}
             />
         </div>
         <div className="">
             <EquipmentCard
-                imageSrc="/images/microphone1.webp"
+                imageSrc="/images/image 37.png"
                 description={<>Shure SM7 Microphone</>}
             />
         </div>
@@ -39,7 +39,7 @@ const EquipmentSection = () => {
       <div className='grid grid-cols-3 gap-[10px] lg:gap-3 '>
         <div className="">
             <EquipmentCard
-            imageSrc="/images/headphone.webp"
+            imageSrc="/images/image 38.png"
             description={is2XlScreen ? "Headphones" :<>Head<br/>phones</>}
             />
         </div>
@@ -51,7 +51,7 @@ const EquipmentSection = () => {
         </div>
         <div className="">
             <EquipmentCard
-                imageSrc="/images/video-camera.webp"
+                imageSrc="/images/image 36.png.webp"
                 description={is2XlScreen ? "Sony cinema camera" : <>Sony cinema<br/> camera</>}
             />
         </div>
@@ -66,7 +66,7 @@ const EquipmentSection = () => {
         </div>
         <div className="h-full">
             <EquipmentCard
-                imageSrc="/images/tripod.webp"
+                imageSrc="/images/image 47.png"
                 description={<>Tripods & Sliders</>}
             />
         </div>
