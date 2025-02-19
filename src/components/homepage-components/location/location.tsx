@@ -82,7 +82,7 @@ const DubaiStudioLocation = () => {
           <div className="absolute bottom-0 bg-gradient-to-t w-full flex flex-col h-[45%] text-center justify-center from-[#F5F5F7] via-[#F5F5F7] to-transparent ">
             <p className="text-lg 3xl:text-[40px] font-semibold text-[#333333] mt-36">Studio location</p>
             <a
-                href="https://maps.google.com"
+                href="https://maps.app.goo.gl/U8VGBxLVvZ9sdpH67?g_st=com.google.maps.preview.copy"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-600 flex gap-1 justify-center text-xs leading-4 3xl:text-xl 3xl:leading-7 font-medium underline mt-1 md:mt-3 "

@@ -66,9 +66,21 @@ const NavigationBar= () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [isOpen]); 
+  }, []); 
+  
   
   const bookSession = () => {router.push('/bookings')};
+  const handleDropdown = () => {
+    
+    setIsOpen(!isOpen)
+    if (isStudioOpen) {
+      setIsStudioOpen(!isStudioOpen)
+    } else if (isContactOpen) {
+      setIsContactOpen(!isContactOpen)
+    }
+    
+  };
+
   return (
     <>
        <header
@@ -158,12 +170,36 @@ const NavigationBar= () => {
                       Book Your Session
                     </button>
                   </div>}
-                  {pathname !== '/about-us' && pathname !== '/bundles' && pathname === '/memberships' && <button className='lg:ml-6 cursor-none hover:scale-105 flex items-center gap-1 self-stretch '>
-                      <GoGlobe className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-6 3xl:size-8 `}/>
-                      <TbCaretDown className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-5 stroke-[1.5px]`}/>
+                  {(pathname === '/' || isOpen || isStudioOpen) && (
+                    <button 
+                      className={`
+                        ${pathname === '/' && !isOpen && !isStudioOpen ? 'hidden lg:flex' : 'flex'}
+                        lg:ml-6 
+                        cursor-none 
+                        hover:scale-105 
+                        items-center 
+                        gap-1 
+                        self-stretch
+                      `}
+                    >
+                      <GoGlobe 
+                        className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-6 3xl:size-8`}
+                      />
+                      <TbCaretDown 
+                        className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-5 stroke-[1.5px]`}
+                      />
+                    </button>
+                  )}
+                  {!isOpen && <button 
+                    className={`flex justify-center lg:hidden mr-2 cursor-none ${pathname === '/bundles' || pathname === '/memberships'
+                    ? "text-[#333333]" 
+                    : "text-[#FCFCFC]"} font-normal font-nunitoSans text-sm 3xl:text-base leading-[21.82px] items-center`}>
+                    <span className=" my-auto">ENG | ARA</span>
+                    
+                    
                   </button>}
-                  <button onClick={() => setIsOpen(!isOpen)} className='flex cursor-none hover:scale-105 3xl:ml-3 ml-2 lg:hidden items-center gap-1 self-stretch '>
-                      <IoIosMenu className={`size-6 stroke-[1.5px] ${isOpen ? 'text-[#333333] mr-6' : 'text-[#FCFCFC]'}`}/>
+                  <button onClick={handleDropdown} className='flex cursor-none hover:scale-105 3xl:ml-3 ml-2 lg:hidden items-center gap-1 self-stretch '>
+                      <IoIosMenu className={`size-6 stroke-[1.5px] ${isOpen || isStudioOpen || pathname === '/bundles' || pathname === '/memberships' ? 'text-[#333333] mr-6' : 'text-[#FCFCFC]'}`}/>
                   </button>
               </div>
             {isOpen && (
