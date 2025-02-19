@@ -20,14 +20,19 @@ const DatePicker = ({  date, setDate, dateData}: DateSelectorProps) => {
       .filter((item) => item.status === "past")
       .map((item) => {
         const [year, month, day] = item.date.split("-").map(Number);
-        return new Date(year, month - 1, day); // Adjusting month by subtracting 1
+        return new Date(Date.UTC(year, month - 1, day));
       })
   : [];
   // console.log(date)
   const handleDone = () => {
-    if ( tempDate) {
-      // console.log('final' + tempDate)
-      setDate(tempDate);
+    if (tempDate) {
+      // Adjust the selected date to UTC midnight
+      const utcDate = new Date(Date.UTC(
+        tempDate.getFullYear(),
+        tempDate.getMonth(),
+        tempDate.getDate()
+      ));
+      setDate(utcDate);
       setIsOpen(false);
     }
   };
@@ -56,7 +61,19 @@ const DatePicker = ({  date, setDate, dateData}: DateSelectorProps) => {
           <Calendar
             mode="single"
             selected={tempDate}
-            onSelect={setTempDate}
+            onSelect={(date) => {
+              if (date) {
+                // Adjust the selected date to UTC midnight
+                const utcDate = new Date(Date.UTC(
+                  date.getFullYear(),
+                  date.getMonth(),
+                  date.getDate()
+                ));
+                setTempDate(utcDate);
+              } else {
+                setTempDate(undefined);
+              }
+            }}
             disabled={(date) => disabledDates.some((d) => d.toDateString() === date.toDateString())}
           />
           <div className="mt-1 mb-3 mr-3 flex justify-end">

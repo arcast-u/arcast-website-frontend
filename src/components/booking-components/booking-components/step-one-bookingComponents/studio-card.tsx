@@ -31,7 +31,7 @@ const StudioCard = ({ imageUrl, name, location, totalSeats, isFullyBooked, selec
       <div className="w-full 3xl:[288.5px] 3xl:h-[208px]">
         <Image
           loading="lazy" 
-          src={img || imageUrl} 
+          src={imageUrl || img} 
           width={137.5}
           height={110}
           alt='studio card' 
@@ -46,7 +46,7 @@ const StudioCard = ({ imageUrl, name, location, totalSeats, isFullyBooked, selec
           {location || totalSeats}
         </p>
       </div>
-      {isFullyBooked && (
+      {isFullyBooked || name !== "Mobile Studio Service" && (
         <div className="absolute top-0 cursor-not-allowed right-0 flex justify-center pt-14 md:pt-32 lg:pt-16 w-full h-full bg-[#F5F5F7]/50 rounded-xl">
           <p className="text-[#333333] font-semibold text-sm leading-[19.1px] 3xl:leading-[27.28px] lg:text-base lg:leading-[25.82px] 3xl:text-xl">
             Fully Booked
