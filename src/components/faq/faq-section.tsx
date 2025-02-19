@@ -20,7 +20,7 @@ export const FAQSection = () => {
                 Loft Offices 3, Dubai - Ideal for corporate podcasts and business content.
               </p>
             </div>
-            <a href="#location" className="mt-2 text-[#5081FF]  text-sm leading-5 3xl:text-xl 3xl:leading-8 hover:underline">
+            <a href="https://maps.app.goo.gl/U8VGBxLVvZ9sdpH67?g_st=com.google.maps.preview.copy" className="mt-2 text-[#5081FF]  text-sm leading-5 3xl:text-xl 3xl:leading-8 hover:underline">
               View location & direction
             </a>
           </div>

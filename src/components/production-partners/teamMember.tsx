@@ -16,6 +16,7 @@ export const TeamMember = ({ imageSrc, title, description }: TeamMemberProps) =>
         alt={`${title} team member`}
         width={72}
         height={64}
+        quality={100}
         className="object-contain max-w-full rounded-md aspect-[1.05] shadow-xl shadow-black/20 w-[105px]"
       />
       <div className=" font-normal font-nunitoSans justify-center mt-4 xl:mt-3 w-full">

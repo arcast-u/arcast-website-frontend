@@ -25,9 +25,9 @@ export default {
   	extend: {
 		  animation: {
 			'spin-slow': 'spin 5s linear infinite',
-			'marquee-up': 'marquee-up 15s linear infinite',
-			'marquee-up-delayed': 'marquee-up 20s linear infinite',
-			'marquee-up-delayedMobile': 'marquee-up 40s linear infinite',
+			'marquee-up': 'marquee-up 30s linear infinite',
+			'marquee-up-delayed': 'marquee-up 50s linear infinite',
+			'marquee-up-delayedMobile': 'marquee-up 200s linear infinite',
 		  },
 		  keyframes: {
 			'marquee-up': {
