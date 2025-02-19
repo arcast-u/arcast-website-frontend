@@ -55,18 +55,24 @@ import { PackagePerkProps } from "@/lib/types";
           </div>
         </div>
         <div className={`max-h-0 my-5 3xl:my-7 ${isDark ?  "bg-[#42424370] border border-[#42424370]" : "bg-[#BBBBBB70] border border-[#BBBBBB70]"}`}/> 
-        <div className={` w-full text-xs leading-[16.37px] lg-leading-[21.82px] font-medium ${isDark ? 'text-stone-300' : 'text-zinc-600'}`}>
+        <div className={` w-full text-xs leading-[16.37px] font-nunitoSans 3xl:text-base lg:leading-[21.82px] font-medium ${isDark ? 'text-stone-300' : 'text-zinc-600'}`}>
           {features?.map((feature, index) => (
-            <div
-              key={feature.id}
-              className={`flex-1 shrink gap-2.5 self-stretch px-4 py-2.5 ${
-                index > 0 ? 'mt-3' : ''
-              } w-full rounded-lg border border-solid ${
-                isDark ? 'border-zinc-600' : 'border-neutral-400'
-              } `}
-              role="listitem"
-            >
-              {feature.name}
+            <div key={feature.id}>
+              <div
+                className={`flex-1 shrink gap-2.5 self-stretch px-4 py-2.5 ${
+                  index > 0 || index !== 2 ? 'mt-3' : ''
+                } w-full rounded-lg border border-solid ${
+                  isDark ? 'border-zinc-600' : 'border-neutral-400'
+                }`}
+                role="listitem"
+              >
+                {feature.name}
+              </div>
+              {index === 1 && isDark && (
+                <div className="mt-4 3xl:mt-8 -mb-2 text-xs leading-[16.37px] 3xl:text-base lg:leading-[21.82px] font-nunitoSans font-normal text-[#989898]">
+                  Post production
+                </div>
+              )}
             </div>
           ))}
         </div>
