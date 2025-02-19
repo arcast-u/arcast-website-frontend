@@ -146,3 +146,19 @@ export interface StoredBookingData {
     recordingLocation: string;
   };
 }
+
+export interface PricingTier {
+  name: string;
+  price: string;
+  features: {
+    hours: string;
+    discount: string;
+    priority: string;
+    standardReel: boolean;
+    signatureReel: boolean;
+    accountManager: boolean;
+    addOns: boolean;
+    newsletter: boolean;
+  };
+}
+

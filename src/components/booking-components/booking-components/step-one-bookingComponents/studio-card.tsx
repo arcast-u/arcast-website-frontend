@@ -19,14 +19,20 @@ const StudioCard = ({ imageUrl, name, location, totalSeats, isFullyBooked, selec
   const bgColor = isMobileStudio ? "bg-black" : "bg-[#F5F5F7]";
   const textColor = isMobileStudio ? "text-[#FCFCFC]" : "text-[#333333]";
 
+  const handleStudioSelect = () => {
+    if (!isFullyBooked && isMobileStudio) {
+      setSelectedStudio(count);
+    }
+  };
+
   return (
     <div
       className={`flex flex-col relative shrink cursor-none justify-center py-2.5 px-3 3xl:px-5 3xl:py-4 rounded-xl ${
         count === selectedStudio && !isFullyBooked ? "border-[0.5px] border-black border-solid" : ""
-      } basis-0 ${bgColor} transition-transform hover:scale-105`}
+      } basis-0 ${bgColor} transition-transform  ${!isFullyBooked && isMobileStudio ? 'hover:scale-105' : ''}`}
       tabIndex={0}
       role="button"
-      onClick={() => setSelectedStudio(count)}
+      onClick={handleStudioSelect}
     >
       <div className="w-full 3xl:[288.5px] 3xl:h-[208px]">
         <Image

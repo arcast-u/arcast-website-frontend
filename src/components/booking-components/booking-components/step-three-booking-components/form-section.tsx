@@ -126,7 +126,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
         >
           Recording Location
         </label>
-        {selectedStudio === "Mobile studio service" &&
+        {selectedStudio === "Mobile Studio Service" &&
         <input
           id="recordingLocation"
           type="text"

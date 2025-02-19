@@ -12,8 +12,8 @@ interface props{
 
 export const RecordingPackageSelection = ({selectedPackageIndex, setSelectedPackageIndex, packages}: props) => {
   const sortedPackages = packages?.sort((a, b) => {
-    if (a.name === "Recording (Video + Audio)") return -1;
-    if (b.name === "Recording (Video + Audio)") return 1;
+    if (a.name === "Recording + Professional Edit") return -1;
+    if (b.name === "Recording + Professional Edit") return 1;
     return 0;
   });
 

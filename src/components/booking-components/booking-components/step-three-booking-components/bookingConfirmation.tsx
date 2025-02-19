@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 const BookingConfirmation = () => {
   return (
-    <div className="flex flex-col items-center justify-center px-4">
+    <div className="flex flex-col h-[85vh] items-center justify-center px-4">
       <>
         {/* Ticket with Checkmark */}
         <div className="relative w-32 h-44 mb-8">

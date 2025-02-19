@@ -179,21 +179,23 @@ const StudioBooking= () => {
         setReceipt(data)
         toast.success('Booking successful');
         return data;
-        
-      } else{
-        toast.error(`An unexpected error occurred`);
+      } else {
+        // Parse the error response
+        const errorData = await response.json();
+        // Show the specific error message from the API
+        toast.error(errorData.message || 'An unexpected error occurred');
         return null;
       }
   
-      
     } catch (error) {
       if (error instanceof Error) {
         toast.error(error.message);
       } else {
         toast.error("An unexpected error occurred");
       }
-      return null; // Handle error gracefully
+      return null;
     }
+  
   };
   
   const isStepOne = currentStep === 0;
@@ -271,19 +273,28 @@ const StudioBooking= () => {
   }, []);
 
   // Modified handle continue
-  const handleContinue = useCallback(() => {
+  const handleContinue = useCallback(async () => {
     if (isStepFour && !checked) {
       setShowWarning(true);
       return;
     }
+  
+   
+    if (isStepFour && checked) {
+      const bookingResult = await bookStudio();
+      if (bookingResult) {
+        setCurrentStep((prev: number) => prev + 1);
+      }
+      return;
+    }
     
-    if(isComplete) {
+    if (isComplete) {
       clearProgress();
-      router.push('/');
+      setCurrentStep(0);
     } else {
       setCurrentStep((prev: number) => prev + 1);
     }
-  }, [checked, isStepFour, isComplete, router, clearProgress]);
+  }, [checked, isStepFour, isComplete, router, clearProgress, bookStudio]);
 
   
   
@@ -367,7 +378,7 @@ const StudioBooking= () => {
         description={isStepOne || isComplete ? "" : selectedPackage?.name} 
         total={isStepOne || isComplete  ? '' : selectedPackage?.price_per_hour}
         currency={isStepOne || isComplete  ? '' : selectedPackage?.currency}
-        buttonText={!isComplete  ? 'Continue' : 'Go to HomePage'}
+        buttonText={'Continue'}
         onContinue={handleContinue}
       />
       </div>

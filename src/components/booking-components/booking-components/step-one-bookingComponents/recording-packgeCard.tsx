@@ -60,7 +60,7 @@ import { PackagePerkProps } from "@/lib/types";
             <div key={feature.id}>
               <div
                 className={`flex-1 shrink gap-2.5 self-stretch px-4 py-2.5 ${
-                  index > 0 || index !== 2 ? 'mt-3' : ''
+                  index > 0 ? 'mt-3' : ''
                 } w-full rounded-lg border border-solid ${
                   isDark ? 'border-zinc-600' : 'border-neutral-400'
                 }`}
@@ -68,11 +68,7 @@ import { PackagePerkProps } from "@/lib/types";
               >
                 {feature.name}
               </div>
-              {index === 1 && isDark && (
-                <div className="mt-4 3xl:mt-8 -mb-2 text-xs leading-[16.37px] 3xl:text-base lg:leading-[21.82px] font-nunitoSans font-normal text-[#989898]">
-                  Post production
-                </div>
-              )}
+              
             </div>
           ))}
         </div>
