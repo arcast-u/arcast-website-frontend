@@ -17,7 +17,7 @@ const EquipmentCard = ({ imageSrc, description }: EquipmentCardProps) => {
         height={24}
         width={24}
         alt=""
-        className="object-contain w-6 aspect-square"
+        className="object-contain w-auto aspect-square"
         aria-hidden="true"
       />
       <p className="mt-3 lg:mt-4 text-xs md:text-sm 3xl:text-base font-medium text-[#989898]">
