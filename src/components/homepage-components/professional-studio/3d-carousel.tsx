@@ -42,7 +42,7 @@ const Card = ({ title, price, style, description, src, isMultiCamVisible, isVisi
     onClick={onClick}
     className={`${inFocus ? "h-[90%] w-[90%] top-4  left-4 3xl:top-9 3xl:left-7" : "h-full w-full left-0 top-0"} absolute bg-transparent rounded-2xl  flex flex-col items-center text-center cursor-pointer`}
   >
-    <Image src={src} alt={title} width={100} height={100} className={`w-full ${inFocus ? 'h-full' : 'h-[85%]'} relative shadow-lg object-cover rounded-2xl`}/>
+    <Image src={src} alt={title} quality={100} width={100} height={100} className={`w-full ${inFocus ? 'h-full' : 'h-[85%]'} relative shadow-lg object-cover rounded-2xl`}/>
     {/* Multi-Cam Recording Toggle */}
     {inFocus && <div 
         className={` p-3 3xl:p-4 absolute w-[88%] font-medium bottom-4 lg:bottom-7 font-nunitoSans rounded-2xl  cursor-pointer hover:shadow-lg transition ${isMultiCamVisible ? 'bg-white' : 'bg-transparent'}`}
@@ -128,25 +128,25 @@ const Carousel3D = () => {
     {
       price: "AED 50",
       title: "Teleprompter",
-      src: "/images/3d1.webp",
+      src: "/images/3d1.png",
       description: "Use of a teleprompter in-studio for smooth delivery."
     },
     {
       price: "AED 400",
       title:"Subtitles (per session)",
-      src: "/images/3d2.webp",
+      src: "/images/3d2.png",
       description: "Adding subtitles/captions to your final video for accessibility and audience engagement."
     },
     {
       price: "AED 200",
       title: "Multi-Cam Recording",
-      src: "/images/3d3.webp",
+      src: "/images/3d3.png",
       description: "Upgrade from 3 cameras to 5 cameras total for maximum engagement."
     },
     {
       price: "AED 2500",
       title: "Podcast Trailer",
-      src: "/images/3d4.webp",
+      src: "/images/3d4.png",
       description: "Craft a compelling intro video for your show's mission. Includes voiceover, music, tailored visuals, and a logo jingle for a lasting impression."
     },
     {

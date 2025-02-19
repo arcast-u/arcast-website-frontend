@@ -14,7 +14,12 @@ function Equipment() {
           </p>
         </div>
       </header>
-    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-20 '>
+      <div className='md:h-screen'>
+      <Image quality={100} src="/images/equipments.png" alt='all equipment' width={1555.03} height={1132} className='h-full hidden lg:block w-full' />
+      <Image quality={100} src="/images/equipmentmd.png" alt='all equipment' width={1124.07} height={1525} className='h-full hidden md:block lg:hidden w-full' />
+      <Image quality={100} src="/images/equipmentsmobile.png" alt='all equipment' width={327} height={1420} className='h-full md:hidden w-full' />
+      </div>
+    {/* <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-20 '>
       <div className=" grid justify-center relative">
         <div className='absolute'>
           <div className="relative inline-block ml-3 lg:ml-28 p-3 3xl:p-4 bg-white shadow-lg rounded">
@@ -22,7 +27,7 @@ function Equipment() {
             <p className="font-mulish text-[#333333] font-normal text-xs leading-4 lg:text-sm 3xl:text-base lg:leading-5">Sony a7 Siii</p>
           </div>
         </div>
-        <Image src="/images/image 36.png" alt="image" width={135.6} height={150} className='3xl:w-[226px] mt-5 3xl:h-[250px]'/>
+        <Image src="/images/image 36.png" alt="image" width={135.6} height={150} className='3xl:w-[226px] mt-5 3xl:h-[200px]'/>
       </div>
       <div className=" grid justify-center relative">
         <div className='absolute'>
@@ -124,7 +129,7 @@ function Equipment() {
         <Image src="/images/image 49.png" alt="image" width={150} height={63.44} className='3xl:w-[279px] mt-11 3xl:h-[118px]'/>
       </div>
       
-    </div>
+    </div> */}
     </div>
   )
 }

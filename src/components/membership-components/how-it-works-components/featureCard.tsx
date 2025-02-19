@@ -29,6 +29,7 @@ export const FeatureCard: React.FC<FeatureCardProps> = ({
           alt=""
             width={36}
             height={36}
+            quality={100}
           className="object-contain  size-6  3xl:h-36px 3xl:w-[36px] aspect-square"
           aria-hidden="true"
         />

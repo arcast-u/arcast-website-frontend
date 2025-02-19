@@ -148,6 +148,7 @@ const CitySlider = () => {
                   alt={city.name}
                   width={300}
                   height={380}
+                  quality={100}
                   className="rounded-lg shadow-xl"
                   priority
                 />

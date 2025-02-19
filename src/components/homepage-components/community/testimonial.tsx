@@ -52,7 +52,7 @@ const TestimonialMarquee = () => {
                   width={250}
                   height={500}
                   className="w-full h-auto"
-                  quality={90}
+                  quality={100}
                 />
               </div>
             ))}
@@ -75,7 +75,7 @@ const TestimonialMarquee = () => {
                   width={250}
                   height={500}
                   className="w-full h-auto"
-                  quality={90}
+                  quality={100}
                 />
               </div>
             ))}
@@ -95,7 +95,7 @@ const TestimonialMarquee = () => {
                   width={250}
                   height={500}
                   className="w-full h-auto"
-                  quality={90}
+                  quality={100}
                 />
               </div>
             ))}
@@ -122,7 +122,7 @@ const TestimonialMarquee = () => {
                     width={250}
                     height={500}
                     className="w-full h-auto"
-                    quality={90}
+                    quality={100}
                   />
                 </div>
               ))}

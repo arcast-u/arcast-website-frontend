@@ -12,6 +12,7 @@ const BookingConfirmation = () => {
             alt="Ticket background"
             width={128}
             height={128}
+            quality={100}
             className="w-full h-full"
           />
         </div>

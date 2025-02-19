@@ -1,4 +1,6 @@
+"use client"
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const setups = [
   { id: 1, name: "Setup 1", image: "/images/studio1.webp", available: true },
@@ -10,17 +12,20 @@ const setups = [
 ];
 
 const ChooseSetup = () => {
+  const router = useRouter();
+  const bookSession = () => router.push("/bookings");
   return (
-    <section className="absolute h-screen overflow-y-auto lg:h-auto bg-[#FCFCFC] rounded-b-xl top-14 flex flex-wrap lg:flex-nowrap justify-between left-0 w-full px-10 py-16">
-      <h2 className="text-3xl w-full lg:w-[16%] font-medium font-nunitoSans 3xl:text-5xl text-gray-900 mb-8">Choose Your Setup</h2>
+    <section className="absolute h-screen overflow-y-auto lg:h-auto bg-[#FCFCFC] rounded-b-xl top-14 3xl:top-16 flex flex-wrap lg:flex-nowrap justify-between left-0 w-full px-10 py-16">
+      <h2 className="text-3xl w-full lg:w-[16%] 3xl:w-[30%] font-medium font-nunitoSans 3xl:text-5xl text-gray-900 mb-8">Choose Your Setup</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 w-full lg:w-[60%] gap-6">
         {setups.map((setup) => (
-          <div key={setup.id} className="relative h-[200px] max-h-[308px] rounded-lg overflow-hidden shadow-md">
+          <div key={setup.id} className="relative max-h-[308px] rounded-lg overflow-hidden shadow-md">
             <Image
               src={setup.image}
               alt={setup.name}
-              width={500}
-              height={300}
+              width={277.67}
+              height={308}
+              quality={100}
               className={`w-full h-full object-cover ${
                 !setup.available ? "opacity-50" : ""
               }`}
@@ -33,7 +38,7 @@ const ChooseSetup = () => {
             {setup.available && (
               <div className="absolute rounded-lg bottom-2 font-nunitoSans left-2 bg-black w-[90%] p-4 text-[#fcfcfc] text-center">
                 <p className=" text-xs 3xl:text-sm font-medium">{setup.name}</p>
-                <button className="text-[10px] w-full 3xl:text-xs mt-1 3xl:mt-2 border border-[#fcfcfc] font-medium px-4 py-2 text-sm rounded-md transition-all">
+                <button onClick={bookSession} className="text-[10px] hover:scale-105 w-full 3xl:text-xs mt-1 3xl:mt-2 border border-[#fcfcfc] font-medium px-4 py-2 text-sm rounded-md transition-all">
                   Book now
                 </button>
               </div>

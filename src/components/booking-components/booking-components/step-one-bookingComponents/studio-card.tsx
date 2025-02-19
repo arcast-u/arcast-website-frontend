@@ -40,6 +40,7 @@ const StudioCard = ({ imageUrl, name, location, totalSeats, isFullyBooked, selec
           src={imageUrl || img} 
           width={137.5}
           height={110}
+          quality={100}
           alt='studio card' 
           className="object-cover flex-1 w-full rounded-lg aspect-[1.3]" 
         />

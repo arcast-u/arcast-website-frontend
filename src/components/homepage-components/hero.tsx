@@ -7,7 +7,7 @@ function Hero() {
   const router = useRouter();
   const bookSession = () => {router.push('/bookings');};
   return (
-    <div className="h-screen w-full mx-auto flex flex-col md:bg-[url('/images/studio6.webp')] bg-[url('/images/studio6.png')] bg-cover">
+    <div className="h-screen w-full mx-auto flex flex-col md:bg-[url('/images/Herosectionmd.png')] lg:bg-[url('/images/Herosection.png')] bg-[url('/images/heromobile.png')] bg-cover">
         <NavigationBar/>
         <div className='w-[85%] mx-[21px] lg:w-[55%] lg:mx-10 mb-28 md:mb-10 3xl:mx-[100px] mt-auto'>
             <p className='text-[#FCFCFC] font-hankenGrotesk font-medium text-3xl leading-[39.09px] xl:text-4xl xl:leading-[45px] 3xl:text-[52px] 3xl:leading-[67.76px]'>

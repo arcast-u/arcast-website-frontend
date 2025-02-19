@@ -4,14 +4,15 @@ import { Mail, Phone } from "lucide-react";
 import { TbBuildings, TbClockHour4, TbCaretLeft, TbCaretRight } from "react-icons/tb";
 import { MdArrowOutward } from "react-icons/md";
 import Image from "next/image";
+import Link from "next/link";
 
 
 const DubaiStudioLocation = () => {
   const [imageIndex, setImageIndex] = useState<number>(0)
   const images= [
-    "/images/image.webp",
-    "/images/studio6.webp",
-    "/images/studio11.webp",
+    "/images/image.png",
+    "/images/studio6.png",
+    "/images/studio11.png",
   ]
 
   const handleImageChange = (direction: "next" | "prev") => {
@@ -46,6 +47,7 @@ const DubaiStudioLocation = () => {
                   alt="Studio Interior"
                   width={373}
                   height={188}
+                  quality={100}
                   className="w-full h-full rounded-lg object-cover "
               />
               <div className="absolute top-1/2 -translate-y-1/2 flex px-5 w-full justify-between">
@@ -66,7 +68,7 @@ const DubaiStudioLocation = () => {
                     <div>
                         <TbClockHour4 className="size-6 3xl:size-10 text-[#FF8C42] mx-auto"/>
                         <p className="text-sm 3xl:text-xl 3xl:leading-7 leading-[19.1px] mt-2">Sat-Sun</p>
-                        <p className="text-xl leading-7 3xl:text-2xl 3xl:leading-8 font-semibold">8 AM - 12 PM</p>
+                        <p className="text-xl leading-7 3xl:text-2xl 3xl:leading-8 font-semibold">9 AM - 10 PM</p>
                     </div>
                 </div>
             </div>
@@ -75,7 +77,7 @@ const DubaiStudioLocation = () => {
         {/* Map Location */}
         <div className="bg-[#F5F5F7] h-full p-6 3xl:py-10 3xl:px-[60px] relative rounded-xl shadow-md flex flex-col border items-center">
           <div className=" w-full md:w-auto h-full">
-          <Image width={100} height={100} src="/images/location.png" alt="Google Maps Location" className="w-full h-full " />
+          <Image quality={100} width={100} height={100} src="/images/location.png" loading="lazy" alt="Google Maps Location" className="w-full rounded-tl-[43px] h-full " />
           </div>
           <div className="absolute bottom-0 bg-gradient-to-t w-full flex flex-col h-[45%] text-center justify-center from-[#F5F5F7] via-[#F5F5F7] to-transparent ">
             <p className="text-lg 3xl:text-[40px] font-semibold text-[#333333] mt-36">Studio location</p>
@@ -95,14 +97,14 @@ const DubaiStudioLocation = () => {
           <div className="bg-[#F5F5F7] p-6 3xl:py-10 3xl:px-[60px] rounded-xl shadow-md">
             <h3 className="text-lg 3xl:text-[40px] font-medium text-[#333333] text-center">Contact</h3>
             <div className="grid grid-cols-2 gap-3 mt-3">
-              <div className="flex flex-col items-center space-x-2 bg-[#FCFCFC] px-5 py-4 rounded-lg">
+              <Link href="mailto:Booking@arcast.studio" className="flex flex-col items-center space-x-2 bg-[#FCFCFC] px-5 py-4 rounded-lg">
                 <Mail className="size-[14px] 3xl:size-[19.33px] text-orange-500" />
-                <span className="text-[#333333] text-sm font-normal leading-[19.1px] mt-4 3xl:mt-[22px]">hello@arcast.studio</span>
-              </div>
-              <div className="flex flex-col items-center space-x-2 bg-[#FCFCFC] px-5 py-4 rounded-lg">
+                <span className="text-[#333333] text-sm font-normal leading-[19.1px] mt-4 3xl:mt-[22px]">Booking@arcast.studio</span>
+              </Link>
+              <Link href="tel:+9716583657364" className="flex flex-col items-center space-x-2 bg-[#FCFCFC] px-5 py-4 rounded-lg">
                 <Phone className="size-[14px] 3xl:size-[19.33px]  text-orange-500" />
                 <span className="text-[#333333] text-sm font-normal leading-[19.1px] mt-4 3xl:mt-[22px]">+9716583657364</span>
-              </div>
+              </Link>
             </div>
           </div>
           {/* parking */}

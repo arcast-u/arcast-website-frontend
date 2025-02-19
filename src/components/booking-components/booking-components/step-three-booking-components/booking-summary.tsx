@@ -42,9 +42,10 @@ const BookingSummary = ({booking}: BookingComponentProps) => {
               <div className="flex flex-wrap justify-between w-full">
                 <Image
                   loading="lazy"
-                  src={img || booking?.studio?.imageUrl }
+                  src={booking?.studio?.imageUrl || img}
                   width={72}
                   height={64}
+                  quality={100}
                   alt="Studio"
                   className="object-contain shrink-0 h-16 lg:h-auto my-auto lg:w-20 rounded-lg aspect-square"
                 />
