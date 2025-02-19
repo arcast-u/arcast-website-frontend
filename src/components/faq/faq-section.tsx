@@ -41,10 +41,10 @@ export const FAQSection = () => {
             <div className="flex flex-wrap gap-2 items-center text-neutral-400">
               <HiOutlineLocationMarker className='3xl:size-6 size-4 stroke-[1.5px] text-[#989898]'/>
               <p className="flex-1 shrink self-stretch my-auto basis-0 max-md:max-w-full">
-              Saturday to Sunday: 8:00 AM to 12:00 PM
+              Saturday to Sunday: 9:00 AM to 9:00 PM
               </p>
             </div>
-            <a href="#location" className="mt-2 text-[#5081FF]  text-sm leading-5 3xl:text-xl 3xl:leading-8 hover:underline">
+            <a href="/bookings" className="mt-2 text-[#5081FF]  text-sm leading-5 3xl:text-xl 3xl:leading-8 hover:underline">
               Book Now
             </a>
           </div>
@@ -74,13 +74,10 @@ export const FAQSection = () => {
               Credit/Debit Cards (Visa, MasterCard, American Express)
               </p>
               <p className="flex-1 before:content-['•'] before:mr-2 shrink self-stretch my-auto basis-0 max-md:max-w-full">
-              PayPal
-              </p>
-              <p className="flex-1 before:content-['•'] before:mr-2 shrink self-stretch my-auto basis-0 max-md:max-w-full">
               Bank Transfer (for large payments or corporate bookings)
               </p>
               <p className="flex-1 before:content-['•'] before:mr-2 shrink self-stretch my-auto basis-0 max-md:max-w-full">
-              Cryptocurrency (for digital payments)
+              Cash
               </p>
             </div>
           </div>

@@ -45,7 +45,7 @@ const DatePicker = ({  date, setDate, dateData}: DateSelectorProps) => {
           <Button className={`flex items-center justify-between hover:bg-[#F5F5F7] mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7] ${isOpen ? "border-[0.5px] border-[#989898] shadow-lg shadow-[#80808030]" : ""}`}>
             <div className="flex items-center justify-between w-full ">
               <div className="flex gap-4 items-center">
-                <Image src="/icons/calendar.svg" width={44} height={44} alt="Calendar" className="object-contain 3xl:size-[54px]" />
+                <Image quality={100} src="/icons/calendar.svg" width={44} height={44} alt="Calendar" className="object-contain 3xl:size-[54px]" />
                 <div className="flex flex-col font-hankenGrotesk">
                   <p className="3xl:text-base text-sm text-left font-normal text-[#989898]">Select a day</p>
                   <p className="mt-1 text-base leading-5 3xl:text-xl 3xl:leading-[27.28px] text-left font-semibold text-[#333333]">

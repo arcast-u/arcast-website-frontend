@@ -14,10 +14,11 @@ const EquipmentCard = ({ imageSrc, description }: EquipmentCardProps) => {
       <Image
         loading="lazy"
         src={imageSrc}
-        height={24}
-        width={24}
+        height={32}
+        width={80}
         alt=""
-        className={`object-contain h-8 ${imageSrc === "/images/image 41.png" ? " w-20" : "w-6"} aspect-square`}
+        quality={100}
+        className={`object-contain h-8 ${imageSrc === "/images/image 41.png" ? " w-20" : "w-6 "} aspect-square`}
         aria-hidden="true"
       />
       <p className="mt-3 lg:mt-4 text-xs md:text-sm 3xl:text-base font-medium text-[#989898]">

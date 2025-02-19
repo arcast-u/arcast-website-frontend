@@ -67,6 +67,7 @@ export const Carousel: React.FC = () => {
               src={img}
               width={1920}
               height={1080}
+              quality={100}
               alt={`carousel image ${index + 1}`}
               className="w-full h-full object-cover"
             />
@@ -123,6 +124,7 @@ export const Carousel: React.FC = () => {
         alt='logo'
         width={84}
         height={23.9}
+        quality={100}
         className='object-cover lg:h-10 lg:w-[140px]'
       />
       </Link>

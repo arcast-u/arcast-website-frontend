@@ -58,6 +58,7 @@ export const PricingDisplayUltimate = () => {
                         width={287}
                         height={260}
                         src={item.imageSrc}
+                        quality={100}
                         alt={item.title || "Pricing item image"}
                         className="object-contain rounded-xl 3xl:w-[453px] 3xl:h-[360px] max-md:max-w-full"
                     />
@@ -76,6 +77,7 @@ export const PricingDisplayUltimate = () => {
                     loading="lazy"
                     width={287}
                     height={260}
+                    quality={100}
                     src={item.imageSrc}
                     alt={item.title || "Pricing item image"}
                     className="object-contain rounded-xl 3xl:w-[453px] 3xl:h-[360px] self-start max-md:max-w-full"
@@ -108,6 +110,7 @@ export const PricingDisplayUltimate = () => {
                     width={287}
                     height={260}
                     src={item.imageSrc}
+                    quality={100}
                     alt={item.title || "Pricing item image"}
                     className="object-contain rounded-xl 3xl:w-[453px] 3xl:h-[360px] max-md:max-w-full"
                   />

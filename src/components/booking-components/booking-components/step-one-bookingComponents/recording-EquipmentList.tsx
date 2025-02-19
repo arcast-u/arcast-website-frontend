@@ -45,7 +45,7 @@ const EquipmentSection = () => {
         </div>
         <div className="">
             <EquipmentCard
-            imageSrc="/images/acoustic.webp"
+            imageSrc="/images/image 46.png"
             description={is2XlScreen ? "Acoustic Panels" : <>Acoustic<br/>Panels</>}
             />
         </div>
@@ -60,14 +60,14 @@ const EquipmentSection = () => {
       <div className='grid grid-cols-2 gap-[10px] lg:gap-3 '>
         <div className="">
             <EquipmentCard
-            imageSrc="/images/bulb-check.webp"
+            imageSrc="/images/image 25.png"
             description={<>Soft boxes & LED panels</>}
             />
         </div>
         <div className="h-full">
             <EquipmentCard
-                imageSrc="/images/image 47.png"
-                description={<>Tripods & Sliders</>}
+                imageSrc="/images/image 15.png"
+                description={<>Teleprompter</>}
             />
         </div>
       </div>

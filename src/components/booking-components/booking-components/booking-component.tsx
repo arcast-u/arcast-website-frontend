@@ -67,15 +67,24 @@ const StudioBooking= () => {
             const response = await fetch(apiUrl);
 
             if (!response.ok) {
-                toast.error(`HTTP error! Status: ${response.status}`);
+              const errorMessage = {
+                400: 'Bad Request - Please check your request parameters',
+                401: 'Unauthorized - Please login to access this resource',
+                403: 'Forbidden - You don\'t have permission to access this resource',
+                404: 'Studios not found',
+                500: 'Internal Server Error - Please try again later',
+                502: 'Bad Gateway - Server is temporarily unavailable',
+                503: 'Service Unavailable - Please try again later'
+            }[response.status] || `Server Error (${response.status})`;
+            
+            toast.error(errorMessage);
+            return;
             }
 
             const data = await response.json();
            
             setStudio(data);
-            // if (data.length > 0) {
-            //   setPackages(data[0].packages || []); 
-            // }
+            
         } catch (error: unknown) {
             
           if (error instanceof Error) { 
@@ -110,7 +119,17 @@ const StudioBooking= () => {
       try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
-          toast.error(`HTTP error! Status: ${response.status}`);
+          const errorMessage = {
+            400: 'Bad Request - Please check your request parameters',
+            401: 'Unauthorized - Please login to access this resource',
+            403: 'Forbidden - You don\'t have permission to access this resource',
+            404: 'Studios not found',
+            500: 'Internal Server Error - Please try again later',
+            502: 'Bad Gateway - Server is temporarily unavailable',
+            503: 'Service Unavailable - Please try again later'
+        }[response.status] || `Server Error (${response.status})`;
+        
+        toast.error(errorMessage);
           return;
         }
 
@@ -180,9 +199,8 @@ const StudioBooking= () => {
         toast.success('Booking successful');
         return data;
       } else {
-        // Parse the error response
         const errorData = await response.json();
-        // Show the specific error message from the API
+ 
         toast.error(errorData.message || 'An unexpected error occurred');
         return null;
       }
@@ -319,7 +337,7 @@ const StudioBooking= () => {
               </div>
               
               <div className="w-full max-h-[250px] mt-4 rounded-[5px]">
-                <Image src='/images/team.webp' width={400} height={194} alt='team members' className="object-cover w-full rounded-md max-h-[250px]"/>
+                <Image src='/images/team.png' quality={100} width={400} height={194} alt='team members' className="object-cover w-full rounded-md max-h-[250px]"/>
               </div>
             </div>
           }
