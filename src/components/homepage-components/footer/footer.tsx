@@ -183,10 +183,10 @@ const Footer = () => {
           <span className=''>© 2025 ARcast Studio. All Rights Reserved.</span>
           <div className='flex mt-4 space-x-6 sm:justify-center sm:mt-0'>
             
-            <a href='#' className=''>
+            <a href='/privacy-policy' className=''>
               Privacy Policy
             </a>
-            <a href='#' className=''>
+            <a href='terms-of-service' className=''>
               Terms of Service
             </a>
           </div>

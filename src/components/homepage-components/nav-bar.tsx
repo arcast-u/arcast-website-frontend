@@ -102,7 +102,7 @@ const NavigationBar= () => {
 
       <nav className="flex w-full justify-between items-center px-[21px] lg:px-10 lg:pt-4 lg:pb-5 3xl:px-[100px] 3xl:pt-6 py-2 3xl:pb-8 text-base font-medium " aria-label="Main Navigation">
         <div className={`${isOpen || isStudioOpen ? 'bg-[#FCFCFC] rounded-t-xl pt-3 pb-2 lg:pr-6' : 'bg-transparent'} flex relative w-full mx-auto justify-between gap-6 items-center self-stretch my-auto max-md:max-w-full`}>
-              {isOpen || isStudioOpen || pathname === '/bundles' || pathname === '/memberships' ?
+              {isOpen || isStudioOpen || pathname !== '/' && pathname !== '/about-us'  ?
               <Link href='/'>
               <Image
               src="/icons/logodarv.svg"
