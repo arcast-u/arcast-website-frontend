@@ -17,7 +17,6 @@ import { toast } from "react-toastify";
 import Image from "next/image";
 import { DurationProvider } from "@/contex/durationContext";
 import EquipmentSection from "./step-one-bookingComponents/recording-EquipmentList";
-import { useRouter } from "next/navigation";
 
 
 
@@ -40,7 +39,6 @@ const StudioBooking= () => {
   const selectedStudio = studio?.[selectedStudioIndex] || null;
    const [checked, setChecked] = useState<boolean>(false);
    const [showWarning, setShowWarning] = useState<boolean>(false);
-   const router = useRouter();
   const [form, setForm] = useState({
       fullName: "",
       email: "",
@@ -313,7 +311,7 @@ const StudioBooking= () => {
     } else {
       setCurrentStep((prev: number) => prev + 1);
     }
-  }, [checked, isStepFour, isComplete, router, clearProgress, bookStudio,receipt]);
+  }, [checked, isStepFour, isComplete, clearProgress, receipt]);
 
   
   
@@ -394,8 +392,8 @@ const StudioBooking= () => {
       </div>
       <div className="px-3 xl:pl-3 xl:pr-7 3xl:px-5 sticky bottom-[14px] lg:bottom-4 w-full">
       <TotalCost 
-        studioName={isStepOne || isComplete ? "" : `${selectedStudio?.name} + ` }
-        description={isStepOne || isComplete ? "" : selectedPackage?.name} 
+        studioName={isComplete ? "" : `${selectedStudio?.name}` }
+        description={isStepOne || isComplete ? "" : `+ ${selectedPackage?.name}`} 
         total={isStepOne || isComplete  ? '' : selectedPackage?.price_per_hour}
         currency={isStepOne || isComplete  ? '' : selectedPackage?.currency}
         buttonText={'Continue'}

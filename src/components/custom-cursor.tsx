@@ -34,7 +34,7 @@ const Cursor = () => {
 
   return (
     <div
-      className="fixed pointer-events-none z-50 transition-transform duration-100 ease-out"
+      className="fixed pointer-events-none z-[100] transition-transform duration-100 ease-out"
       style={{
         left: `${position.x}px`,
         top: `${position.y}px`,

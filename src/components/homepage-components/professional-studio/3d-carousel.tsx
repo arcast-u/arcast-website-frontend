@@ -128,7 +128,7 @@ const Carousel3D = () => {
     {
       price: "AED 50",
       title: "Teleprompter",
-      src: "/images/3d1.png",
+      src: "/images/3d4.png",
       description: "Use of a teleprompter in-studio for smooth delivery."
     },
     {
@@ -146,7 +146,7 @@ const Carousel3D = () => {
     {
       price: "AED 2500",
       title: "Podcast Trailer",
-      src: "/images/3d4.png",
+      src: "/images/3d1.png",
       description: "Craft a compelling intro video for your show's mission. Includes voiceover, music, tailored visuals, and a logo jingle for a lasting impression."
     },
     {

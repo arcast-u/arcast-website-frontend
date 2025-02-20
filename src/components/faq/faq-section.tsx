@@ -60,7 +60,7 @@ export const FAQSection = () => {
     {
       question: "Can beginners record at ARcast?",
       answer: (<>
-          <p className="text-neutral-400 w-[80%]">Absolutely! ARcast is beginner-friendly. Whether you&apos;re a first-time podcaster or someone looking to explore AR/VR recording, we have you covered. Our team of experienced technicians will guide you through the entire recording process</p>
+          <p className="text-neutral-400 w-[80%]">Absolutely! ARcast is beginner-friendly. Our team of experienced technicians will guide you through the entire recording process</p>
           
         </>)
     },
@@ -71,10 +71,10 @@ export const FAQSection = () => {
           <div className="mt-2 3xl:mt-3">
             <div className="flex flex-col gap-2 items-center text-neutral-400">
               <p className="flex-1 before:content-['•'] before:mr-2 shrink self-stretch my-auto basis-0 max-md:max-w-full">
-              Credit/Debit Cards (Visa, MasterCard, American Express)
+              Credit/Debit Cards 
               </p>
               <p className="flex-1 before:content-['•'] before:mr-2 shrink self-stretch my-auto basis-0 max-md:max-w-full">
-              Bank Transfer (for large payments or corporate bookings)
+              Bank Transfer
               </p>
               <p className="flex-1 before:content-['•'] before:mr-2 shrink self-stretch my-auto basis-0 max-md:max-w-full">
               Cash
