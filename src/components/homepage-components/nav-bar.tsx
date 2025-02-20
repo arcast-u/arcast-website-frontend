@@ -183,7 +183,7 @@ const NavigationBar= () => {
                       `}
                     >
                       <GoGlobe 
-                        className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-6 3xl:size-8`}
+                        className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-6`}
                       />
                       <TbCaretDown 
                         className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-5 stroke-[1.5px]`}

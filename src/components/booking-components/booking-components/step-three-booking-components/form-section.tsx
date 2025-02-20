@@ -38,6 +38,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
   // const [checked, setChecked] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [whatsappDropdownOpen, setwhatsappDropdownOpen] = useState(false);
+  const [formErrors, setFormErrors] = useState(false);
   const countryCodes = [
     { code: "+971", country: "UAE" },
     { code: "+1", country: "USA" },
@@ -67,15 +68,34 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
     setwhatsappDropdownOpen(false);
   };
 
+  const validateRequiredFields = () => {
+    const requiredFields = {
+      fullName: form.fullName,
+      email: form.email,
+      phoneNumber: form.phoneNumber,
+      whatsappNumber: form.whatsappNumber,
+      countryCode: form.countryCode,
+      whatsappCountryCode: form.whatsappCountryCode
+    };
 
+    return Object.values(requiredFields).every(field => field.trim() !== '');
+  };
   const handleCheckboxChange = async () => {
+    if (!checked) {
+      // Only validate when trying to check the box
+      if (!validateRequiredFields()) {
+        setFormErrors(true);
+        return;
+      }
+    }
+    
     const newChecked = !checked;
-    setChecked(newChecked); // Toggle checkbox state
-  
+    setChecked(newChecked);
+    setFormErrors(false);
+
     if (newChecked) {
-  
-        const response = await book(); 
-       console.log(response)
+      const response = await book();
+      console.log(response);
     }
   };
   
@@ -243,6 +263,11 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
           </label>
           
       </div>
+      {formErrors && (
+        <p className="text-[#FF4242] text-sm leading-[19.1px] font-nunitoSans mt-2">
+          Please fill in all required fields before confirming
+        </p>
+      )}
       {showWarning && !checked && <p className="text-[#FF4242] text-sm leading-[19.1px] font-nunitoSans mt-2">
             Please confirm to receive booking updates
           </p>}

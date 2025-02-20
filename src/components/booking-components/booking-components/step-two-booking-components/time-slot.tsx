@@ -30,7 +30,7 @@ const TimeSlot = ({ times, selectedTime, onTimeSelect }: TimeSlotProps) => {
           onClick={() => onTimeSelect(time.start)}
           aria-label={`Select time ${formatTime(time.start)}`}
           className={`flex 3xl:px-6 3xl:py-5 lg:px-4 lg:py-2 justify-center p-3 my-auto cursor-none rounded-xl bg-neutral-100 ${
-            time.start === selectedTime ? "border border-[#989898] shadow-lg shadow-[#808080]" : ""
+            time.start === selectedTime ? "border border-[#989898] shadow-lg shadow-[#80808030]" : ""
           }`}
         >
           {formatTime(time.start)}
