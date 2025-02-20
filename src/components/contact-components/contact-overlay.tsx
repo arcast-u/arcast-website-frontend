@@ -62,7 +62,7 @@ const ContactOverlay = ({ isOpen, onClose }: ContactOverlayProps) => {
                     Whether you&apos;re ready to record or just have questions, we&apos;re here to help.
                   </p>
                   <p className="text-[#333333] font-normal text-sm 3xl:text-lg 3xl:leading-[24.55px] leading-[19.1px]">
-                    Fill out the form below and we&apos;ll get back to you within 5 minutes.
+                    Fill out the form below and we&apos;ll get back to you.
                   </p>
                 </div>
 
@@ -149,11 +149,11 @@ const ContactOverlay = ({ isOpen, onClose }: ContactOverlayProps) => {
                   </div>
 
                   {/* Submit Button */}
-                  <div className="sticky bottom-0 w-full  3xl:mt-auto  bg-zinc-50 shadow-lg shadow-[#8080801A] mx-auto  border border-[#989898] rounded-2xl border-opacity-50">
+                  <div className="  w-full mt-auto  bg-zinc-50 shadow-lg shadow-[#8080801A] mx-auto  border border-[#989898] rounded-2xl border-opacity-50">
                     <div className="flex justify-end items-center mx-auto px-4 py-3 lg:px-6 font-nunitoSans 3xl:py-4 w-full 3xl:px-8">
                       <div className="flex w-fit hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#FFEDE1] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans font-medium 3xl:leading-[21.82px] 3xl:text-base p-[0.4px]">
                         <button type='submit' className="flex-1 bg-[#FF8C42] w-fit px-[43.5px] py-[10.5px] 3xl:py-4 3xl:px-[83.5px] rounded-lg">
-                          Continue
+                          Send
                         </button>
                       </div>
                     </div>

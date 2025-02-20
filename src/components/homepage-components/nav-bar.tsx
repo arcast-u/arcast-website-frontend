@@ -32,11 +32,11 @@ const NavigationBar= () => {
   const navigationItems: NavigationItemData[] = [
   { label: 'Home', path: '/' },
   { label: 'Studios', path: '', hasDropdown: true },
-  { label: 'Bundles', path: '/bundles' },
-  { label: 'Memberships', path: '/memberships' },
+  // { label: 'Bundles', path: '/bundles' },
+  // { label: 'Memberships', path: '/memberships' },
   { label: 'About Us', path: '/about-us'},
   { label: 'Contact Us', path: '' },
-  { label: 'Blog', path: '/blog'}
+  // { label: 'Blog', path: '/blog'}
   ];
   
   useEffect(() => {
@@ -92,7 +92,7 @@ const NavigationBar= () => {
           className="object-cover lg:w-[125px] lg:h-9 3xl:w-[140px] 3xl:h-10"
           />
           </Link>
-          <div onClick={bookSession} className=" w-fit ml-4 xl:ml-14 3xl:ml-16 hidden hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#FAE2D2] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] ">
+          <div onClick={bookSession} className="flex1-1 w-fit  hover:scale-105 rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#FAE2D2] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] ">
             <button className="flex-1 bg-[#FF8C42] w-fit px-3 py-2 3xl:px-4 3xl:py-3 rounded-lg">
               Book Your Session
             </button>
@@ -156,7 +156,7 @@ const NavigationBar= () => {
                     </button>
                   </div>
                   
-                    <button 
+                    {/* <button 
                       className={`
                         flex
                         lg:ml-6 
@@ -173,7 +173,7 @@ const NavigationBar= () => {
                       <TbCaretDown 
                         className={`${isOpen || isStudioOpen || pathname !== '/' && pathname !== '/about-us' ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-5 stroke-[1.5px]`}
                       />
-                    </button>
+                    </button> */}
                   
                   <button onClick={handleDropdown} className='flex cursor-none hover:scale-105 3xl:ml-3 ml-2 lg:hidden items-center gap-1 self-stretch '>
                       <IoIosMenu className={`size-6 stroke-[1.5px] ${isOpen || isStudioOpen || pathname === '/bundles' || pathname === '/memberships' ? 'text-[#333333] mr-6' : 'text-[#FCFCFC]'}`}/>
