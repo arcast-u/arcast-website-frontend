@@ -5,8 +5,8 @@ import React from 'react'
 const Mission = () => {
   return (
     <div className='px-[21px] lg:px-10 3xl:px-[100px] py-10 '>
-      <div className='flex mx-auto w-full md:w-[70%] lg:w-[45%] 3xl:w-[60%] items-center flex-col h-full'>
-            <h1 className='font-hankenGrotesk text-[#FCFCFC] text-center text-[32px] lg:mt-8 mb-4 3xl:mb-10 leading-[46.91px] 3xl:text-5xl 3xl:leading-[62.5px] font-medium'>
+      <div className='flex mx-auto w-full md:w-[70%] lg:w-[45%] 3xl:w-[50%] items-center flex-col h-full'>
+            <h1 className='font-hankenGrotesk text-[#FCFCFC] text-center text-[32px] lg:mt-8 mb-4 3xl:mb-10 leading-[46.91px] 3xl:text-5xl 3xl:leading-[62.5px] font-semibold'>
                 OUR MISSION
             </h1>
             <p className='mb-4 font-nunitoSans font-normal text-[#FCFCFC] text-xl leading-[30px] 3xl:text-[28px] 3xl:leading-[48px]'>

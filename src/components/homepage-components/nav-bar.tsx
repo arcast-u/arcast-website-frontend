@@ -41,6 +41,7 @@ const NavigationBar= () => {
     ? [{ label: 'ENG | ARA', path: '' }] 
     : [])
   ];
+  
   useEffect(() => {
     // Scroll handler for header visibility
     const handleScroll = () => {
@@ -50,7 +51,11 @@ const NavigationBar= () => {
       const footer = document.querySelector('footer');
       if (footer) {
         const footerRect = footer.getBoundingClientRect();
-        if (footerRect.top <= window.innerHeight) {
+        const viewportHeight = window.innerHeight;
+        const headerPosition = viewportHeight * 0.85; // 85vh in pixels
+        
+        // Hide header when footer is approaching the header's position
+        if (footerRect.top <= headerPosition + 100) { // Added 100px buffer
           setShowHeader(false);
           return;
         }
@@ -59,14 +64,13 @@ const NavigationBar= () => {
       setShowHeader(shouldShow);
     };
 
-    // Add event listeners
     window.addEventListener('scroll', handleScroll);
 
     // Cleanup
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []); 
+  }, []);
   
   
   const bookSession = () => {router.push('/bookings')};
@@ -84,24 +88,12 @@ const NavigationBar= () => {
   return (
     <>
        <header
-        className={`fixed top-0 left-0 right-0 backdrop-blur-md z-50 justify-between items-center px-[21px] lg:px-10 lg:pt-4 lg:pb-5 3xl:px-[100px] 3xl:pt-6 py-2 3xl:pb-8 text-base font-medium shadow-sm transition-transform duration-300 ${
-          showHeader ? 'translate-y-0' : '-translate-y-full'
+        className={`fixed top-[100vh] hidden -translate-x-1/2 left-1/2 w-full shadow-[#8585851A] bg-[#FCFCFC] rounded-[16px] lg:w-[50vw] backdrop-blur-md z-50 justify-between items-center p-[21px] lg:p-6 text-base font-medium shadow-sm transition-transform duration-300 ${
+          showHeader ? 'translate-y-0 ' : '-translate-y-full'
         }`}
       >
-        <div className='max-w-[1500px] mx-auto flex justify-between items-center'>
-        { pathname === '/about-us' ?
-          
-          <Link href='/'>
-          <Image
-          src="/icons/logo.svg"
-          alt='logo'
-          width={112}
-          height={32}
-          quality={100}
-          className="object-cover lg:w-[125px] lg:h-9 3xl:w-[140px] 3xl:h-10"
-          />
-          </Link>
-          : 
+        <div className=' mx-auto flex justify-between items-center'>
+         
           <Link href='/'>
           <Image
           src="/icons/logodarv.svg"
@@ -109,10 +101,10 @@ const NavigationBar= () => {
           width={112}
           height={32}
           quality={100}
-          className="object-cover lg:w-[125px] ml-6 lg:h-9 3xl:w-[140px] 3xl:h-10"
+          className="object-cover lg:w-[125px] lg:h-9 3xl:w-[140px] 3xl:h-10"
           />
-          </Link> }
-          <div onClick={bookSession} className=" w-fit ml-4 xl:ml-14 3xl:ml-16 hidden hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#64391E] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] ">
+          </Link>
+          <div onClick={bookSession} className=" w-fit ml-4 xl:ml-14 3xl:ml-16 hidden hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#FAE2D2] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] ">
             <button className="flex-1 bg-[#FF8C42] w-fit px-3 py-2 3xl:px-4 3xl:py-3 rounded-lg">
               Book Your Session
             </button>
@@ -164,16 +156,16 @@ const NavigationBar= () => {
                       ))}
                   </ul>
                   
-                  {pathname !== '/about-us' && pathname !== '/bundles' && pathname !== '/memberships' && 
+                  
                   <div onClick={bookSession} className=" w-fit ml-4 xl:ml-14 3xl:ml-16 hidden hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#64391E] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] ">
                     <button className="flex-1 bg-[#FF8C42] w-fit px-3 py-2 3xl:px-4 3xl:py-3 rounded-lg">
                       Book Your Session
                     </button>
-                  </div>}
-                  {(pathname === '/' || isOpen || isStudioOpen) && (
+                  </div>
+                  
                     <button 
                       className={`
-                        ${pathname === '/' && !isOpen && !isStudioOpen ? 'hidden lg:flex' : 'flex'}
+                        flex
                         lg:ml-6 
                         cursor-none 
                         hover:scale-105 
@@ -183,21 +175,13 @@ const NavigationBar= () => {
                       `}
                     >
                       <GoGlobe 
-                        className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-6`}
+                        className={`${isOpen || isStudioOpen || pathname !== '/' && pathname !== '/about-us' ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-6`}
                       />
                       <TbCaretDown 
-                        className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-5 stroke-[1.5px]`}
+                        className={`${isOpen || isStudioOpen || pathname !== '/' && pathname !== '/about-us' ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-5 stroke-[1.5px]`}
                       />
                     </button>
-                  )}
-                  {!isOpen && <button 
-                    className={`flex justify-center lg:hidden mr-2 cursor-none ${pathname === '/bundles' || pathname === '/memberships'
-                    ? "text-[#333333]" 
-                    : "text-[#FCFCFC]"} font-normal font-nunitoSans text-sm 3xl:text-base leading-[21.82px] items-center`}>
-                    <span className=" my-auto">ENG | ARA</span>
-                    
-                    
-                  </button>}
+                  
                   <button onClick={handleDropdown} className='flex cursor-none hover:scale-105 3xl:ml-3 ml-2 lg:hidden items-center gap-1 self-stretch '>
                       <IoIosMenu className={`size-6 stroke-[1.5px] ${isOpen || isStudioOpen || pathname === '/bundles' || pathname === '/memberships' ? 'text-[#333333] mr-6' : 'text-[#FCFCFC]'}`}/>
                   </button>

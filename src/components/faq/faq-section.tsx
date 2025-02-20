@@ -35,7 +35,7 @@ export const FAQSection = () => {
             <div className="flex flex-wrap gap-2 items-center text-neutral-400">
               <HiOutlineLocationMarker className='3xl:size-6 size-4 stroke-[1.5px] text-[#989898]'/>
               <p className="flex-1 shrink self-stretch my-auto basis-0 max-md:max-w-full">
-              Monday to Friday: 9:00 AM to 10:00 PM
+              Monday to Friday: 9:00 AM to 9:00 PM
               </p>
             </div>
             <div className="flex flex-wrap gap-2 items-center text-neutral-400">

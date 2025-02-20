@@ -30,7 +30,7 @@ const AnimatedDiv = animated.div as unknown as React.FC<AnimatedDivProps>;
 const slides: SlideData[] = [
   {
     id: 1,
-    title: "Setup 1",
+    title: "Mobile Studio",
     buttonText: "Book Your Session",
     images: ["/images/studio7.png", "/images/studio8.png", "/images/studio9.png"],
     mobileImages: ["/images/studiom7.png", "/images/studiom8.png", "/images/studiom9.png"]

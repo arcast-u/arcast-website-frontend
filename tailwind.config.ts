@@ -28,12 +28,30 @@ export default {
 			'marquee-up': 'marquee-up 30s linear infinite',
 			'marquee-up-delayed': 'marquee-up 50s linear infinite',
 			'marquee-up-delayedMobile': 'marquee-up 200s linear infinite',
+			typing: 'typing 8s steps(200) forwards, blink .7s infinite'
 		  },
 		  keyframes: {
 			'marquee-up': {
 			  '0%': { transform: 'translateY(0)' },
 			  '100%': { transform: 'translateY(-50%)' },
 			},
+			typing: {
+			  '0%': {
+				width: '0%',
+				visibility: 'hidden'
+			  },
+			  '100%': {
+				width: '100%'
+			  }
+			},
+			blink: {
+			  '50%': {
+				borderColor: 'transparent'
+			  },
+			  '100%': {
+				borderColor: 'white'
+			  }
+			}
 		  },
 		  backgroundImage: {
 			'custom-gradient': 'linear-gradient(#FCFCFC, #FCFCFC00, #FCFCFC00, #FCFCFC)',

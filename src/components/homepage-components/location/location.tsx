@@ -10,9 +10,8 @@ import Link from "next/link";
 const DubaiStudioLocation = () => {
   const [imageIndex, setImageIndex] = useState<number>(0)
   const images= [
-    "/images/image.webp",
-    "/images/studio8.png",
-    "/images/studio11.png",
+    "/images/image.png",
+    "/images/image2.png",
   ]
 
   const handleImageChange = (direction: "next" | "prev") => {
@@ -48,7 +47,7 @@ const DubaiStudioLocation = () => {
                   width={373}
                   height={188}
                   quality={100}
-                  className="w-full h-full rounded-lg object-cover "
+                  className="w-full h-full rounded-lg object-fit "
               />
               <div className="absolute top-1/2 -translate-y-1/2 flex px-5 w-full justify-between">
                 <TbCaretLeft onClick={() => handleImageChange("prev")} className="size-4 text-white" />
@@ -63,12 +62,12 @@ const DubaiStudioLocation = () => {
                     <div>
                         <TbClockHour4 className="size-6 3xl:size-10 text-[#FF8C42] mx-auto"/>
                         <p className="text-sm 3xl:text-xl 3xl:leading-7 leading-[19.1px] mt-2">Mon-Fri</p>
-                        <p className="text-xl leading-7 3xl:text-2xl 3xl:leading-8 font-semibold">9 AM - 10 PM</p>
+                        <p className="text-xl leading-7 3xl:text-2xl 3xl:leading-8 font-semibold">9 AM - 9 PM</p>
                     </div>
                     <div>
                         <TbClockHour4 className="size-6 3xl:size-10 text-[#FF8C42] mx-auto"/>
                         <p className="text-sm 3xl:text-xl 3xl:leading-7 leading-[19.1px] mt-2">Sat-Sun</p>
-                        <p className="text-xl leading-7 3xl:text-2xl 3xl:leading-8 font-semibold">9 AM - 10 PM</p>
+                        <p className="text-xl leading-7 3xl:text-2xl 3xl:leading-8 font-semibold">9 AM - 9 PM</p>
                     </div>
                 </div>
             </div>
