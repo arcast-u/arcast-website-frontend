@@ -32,16 +32,16 @@ const BookingConfirmation = () => {
             If you need assistance, contact us at
           </p>
           <a 
-            href="mailto:hello@arcast.studio"
+            href="mailto:booking@arcast.studio"
             className="text-blue-500 hover:text-blue-600 block mb-1"
           >
-            hello@arcast.studio
+            booking@arcast.studio
           </a>
           <a 
-            href="tel:+97165836573644"
+            href="tel:+971544287756"
             className="text-blue-500 hover:text-blue-600"
           >
-            +971 6583657364
+            +971 544287756
           </a>
         </div>
       </>
