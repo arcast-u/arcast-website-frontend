@@ -100,9 +100,9 @@ const DubaiStudioLocation = () => {
                 <Mail className="size-[14px] 3xl:size-[19.33px] text-orange-500" />
                 <span className="text-[#333333] text-sm font-normal leading-[19.1px] mt-4 3xl:mt-[22px]">Booking@arcast.studio</span>
               </Link>
-              <Link href="tel:+9716583657364" className="flex flex-col items-center space-x-2 bg-[#FCFCFC] px-5 py-4 rounded-lg">
+              <Link href="tel:+971544287756" className="flex flex-col items-center space-x-2 bg-[#FCFCFC] px-5 py-4 rounded-lg">
                 <Phone className="size-[14px] 3xl:size-[19.33px]  text-orange-500" />
-                <span className="text-[#333333] text-sm font-normal leading-[19.1px] mt-4 3xl:mt-[22px]">+9716583657364</span>
+                <span className="text-[#333333] text-sm font-normal leading-[19.1px] mt-4 3xl:mt-[22px]">+971544287756</span>
               </Link>
             </div>
           </div>

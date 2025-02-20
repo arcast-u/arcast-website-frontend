@@ -65,18 +65,18 @@ const Footer = () => {
                 <ul className='text-[#333333] text-sm 3xl:text-base space-y-1'>
                   <li className=''>
                     <Link
-                      href='mailto:hello@arcastdubai.com'
+                      href='mailto:booking@arcastdubai.com'
                       className='hover:underline underline-offset-2'
                     >
-                      hello@arcastdubai.com
+                      booking@arcastdubai.com
                     </Link>
                   </li>
                   <li>
                     <Link
-                      href='https://api.whatsapp.com/send?phone=6583657364&text=Hi%20I%20would%20love%20to%20get%20some%20information%20about%20the%20services%20I%20filled%20on%20the%20company.'
+                      href='https://api.whatsapp.com/send?phone=971544287756&text=Hi%20I%20would%20love%20to%20get%20some%20information%20about%20the%20services%20I%20filled%20on%20the%20company.'
                       className='hover:underline underline-offset-2'
                     >
-                      +971 6583657364
+                      +971 544287756
                     </Link>
                   </li>
                 </ul>
