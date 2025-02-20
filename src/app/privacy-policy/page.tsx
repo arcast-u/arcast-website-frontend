@@ -204,8 +204,8 @@ const PrivacyPolicies = () => {
             <p className='text-base leading-6'>
                 Our website uses cookies to enhance user experience. 
                 Cookies are small files that a site or its service provider transfers to your 
-                computer's hard drive through your web browser (if you allow) that enables 
-                the site's or service provider's systems to recognize your browser and capture 
+                computer&apos;s hard drive through your web browser (if you allow) that enables 
+                the site&apos;s or service provider&apos;s systems to recognize your browser and capture 
                 and remember certain information. You can choose to accept or decline cookies. 
                 Most web browsers automatically accept cookies, but you can usually modify your 
                 browser setting to decline cookies if you prefer.
