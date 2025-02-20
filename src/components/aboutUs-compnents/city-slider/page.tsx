@@ -57,7 +57,7 @@ const CitySlider = () => {
   const [index, setIndex] = useState(0)
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const [gapSize, setGapSize] = useState(10);
+  const [gapSize, setGapSize] = useState<number>(5);
   const minSwipeDistance = 50;
 
     // Update gap size on mount and window resize
@@ -70,8 +70,10 @@ const CitySlider = () => {
           setGapSize(30);
         } else if (width < 1200) { // notebook
           setGapSize(15);
-        } else { // desktop
+        } else if (width < 1700) { // desktop
           setGapSize(10);
+        } else {
+          setGapSize(15)
         }
       };
   
@@ -123,7 +125,7 @@ const CitySlider = () => {
   }
     const AnimatedDiv = animated.div as unknown as React.FC<AnimatedDivProps>;
   return (
-    <div className="relative w-full  mx-auto overflow-hidden px-[21px] lg:px-10 3xl:px-[100px] py-14 3xl:py-20">
+    <div className="relative w-full 3xl:h-screen mx-auto overflow-hidden px-[21px] lg:px-10 3xl:px-[100px] py-14 3xl:py-20">
       <div className="">
         <h1 className="text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px] font-medium font-hankenGrotesk text-[#FCFCFC] mb-4">
           The Future of <span className="text-orange-500">ARcast</span>
@@ -137,11 +139,11 @@ const CitySlider = () => {
       <div
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
-      onTouchEnd={onTouchEnd} className="relative mt-20">
+      onTouchEnd={onTouchEnd} className="relative mt-20 3xl:mt-48">
         {/* Use the animated.div with styles object */}
         <AnimatedDiv 
           style={styles}
-          className="flex gap-8"
+          className="flex gap-8 3xl:gap-48"
         >
           {cities.map((city) => (
             <div
@@ -155,7 +157,7 @@ const CitySlider = () => {
                   width={300}
                   height={380}
                   quality={100}
-                  className="rounded-lg shadow-xl"
+                  className="rounded-lg 3xl:w-[386px] shadow-xl"
                   priority
                 />
                 <div className="absolute w-full flex justify-center  bottom-0 left-4">

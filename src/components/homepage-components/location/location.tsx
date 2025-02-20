@@ -10,9 +10,8 @@ import Link from "next/link";
 const DubaiStudioLocation = () => {
   const [imageIndex, setImageIndex] = useState<number>(0)
   const images= [
-    "/images/image.webp",
-    "/images/studio8.png",
-    "/images/studio11.png",
+    "/images/image.png",
+    "/images/image2.png",
   ]
 
   const handleImageChange = (direction: "next" | "prev") => {
@@ -48,7 +47,7 @@ const DubaiStudioLocation = () => {
                   width={373}
                   height={188}
                   quality={100}
-                  className="w-full h-full rounded-lg object-cover "
+                  className="w-full h-full rounded-lg object-fit "
               />
               <div className="absolute top-1/2 -translate-y-1/2 flex px-5 w-full justify-between">
                 <TbCaretLeft onClick={() => handleImageChange("prev")} className="size-4 text-white" />
