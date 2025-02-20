@@ -66,7 +66,7 @@ export const PricingDisplay = () => {
           {pricingItems.map((item, index) => (
             <React.Fragment key={index}>
               {/* Left side */}
-              <div className={`flex justify-end ${index > 0 ? "md:mt-[16.5rem] mt-10" : "mt-0"}`}>
+              <div className={`flex justify-end ${index > 0 ? "md:mt-[16.5rem] 3xl:mt-14 mt-10" : "mt-0"}`}>
                 {index % 2 === 0 ? (
                   <Image
                     loading="lazy"
@@ -93,7 +93,7 @@ export const PricingDisplay = () => {
               )}
   
               {/* Right side */}
-              <div className={`${index > 0 ? "md:mt-[16.5rem] mt-10" : "mt-0"}`}>
+              <div className={`${index > 0 ? "md:mt-[16.5rem] 3xl:mt-14 mt-10" : "mt-0"}`}>
                 {index % 2 === 0 ? (
                   <div className="flex flex-col">
                     <h2 className="3xl:text-2xl text-[#333333] font-hankenGrotesk font-normal text-base leading-5">{item.title}</h2>

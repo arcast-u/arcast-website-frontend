@@ -299,8 +299,9 @@ const StudioBooking= () => {
   
    
     if (isStepFour && checked) {
-      const bookingResult = await bookStudio();
-      if (bookingResult) {
+      
+      if (receipt !== null) {
+        clearProgress();
         setCurrentStep((prev: number) => prev + 1);
       }
       return;

@@ -31,6 +31,7 @@ type BookingDetailsProps = {
   showWarning: boolean;
   book: () => Promise<BookingProps | null>;
   selectedStudio: string | undefined;
+  
 };
 
 
@@ -88,6 +89,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
         return;
       }
     }
+    
     
     const newChecked = !checked;
     setChecked(newChecked);

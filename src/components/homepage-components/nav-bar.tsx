@@ -164,16 +164,16 @@ const NavigationBar= () => {
                       ))}
                   </ul>
                   
-                  {pathname !== '/about-us' && pathname !== '/bundles' && pathname !== '/memberships' && 
+                  
                   <div onClick={bookSession} className=" w-fit ml-4 xl:ml-14 3xl:ml-16 hidden hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#64391E] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] ">
                     <button className="flex-1 bg-[#FF8C42] w-fit px-3 py-2 3xl:px-4 3xl:py-3 rounded-lg">
                       Book Your Session
                     </button>
-                  </div>}
-                  {(pathname === '/' || isOpen || isStudioOpen) && (
+                  </div>
+                  
                     <button 
                       className={`
-                        ${pathname === '/' && !isOpen && !isStudioOpen ? 'hidden lg:flex' : 'flex'}
+                        flex
                         lg:ml-6 
                         cursor-none 
                         hover:scale-105 
@@ -183,21 +183,13 @@ const NavigationBar= () => {
                       `}
                     >
                       <GoGlobe 
-                        className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-6`}
+                        className={`${isOpen || isStudioOpen || pathname !== '/' && pathname !== '/about-us' ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-6`}
                       />
                       <TbCaretDown 
-                        className={`${isOpen || isStudioOpen ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-5 stroke-[1.5px]`}
+                        className={`${isOpen || isStudioOpen || pathname !== '/' && pathname !== '/about-us' ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-5 stroke-[1.5px]`}
                       />
                     </button>
-                  )}
-                  {!isOpen && <button 
-                    className={`flex justify-center lg:hidden mr-2 cursor-none ${pathname === '/bundles' || pathname === '/memberships'
-                    ? "text-[#333333]" 
-                    : "text-[#FCFCFC]"} font-normal font-nunitoSans text-sm 3xl:text-base leading-[21.82px] items-center`}>
-                    <span className=" my-auto">ENG | ARA</span>
-                    
-                    
-                  </button>}
+                  
                   <button onClick={handleDropdown} className='flex cursor-none hover:scale-105 3xl:ml-3 ml-2 lg:hidden items-center gap-1 self-stretch '>
                       <IoIosMenu className={`size-6 stroke-[1.5px] ${isOpen || isStudioOpen || pathname === '/bundles' || pathname === '/memberships' ? 'text-[#333333] mr-6' : 'text-[#FCFCFC]'}`}/>
                   </button>

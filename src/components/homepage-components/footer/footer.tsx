@@ -59,7 +59,7 @@ const Footer = () => {
                 </div>
                 </div>
             </div>
-            <div className='grid md:grid-cols-3 gap-8 sm:gap-6 sm:grid-cols-3 '>
+            <div className=' lg:w-[60%] grid md:grid-cols-3 gap-8 sm:gap-6 sm:grid-cols-3 '>
             <div className='text-base'>
                 <p className=' text-[#989898] mb-1'>Contact us</p>
                 <ul className='text-[#333333] text-sm 3xl:text-base space-y-1'>

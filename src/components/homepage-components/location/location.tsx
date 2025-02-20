@@ -63,12 +63,12 @@ const DubaiStudioLocation = () => {
                     <div>
                         <TbClockHour4 className="size-6 3xl:size-10 text-[#FF8C42] mx-auto"/>
                         <p className="text-sm 3xl:text-xl 3xl:leading-7 leading-[19.1px] mt-2">Mon-Fri</p>
-                        <p className="text-xl leading-7 3xl:text-2xl 3xl:leading-8 font-semibold">9 AM - 10 PM</p>
+                        <p className="text-xl leading-7 3xl:text-2xl 3xl:leading-8 font-semibold">9 AM - 9 PM</p>
                     </div>
                     <div>
                         <TbClockHour4 className="size-6 3xl:size-10 text-[#FF8C42] mx-auto"/>
                         <p className="text-sm 3xl:text-xl 3xl:leading-7 leading-[19.1px] mt-2">Sat-Sun</p>
-                        <p className="text-xl leading-7 3xl:text-2xl 3xl:leading-8 font-semibold">9 AM - 10 PM</p>
+                        <p className="text-xl leading-7 3xl:text-2xl 3xl:leading-8 font-semibold">9 AM - 9 PM</p>
                     </div>
                 </div>
             </div>

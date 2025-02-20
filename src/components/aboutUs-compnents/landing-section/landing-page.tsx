@@ -8,8 +8,8 @@ const LandingPage = () => {
     <div className='md:h-screen overflow-hidden mb-5 '>
         <NavigationBar/>
         <div className='px-[21px] h-full flex md:items-center lg:items-start 2xl:items-center justify-center'>
-            <div className=' mx-auto w-full mt-16 md:mt-0 md:w-[70%] lg:w-[45%] 3xl:w-[60%] '>
-                <h1 className='font-hankenGrotesk text-[#FCFCFC] text-center text-[32px] lg:mt-8 mb-6 3xl:mb-10 leading-[46.91px] 3xl:text-5xl 3xl:leading-[62.5px] font-medium'>
+            <div className=' mx-auto w-full mt-16 md:mt-0 md:w-[70%] lg:w-[45%] 3xl:w-[50%] '>
+                <h1 className='font-hankenGrotesk text-[#FCFCFC] text-center text-[32px] lg:mt-8 mb-6 3xl:mb-10 leading-[46.91px] 3xl:text-5xl 3xl:leading-[62.5px] font-semibold'>
                     WHO WE ARE
                 </h1>
                 <p className='mb-6 font-nunitoSans font-normal text-[#FCFCFC] text-xl leading-[30px] 3xl:text-[28px] 3xl:leading-[48px]'>ARcast was born at the intersection of professional broadcasting and personal storytelling. 
