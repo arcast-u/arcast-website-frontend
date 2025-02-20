@@ -31,7 +31,7 @@ const NavigationItem: React.FC<NavigationItemProps> = ({ label, path, hasDropdow
     <div className='flex flex-col whitespace-nowrap'>
       <div className={`w-full ${hasDropdown ? '' : 'self-stretch'}`}>
         <button  onClick={clickHandler}
-        className={`flex justify-center cursor-none ${isStudioOpen === true || pathname === '/bundles' || pathname === '/memberships'
+        className={`flex justify-center cursor-none ${isStudioOpen === true || pathname !== '/' && pathname !== '/about-us'
         ? "text-[#333333]" 
         : "text-[#FCFCFC]"} font-normal font-nunitoSans text-sm 3xl:text-base leading-[21.82px] items-center`}>
             <span className=" my-auto">{label}</span>

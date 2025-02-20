@@ -57,7 +57,7 @@ const ContactOverlay = ({ isOpen, onClose }: ContactOverlayProps) => {
               {/* Form Content */}
               <div className="flex-1 flex flex-col h-full">
                 <div className='w-[87%]'>
-                  <h1 className="text-2xl leading-8 font-medium font-hankenGrotesk text-[#333333] 3xl:text-3xl 3xl:leading-[39.9px] mb-2 3xl:mb-3">Contact Us</h1>
+                  <h1 className="mb-2 3xl:mb-3 header-text">Contact Us</h1>
                   <p className="text-[#333333] font-normal text-sm 3xl:text-lg 3xl:leading-[24.55px] leading-[19.1px] mb-2">
                     Whether you&apos;re ready to record or just have questions, we&apos;re here to help.
                   </p>
@@ -124,7 +124,7 @@ const ContactOverlay = ({ isOpen, onClose }: ContactOverlayProps) => {
 
                     {/* Reach Out Section */}
                     <div className="pt-5 pb-14 3xl:pb-0 3xl:pt-4">
-                      <h2 className="text-[30px] leading-[40.92px] font-medium text-[#333333] mb-3 3xl:mb-4">Reach Out To Us</h2>
+                      <h2 className="header-text mb-3 3xl:mb-4">Reach Out To Us</h2>
                       <div className="space-y-2 3xl:space-y-4 text-base leading-[21.82px] font-normal 3xl:text-lg 3xl:leading-[24.55px]">
                         <a href="mailto:booking@arcastdubai.com" className="flex items-center text-[#333333] hover:text-[#FF8C42] hover:underline">
                           <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">

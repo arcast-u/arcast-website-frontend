@@ -109,7 +109,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
           Enter Your Contact Information
         </h3>
       </div>
-      <div className="flex flex-col mt-5 text-[#333333] font-nunitoSans text-sm lg:text-base leading-3  lg:leading-6 font-normal 3xl:leading-[19.1px] 3xl:mt-6 w-full  ">
+      <div className="flex flex-col mt-5 text-[#333333] font-nunitoSans text-base leading-3  lg:leading-6 font-normal 3xl:leading-[19.1px] 3xl:mt-6 w-full  ">
         <div className="flex gap-4 items-start w-full ">
           <label
             htmlFor="fullName"
