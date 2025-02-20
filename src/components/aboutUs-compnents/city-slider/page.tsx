@@ -41,9 +41,15 @@ const cities: City[] = [
   },
   {
     id: 4,
-    name: 'London',
+    name: 'Paris',
     image: '/images/city4.png',
-    title: 'ARcast London'
+    title: 'ARcast Paris'
+  },
+  {
+    id: 5,
+    name: 'Rome',
+    image: '/images/city5.png',
+    title: 'ARcast Rome'
   }
 ]
 
@@ -152,10 +158,10 @@ const CitySlider = () => {
                   className="rounded-lg shadow-xl"
                   priority
                 />
-                <div className="absolute  bottom-0 left-4">
-                  <h3 className={`${city.id === 1 ? 'ml-14 -rotate-[0.2rad]' :
-                    city.id === 2 ? 'ml-11 -rotate-[0.1rad]'
-                    :  'rotate-[0.06rad]' } text-white text-xl font-semibold`}>
+                <div className="absolute w-full flex justify-center  bottom-0 left-4">
+                  <h3 className={`${city.id === 1 ? ' -rotate-[0.2rad]' :
+                    city.id ===  2 || city.id === 5 ? ' -rotate-[0.1rad]'
+                    : city.id === 4 ? 'rotate-[0.07rad] mt-4' : 'rotate-[0.06rad]' } text-white text-xl text-center font-semibold`}>
                     <span className="text-orange-500">ARcast</span> {city.name}
                   </h3>
                 </div>
