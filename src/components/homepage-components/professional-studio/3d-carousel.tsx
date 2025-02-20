@@ -134,7 +134,7 @@ const Carousel3D = () => {
     {
       price: "AED 400",
       title:"Subtitles (per session)",
-      src: "/images/3d2.png",
+      src: "/images/3d5.png",
       description: "Adding subtitles/captions to your final video for accessibility and audience engagement."
     },
     {
@@ -152,7 +152,7 @@ const Carousel3D = () => {
     {
       price: "AED 7500",
       title: "Podcast Branding",
-      src: "/images/3d5.webp",
+      src: "/images/3d2.png",
       description: "Complete A/V branding: professionally designed logo, color scheme, typography, cover art, jingle, social media visuals, and brand book."
     }
   ];
