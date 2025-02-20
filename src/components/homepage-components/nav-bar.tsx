@@ -1,8 +1,8 @@
 'use client'
 import React, {useState, useEffect} from 'react';
 import NavigationItem from './nav-item';
-import { GoGlobe } from "react-icons/go";
-import { TbCaretDown, TbCaretRight} from "react-icons/tb";
+// import { GoGlobe } from "react-icons/go";
+import { TbCaretRight} from "react-icons/tb";
 import { IoIosMenu } from "react-icons/io";
 import ChooseSetup from './studio-Dropdown';
 import ContactOverlay from '../contact-components/contact-overlay';
@@ -75,9 +75,9 @@ const NavigationBar= () => {
   return (
     <>
       <header
-          className={`fixed bottom-[2vh] -translate-x-1/2 left-1/2 w-full shadow-[#8585851A] 
+          className={`fixed bottom-[2vh] -translate-x-1/2 left-1/2 w-[90%] shadow-[#8585851A] 
           bg-[#FCFCFC] rounded-[16px] lg:w-[35vw] backdrop-blur-md z-50 justify-between 
-          items-center p-[21px] 3xl:p-r text-base font-medium shadow-lg transition-transform 
+          items-center p-[21px] 3xl:p-r text-base font-medium shadow-2xl transition-transform 
           duration-300 ${show ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}
         >
         <div className=' mx-auto flex justify-between items-center'>

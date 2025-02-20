@@ -13,6 +13,33 @@ const DubaiStudioLocation = () => {
     "/images/image.png",
     "/images/image2.png",
   ]
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+    const [touchEnd, setTouchEnd] = useState<number | null>(null);
+    const minSwipeDistance = 50;
+  
+    const onTouchStart = (e: React.TouchEvent) => {
+      setTouchEnd(null);
+      setTouchStart(e.targetTouches[0].clientX);
+    };
+  
+    const onTouchMove = (e: React.TouchEvent) => {
+      setTouchEnd(e.targetTouches[0].clientX);
+    };
+  
+    const onTouchEnd = () => {
+      if (!touchStart || !touchEnd) return;
+      
+      const distance = touchStart - touchEnd;
+      const isLeftSwipe = distance > minSwipeDistance;
+      const isRightSwipe = distance < -minSwipeDistance;
+  
+      if (isLeftSwipe) {
+        handleImageChange("next");
+      } else if (isRightSwipe) {
+        handleImageChange("prev");
+      }
+    };
+  
 
   const handleImageChange = (direction: "next" | "prev") => {
     setImageIndex((prevIndex) => {
@@ -40,7 +67,10 @@ const DubaiStudioLocation = () => {
                 <span className="font-medium text-xl leading-[27px] 3xl:text-2xl 3xl:leading-8 text-[#333333]">Nearby</span>
             </div>
             <p className="text-[#989898] font-medium text-base leading-6 3xl:text-xl 3xl:leading-7 3xl:mt-3 mt-1">OSN, Avani+ Palm View Dubai Hotel & Suites</p>
-            <div className="w-full relative flex-grow mt-6 p-0">
+            <div
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd} className="w-full relative flex-grow mt-6 p-0">
               <Image
                   src={images[imageIndex]} 
                   alt="Studio Interior"

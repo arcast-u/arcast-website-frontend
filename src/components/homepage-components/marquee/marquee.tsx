@@ -3,13 +3,13 @@ import Marquee from 'react-fast-marquee';
 import Image from 'next/image';
 
 const images = [
-  '/icons/text1.svg',
+  '/icons/marq1.svg',
   '/icons/bento.svg',
-  '/icons/text2.svg',
+  '/icons/marq2.svg',
   '/icons/bento.svg',
-  '/icons/text3.svg',
+  '/icons/marq1.svg',
   '/icons/bento.svg',
-  '/icons/text4.svg',
+  '/icons/marq2.svg',
   '/icons/bento.svg',
 ];
 

@@ -7,7 +7,7 @@ import FAQSection from "@/components/faq/faq-section";
 // import Video from "@/components/video-section/video";
 import ProfessionalStudio from "@/components/homepage-components/professional-studio/professional-studio";
 import Community from "@/components/homepage-components/community/community";
-import NewsletterSignup from "@/components/homepage-components/newsletter/newsletter";
+// import NewsletterSignup from "@/components/homepage-components/newsletter/newsletter";
 import Footer from "@/components/homepage-components/footer/footer";
 import MarqueeSlider from "@/components/homepage-components/marquee/marquee";
 import DubaiStudioLocation from "@/components/homepage-components/location/location";
@@ -31,7 +31,7 @@ export default function Home() {
     <DubaiStudioLocation/>
     <Community/>
     <FAQSection/>
-    <NewsletterSignup/>
+    {/* <NewsletterSignup/> */}
     <Footer/>
   </main>
   );

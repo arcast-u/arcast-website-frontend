@@ -1,14 +1,14 @@
 import React from 'react';
 import { HiOutlineLocationMarker } from "react-icons/hi";
 import { PiInstagramLogo, PiTiktokLogo, PiLinkedinLogo } from "react-icons/pi";
-import { CiYoutube } from "react-icons/ci";
+// import { CiYoutube } from "react-icons/ci";
 import { FaXTwitter } from "react-icons/fa6";
 import Image from 'next/image';
 import Link from 'next/link';
 
 const Footer = () => {
   return (
-    <footer id='footer' className='px-[21px] lg:px-16 3xl:mt-72 3xl:px-[100px]  '>
+    <footer id='footer' className='px-[21px] mt-8 lg:px-16 3xl:mt-72 3xl:px-[100px]  '>
       <div className='mx-auto font-nunitoSans pt-5 3xl:pt-10 h-full flex flex-col border-t border-[#989898]'>
         <div className='flex-grow'>
           <div className='md:flex md:justify-between mb-32 text-[#989898]'>
@@ -53,13 +53,13 @@ const Footer = () => {
                     <Link href="https://www.linkedin.com/company/arcast-studio/?viewAsMember=true" className="bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80">
                     <PiLinkedinLogo className="text-black text-base 3xl:text-xl" />
                     </Link>
-                    <Link href="#" className="bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80">
+                    {/* <Link href="#" className="bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80">
                     <CiYoutube className="text-black text-base 3xl:text-xl" />
-                    </Link>
+                    </Link> */}
                 </div>
                 </div>
             </div>
-            <div className=' lg:w-[60%] grid md:grid-cols-3 gap-8 sm:gap-6 sm:grid-cols-3 '>
+            <div className=' grid md:grid-cols-2 gap-8 sm:gap-6  '>
             <div className='text-base'>
                 <p className=' text-[#989898] mb-1'>Contact us</p>
                 <ul className='text-[#333333] text-sm 3xl:text-base space-y-1'>
@@ -102,14 +102,14 @@ const Footer = () => {
                       Studios
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link
                       href='/blogs'
                       className='hover:underline underline-offset-2'
                     >
                       Blogs
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link
                       href='/faqs'
@@ -121,8 +121,8 @@ const Footer = () => {
                 </ul>
               </div>
               
-              <div className='text-base'>
-                <p className=' text-[#989898] mb-1'>Studio</p>
+              {/* <div className='text-base'>
+                <p className=' text-[#989898] mb-1'>Setups</p>
                 <ul className=' space-y-1 text-sm 3xl:text-base text-[#333333]'>
                   <li className=''>
                     <Link
@@ -173,7 +173,7 @@ const Footer = () => {
                     </Link>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
