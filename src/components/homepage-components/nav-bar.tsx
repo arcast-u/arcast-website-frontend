@@ -27,7 +27,7 @@ const NavigationBar= () => {
   const [isStudioOpen, setIsStudioOpen] = useState(false);
   const [isContactOpen, setIsContactOpen] = useState(false);
   
-  const [showHeader, setShowHeader] = useState(false);
+  const [show, setShow] = useState(false);
 
   const navigationItems: NavigationItemData[] = [
   { label: 'Home', path: '/' },
@@ -43,34 +43,24 @@ const NavigationBar= () => {
   ];
   
   useEffect(() => {
-    // Scroll handler for header visibility
     const handleScroll = () => {
+      const windowHeight = window.innerHeight;
       const scrollY = window.scrollY;
-      const shouldShow = scrollY > 100;
+      const footerElement = document.querySelector('footer');
+      const footerTop = footerElement?.getBoundingClientRect().top ?? 0;
 
-      const footer = document.querySelector('footer');
-      if (footer) {
-        const footerRect = footer.getBoundingClientRect();
-        const viewportHeight = window.innerHeight;
-        const headerPosition = viewportHeight * 0.85; // 85vh in pixels
-        
-        // Hide header when footer is approaching the header's position
-        if (footerRect.top <= headerPosition + 100) { // Added 100px buffer
-          setShowHeader(false);
-          return;
-        }
+      // Show header when scrolled past screen height and not at footer
+      if (scrollY > windowHeight && footerTop > window.innerHeight) {
+        setShow(true);
+      } else {
+        setShow(false);
       }
-
-      setShowHeader(shouldShow);
     };
 
     window.addEventListener('scroll', handleScroll);
-
-    // Cleanup
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
   
   
   const bookSession = () => {router.push('/bookings')};
@@ -87,11 +77,12 @@ const NavigationBar= () => {
 
   return (
     <>
-       <header
-        className={`fixed top-[100vh] hidden -translate-x-1/2 left-1/2 w-full shadow-[#8585851A] bg-[#FCFCFC] rounded-[16px] lg:w-[50vw] backdrop-blur-md z-50 justify-between items-center p-[21px] lg:p-6 text-base font-medium shadow-sm transition-transform duration-300 ${
-          showHeader ? 'translate-y-0 ' : '-translate-y-full'
-        }`}
-      >
+      <header
+          className={`fixed bottom-[2vh] -translate-x-1/2 left-1/2 w-full shadow-[#8585851A] 
+          bg-[#FCFCFC] rounded-[16px] lg:w-[50vw] backdrop-blur-md z-50 justify-between 
+          items-center p-[21px] 3xl:p-6 text-base font-medium shadow-sm transition-transform 
+          duration-300 ${show ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}
+        >
         <div className=' mx-auto flex justify-between items-center'>
          
           <Link href='/'>

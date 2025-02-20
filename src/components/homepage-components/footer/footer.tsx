@@ -41,16 +41,16 @@ const Footer = () => {
 
                 {/* Social Media Icons */}
                 <div className="flex gap-4 mt-4">
-                    <Link href="#" className="bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80">
+                    <Link href="https://www.instagram.com/arcast.studio/" className="bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80">
                     <PiInstagramLogo className="text-black text-base 3xl:text-xl" />
                     </Link>
-                    <Link href="#" className="bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80">
+                    <Link href="https://x.com/arcast_studio" className="bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80">
                     <FaXTwitter className="text-black text-base 3xl:text-xl" />
                     </Link>
-                    <Link href="#" className="bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80">
+                    <Link href="https://www.tiktok.com/@arcast.studio" className="bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80">
                     <PiTiktokLogo className="text-black text-base 3xl:text-xl" />
                     </Link>
-                    <Link href="#" className="bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80">
+                    <Link href="https://www.linkedin.com/company/arcast-studio/?viewAsMember=true" className="bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80">
                     <PiLinkedinLogo className="text-black text-base 3xl:text-xl" />
                     </Link>
                     <Link href="#" className="bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80">
