@@ -313,7 +313,7 @@ const StudioBooking= () => {
     } else {
       setCurrentStep((prev: number) => prev + 1);
     }
-  }, [checked, isStepFour, isComplete, router, clearProgress, bookStudio,receipt]);
+  }, [checked, isStepFour, isComplete, clearProgress, receipt]);
 
   
   
