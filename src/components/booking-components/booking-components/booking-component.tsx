@@ -393,6 +393,7 @@ const StudioBooking= () => {
       </div>
       <div className="px-3 xl:pl-3 xl:pr-7 3xl:px-5 sticky bottom-[14px] lg:bottom-4 w-full">
       <TotalCost 
+        studioName={isStepOne || isComplete ? "" : `${selectedStudio?.name} + ` }
         description={isStepOne || isComplete ? "" : selectedPackage?.name} 
         total={isStepOne || isComplete  ? '' : selectedPackage?.price_per_hour}
         currency={isStepOne || isComplete  ? '' : selectedPackage?.currency}
