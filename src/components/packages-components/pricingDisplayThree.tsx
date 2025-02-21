@@ -44,7 +44,7 @@ export const PricingDisplayUltimate = () => {
     });
   }, []);
 
-  const imageRef = React.useCallback((node: HTMLElement | null, index: number) => {
+  const imageRef = React.useCallback((node: HTMLElement | null) => {
     if (node) {
       const observer = new IntersectionObserver(observerCallback, {
         threshold: 0.2,
@@ -84,7 +84,7 @@ export const PricingDisplayUltimate = () => {
                   {item.price}
                 </p>
               </div>
-              <div ref={(node) => imageRef(node, index)} data-index={index}>
+              <div ref={(node) => imageRef(node)} data-index={index}>
                 <Image
                   loading="lazy"
                   width={287}
@@ -107,7 +107,7 @@ export const PricingDisplayUltimate = () => {
             {/* Left side */}
             <div className={`flex justify-end ${index > 0 ? "md:mt-[16.5rem] 3xl:mt-14 mt-10" : "mt-0"}`}>
               {index % 2 === 0 ? (
-                <div ref={(node) => imageRef(node, index)} data-index={index}>
+                <div ref={(node) => imageRef(node)} data-index={index}>
                   <Image
                     loading="lazy"
                     width={287}
@@ -149,7 +149,7 @@ export const PricingDisplayUltimate = () => {
                   </p>
                 </div>
               ) : (
-                <div ref={(node) => imageRef(node, index)} data-index={index}>
+                <div ref={(node) => imageRef(node)} data-index={index}>
                   <Image
                     loading="lazy"
                     width={287}
