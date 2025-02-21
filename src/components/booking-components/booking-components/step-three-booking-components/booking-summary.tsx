@@ -70,7 +70,7 @@ const BookingSummary = ({booking}: BookingComponentProps) => {
                     Location 
                 </p>
                 <p className="text-base leading-5 3xl:mt-3 mt-2 font-nunitoSansfont-medium text-[#333333]">
-                  {booking?.studio?.location ?? "No Location Available"}
+                  {booking?.lead?.recordingLocation ?? "No Location Available"}
                 </p>
               </div>
               <div className="flex flex-wrap justify-between items-center">

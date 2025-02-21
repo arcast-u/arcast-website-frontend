@@ -27,9 +27,8 @@ const StudioCard = ({ imageUrl, name, location, totalSeats, isFullyBooked, selec
 
   return (
     <div
-      className={`flex flex-col relative shrink cursor-none justify-center py-2.5 px-3 3xl:px-5 3xl:py-4 rounded-xl ${
-        count === selectedStudio && !isFullyBooked ? "border-2 border-[#FF8C42] border-solid" : ""
-      } basis-0 ${bgColor} transition-transform  ${!isFullyBooked && isMobileStudio ? 'hover:scale-105' : ''}`}
+      className={`flex flex-col relative shrink cursor-none justify-center py-2.5 px-3 3xl:px-5 3xl:py-4 rounded-xl 
+        basis-0 ${bgColor} transition-transform  ${!isFullyBooked && isMobileStudio ? 'hover:scale-105' : ''}`}
       tabIndex={0}
       role="button"
       onClick={handleStudioSelect}
@@ -45,13 +44,23 @@ const StudioCard = ({ imageUrl, name, location, totalSeats, isFullyBooked, selec
           className="object-cover flex-1 w-full rounded-lg aspect-[1.3]" 
         />
       </div>
-      <div className="flex flex-col font-nunitoSans mt-3 w-full">
-        <h3 className={`font-semibold text-sm leading-[19.1px] 3xl:leading-[21.82px] 3xl:text-base ${textColor}`}>
-          {name}
-        </h3>
-        <p className="mt-1 text-xs leading-[16.37px] 3xl:leading-[21.82px] 3xl:text-base font-normal text-[#989898]">
-          {location || totalSeats}
-        </p>
+      <div className="flex justify-between font-nunitoSans mt-3 w-full">
+        <div className="flex-col flex">
+          <h3 className={`font-semibold text-sm leading-[19.1px] 3xl:leading-[21.82px] 3xl:text-base ${textColor}`}>
+            {name}
+          </h3>
+          <p className="mt-1 text-xs leading-[16.37px] 3xl:leading-[21.82px] 3xl:text-base font-normal text-[#989898]">
+            {location || totalSeats}
+          </p>
+        </div>
+        <input
+          type="radio"
+          name="studioSelection"
+          value={name}
+          checked={count === selectedStudio}
+          onChange={handleStudioSelect}
+          className="self-start mt-1 focus:outline-none accent-[#FF8C42]" 
+        />
       </div>
       {isFullyBooked || name !== "Mobile Studio Service" && (
         <div className="absolute top-0 cursor-not-allowed right-0 flex justify-center pt-14 3xl:pt-20 md:pt-32 lg:pt-16 w-full h-full bg-[#F5F5F7]/50 rounded-xl">
