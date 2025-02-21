@@ -33,7 +33,7 @@ const StudioCard = ({ imageUrl, name, location, totalSeats, isFullyBooked, selec
       role="button"
       onClick={handleStudioSelect}
     >
-      <div className="w-full 3xl:[288.5px] 3xl:h-[208px] 4xl:h-[408px]">
+      <div className="w-full 3xl:[288.5px] 3xl:h-[208px] 4xl:h-[308px]">
         <Image
           loading="lazy" 
           src={imageUrl || img} 
