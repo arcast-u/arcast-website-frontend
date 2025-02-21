@@ -195,7 +195,7 @@ const StudioSpacesCarousel = () => {
                   fill
                   quality={100}
                   className="object-fit rounded-lg"
-                  priority
+                  loading='lazy'
                 />
               </div>
 

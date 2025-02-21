@@ -42,7 +42,14 @@ const Card = ({ title, price, style, description, src, isMultiCamVisible, isVisi
     onClick={onClick}
     className={`${inFocus ? "h-[90%] w-[90%] top-4  left-4 3xl:top-9 3xl:left-7" : "h-full w-full left-0 top-0"} absolute bg-transparent rounded-2xl  flex flex-col items-center text-center cursor-pointer`}
   >
-    <Image src={src} alt={title} quality={100} width={100} height={100} className={`w-full ${inFocus ? 'h-full' : 'h-[85%]'} relative shadow-lg object-cover rounded-2xl`}/>
+    <Image 
+    src={src} 
+    alt={title} 
+    quality={100} 
+    width={100} 
+    height={100} 
+    loading='lazy'
+    className={`w-full ${inFocus ? 'h-full' : 'h-[85%]'} relative shadow-lg object-cover rounded-2xl`}/>
     {/* Multi-Cam Recording Toggle */}
     {inFocus && <div 
         className={` p-3 3xl:p-4 absolute w-[88%] font-medium bottom-4 lg:bottom-7 font-nunitoSans rounded-2xl  cursor-pointer hover:shadow-lg transition ${isMultiCamVisible ? 'bg-white' : 'bg-transparent'}`}
