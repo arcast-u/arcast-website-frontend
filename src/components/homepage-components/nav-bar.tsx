@@ -75,7 +75,7 @@ const NavigationBar= () => {
   return (
     <>
       <header
-          className={`fixed bottom-[2vh] -translate-x-1/2 left-1/2 w-[90%] shadow-[#8585851A] 
+          className={`fixed bottom-[2vh] -translate-x-1/2 left-1/2 w-[90%] shadow-[#858585] 
           bg-[#FCFCFC] rounded-[16px] lg:w-[35vw] backdrop-blur-md z-50 justify-between 
           items-center p-[21px] 3xl:p-r text-base font-medium shadow-2xl transition-transform 
           duration-300 ${show ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'}`}

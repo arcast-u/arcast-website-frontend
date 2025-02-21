@@ -11,6 +11,7 @@ const DubaiStudioLocation = () => {
   const [imageIndex, setImageIndex] = useState<number>(0)
   const images= [
     "/images/image.png",
+    "/images/image1.png",
     "/images/image2.png",
   ]
   const [touchStart, setTouchStart] = useState<number | null>(null);
