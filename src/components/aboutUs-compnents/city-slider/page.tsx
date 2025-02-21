@@ -125,8 +125,8 @@ const CitySlider = () => {
   }
     const AnimatedDiv = animated.div as unknown as React.FC<AnimatedDivProps>;
   return (
-    <div className="relative w-full 3xl:h-screen   px-[21px] lg:px-10 3xl:px-[100px] py-14 3xl:py-20">
-      <div className='h-full w-[1728px] overflow-hidden mx-auto'>
+    <div className=" w-full 3xl:h-screen px-[21px] lg:px-10 3xl:px-[100px] py-14 3xl:py-20">
+      <div className='h-full relative max-w-[1728px] overflow-hidden mx-auto'>
         <div className="">
           <h1 className="text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px] font-medium font-hankenGrotesk text-[#FCFCFC] mb-4">
             The Future of <span className="text-orange-500">ARcast</span>
@@ -140,7 +140,7 @@ const CitySlider = () => {
         <div
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
-        onTouchEnd={onTouchEnd} className="relative mt-20 3xl:mt-48">
+        onTouchEnd={onTouchEnd} className=" mt-20 3xl:mt-48">
           {/* Use the animated.div with styles object */}
           <AnimatedDiv 
             style={styles}
@@ -174,27 +174,28 @@ const CitySlider = () => {
           </AnimatedDiv>
 
           {/* Navigation Buttons */}
-                <div className="absolute bottom-0 w-[90%] lg:w-auto lg:right-10 flex justify-between lg:justify-end gap-2">
-                  <button 
-                  disabled={index === 0}
-                    onClick={prevSlide}
-                    className={`${index === 0 ? "border-gray-800":"border-gray-500"} p-1 md:p-2 rounded-lg border-[1.5px]  shadow-sm `}
-                  >
-                    <IoIosArrowBack className="size-4 text-gray-500" />
-                  </button>
-                  
-                  <button 
-                  disabled={index === cities.length - 1}
-                    onClick={nextSlide}
-                    className={`${index === cities.length - 1 ? "border-gray-800":"border-gray-500"} p-1 md:p-2 rounded-lg border-[1.5px] border-gray-500 shadow-sm`}
-                  >
-                    <IoIosArrowForward className="size-4 text-gray-500" />
-                  </button>
-                </div>
+                
 
           
         </div>
+        <div className="absolute bottom-0 w-full lg:w-auto lg:right-10 flex justify-between lg:justify-end gap-2">
+          <button 
+          disabled={index === 0}
+            onClick={prevSlide}
+            className={`${index === 0 ? "border-gray-700":"border-gray-500"} p-1 md:p-2 rounded-lg border-[1.5px]  shadow-sm `}
+          >
+            <IoIosArrowBack className="size-4 text-gray-500" />
+          </button>
+          
+          <button 
+          disabled={index === cities.length - 1}
+            onClick={nextSlide}
+            className={`${index === cities.length - 1 ? "border-gray-700":"border-gray-500"} p-1 md:p-2 rounded-lg border-[1.5px] border-gray-500 shadow-sm`}
+          >
+            <IoIosArrowForward className="size-4 text-gray-500" />
+          </button>
         </div>
+      </div>
     </div>
   )
 }
