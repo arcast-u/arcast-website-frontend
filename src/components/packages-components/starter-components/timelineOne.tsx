@@ -4,7 +4,7 @@ interface TimelineProps {
   maxSteps?: number;
 }
 
-// ... existing code ...
+
 export const Timeline = ({ maxSteps = 3 }: TimelineProps) => {
   return (
     <nav className="flex flex-col items-center mt-2 text-base font-medium text-[#FCFCFC] font-mullish whitespace-nowrap md:order-2 order-1" aria-label="Pricing timeline">
