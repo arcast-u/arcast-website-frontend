@@ -20,7 +20,8 @@ export default {
   		},
   		xl: '1280px',
   		'2xl': '1500px',
-  		'3xl': '1700px'
+  		'3xl': '1700px',
+		'4xl': '2000px',
   	},
   	extend: {
 		  animation: {
