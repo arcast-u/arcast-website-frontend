@@ -50,7 +50,7 @@ import { PackagePerkProps } from "@/lib/types";
             type="radio"
             checked={count === selectedPackage}
             onChange={() => onSelect(count)}
-            className="w-5 h-5 accent-[#FF8C42] cursor-pointer"
+            className="w-5 h-5 accent-[#FF8C42] bg-transparent cursor-pointer"
             name="package-selection"
             id={`package-${count}`}
           />
