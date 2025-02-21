@@ -198,7 +198,7 @@ const StudioBooking= () => {
         return data;
       } else {
         if (response.status === 500) {
-          toast.error('Internal server error');
+          toast.error('An unexpected error occurred while processing your request');
         } else {
           const errorData = await response.json();
           toast.error(errorData.message || 'An unexpected error occurred');
