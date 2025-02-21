@@ -72,7 +72,8 @@ const NewsletterSignup = () => {
                     {countries.map((item) => (
                       <li
                         key={item.country}
-                        onClick={(e) => setFormData({...formData, countryCode: item.code})}
+                        data-code={item.code}
+                        onClick={(e) => setFormData({...formData, countryCode: e.currentTarget.getAttribute("data-code")!})}
                         className="px-4 py-2 hover:bg-gray-200 text-sm font-nunitoSans"
                       >
                         ({item.code}) {item.country} 
