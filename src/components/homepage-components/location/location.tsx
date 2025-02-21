@@ -86,7 +86,7 @@ const DubaiStudioLocation = () => {
             </div>
           </div>
           {/* Opening Hours */}
-          <div className="bg-[#F5F5F7] p-6 3xl:py-10 3xl:px-[60px]rounded-xl shadow-md text-center">
+          <div className="bg-[#F5F5F7] p-6 3xl:py-10 3xl:px-[60px] rounded-xl shadow-md text-center">
                 <h3 className="text-lg 3xl:text-[40px] font-medium text-[#333333]">Opening hours</h3>
                 <div className="grid grid-cols-2 text-[#989898] mt-7 gap-4">
                     <div>
@@ -105,7 +105,7 @@ const DubaiStudioLocation = () => {
 
         {/* Map Location */}
         <div className="bg-[#F5F5F7] h-full p-6 3xl:py-10 3xl:px-[60px] relative rounded-xl shadow-md flex flex-col border items-center">
-          <div className=" w-full md:w-auto border h-full">
+          <div className=" w-full md:w-auto h-full">
           <Image quality={100} width={100} height={100} src="/images/location.png" loading="lazy" alt="Google Maps Location" className="w-full rounded-tl-[43px] h-full " />
           </div>
           <div className="absolute bottom-0 bg-gradient-to-t w-full flex flex-col h-[45%] text-center justify-center from-[#F5F5F7] via-[#F5F5F7] to-transparent ">
