@@ -33,7 +33,7 @@ const StudioCard = ({ imageUrl, name, location, totalSeats, isFullyBooked, selec
       role="button"
       onClick={handleStudioSelect}
     >
-      <div className="w-full 3xl:[288.5px] 3xl:h-[208px]">
+      <div className="w-full 3xl:[288.5px] 3xl:h-[208px] 4xl:h-[308px]">
         <Image
           loading="lazy" 
           src={imageUrl || img} 
@@ -41,7 +41,7 @@ const StudioCard = ({ imageUrl, name, location, totalSeats, isFullyBooked, selec
           height={110}
           quality={100}
           alt='studio card' 
-          className="object-cover flex-1 w-full rounded-lg aspect-[1.3]" 
+          className="object-cover flex-1 w-full rounded-lg aspect-[1.3]  " 
         />
       </div>
       <div className="flex justify-between font-nunitoSans mt-3 w-full">
