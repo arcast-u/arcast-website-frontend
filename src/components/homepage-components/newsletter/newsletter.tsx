@@ -1,18 +1,28 @@
 'use client'
 import { useState, FormEvent } from 'react';
+import { getCountries, getCountryCallingCode } from "libphonenumber-js";
+import { TbCaretDown, TbCaretUp } from 'react-icons/tb';
 
 interface FormData {
   name: string;
   email: string;
+  countryCode: string;
   whatsapp: string;
 }
 
 const NewsletterSignup = () => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
+    countryCode: '+971',
     whatsapp: ''
   });
+
+  const countries = getCountries().map((code) => ({
+        code: `+${getCountryCallingCode(code)}`,
+        country: code,
+      }));
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -49,17 +59,27 @@ const NewsletterSignup = () => {
               onChange={(e) => setFormData({...formData, email: e.target.value})}
             />
             
-            <div className="flex gap-2">
-              <select 
-                className="w-[100px] p-4 rounded-md bg-white/10 text-white focus:outline-none focus:ring-2 focus:ring-orange-400"
-              >
-                <option value="+971" className='text-[#333333]'>+971</option>
-                <option value="+1" className='text-[#333333]'>+1</option>
-                <option value="+44" className='text-[#333333]'>+44</option>
-                <option value="+91" className='text-[#333333]'>+91</option>
-                <option value="+81" className='text-[#333333]'>+81</option>
-                {/* Add more country codes as needed */}
-              </select>
+            <div className="flex gap-2 relative">
+              
+              <button onClick={() => setDropdownOpen(!dropdownOpen)} className="flex gap-1 items-center  pr-3 3xl:pr-4 pl-4 3xl:pl-6 whitespace-nowrap rounded-md focus:outline-none focus:ring-2 focus:ring-orange-400 bg-white/10 text-white ">
+                <p className="self-stretch font-normal font-nunitoSans my-auto">
+                  {formData.countryCode}</p>
+                  {dropdownOpen ?  <TbCaretUp className="size-5 text-white stroke-[1px]" /> : <TbCaretDown className="size-5 text-white stroke-[1px]" />}
+                
+              </button>
+              {dropdownOpen && (
+                  <ul className="absolute h-[200px] overflow-y-auto left-0 w-1/2 top-full bg-[#F5F5F7] text-[#333333] text-left border border-gray-300 rounded-md mt-1 shadow-md z-10">
+                    {countries.map((item) => (
+                      <li
+                        key={item.country}
+                        onClick={(e) => setFormData({...formData, countryCode: item.code})}
+                        className="px-4 py-2 hover:bg-gray-200 text-sm font-nunitoSans"
+                      >
+                        ({item.code}) {item.country} 
+                      </li>
+                    ))}
+                  </ul>
+                )}
               
               <input
                 type="tel"

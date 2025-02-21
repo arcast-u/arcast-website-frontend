@@ -1,6 +1,8 @@
 'use client'
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getCountries, getCountryCallingCode } from "libphonenumber-js";
+import { TbCaretDown, TbCaretUp } from 'react-icons/tb';
 
 interface ContactOverlayProps {
   isOpen: boolean;
@@ -8,6 +10,7 @@ interface ContactOverlayProps {
 }
 
 const ContactOverlay = ({ isOpen, onClose }: ContactOverlayProps) => {
+  const [dropdownOpen, setDropdownOpen] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -16,6 +19,11 @@ const ContactOverlay = ({ isOpen, onClose }: ContactOverlayProps) => {
     message: '',
     countryCode: '+971'
   });
+
+  const countries = getCountries().map((code) => ({
+      code: `+${getCountryCallingCode(code)}`,
+      country: code,
+    }));
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,6 +71,7 @@ const ContactOverlay = ({ isOpen, onClose }: ContactOverlayProps) => {
                   </p>
                   <p className="text-[#333333] font-normal text-sm 3xl:text-lg 3xl:leading-[24.55px] leading-[19.1px]">
                     Fill out the form below and we&apos;ll get back to you.
+                    {/* within 5 minutes. */}
                   </p>
                 </div>
 
@@ -96,14 +105,27 @@ const ContactOverlay = ({ isOpen, onClose }: ContactOverlayProps) => {
                     />
 
                     {/* Phone Number */}
-                    <div className="grid grid-cols-4 gap-4">
-                      <select
-                        value={formData.countryCode}
-                        onChange={(e) => setFormData({...formData, countryCode: e.target.value})}
-                        className="p-3 rounded-md bg-[#F5F5F7] focus:outline-none focus:ring-2 focus:ring-[#FF8C42]"
-                      >
-                        <option value="+971">+971</option>
-                      </select>
+                    <div className="grid grid-cols-4 gap-4 relative">
+                      
+                      <button onClick={() => setDropdownOpen(!dropdownOpen)} className="flex gap-1 items-center  pr-3 3xl:pr-4 pl-4 3xl:pl-6 whitespace-nowrap rounded-md focus:outline-none focus:ring-2 focus:ring-[#FF8C42] bg-[#F5F5F7] text-[#333333] ">
+                        <p className="self-stretch font-normal font-nunitoSans my-auto">
+                          {formData.countryCode}</p>
+                          {dropdownOpen ?  <TbCaretUp className="size-5 text-[#333333] stroke-[1px]" /> : <TbCaretDown className="size-5 text-[#333333] stroke-[1px]" />}
+                        
+                      </button>
+                      {dropdownOpen && (
+                          <ul className="absolute h-[200px] overflow-y-auto left-0 w-1/2 top-full bg-[#F5F5F7] border border-gray-300 rounded-md mt-1 shadow-md z-10">
+                            {countries.map((item) => (
+                              <li
+                                key={item.country}
+                                onClick={(e) => setFormData({...formData, countryCode: item.code})}
+                                className="px-4 py-2 hover:bg-gray-200 text-sm font-nunitoSans"
+                              >
+                                ({item.code}) {item.country} 
+                              </li>
+                            ))}
+                          </ul>
+                        )}
                       <input
                         type="tel"
                         placeholder="Phone number"
