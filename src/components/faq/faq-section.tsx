@@ -93,22 +93,25 @@ export const FAQSection = () => {
   ];
 
   return (
-    <section className="flex overflow-hidden flex-wrap lg:flex-nowrap justify-between py-10 3xl:py-20 px-[21px] lg:px-10 3xl:px-[100px] font-medium bg-neutral-100" aria-labelledby="faq-title">
-      <h1 id="faq-title" className=" w-full lg:w-[30%] self-start font-hankenGrotesk text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px]">
-        Frequently asked questions
-      </h1>
-      <div className="w-full mt-16 lg:mt-0 lg:w-[60%]">
-        {faqItems.map((item, index) => (
-          <FAQItem
-            key={index}
-            question={item.question}
-            answer={item.answer}
-            isOpen={openItem === index}
-            onClick={() => setOpenItem(openItem === index ? null : index)}
-            isLast={index === faqItems.length - 1}
-          />
-        ))}
+    <section className=" py-10 3xl:py-20 px-[21px] lg:px-10 3xl:px-[100px] bg-neutral-100" aria-labelledby="faq-title">
+      <div className='max-w-[1728px] h-full mx-auto flex overflow-hidden font-medium flex-wrap lg:flex-nowrap justify-between'>
+        <h1 id="faq-title" className=" w-full lg:w-[30%] self-start font-hankenGrotesk text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px]">
+          Frequently asked questions
+        </h1>
+        <div className="w-full mt-16 lg:mt-0 lg:w-[60%]">
+          {faqItems.map((item, index) => (
+            <FAQItem
+              key={index}
+              question={item.question}
+              answer={item.answer}
+              isOpen={openItem === index}
+              onClick={() => setOpenItem(openItem === index ? null : index)}
+              isLast={index === faqItems.length - 1}
+            />
+          ))}
+        </div>
       </div>
+
     </section>
   );
 };
