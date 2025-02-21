@@ -116,7 +116,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
             value={form.fullName}
             onChange={handleChange}
             placeholder="Full name"
-            className="flex-1 shrink gap-10 self-stretch  px-5 py-4 w-full rounded-xl bg-[#F5F5F7] focus:outline-none"
+            className={`${formErrors || !checked  ? 'border border-red-500' : ''} flex-1 shrink gap-10 self-stretch  px-5 py-4 w-full rounded-xl bg-[#F5F5F7] focus:outline-none`}
             aria-label="Full name"
           />
         </div>
@@ -132,7 +132,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
           value={form.email}
           onChange={handleChange}
           placeholder="Email address"
-          className="gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none "
+          className={`${formErrors || !checked  ? 'border border-red-500' : ''} gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none`}
           aria-label="Email address"
         />
         <label
@@ -148,7 +148,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
           value={form.recordingLocation}
           onChange={handleChange}
           placeholder="Recording Location"
-          className="gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none "
+          className={`${formErrors || !checked ? 'border border-red-500' : ''} gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none`}
           aria-label="recording location"
         />}
         <div className="flex gap-4 items-start mt-3 relative 3xl:mt-5 w-full max-md:max-w-full">
@@ -183,7 +183,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
             value={form.phoneNumber}
             onChange={handleChange}
             placeholder="Phone number"
-            className="flex-1 shrink gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 rounded-xl focus:outline-none bg-[#F5F5F7] "
+            className={`${formErrors || !checked  ? 'border border-red-500' : ''} flex-1 shrink gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 rounded-xl focus:outline-none bg-[#F5F5F7] `}
             aria-label="Phone number"
           />
         </div>
@@ -218,7 +218,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
             value={form.whatsappNumber}
             onChange={handleChange}
             placeholder="Whatspp number"
-            className="flex-1 shrink gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 rounded-xl focus:outline-none bg-[#F5F5F7] "
+            className={`${formErrors || !checked  ? 'border border-red-500' : ''} flex-1 shrink gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 rounded-xl focus:outline-none bg-[#F5F5F7]`}
             aria-label="Whatsapp number"
           />
         </div>
@@ -234,7 +234,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
           value={form.discountCode}
           onChange={handleChange}
           placeholder="Discount code (optional)"
-          className="gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none "
+          className={`gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none `}
           aria-label="Discount code (optional)"
         />
         <div className="flex mt-3 items-center space-x-2">
@@ -244,7 +244,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
             role="button"
             onChange={handleCheckboxChange}
             required
-            className="w-4 h-4 3xl:w-5 3xl:h-5 rounded accent-[#FF8C42] focus:ring-0"
+            className={`${formErrors || !checked ? 'border border-red-500' : ''}  w-4 h-4 3xl:w-5 3xl:h-5 rounded accent-[#FF8C42] focus:ring-0`}
           />
           <label
             className="text-[#333333] text-xs leading-[11.82px] 3xl:text-sm font-normal 3xl:leading-[21.82px] font-nunitoSans"

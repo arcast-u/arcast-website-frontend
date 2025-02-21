@@ -31,7 +31,7 @@ import { PackagePerkProps } from "@/lib/types";
     return (
       <section 
         className={`px-5 py-4 cursor-none w-full rounded-xl lg:p-6 shadow-xl shadow-[#80808050] ${
-          count === selectedPackage ? `border-[0.5px] ${isDark ? "border-white" :"border-[#989898]"}  border-solid` : ""
+          count === selectedPackage ? `border-2 border-[#FF8C42] border-solid` : ""
           } ${
           isDark ? 'bg-black' : 'bg-[#f5f5f7]'
         }`}

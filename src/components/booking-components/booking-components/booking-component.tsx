@@ -193,13 +193,16 @@ const StudioBooking= () => {
   
       if (response.ok) {
         const data = await response.json();
-        setReceipt(data)
+        setReceipt(data);
         toast.success('Booking successful');
         return data;
       } else {
-        const errorData = await response.json();
- 
-        toast.error(errorData.message || 'An unexpected error occurred');
+        if (response.status === 500) {
+          toast.error('An unexpected error occurred while processing your request');
+        } else {
+          const errorData = await response.json();
+          toast.error(errorData.message || 'An unexpected error occurred');
+        }
         return null;
       }
   
