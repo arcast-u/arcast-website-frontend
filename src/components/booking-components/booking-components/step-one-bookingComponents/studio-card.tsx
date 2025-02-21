@@ -28,7 +28,7 @@ const StudioCard = ({ imageUrl, name, location, totalSeats, isFullyBooked, selec
   return (
     <div
       className={`flex flex-col relative shrink cursor-none justify-center py-2.5 px-3 3xl:px-5 3xl:py-4 rounded-xl ${
-        count === selectedStudio && !isFullyBooked ? "border border-[#FF8C42] border-solid" : ""
+        count === selectedStudio && !isFullyBooked ? "border-2 border-[#FF8C42] border-solid" : ""
       } basis-0 ${bgColor} transition-transform  ${!isFullyBooked && isMobileStudio ? 'hover:scale-105' : ''}`}
       tabIndex={0}
       role="button"
