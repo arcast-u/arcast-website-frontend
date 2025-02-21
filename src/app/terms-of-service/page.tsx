@@ -4,7 +4,7 @@ import NavigationBar from '@/components/homepage-components/nav-bar';
 const TermsAndConditions = () => {
   return (
     <div>
-      <div className=' min-h-screen w-full  '>
+      <div className=' min-h-screen w-full max-w-[1728px] mx-auto  '>
           <NavigationBar/>
         <div className='px-6 py-6 mdLg:p-16 mdLg:mt-16 mx-auto'>
 
