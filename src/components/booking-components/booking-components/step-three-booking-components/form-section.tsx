@@ -116,7 +116,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
             value={form.fullName}
             onChange={handleChange}
             placeholder="Full name"
-            className={`${formErro  ? 'border border-red-500' : ''} flex-1 shrink gap-10 self-stretch  px-5 py-4 w-full rounded-xl bg-[#F5F5F7] focus:outline-none`}
+            className={`${formErrors  ? 'border border-red-500' : ''} flex-1 shrink gap-10 self-stretch  px-5 py-4 w-full rounded-xl bg-[#F5F5F7] focus:outline-none`}
             aria-label="Full name"
           />
         </div>
