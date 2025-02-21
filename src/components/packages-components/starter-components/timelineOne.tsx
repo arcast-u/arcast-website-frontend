@@ -34,14 +34,14 @@
 //   );
 // };
 
-
+'use client'
 import React, { useEffect, useRef, useState } from 'react';
 
 interface TimelineProps {
-  maxSteps?: number;
+  maxSteps: number;
 }
 
-export const Timeline = ({ maxSteps = 3 }: TimelineProps) => {
+export const Timeline = ({ maxSteps}: TimelineProps) => {
   const lineRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [progress, setProgress] = useState<number[]>(new Array(maxSteps - 1).fill(0));
 
