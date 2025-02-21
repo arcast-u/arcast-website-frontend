@@ -105,7 +105,7 @@ const DubaiStudioLocation = () => {
 
         {/* Map Location */}
         <div className="bg-[#F5F5F7] h-full p-6 3xl:py-10 3xl:px-[60px] relative rounded-xl shadow-md flex flex-col border items-center">
-          <div className=" w-full md:w-auto h-full">
+          <div className=" w-full md:w-auto 4xl:w-[50%] border h-full">
           <Image quality={100} width={100} height={100} src="/images/location.png" loading="lazy" alt="Google Maps Location" className="w-full rounded-tl-[43px] h-full " />
           </div>
           <div className="absolute bottom-0 bg-gradient-to-t w-full flex flex-col h-[45%] text-center justify-center from-[#F5F5F7] via-[#F5F5F7] to-transparent ">
