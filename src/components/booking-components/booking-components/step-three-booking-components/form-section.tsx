@@ -1,6 +1,7 @@
 'use client'
 import React, {useState} from "react";
 import { TbCaretDown, TbCaretUp } from "react-icons/tb";
+import { getCountries, getCountryCallingCode } from "libphonenumber-js";
 import { BookingProps } from "@/lib/types";
 
 
@@ -40,20 +41,12 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [whatsappDropdownOpen, setwhatsappDropdownOpen] = useState(false);
   const [formErrors, setFormErrors] = useState(false);
-  const countryCodes = [
-    { code: "+971", country: "UAE" },
-    { code: "+1", country: "USA" },
-    { code: "+44", country: "UK" },
-    { code: "+91", country: "India" },
-    { code: "+81", country: "Japan" },
-  ];
-  const whatsappCountryCodes = [
-    { code: "+971", country: "UAE" },
-    { code: "+1", country: "USA" },
-    { code: "+44", country: "UK" },
-    { code: "+91", country: "India" },
-    { code: "+81", country: "Japan" },
-  ];
+  
+  const countries = getCountries().map((code) => ({
+    code: `+${getCountryCallingCode(code)}`,
+    country: code,
+  }));
+
 
   const handleChange = (e: { target: { id: string; value: string | number }; }) => {
     const { id, value } = e.target;
@@ -166,10 +159,10 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
             
           </button>
           {dropdownOpen && (
-              <ul className="absolute left-0 w-1/2 top-full bg-[#F5F5F7] border border-gray-300 rounded-md mt-1 shadow-md z-10">
-                {countryCodes.map((item) => (
+              <ul className="absolute h-[200px] overflow-y-auto left-0 w-1/2 top-full bg-[#F5F5F7] border border-gray-300 rounded-md mt-1 shadow-md z-10">
+                {countries.map((item) => (
                   <li
-                    key={item.code}
+                    key={item.country}
                     onClick={() => handleCountrySelect(item.code)}
                     className="px-4 py-2 hover:bg-gray-200 text-sm font-nunitoSans"
                   >
@@ -201,10 +194,10 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
               {whatsappDropdownOpen ?  <TbCaretUp className="size-5 text-[#333333] stroke-[1px]" /> : <TbCaretDown className="size-5 text-[#333333] stroke-[1px]" />}
           </button>
           {whatsappDropdownOpen && (
-              <ul className="absolute left-0 w-1/2 top-full bg-[#F5F5F7] border border-gray-300 rounded-md mt-1 shadow-md z-10">
-                {whatsappCountryCodes.map((item) => (
+              <ul className="absolute h-[200px] overflow-y-auto left-0 w-1/2 top-full bg-[#F5F5F7] border border-gray-300 rounded-md mt-1 shadow-md z-10">
+                {countries.map((item) => (
                   <li
-                    key={item.code}
+                    key={item.country}
                     onClick={() => handleWhatsappCountrySelect(item.code)}
                     className="px-4 py-2 hover:bg-gray-200 text-sm font-nunitoSans"
                   >

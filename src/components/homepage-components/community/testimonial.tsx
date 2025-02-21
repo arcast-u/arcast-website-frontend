@@ -53,7 +53,7 @@ const TestimonialMarquee = () => {
                   height={500}
                   className="w-full h-auto"
                   quality={50}
-                  loading={idx === 0 ? 'eager' : 'lazy'}
+                  loading={'eager'}
                   // placeholder="blur"
                   
                 />
