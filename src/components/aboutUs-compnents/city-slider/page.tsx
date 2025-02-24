@@ -65,13 +65,13 @@ const CitySlider = () => {
       const updateGapSize = () => {
         const width = window.innerWidth;
         if (width < 640) { // mobile
-          setGapSize(80);
+          setGapSize(100);
         } else if (width < 1024) { // tablet
-          setGapSize(30);
+          setGapSize(33);
         } else if (width < 1200) { // notebook
-          setGapSize(15);
-        } else if (width < 1700) { // desktop
-          setGapSize(10);
+          setGapSize(22);
+        } else if (width < 1500) { // desktop
+          setGapSize(13);
         } else {
           setGapSize(15)
         }
@@ -144,12 +144,12 @@ const CitySlider = () => {
           {/* Use the animated.div with styles object */}
           <AnimatedDiv 
             style={styles}
-            className="flex gap-8 3xl:gap-48"
+            className="flex md:gap-8 lg:gap-14 xl:gap-16 3xl:gap-48"
           >
             {cities.map((city) => (
               <div
                 key={city.id}
-                className="flex-shrink-0 w-[300px] h-[450px] relative group perspective-1000"
+                className="flex-shrink-0 w-full md:w-[300px] h-[450px] relative group perspective-1000"
               >
                 <div className="relative h-[400px]">
                   <Image
@@ -158,7 +158,7 @@ const CitySlider = () => {
                     width={300}
                     height={380}
                     quality={100}
-                    className="rounded-lg 3xl:w-[386px] shadow-xl"
+                    className="rounded-lg 3xl:w-[386px] mx-auto shadow-xl"
                     priority
                   />
                   <div className="absolute w-full flex justify-center  bottom-0 left-4">
