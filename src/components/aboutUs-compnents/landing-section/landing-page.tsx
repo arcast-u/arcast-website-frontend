@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from 'react'
 import NavigationBar from '../../homepage-components/nav-bar';
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
+import { TextAnimationOptions } from '@/lib/types';
 
 // Register the GSAP TextPlugin
 gsap.registerPlugin(TextPlugin);
@@ -32,14 +33,14 @@ const LandingPage = () => {
       // Animate the first paragraph using the "text" property with useHTML enabled.
       tl.to(p1Ref.current, {
         duration: 6, 
-        text: ({ value: p1Text, delimiter: "", useHTML: true } as any),
+        text: ({ value: p1Text, delimiter: "", useHTML: true } as TextAnimationOptions),
         ease: "none",
       });
       
         // Animate the second paragraph with a similar approach
       tl.to(p2Ref.current, {
         duration: 6, 
-        text: ({ value: p2Text, delimiter: "", useHTML: true } as any),
+        text: ({ value: p2Text, delimiter: "", useHTML: true } as TextAnimationOptions),
         ease: "none",
       });
     }

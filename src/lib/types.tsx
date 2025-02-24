@@ -162,3 +162,8 @@ export interface PricingTier {
   };
 }
 
+export interface TextAnimationOptions {
+  value: string;
+  delimiter: string;
+  useHTML: boolean;
+}

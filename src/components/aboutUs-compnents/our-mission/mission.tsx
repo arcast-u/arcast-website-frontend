@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
+import { TextAnimationOptions } from '@/lib/types';
 
 gsap.registerPlugin(TextPlugin);
 
@@ -45,17 +46,17 @@ const Mission = () => {
               const tl = gsap.timeline();
               tl.to(p1Ref.current, {
                 duration: 6,
-                text: ({ value: p1Text, delimiter: "", useHTML: true } as any),
+                text: ({ value: p1Text, delimiter: "", useHTML: true } as TextAnimationOptions),
                 ease: "none",
               })
               .to(p2Ref.current, {
                 duration: 6,
-                text: ({ value: p2Text, delimiter: "", useHTML: true } as any),
+                text: ({ value: p2Text, delimiter: "", useHTML: true } as TextAnimationOptions),
                 ease: "none",
               })
               .to(p3Ref.current, {
                 duration: 6,
-                text: ({ value: p3Text, delimiter: "", useHTML: true } as any),
+                text: ({ value: p3Text, delimiter: "", useHTML: true } as TextAnimationOptions),
                 ease: "none",
               });
             }
