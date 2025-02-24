@@ -43,7 +43,7 @@ const LandingPage = () => {
         ease: "none",
       });
     }
-  }, []); 
+  }, [p1Text,p2Text]); 
 
   return (
     <div className='md:h-screen overflow-hidden mb-5'>
