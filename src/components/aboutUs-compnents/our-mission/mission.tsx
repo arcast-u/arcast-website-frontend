@@ -70,7 +70,7 @@ const Mission = () => {
     observer.observe(container);
 
     return () => observer.disconnect();
-  }, []);
+  }, [p1Text, p2Text, p3Text]);
 
   return (
     <div ref={containerRef} className='px-[21px] lg:px-10 3xl:px-[100px] py-10'>
