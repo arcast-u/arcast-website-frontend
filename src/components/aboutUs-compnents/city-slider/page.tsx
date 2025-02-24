@@ -65,7 +65,7 @@ const CitySlider = () => {
       const updateGapSize = () => {
         const width = window.innerWidth;
         if (width < 640) { // mobile
-          setGapSize(100);
+          setGapSize(80);
         } else if (width < 1024) { // tablet
           setGapSize(30);
         } else if (width < 1200) { // notebook
