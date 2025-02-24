@@ -144,7 +144,7 @@ const CitySlider = () => {
           {/* Use the animated.div with styles object */}
           <AnimatedDiv 
             style={styles}
-            className="flex md:gap-8 lg:gap-14 xl:gap-16 3xl:gap-48"
+            className="flex md:gap-8 lg:gap-14 xl:gap-16 3xl:gap-52"
           >
             {cities.map((city) => (
               <div
