@@ -3,12 +3,15 @@ import React, { useEffect, useRef } from 'react'
 import NavigationBar from '../../homepage-components/nav-bar';
 import gsap from 'gsap';
 import { TextPlugin } from 'gsap/TextPlugin';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { TextAnimationOptions } from '@/lib/types';
 
-// Register the GSAP TextPlugin
-gsap.registerPlugin(TextPlugin);
+// Register the GSAP plugins
+gsap.registerPlugin(TextPlugin, ScrollTrigger);
 
 const LandingPage = () => {
+  // Ref for the section that triggers the animation
+  const sectionRef = useRef<HTMLDivElement>(null);
   const p1Ref = useRef<HTMLParagraphElement>(null);
   const p2Ref = useRef<HTMLParagraphElement>(null);
 
@@ -26,10 +29,16 @@ const LandingPage = () => {
   <span class="text-[#FF8C42]">With a team of dedicated professionals and a vision that spans continents, we're setting new standards for what a podcast studio can be.</span>`;
 
   useEffect(() => {
-    // Create a GSAP timeline for sequential animations
-    const tl = gsap.timeline();
+    if (sectionRef.current && p1Ref.current && p2Ref.current) {
+      // Create a GSAP timeline with a scroll trigger that starts when the section is in view.
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 80%", // Adjust this value to control when the animation starts
+          toggleActions: "play none none none",
+        }
+      });
 
-    if (p1Ref.current && p2Ref.current) {
       // Animate the first paragraph using the "text" property with useHTML enabled.
       tl.to(p1Ref.current, {
         duration: 6, 
@@ -37,17 +46,17 @@ const LandingPage = () => {
         ease: "none",
       });
       
-        // Animate the second paragraph with a similar approach
+      // Animate the second paragraph with a similar approach.
       tl.to(p2Ref.current, {
         duration: 6, 
         text: ({ value: p2Text, delimiter: "", useHTML: true } as TextAnimationOptions),
         ease: "none",
       });
     }
-  }, [p1Text,p2Text]); 
+  }, [p1Text, p2Text]); 
 
   return (
-    <div className='md:h-screen overflow-hidden mb-5'>
+    <div className='md:h-screen overflow-hidden mb-5' ref={sectionRef}>
       <div className='max-w-[1728px] mx-auto'>
         <NavigationBar/>
         <div className='px-[21px] flex md:items-center lg:items-start 2xl:items-center justify-center'>
