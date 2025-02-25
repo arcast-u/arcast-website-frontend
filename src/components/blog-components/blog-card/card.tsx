@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image';
+import Link from 'next/link';
 interface CardProps {
   image: string;
   title: string;
@@ -23,7 +24,9 @@ const Card = ({image, title, description, button, date}: CardProps) => {
             '/>
             {/* <div className='absolute rounded-[8px] text-[#989898] hover:text-[#FCFCFC] flex items-baseline top-0 bg-gradient-to-t z-10 from-[#000000b3] p-3 lg:p-5 via-[#00000000] to-[#00000000] w-full h-full'> */}
                 <div className='absolute pb-3 px-3 lg:pb-5 z-10 lg:px-5 bottom-0 mt-auto w-full font-nunitoSans font-medium flex items-center justify-between '>
-                    <button className=' border text-[11px] lg:text-sm lg:leading-[19.1px] leading-[15px] border-[#989898] hover:border-[#FCFCFC] py-1.5 px-2 lg:py-2 lg:px-3 rounded'>{button}</button>
+                    <Link href={`/blog/${title}`} className=' border text-[11px] lg:text-sm lg:leading-[19.1px] leading-[15px] border-[#989898] hover:border-[#FCFCFC] py-1.5 px-2 lg:py-2 lg:px-3 rounded'>
+                        {button}
+                    </Link>
                     <p className=' text-[10px] lg:text-sm lg:leading-[19.1px] leading-[13.64px]'>{date}</p>
                 </div>
             {/* </div> */}
