@@ -1,8 +1,6 @@
-import * as React from "react";
+import React from "react";
 import SelectDuration from "./select-duration";
 import { useDuration } from "@/contex/durationContext";
-import Image from "next/image";
-import Video from '@/components/video-section/video';
 
 
 export type ServiceOptionProps = {
