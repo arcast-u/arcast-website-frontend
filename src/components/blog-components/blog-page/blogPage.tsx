@@ -75,8 +75,8 @@ const BlogPage = () => {
     const isDesktop = useScreenWidth();
 
   return (
-    <div className='px-[21px] lg:px-10 mt-[50px] 3xl:px-[100px] lg:mt-10  md:mb-[51px] 3xl:mb-[120px]'>
-        <div className='max-w-[1728px] mx-auto'>
+    <div className='w-full'>
+        <div className='max-w-[1728px] mx-auto px-[21px] lg:px-10 mt-[50px] 3xl:px-[100px] lg:mt-10  md:mb-[51px] 3xl:mb-[120px]'>
             <h1 className='font-hankenGrotesk text-[#333333] text-[32px] mb-6 3xl:mb-10 leading-[46.91px] 3xl:text-5xl 3xl:leading-[62.5px] font-semibold'>
                 Blogs
             </h1>
