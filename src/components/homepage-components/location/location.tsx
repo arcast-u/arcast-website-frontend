@@ -54,8 +54,8 @@ const DubaiStudioLocation = () => {
   };
   
   return (
-    <div className=" px-[21px] lg:px-10 3xl:px-[100px] py-10  lg:py-20 w-full">
-      <div className='max-w-[1728px] h-full flex flex-col items-center mx-auto text-[#333333]'>
+    <div className=" py-10  lg:py-20 w-full">
+      <div className='max-w-[1728px] px-[21px] lg:px-10 3xl:px-[100px] h-full flex flex-col items-center mx-auto text-[#333333]'>
         <h2 className="text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px] font-medium font-hankenGrotesk">Find Our Studio in Dubai</h2>
         
         <div className="grid grid-cols-1 font-nunitoSans md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6 w-full">

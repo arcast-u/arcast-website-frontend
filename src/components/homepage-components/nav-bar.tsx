@@ -204,7 +204,7 @@ const NavigationBar= () => {
                   </li>
                 ))}
               </ul>
-              <div onClick={bookSession} className="flex w-fit mt-4 hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#64391E] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans font-medium 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] ">
+              <div onClick={bookSession} className="flex w-fit mt-4 hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#FAE2D2] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans font-medium 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] ">
                 <button className="flex-1 bg-[#FF8C42] w-fit px-5 py-4 rounded-lg">
                   Book Your Session
                 </button>
