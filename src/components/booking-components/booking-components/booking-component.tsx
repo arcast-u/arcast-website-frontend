@@ -7,7 +7,6 @@ import NumberOfPeople from "./step-two-booking-components/number-of-people";
 import DateSelector from "./step-two-booking-components/date-selector";
 import SelectTime from './step-two-booking-components/select-time';
 import SelectDuration from "./step-two-booking-components/select-duration";
-// import CustomServices from "./step-two-booking-components/custom-services";
 import BookingConfirmation from "./step-three-booking-components/bookingConfirmation";
 import FormSection from "./step-three-booking-components/form-section";
 import BookingSummary from "./step-three-booking-components/booking-summary";
@@ -17,9 +16,19 @@ import { toast } from "react-toastify";
 import Image from "next/image";
 import { DurationProvider } from "@/contex/durationContext";
 import EquipmentSection from "./step-one-bookingComponents/recording-EquipmentList";
+import CustomServices from './step-two-booking-components/custom-services';
 
 
-
+const initialFormState = {
+  fullName: "",
+  email: "",
+  phoneNumber: "",
+  whatsappNumber: "",
+  countryCode: "+971",
+  whatsappCountryCode: "+971",
+  discountCode:"",
+  recordingLocation: '',
+};
 
 const StudioBooking= () => {
   const [isStorageLoaded, setIsStorageLoaded] = useState(false);
@@ -39,16 +48,7 @@ const StudioBooking= () => {
   const selectedStudio = studio?.[selectedStudioIndex] || null;
    const [checked, setChecked] = useState<boolean>(false);
    const [showWarning, setShowWarning] = useState<boolean>(false);
-  const [form, setForm] = useState({
-      fullName: "",
-      email: "",
-      phoneNumber: "",
-      whatsappNumber: "",
-      countryCode: "+971",
-      whatsappCountryCode: "+971",
-      discountCode:"",
-      recordingLocation: '',
-    });
+  const [form, setForm] = useState(initialFormState);
 
   const tabs = ["Step 1", "Step 2", "Step 3", "Step 4"];
   
@@ -286,6 +286,17 @@ const StudioBooking= () => {
   const clearProgress = useCallback(() => {
     try {
       localStorage.removeItem('bookingProgress');
+      // Reset all state variables that are saved in localStorage
+      setCurrentStep(0);
+      setSelectedStudioIndex(0);
+      setSelectedPackageIndex(0);
+      setSelectedPeopleCount(1);
+      setDate(new Date());
+      setSelectedTimeSlot("10:00");
+      setDuration(1);
+      setForm(initialFormState); // Make sure you have an initial form state defined
+      setChecked(false);
+      setReceipt(null);
     } catch (error) {
       console.error('Error clearing progress:', error);
     }
@@ -298,9 +309,7 @@ const StudioBooking= () => {
       return;
     }
   
-   
     if (isStepFour && checked) {
-      
       if (receipt !== null) {
         clearProgress();
         setCurrentStep((prev: number) => prev + 1);
@@ -310,7 +319,6 @@ const StudioBooking= () => {
     
     if (isComplete) {
       clearProgress();
-      setCurrentStep(0);
     } else {
       setCurrentStep((prev: number) => prev + 1);
     }
@@ -352,7 +360,7 @@ const StudioBooking= () => {
               </div>
             }
             {isStepThree &&
-            <div className="pb-24">
+            <div className="pb-10">
               <NumberOfPeople seats={selectedStudio?.totalSeats}  
                selectedPeopleCount={selectedPeopleCount} 
                setSelectedPeopleCount={setSelectedPeopleCount}/>
@@ -366,7 +374,7 @@ const StudioBooking= () => {
                selectedTimeSlot={selectedTimeSlot}
                setSelectedTimeSlot={setSelectedTimeSlot}
               />
-              {/* <CustomServices duration={duration} setDuration={setDuration}/> */}
+              <CustomServices duration={duration} setDuration={setDuration}/>
             </div>
             }
             {
