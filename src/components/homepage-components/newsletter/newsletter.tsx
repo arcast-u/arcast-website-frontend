@@ -31,8 +31,8 @@ const NewsletterSignup = () => {
   };
 
   return (
-    <div className='lg:h-screen h-fit px-3 pt-4 pb-6 lg:p-6 3xl:p-10 3xl:h-[50vh]  '>
-      <div className="rounded-[16px] h-full 3xl:h-[70vh]  bg-black/70 bg-blend-overlay bg-[url('/images/newsletter.webp')] bg-cover bg-center p-4">
+    <div className='lg:h-screen h-fit px-3 pt-4 pb-6 lg:p-6 3xl:p-10 3xl:h-fit '>
+      <div className="rounded-[16px] h-full 3xl:h-[580px]  bg-black/70 bg-blend-overlay bg-[url('/images/newsletter.webp')] bg-cover bg-center p-4">
         <div className='max-w-[1728px] h-full flex items-center mx-auto justify-center'>
         <div className="lg:w-[38%] md:w-[60%] m-10 md:m-auto font-hankenGrotesk w-full text-center text-[#F0F2F6]">
           <h1 className="text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px] font-medium">
