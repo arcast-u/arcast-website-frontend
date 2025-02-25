@@ -15,7 +15,7 @@ const ChooseSetup = () => {
   const router = useRouter();
   const bookSession = () => router.push("/bookings");
   return (
-    <section className="absolute h-[120vh] md:h-screen pb-20   overflow-y-auto lg:h-auto bg-[#FCFCFC] rounded-b-xl md:top-12 top-14 lg:top-14 3xl:top-16 flex flex-wrap lg:flex-nowrap justify-between left-0 w-full px-10 py-16">
+    <section className="absolute h-[120vh] md:h-screen pb-20 shadow-xl shadow-[#858585] overflow-y-auto lg:h-auto bg-[#FCFCFC] rounded-b-xl md:top-12 top-14 lg:top-14 3xl:top-16 flex flex-wrap lg:flex-nowrap justify-between left-0 w-full px-10 py-16">
       <h2 className="text-3xl w-full lg:w-[16%] 3xl:w-[30%] font-medium font-nunitoSans 3xl:text-5xl text-gray-900 mb-8">Choose Your Setup</h2>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 w-full lg:w-[60%] gap-6">
         {setups.map((setup) => (
