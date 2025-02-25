@@ -7,7 +7,9 @@ import Footer from '@/components/homepage-components/footer/footer'
 const Page = () => {
   return (
     <div className='bg-[#FCFCFC]'>
+        <div className='max-w-[1728px] mx-auto'>
         <NavigationBar/>
+        </div>
         <BlogPage/>
         <NewsletterSignup/>
         <Footer/>

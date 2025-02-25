@@ -17,6 +17,8 @@ const Card = ({image, title, description, button, date}: CardProps) => {
             width={335}
             height={240}
             alt={title}
+            loading='lazy'
+            quality={100}
             className='image-hover-animation object-fit md:h-[350px] lg:h-[400px] 3xl:h-[500px]  w-full rounded-[8px]
             '/>
             {/* <div className='absolute rounded-[8px] text-[#989898] hover:text-[#FCFCFC] flex items-baseline top-0 bg-gradient-to-t z-10 from-[#000000b3] p-3 lg:p-5 via-[#00000000] to-[#00000000] w-full h-full'> */}
