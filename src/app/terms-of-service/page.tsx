@@ -6,7 +6,7 @@ const TermsAndConditions = () => {
     <div>
       <div className=' min-h-screen w-full max-w-[1728px] mx-auto  '>
           <NavigationBar/>
-        <div className='px-6 py-6 mdLg:p-16 mdLg:mt-16 mx-auto'>
+        <div className='py-6 px-[21px] lg:px-10 3xl:px-[100px] mx-auto'>
 
           <h1 className='text-[28px] md:text-3xl mdLg:text-5xl font-medium lg:leading-[3.13rem] mb-14 font-hankenGrotesk'>
             Terms and Conditions
