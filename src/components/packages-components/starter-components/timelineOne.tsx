@@ -21,7 +21,7 @@ export const Timeline = ({ maxSteps }: TimelineProps) => {
         end: 'bottom bottom',
         scrub: true,
       },
-      backgroundColor: '#000000',
+      backgroundColor: '#333333',
       ease: 'none',
     });
 
