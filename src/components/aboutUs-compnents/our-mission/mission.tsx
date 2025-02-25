@@ -15,23 +15,23 @@ const Mission = () => {
               <p 
                 className='mb-4 font-nunitoSans font-normal text-[#FCFCFC] text-xl leading-[30px] 3xl:text-[28px] 3xl:leading-[48px]'>
                 To provide world-class podcast production while making professional recording accessible to both businesses and individuals. 
-                <span className='text-[#FF8C42]'>We're building more than just studios</span> - we're creating spaces where ideas can flourish, brands can grow, and stories can live on. 
+                <span className='text-[#FF8C42]'>We&apos;re building more than just studios</span> - we&apos;re creating spaces where ideas can flourish, brands can grow, and stories can live on. 
                 Through technical excellence and genuine service, we aim to be the catalyst for meaningful conversations that deserve to be heard.
                 </p>
               <p 
                 className='mb-4 font-nunitoSans font-normal text-[#FCFCFC] text-xl leading-[30px] lg:text-lg 3xl:text-[28px] 3xl:leading-[48px]'>
                 We believe in the power of legacy - both digital and personal. 
-                Our mission extends beyond today's business needs to create lasting impact through recorded media. 
-                Whether it's helping businesses amplify their message, entrepreneurs share their journey, 
+                Our mission extends beyond today&apos;s business needs to create lasting impact through recorded media. 
+                Whether it&apos;s helping businesses amplify their message, entrepreneurs share their journey, 
                 or individuals preserve their stories for future generations, 
-                <span className='text-[#FF8C42]'>we're here to ensure every voice is captured with the quality it deserves.</span>
+                <span className='text-[#FF8C42]'>we&apos;re here to ensure every voice is captured with the quality it deserves.</span>
                 </p>
               <p
                 className='font-nunitoSans font-normal text-[#FCFCFC] text-xl leading-[30px] lg:text-lg 3xl:text-[28px] 3xl:leading-[48px]'>
                 Every detail in our studio, from our choice of equipment to our service approach, 
                 is carefully considered to fulfill this mission. 
-                We're committed to being more than just a recording space - 
-                <span className='text-[#FF8C42]'>we're a partner in bringing your voice to the world</span>, 
+                We&apos;re committed to being more than just a recording space - 
+                <span className='text-[#FF8C42]'>we&apos;re a partner in bringing your voice to the world</span>, 
                 ensuring your message not only reaches its audience but leaves a lasting impression.
               </p>
           </div>

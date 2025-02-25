@@ -18,8 +18,8 @@ const LandingPage = () => {
               className="mb-6 font-nunitoSans font-normal text-[#FCFCFC] text-xl leading-[30px] 3xl:text-[28px] 3xl:leading-[48px]"
             >
               ARcast was born at the intersection of professional broadcasting and personal storytelling. 
-              We're more than a podcast studio - <span className="text-[#FF8C42]">we're a team dedicated to giving voices the platform they deserve</span>, 
-              whether it's shaping business narratives or preserving personal legacies. 
+              We&apos;re more than a podcast studio - <span className="text-[#FF8C42]">we&apos;re a team dedicated to giving voices the platform they deserve</span>, 
+              whether it&apos;s shaping business narratives or preserving personal legacies. 
               From our state-of-the-art recording spaces to our dedication to technical excellence, 
               we believe in creating an environment where every story can be told with clarity and impact.
             </p>
@@ -27,10 +27,10 @@ const LandingPage = () => {
               className="font-nunitoSans font-normal text-[#FCFCFC] text-xl leading-[30px] lg:text-lg 3xl:text-[28px] 3xl:leading-[48px]"
             >
               Our commitment to quality extends beyond our equipment. 
-              It's in the way we understand each client's unique needs, 
+              It&apos;s in the way we understand each client&apos;s unique needs, 
               the attention we give to every technical detail, 
               and our drive to make professional podcasting accessible to both established businesses and emerging voices. 
-              <span className="text-[#FF8C42]">With a team of dedicated professionals and a vision that spans continents, we're setting new standards for what a podcast studio can be.</span>
+              <span className="text-[#FF8C42]">With a team of dedicated professionals and a vision that spans continents, we&apos;re setting new standards for what a podcast studio can be.</span>
             </p>
           </div>
         </div>
