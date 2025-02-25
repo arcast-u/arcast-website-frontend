@@ -36,7 +36,7 @@ const NavigationBar= () => {
   // { label: 'Memberships', path: '/memberships' },
   { label: 'About Us', path: '/about-us'},
   { label: 'Contact Us', path: '' },
-  // { label: 'Blog', path: '/blog'}
+  { label: 'Blog', path: '/blog'}
   ];
   
   useEffect(() => {
@@ -101,7 +101,7 @@ const NavigationBar= () => {
       </header>
 
       <nav className="flex w-full justify-between items-center px-[21px] lg:px-10 lg:pt-4 lg:pb-5 3xl:px-[100px] 3xl:pt-6 py-2 3xl:pb-8 text-base font-medium " aria-label="Main Navigation">
-        <div className={`${isOpen || isStudioOpen ? 'bg-[#FCFCFC] rounded-t-xl pt-3 pb-2 lg:pr-6' : 'bg-transparent'} flex relative w-full mx-auto justify-between gap-6 items-center self-stretch my-auto max-md:max-w-full`}>
+        <div className={`${isOpen || isStudioOpen ? 'bg-[#FCFCFC] rounded-t-xl pt-3 pb-2 shadow-sm lg:pr-6' : 'bg-transparent'} flex relative w-full mx-auto justify-between gap-6 items-center self-stretch my-auto max-md:max-w-full`}>
               {isOpen || isStudioOpen || pathname !== '/' && pathname !== '/about-us'  ?
               <Link href='/'>
               <Image
@@ -110,7 +110,7 @@ const NavigationBar= () => {
               width={112}
               height={32}
               quality={100}
-              className="object-cover lg:w-[125px] ml-6 lg:h-9 3xl:w-[140px] 3xl:h-10"
+              className={`${isOpen || isStudioOpen ? 'ml-6' : 'ml-0' } object-cover lg:w-[125px] lg:h-9 3xl:w-[140px] 3xl:h-10`}
               />
               </Link> 
               : 
@@ -176,7 +176,7 @@ const NavigationBar= () => {
                     </button> */}
                   
                   <button onClick={handleDropdown} className='flex cursor-none hover:scale-105 3xl:ml-3 ml-2 lg:hidden items-center gap-1 self-stretch '>
-                      <IoIosMenu className={`size-6 stroke-[1.5px] ${isOpen || isStudioOpen || pathname === '/bundles' || pathname === '/memberships' ? 'text-[#333333] mr-6' : 'text-[#FCFCFC]'}`}/>
+                      <IoIosMenu className={`size-6 stroke-[1.5px] ${isOpen || isStudioOpen || pathname !== '/' && pathname !== '/about-us' ? 'text-[#333333] mr-6' : 'text-[#FCFCFC]'}`}/>
                   </button>
               </div>
             {isOpen && (
