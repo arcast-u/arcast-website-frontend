@@ -6,7 +6,7 @@ const Mission = () => {
  
 
   return (
-    <div className='px-[21px] lg:px-10 3xl:px-[100px] py-10'>
+    <div className='px-[21px] md:px-10 3xl:px-[100px] py-10'>
        <div className='max-w-[1728px] mx-auto'>
         <div className='flex mx-auto w-full md:w-[70%] lg:w-[45%] 3xl:w-[50%] items-center flex-col h-full'>
               <h1 className='font-hankenGrotesk text-[#FCFCFC] text-center text-[32px] lg:mt-8 mb-4 3xl:mb-10 leading-[46.91px] 3xl:text-5xl 3xl:leading-[62.5px] font-semibold'>

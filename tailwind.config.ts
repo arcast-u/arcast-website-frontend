@@ -24,6 +24,10 @@ export default {
 		'4xl': '2000px',
   	},
   	extend: {
+		fontFamily: {
+			hankenGrotesk: ['Hanken Grotesk', 'sans-serif'],
+			nunitoSans: ['Nunito Sans', 'sans-serif'],
+		  },
 		  animation: {
 			'spin-slow': 'spin 5s linear infinite',
 			'marquee-up': 'marquee-up 30s linear infinite',
