@@ -10,6 +10,7 @@ type Props = {
   params: {
     title: string;
   };
+  searchParams: { [key: string]: string | string[] | undefined }
 };
 
 const cards = [
@@ -80,11 +81,11 @@ const useScreenWidth = () => {
   
     return isDesktop;
   };
-const IndividualBlog = ({ params }: Props) => {
+const IndividualBlog = ({ params, searchParams }: Props) => {
     const isDesktop = useScreenWidth();
     
     // const post = cards[params.title];
-    console.log(params.title)
+    console.log(params.title + searchParams);
 
   return (
     <div className='  md:mb-[51px] lg:mb-0  3xl:mb-[120px] bg-[#fcfcfc]'>
