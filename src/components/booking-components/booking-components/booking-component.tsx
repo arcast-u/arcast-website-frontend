@@ -16,7 +16,7 @@ import { toast } from "react-toastify";
 import Image from "next/image";
 import { DurationProvider } from "@/contex/durationContext";
 import EquipmentSection from "./step-one-bookingComponents/recording-EquipmentList";
-import CustomServices from './step-two-booking-components/custom-services';
+// import CustomServices from './step-two-booking-components/custom-services';
 
 
 const initialFormState = {
@@ -374,7 +374,7 @@ const StudioBooking= () => {
                selectedTimeSlot={selectedTimeSlot}
                setSelectedTimeSlot={setSelectedTimeSlot}
               />
-              <CustomServices duration={duration} setDuration={setDuration}/>
+              {/* <CustomServices duration={duration} setDuration={setDuration}/> */}
             </div>
             }
             {
