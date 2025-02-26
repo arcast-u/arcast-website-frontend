@@ -1,15 +1,24 @@
 import * as React from "react";
 import Image from 'next/image';
-import { BookingProps } from "@/lib/types";
 
 interface BookingComponentProps {
-  booking: BookingProps | null;
+  selectedPackage?: string | undefined;
+  selectedStudio?: string | undefined;
+  studioLocation?: string | undefined;
+  price?: string | undefined;
+  date?: Date;
+  duration: number;
+  time?: string | undefined;
+  currency?: string;
+  seats?: number;
+  location?: string;
+  image?: string;
 }
 
 
-const BookingSummary = ({booking}: BookingComponentProps) => {
+const BookingSummary = ({ selectedPackage, selectedStudio, studioLocation, price,  date, duration, time, currency, seats, location, image}: BookingComponentProps) => {
   const img = "/images/checkout.webp"
-  const formatDate = (isoDate: string) =>
+  const formatDate = (isoDate: Date) =>
     new Date(isoDate).toLocaleDateString("en-US", {
       year: "numeric",
       month: "long",
@@ -22,11 +31,24 @@ const BookingSummary = ({booking}: BookingComponentProps) => {
       minute: "2-digit",
       hour12: true,
     });
-
-
-  if (!booking) {
-    return <p className="text-center mt-10 text-gray-500">Loading booking details...</p>;
-  }
+    const addHours = (isoDate: string | undefined, hours: number): string => {
+      try {
+        // If no date provided or invalid date, use current date/time as default
+        const date = isoDate ? new Date(isoDate) : new Date();
+        
+        // Check if the date is valid
+        if (isNaN(date.getTime())) {
+          return new Date().toISOString();
+        }
+        
+        date.setHours(date.getHours() + hours);
+        return date.toISOString();
+      } catch (error) {
+        console.log(error);
+        // Fallback to current date/time if any error occurs
+        return new Date().toISOString();
+      }
+    }
 
   return (
     <div className="flex flex-col md:w-[90%] mx-auto lg:w-full pb-10 mt-10 w-full ">
@@ -42,7 +64,7 @@ const BookingSummary = ({booking}: BookingComponentProps) => {
               <div className="flex flex-wrap justify-between w-full">
                 <Image
                   loading="lazy"
-                  src={booking?.studio?.imageUrl || img}
+                  src={image || img}
                   width={72}
                   height={64}
                   quality={100}
@@ -50,17 +72,17 @@ const BookingSummary = ({booking}: BookingComponentProps) => {
                   className="object-fit shrink-0 h-16 lg:h-auto my-auto lg:w-20 rounded-lg aspect-square"
                 />
                 <div className="flex flex-col flex-1 shrink justify-between basis-0 ">
-                  <div className="text-right text-xs leading-[19.1px] lg:text-sm  lg:leading-5">{booking?.studio?.name ?? "Unknown Studio"}</div>
+                  <div className="text-right text-xs leading-[19.1px] lg:text-sm  lg:leading-5">{selectedStudio ?? "Unknown Studio"}</div>
                   <div className="flex gap-1 justify-center border-[0.4px] border-[#989898] items-center self-end px-3 py-2 3xl:px-4 3xl:py-2 3xl:mt-4 3xl:text-base 3xl:leading-[21.82px] text-xs leading-16.37 lg:text-sm lg:leading-[17.82px] rounded-lg text-[#989898]">
-                    <p className="self-stretch">{booking?.numberOfSeats ?? 0} seats</p>
+                    <p className="self-stretch">{seats ?? 0} seats</p>
                   </div>
                 </div>
               </div>
               <div className="mt-4 3xl:mt-6 w-full min-h-[0.1px] bg-[#98989870]" />
               <div className=" mt-5 3xl:mt-6 w-full text-base leading-5 font-nunitoSans font-medium text-[#333333] ">
                 <div className="flex flex-wrap gap-3 items-center justify-between">
-                    <p>{booking?.package?.name ?? "No Package Selected"}</p>
-                    <p>{booking?.package?.price_per_hour ?? "0"} {booking?.package?.currency ?? "AED"}</p>
+                    <p>{selectedPackage ?? "No Package Selected"}</p>
+                    <p>{price ?? "0"} {currency ?? "AED"}</p>
                 </div>
                 
               </div>
@@ -70,7 +92,7 @@ const BookingSummary = ({booking}: BookingComponentProps) => {
                     Location 
                 </p>
                 <p className="text-base leading-5 3xl:mt-3 mt-2 font-nunitoSansfont-medium text-[#333333]">
-                  {booking?.lead?.recordingLocation ?? "No Location Available"}
+                  {location || studioLocation || "No Location Available"}
                 </p>
               </div>
               <div className="flex flex-wrap justify-between items-center">
@@ -79,7 +101,7 @@ const BookingSummary = ({booking}: BookingComponentProps) => {
                         Date  
                     </p>
                     <p className="text-base leading-5  3xl:mt-3 mt-2 font-nunitoSans font-medium text-[#333333]">
-                      {booking?.startTime ? formatDate(booking.startTime) : "N/A"}
+                      {date ? formatDate(date) : "N/A"}
                     </p>
                 </div>
                 <div>
@@ -87,8 +109,8 @@ const BookingSummary = ({booking}: BookingComponentProps) => {
                         Time  
                     </p>
                     <p className="text-base leading-5  3xl:mt-3 mt-2 font-nunitoSans font-medium text-[#333333]">
-                    {booking?.startTime && booking?.endTime
-                      ? `${formatTime(booking.startTime)} - ${formatTime(booking.endTime)}`
+                    {time
+                      ? `${formatTime(time)} - ${formatTime(addHours(time , duration))}`
                       : "N/A"}
                     </p>
                 </div>
@@ -103,15 +125,15 @@ const BookingSummary = ({booking}: BookingComponentProps) => {
             <div className="flex flex-col mt-8 3xl:mt-10 px-5 w-full text-base leading-5 font-nunitoSans font-medium text-[#333333]  ">
                 <div className="flex flex-wrap items-center justify-between">
                     <p>VAT (0%)</p>
-                    <p>{booking?.vatAmount ?? "0"} {booking?.package?.currency ?? "AED"}</p>
+                    <p>{"0"} {currency ?? "AED"}</p>
                 </div>
                 <div className="flex flex-wrap items-center mt-2 justify-between">
                     <p>Discount</p>
-                    <p>{booking?.discountAmount ?? "0"} {booking?.package?.currency ?? "AED"}</p>
+                    <p>{ "0"} {currency ?? "AED"}</p>
                 </div>
                 <div className="flex flex-wrap justify-between items-center 3xl:mt-6 mt-5 w-full text-[22px] leading-[27.28px]">
                   <p className="self-stretch my-auto font-medium">Total</p>
-                  <p className="self-stretch my-auto font-semibold"> {booking?.totalCost ?? "0"} {booking?.package?.currency ?? "AED"}</p>
+                  <p className="self-stretch my-auto font-semibold"> {price ?? "0"} {currency ?? "AED"}</p>
                 </div>
             </div>
           </div>

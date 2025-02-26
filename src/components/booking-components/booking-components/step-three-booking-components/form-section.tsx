@@ -2,7 +2,6 @@
 import React, {useState} from "react";
 import { TbCaretDown, TbCaretUp } from "react-icons/tb";
 import { getCountries, getCountryCallingCode } from "libphonenumber-js";
-import { BookingProps } from "@/lib/types";
 
 
 type BookingDetailsProps = {
@@ -27,20 +26,16 @@ type BookingDetailsProps = {
     whatsappCountryCode: string;
     discountCode: string;
   }>>;
-  checked: boolean;
-  setChecked: React.Dispatch<React.SetStateAction<boolean>>;
   showWarning: boolean;
-  book: () => Promise<BookingProps | null>;
   selectedStudio: string | undefined;
   
 };
 
 
-const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, selectedStudio }: BookingDetailsProps) => {
+const FormSection = ({ form, setForm, showWarning, selectedStudio }: BookingDetailsProps) => {
   // const [checked, setChecked] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [whatsappDropdownOpen, setwhatsappDropdownOpen] = useState(false);
-  const [formErrors, setFormErrors] = useState(false);
   
   const countries = getCountries().map((code) => ({
     code: `+${getCountryCallingCode(code)}`,
@@ -62,37 +57,8 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
     setwhatsappDropdownOpen(false);
   };
 
-  const validateRequiredFields = () => {
-    const requiredFields = {
-      fullName: form.fullName,
-      email: form.email,
-      phoneNumber: form.phoneNumber,
-      whatsappNumber: form.whatsappNumber,
-      countryCode: form.countryCode,
-      whatsappCountryCode: form.whatsappCountryCode
-    };
-
-    return Object.values(requiredFields).every(field => field.trim() !== '');
-  };
-  const handleCheckboxChange = async () => {
-    if (!checked) {
-      // Only validate when trying to check the box
-      if (!validateRequiredFields()) {
-        setFormErrors(true);
-        return;
-      }
-    }
-    
-    
-    const newChecked = !checked;
-    setChecked(newChecked);
-    setFormErrors(false);
-
-    if (newChecked) {
-      const response = await book();
-      console.log(response);
-    }
-  };
+ 
+  
   
 
   return (
@@ -116,7 +82,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
             value={form.fullName}
             onChange={handleChange}
             placeholder="Full name"
-            className={`${formErrors  ? 'border border-red-500' : ''} flex-1 shrink gap-10 self-stretch  px-5 py-4 w-full rounded-xl bg-[#F5F5F7] focus:outline-none`}
+            className={`${showWarning  ? 'border border-red-500' : ''} flex-1 shrink gap-10 self-stretch  px-5 py-4 w-full rounded-xl bg-[#F5F5F7] focus:outline-none`}
             aria-label="Full name"
           />
         </div>
@@ -132,7 +98,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
           value={form.email}
           onChange={handleChange}
           placeholder="Email address"
-          className={`${formErrors  ? 'border border-red-500' : ''} gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none`}
+          className={`${showWarning  ? 'border border-red-500' : ''} gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none`}
           aria-label="Email address"
         />
         <label
@@ -148,7 +114,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
           value={form.recordingLocation}
           onChange={handleChange}
           placeholder="Recording Location"
-          className={`${formErrors ? 'border border-red-500' : ''} gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none`}
+          className={`${showWarning ? 'border border-red-500' : ''} gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none`}
           aria-label="recording location"
         />}
         <div className="flex gap-4 items-start mt-3 relative 3xl:mt-5 w-full max-md:max-w-full">
@@ -183,7 +149,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
             value={form.phoneNumber}
             onChange={handleChange}
             placeholder="Phone number"
-            className={`${formErrors  ? 'border border-red-500' : ''} flex-1 shrink gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 rounded-xl focus:outline-none bg-[#F5F5F7] `}
+            className={`${showWarning  ? 'border border-red-500' : ''} flex-1 shrink gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 rounded-xl focus:outline-none bg-[#F5F5F7] `}
             aria-label="Phone number"
           />
         </div>
@@ -218,7 +184,7 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
             value={form.whatsappNumber}
             onChange={handleChange}
             placeholder="Whatspp number"
-            className={`${formErrors ? 'border border-red-500' : ''} flex-1 shrink gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 rounded-xl focus:outline-none bg-[#F5F5F7]`}
+            className={`${showWarning ? 'border border-red-500' : ''} flex-1 shrink gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 rounded-xl focus:outline-none bg-[#F5F5F7]`}
             aria-label="Whatsapp number"
           />
         </div>
@@ -237,36 +203,13 @@ const FormSection = ({ form, setForm, book, checked, setChecked,showWarning, sel
           className={`gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none `}
           aria-label="Discount code (optional)"
         />
-        <div className="flex mt-3 items-center space-x-2">
-          <input
-            type="checkbox"
-            checked={checked}
-            role="button"
-            onChange={handleCheckboxChange}
-            required
-            className={`${formErrors ? 'border border-red-500' : ''}  w-4 h-4 3xl:w-5 3xl:h-5 rounded accent-[#FF8C42] focus:ring-0`}
-          />
-          <label
-            className="text-[#333333] text-xs leading-[11.82px] 3xl:text-sm font-normal 3xl:leading-[21.82px] font-nunitoSans"
-            style={{
-              textDecoration: 'none',
-              textUnderlinePosition: 'from-font',
-              textDecorationSkipInk: 'none',
-            }}
-          >
-            Yes, I&apos;d like to receive my booking confirmation and updates.
-          </label>
-          
-      </div>
-      {formErrors && (
+      </div>    
+      {showWarning && (
         <p className="text-[#FF4242] text-sm leading-[19.1px] font-nunitoSans mt-2">
           Please fill in all required fields before confirming
         </p>
       )}
-      {showWarning && !checked && <p className="text-[#FF4242] text-sm leading-[19.1px] font-nunitoSans mt-2">
-            Please confirm to receive booking updates
-          </p>}
-      </div>
+      
     </form>
   );
 }

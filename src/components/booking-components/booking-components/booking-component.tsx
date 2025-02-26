@@ -7,7 +7,6 @@ import NumberOfPeople from "./step-two-booking-components/number-of-people";
 import DateSelector from "./step-two-booking-components/date-selector";
 import SelectTime from './step-two-booking-components/select-time';
 import SelectDuration from "./step-two-booking-components/select-duration";
-import BookingConfirmation from "./step-three-booking-components/bookingConfirmation";
 import FormSection from "./step-three-booking-components/form-section";
 import BookingSummary from "./step-three-booking-components/booking-summary";
 import PackageSection from "./step-one-bookingComponents/package-section";
@@ -16,6 +15,7 @@ import { toast } from "react-toastify";
 import Image from "next/image";
 import { DurationProvider } from "@/contex/durationContext";
 import EquipmentSection from "./step-one-bookingComponents/recording-EquipmentList";
+import { useRouter } from "next/navigation";
 // import CustomServices from './step-two-booking-components/custom-services';
 
 
@@ -42,14 +42,14 @@ const StudioBooking= () => {
   const [dateData,setDateData] = useState<AvailabilityItemProps[] | null>(null);
   const [timeSlots, setTimeSlots] = useState<TimeSlotListProps[] | null>(null);
   const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>("10:00");
-  const [receipt, setReceipt] = useState<BookingProps | null>(null);
+  
   const [duration, setDuration] = useState(1);
   const selectedPackage = packages?.[selectedPackageIndex] || null;
   const selectedStudio = studio?.[selectedStudioIndex] || null;
-   const [checked, setChecked] = useState<boolean>(false);
+ 
    const [showWarning, setShowWarning] = useState<boolean>(false);
   const [form, setForm] = useState(initialFormState);
-
+  const router = useRouter();
   const tabs = ["Step 1", "Step 2", "Step 3", "Step 4"];
   
  
@@ -193,7 +193,7 @@ const StudioBooking= () => {
   
       if (response.ok) {
         const data = await response.json();
-        setReceipt(data);
+        
         toast.success('Booking successful');
         return data;
       } else {
@@ -221,7 +221,7 @@ const StudioBooking= () => {
   const isStepTwo = currentStep === 1;
   const isStepThree = currentStep === 2;
   const isStepFour = currentStep === 3;
-  const isComplete = currentStep === 4;
+ 
 
   
   // Load saved state
@@ -295,34 +295,49 @@ const StudioBooking= () => {
       setSelectedTimeSlot("10:00");
       setDuration(1);
       setForm(initialFormState); // Make sure you have an initial form state defined
-      setChecked(false);
-      setReceipt(null);
+     
     } catch (error) {
       console.error('Error clearing progress:', error);
     }
   }, []);
 
+  const validateRequiredFields = () => {
+    const requiredFields = {
+      fullName: form.fullName,
+      email: form.email,
+      phoneNumber: form.phoneNumber,
+      whatsappNumber: form.whatsappNumber,
+      countryCode: form.countryCode,
+      whatsappCountryCode: form.whatsappCountryCode
+    };
+
+    return Object.values(requiredFields).every(field => field.trim() !== '');
+  };
+
   // Modified handle continue
   const handleContinue = useCallback(async () => {
-    if (isStepFour && !checked) {
-      setShowWarning(true);
+    if (isStepFour) {
+      if (!validateRequiredFields()) {
+        setShowWarning(true);
+        return;
+      }
+      
+      try {
+        await bookStudio();
+        // Route to thank you page
+        router.push('/bookings/thank-you');
+      } catch (error) {
+        console.error('Booking failed:', error);
+        // Handle error appropriately
+       
+      }
+      clearProgress();
+     
       return;
     }
   
-    if (isStepFour && checked) {
-      if (receipt !== null) {
-        clearProgress();
-        setCurrentStep((prev: number) => prev + 1);
-      }
-      return;
-    }
-    
-    if (isComplete) {
-      clearProgress();
-    } else {
-      setCurrentStep((prev: number) => prev + 1);
-    }
-  }, [checked, isStepFour, isComplete, clearProgress, receipt]);
+    setCurrentStep((prev: number) => prev + 1);
+  }, [isStepFour, validateRequiredFields, bookStudio, clearProgress, router]);
 
   
   
@@ -334,7 +349,7 @@ const StudioBooking= () => {
       <div className="flex flex-col w-full lg:h-screen bg-[#FCFCFC]">
         <div className="flex-1 overflow-y-auto lg:pb-24">
           <div className=" relative mx-auto px-5 pt-11 3xl:px-8 3xl:pt-8">
-            {isComplete ? "" : <TabList tabs={tabs} currentStep={currentStep} setActiveIndex={setCurrentStep}/>}
+             <TabList tabs={tabs} currentStep={currentStep} setActiveIndex={setCurrentStep}/>
             {isStepOne && <div className="pb-10">
               <StudioCardList
               selectedStudioIndex={selectedStudioIndex} 
@@ -383,19 +398,23 @@ const StudioBooking= () => {
                 <FormSection 
                 form={form} 
                 setForm={setForm} 
-                book={bookStudio}
-                checked={checked}
-                setChecked={setChecked}
                 selectedStudio={selectedStudio?.name}
                 showWarning={showWarning}
                 />
-                <BookingSummary booking={receipt}/>
+                <BookingSummary 
+                selectedStudio={selectedStudio?.name}
+                selectedPackage={selectedPackage?.name}
+                price={selectedPackage?.price_per_hour}
+                currency={selectedPackage?.currency}
+                seats={selectedPeopleCount}
+                image={selectedStudio?.imageUrl}
+                date={date}
+                time={selectedTimeSlot}
+                duration={duration}
+                location={form.recordingLocation}
+                studioLocation={selectedStudio?.location}
+                />
                 
-              </div>
-            }{
-              isComplete &&
-              <div>
-                <BookingConfirmation/>
               </div>
             }
           </div>
@@ -403,10 +422,10 @@ const StudioBooking= () => {
       </div>
       <div className="px-3 xl:pl-3 xl:pr-7 3xl:px-5 sticky bottom-[14px] lg:bottom-4 w-full">
       <TotalCost 
-        studioName={isComplete ? "" : `${selectedStudio?.name}` }
-        description={isStepOne || isComplete ? "" : `+ ${selectedPackage?.name}`} 
-        total={isStepOne || isComplete  ? '' : selectedPackage?.price_per_hour}
-        currency={isStepOne || isComplete  ? '' : selectedPackage?.currency}
+        studioName={selectedStudio?.name}
+        description={isStepOne  ? "" : `+ ${selectedPackage?.name}`} 
+        total={isStepOne? '' : selectedPackage?.price_per_hour}
+        currency={isStepOne ? '' : selectedPackage?.currency}
         buttonText={'Continue'}
         onContinue={handleContinue}
       />
