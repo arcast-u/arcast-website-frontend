@@ -1,10 +1,22 @@
 'use client';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 const BookingConfirmation = () => {
+  const router = useRouter();
+  const onClose = () => router.push('/bookings');
   return (
-    <div className="flex flex-col h-[85vh] items-center justify-center px-4">
+    <div className="flex flex-col h-full items-center justify-center px-4">
       <>
+      <div className="w-full">
+      <button 
+        onClick={onClose}
+        className=" ml-4 inline-block w-fit font-nunitoSans font-normal text-xs 3xl:text-base 3xl:leading-[21.82px] leading-[16.37px] 3xl:py-3 3xl:px-8 3xl:border mb-8 3xl:mb-10 px-6 py-2 text-[#333333] rounded-lg border-[0.8px] border-[#989898] hover:scale-105"
+      >
+        Back
+      </button>
+      </div>
+        
         {/* Ticket with Checkmark */}
         <div className="relative w-32 h-44 mb-8">
           <Image
@@ -23,7 +35,7 @@ const BookingConfirmation = () => {
         </h1>
         
         <p className="mb-8 font-nunitoSans font-normal text-lg 3xl:text-xl text-center text-[#333333] max-w-md">
-          You will receive your confirmation and session updates within 3 minutes via WhatsApp or email.
+          You will receive an update on whatsapp or email.
         </p>
 
         {/* Contact Information */}
