@@ -4,25 +4,15 @@ import { LinkedInScripts } from '@/lib/linkedinscript';
 import { AnalyticScripts } from '@/lib/analyticScripts';
 import { Carousel } from '@/components/booking-components/carousel-components/carousel';
 import BookingConfirmation from '@/components/booking-components/booking-components/step-three-booking-components/bookingConfirmation';
-import Script from 'next/script';
+import {GoogleScripts} from '@/lib/googlescripts';
 
 
 const BookinPage = () => {
   return (
-    <><Script
-    src="https://www.googletagmanager.com/gtag/js?id=G-M1E9W0FZ76"
-    strategy="afterInteractive"
-  />
-  <Script id="google-analytics" strategy="afterInteractive">
-    {`
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-M1E9W0FZ76');
-    `}
-  </Script>
-  <LinkedInScripts/>
-  <AnalyticScripts/>
+    <>
+    <GoogleScripts/>
+    <LinkedInScripts/>
+    <AnalyticScripts/>
     <section className='w-full lg:h-screen bg-[#FCFCFC] lg:overflow-hidden'>
         <main className='w-full grid grid-cols-1 lg:flex '>
           
