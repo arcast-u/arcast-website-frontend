@@ -44,6 +44,7 @@ const BookingSummary = ({ selectedPackage, selectedStudio, studioLocation, price
         date.setHours(date.getHours() + hours);
         return date.toISOString();
       } catch (error) {
+        console.log(error);
         // Fallback to current date/time if any error occurs
         return new Date().toISOString();
       }

@@ -337,7 +337,7 @@ const StudioBooking= () => {
     }
   
     setCurrentStep((prev: number) => prev + 1);
-  }, [isStepFour, validateRequiredFields, bookStudio, router]);
+  }, [isStepFour, validateRequiredFields, bookStudio, clearProgress, router]);
 
   
   
