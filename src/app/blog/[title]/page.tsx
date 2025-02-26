@@ -161,7 +161,7 @@ const IndividualBlog = ({ params }: Props) => {
             {/* Quote Section */}
             <blockquote className="pl-4 border-l-4 border-[#333333] space-y-4">
               <p className="text-base lg:text-lg italic">
-                "In a world older and more complex than ours they move finished and complete, gifted with extentions of the senses we have lost or never attained, living by voices we shall never hear"
+              &#8220;In a world older and more complex than ours they move finished and complete, gifted with extentions of the senses we have lost or never attained, living by voices we shall never hear&#8221;
               </p>
               <cite className="block">-Olivia Rhye</cite>
             </blockquote>
