@@ -8,7 +8,7 @@ import Footer from '@/components/homepage-components/footer/footer';
 
 type Props = {
   params: {
-    name: string;
+    title: string;
   };
 };
 
@@ -84,7 +84,7 @@ const IndividualBlog = ({ params }: Props) => {
     const isDesktop = useScreenWidth();
     
     // const post = cards[params.title];
-    console.log(params)
+    console.log(params.title)
 
   return (
     <div className='  md:mb-[51px] lg:mb-0  3xl:mb-[120px] bg-[#fcfcfc]'>
