@@ -8,7 +8,7 @@ const BookingConfirmation = () => {
   return (
     <div className="flex flex-col h-full items-center justify-center px-4">
       <>
-      <div className="w-full">
+      <div className="w-full mt-5 lg:mt-0">
       <button 
         onClick={onClose}
         className=" ml-4 inline-block w-fit font-nunitoSans font-normal text-xs 3xl:text-base 3xl:leading-[21.82px] leading-[16.37px] 3xl:py-3 3xl:px-8 3xl:border mb-8 3xl:mb-10 px-6 py-2 text-[#333333] rounded-lg border-[0.8px] border-[#989898] hover:scale-105"
