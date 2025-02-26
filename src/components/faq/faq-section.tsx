@@ -94,7 +94,7 @@ export const FAQSection = () => {
 
   return (
     <section className=" py-10 3xl:py-20 bg-neutral-100" aria-labelledby="faq-title">
-      <div className='max-w-[1728px] px-[21px] lg:px-10 3xl:px-[100px] h-full mx-auto flex overflow-hidden font-medium flex-wrap lg:flex-nowrap justify-between'>
+      <div className='max-w-[1728px] px-[21px] md:px-10 3xl:px-[100px] h-full mx-auto flex overflow-hidden font-medium flex-wrap lg:flex-nowrap justify-between'>
         <h1 id="faq-title" className=" w-full lg:w-[30%] self-start font-hankenGrotesk text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px]">
           Frequently asked questions
         </h1>

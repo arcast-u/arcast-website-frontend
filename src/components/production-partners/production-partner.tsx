@@ -43,7 +43,7 @@ export const ProductionPartners = () => {
 
   return (
     <section className="flex overflow-hidden items-start py-10 3xl:pt-20 bg-zinc-50" aria-labelledby="production-partners-title">
-      <div className='max-w-[1728px] overflow-hidden mx-auto px-[21px] lg:px-10 3xl:px-[100px]'>
+      <div className='max-w-[1728px] overflow-hidden mx-auto px-[21px] md:px-10 3xl:px-[100px]'>
         <div className="flex flex-wrap lg:flex-nowrap gap-10 w-full justify-between">
           <header className="flex lg:w-[35%] flex-col text-[#333333] font-hankenGrotesk w-full">
             <h1 id="production-partners-title" className="text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px] font-medium max-md:text-4xl">

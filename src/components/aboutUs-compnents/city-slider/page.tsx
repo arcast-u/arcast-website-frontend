@@ -125,7 +125,7 @@ const CitySlider = () => {
   }
     const AnimatedDiv = animated.div as unknown as React.FC<AnimatedDivProps>;
   return (
-    <div className=" w-full 3xl:h-screen px-[21px] lg:px-10 3xl:px-[100px] py-14 3xl:py-20">
+    <div className=" w-full 3xl:h-screen px-[21px] md:px-10 3xl:px-[100px] py-14 3xl:py-20">
       <div className='h-full relative max-w-[1728px] overflow-hidden mx-auto'>
         <div className="">
           <h1 className="text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px] font-medium font-hankenGrotesk text-[#FCFCFC] mb-4">

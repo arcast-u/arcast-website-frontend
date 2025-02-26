@@ -76,12 +76,12 @@ const BlogPage = () => {
 
   return (
     <div className='w-full'>
-        <div className='max-w-[1728px] mx-auto px-[21px] lg:px-10 mt-[50px] 3xl:px-[100px] lg:mt-10  md:mb-[51px] 3xl:mb-[120px]'>
+        <div className='max-w-[1728px] mx-auto px-[21px] md:px-10 mt-[50px] 3xl:px-[100px] lg:mt-10  pb-8 md:pb-[51px] 3xl:pb-[120px]'>
             <h1 className='font-hankenGrotesk text-[#333333] text-[32px] mb-6 3xl:mb-10 leading-[46.91px] 3xl:text-5xl 3xl:leading-[62.5px] font-semibold'>
                 Blogs
             </h1>
             <p className='text-[#333333] mt-4 lg:w-[50%] 3xl:w-[48%] text-xl 3xl:text-[28px] leading-[27.28px] font-nunitoSans 3xl:leading-[38.19px] font-normal'>Explore expert advice, industry trends, and behind-the-scenes content to take your podcast to the next level.</p>
-            <div className='w-full mt-[17px] space-y-10 lg:space-y-16'>
+            <div className='w-full mt-[17px] lg:mt-[50px] 3xl:mt-[100px] space-y-10 lg:space-y-16'>
                 <div className='flex space-y-10 lg:space-y-0 items-center flex-wrap lg:flex-nowrap justify-between'>
                     <div className='w-full lg:w-[56%]'>
                         <Card 
