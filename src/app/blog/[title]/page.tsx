@@ -118,7 +118,15 @@ const IndividualBlog = ({ params }: Props) => {
           </div>
         </div>
         <div className='lg:pt-20 w-full pt-7 lg:mt-[50px] mt-7 border-t-[0.5px] border-[#989898]'>
-          <Image width={334.65} height={199} src='/images/tips.png' alt='tips' className='mx-auto w-full md:w-[80%] md:h-[350px] lg:h-[400px] lg:w-[70%] 3xl:h-[600px] max-w-[1009px]'/>
+          <Image 
+          width={334.65} 
+          height={199} 
+          src='/images/tips.png' 
+          alt='tips' 
+          quality={100}
+          loading='lazy'
+          className='mx-auto w-full md:w-[80%] md:h-[350px] lg:h-[400px] lg:w-[70%] 3xl:h-[600px] max-w-[1009px]'
+          />
           <div className="w-full md:w-[70%] max-w-[748px] font-nunitoSans font-normal text-sm leading-5 lg:text-base lg:leading-[21.82px] mx-auto py-8 text-[#333333] space-y-12">
             {/* First paragraph */}
             <p className="leading-relaxed">
