@@ -149,7 +149,7 @@ const CitySlider = () => {
             {cities.map((city) => (
               <div
                 key={city.id}
-                className="flex-shrink-0 w-full md:w-[300px] h-[450px] relative group perspective-1000"
+                className="flex-shrink-0 w-full md:w-[300px] hover:scale-105 h-[450px] relative group perspective-1000"
               >
                 <div className="relative h-[400px]">
                   <Image

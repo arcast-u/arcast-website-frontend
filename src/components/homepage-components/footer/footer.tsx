@@ -60,7 +60,7 @@ const Footer = () => {
                   </div>
                   </div>
               </div>
-              <div className=' grid md:grid-cols-2 gap-8 sm:gap-6  '>
+              <div className=' flex flex-col md:flex-row md:gap-12 3xl:gap-16 gap-6   '>
               <div className='text-base'>
                   <p className=' text-[#989898] mb-1'>Contact us</p>
                   <ul className='text-[#333333] text-sm 3xl:text-base space-y-1'>
@@ -83,7 +83,7 @@ const Footer = () => {
                   </ul>
                 </div> 
 
-                <div className='text-base'>
+                <div className='text-base w-fit'>
                   <p className=' mb-1 text-[#989898]'>Quick Links</p>
                   <ul className='text-[#333333] text-sm 3xl:text-base space-y-1'>
                     <li>

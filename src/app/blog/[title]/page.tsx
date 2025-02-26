@@ -125,7 +125,7 @@ const IndividualBlog = () => {
           loading='lazy'
           className='mx-auto w-full md:w-[80%] md:h-[350px] lg:h-[400px] lg:w-[70%] 3xl:h-[600px] max-w-[1009px]'
           />
-          <div className="w-full md:w-[70%] lg:w-[63%] max-w-[748px] font-nunitoSans font-normal text-sm leading-5 lg:text-base lg:leading-[21.82px] mx-auto py-8 text-[#333333] space-y-12">
+          <div className="w-full md:w-[70%] lg:w-[63%] max-w-[748px] font-nunitoSans font-normal text-sm leading-5 lg:text-base lg:leading-[21.82px] mx-auto py-8 text-[#333333] space-y-8 lg:space-y-12">
             {/* First paragraph */}
             <p className="leading-relaxed">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur tempus urna at turpis condimentum lobortis.
