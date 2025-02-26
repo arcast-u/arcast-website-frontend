@@ -55,7 +55,7 @@ export default function RootLayout({
         <Cursor/>
         <ToastContainer position="top-right" autoClose={3000} />
         {children}
-        {/* <LinkedInScripts/> */}
+        <LinkedInScripts/>
       </body>
     </html>
   );
