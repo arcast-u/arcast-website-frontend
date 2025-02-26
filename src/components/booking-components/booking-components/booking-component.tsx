@@ -319,6 +319,7 @@ const StudioBooking= () => {
     
     if (isComplete) {
       clearProgress();
+      setCurrentStep(0);
     } else {
       setCurrentStep((prev: number) => prev + 1);
     }
