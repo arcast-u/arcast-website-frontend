@@ -54,53 +54,55 @@ count,
           className={`flex shrink-0 gap-2.5 self-stretch accent-[#333333] my-auto w-4 h-4 rounded-xl border border-solid`} 
         />
       </header>
-      { count < 2 && <SelectDuration
+      { count < 2 && <div className="w-full">
+        <SelectDuration
         hasBorder={true} 
         duration={duration}
         setDuration={(value) => setDuration(name, value)}
-       hasHeader={false}/>}
+       hasHeader={false}/>
+       </div>}
       {/* <video muted autoPlay controls={false} poster={imgSrc}onMouseEnter={(e) => e.currentTarget.play()}
   onMouseLeave={(e) => e.currentTarget.pause()} src="/video/video.mp4" className="object-contain mt-4 w-full rounded-lg aspect-[1.86]" /> */}
       {count === 0 ?
-        <div className="grid grid-cols-3 w-full h-[194px] max-h-[272px] gap-2 mt-4">
+        <div className="grid grid-cols-3 w-full gap-2 mt-4">
             <video src="/video/video.mp4" preload="none"
             playsInline
             muted poster={imgSrc[0]} 
-            className="rounded-[7.46px] object-fit border h-full"
+            className="rounded-[7.46px] object-fit"
             />
             <video src="/video/video.mp4" 
             preload="none"
             playsInline
             muted poster={imgSrc[1]} 
-            className="rounded-[7.46px] object-fit border h-full"
+            className="rounded-[7.46px] object-fit "
             />
             <video src="/video/video.mp4" 
             preload="none"
             playsInline
             muted poster={imgSrc[2]} 
-            className="rounded-[7.46px] object-fit border h-full"
+            className="rounded-[7.46px] object-fit"
             />
         </div> 
         : count === 1 ?
-        <div className="grid grid-cols-3 w-full h-[194px] max-h-[272px] gap-2 mt-4">
+        <div className="grid grid-cols-3 w-full  gap-2 mt-4">
             <video src="/video/video.mp4" preload="none"
             playsInline
-            muted poster={imgSrc[0]} className="rounded-[7.46px] object-fit border h-full"/>
+            muted poster={imgSrc[0]} className="rounded-[7.46px] object-fit"/>
             <video src="/video/video.mp4" preload="none"
             playsInline
-            muted poster={imgSrc[1]} className="rounded-[7.46px] object-fit border h-full"/>
+            muted poster={imgSrc[1]} className="rounded-[7.46px] object-fit "/>
             <video src="/video/video.mp4" preload="none"
             playsInline
-            muted poster={imgSrc[2]} className="rounded-[7.46px] object-fit border h-full"/>
+            muted poster={imgSrc[2]} className="rounded-[7.46px] object-fit"/>
         </div> 
         :
-        <div className="w-full h-[194px] mt-4 max-h-[272px]">
+        <div className="w-full ">
             <video src='/video/video.mp4'
             preload="none"
             playsInline
             muted 
             poster={imgSrc[0]} 
-            className="  w-full h-full object-fit rounded-lg "/>
+            className="  w-full mt-4 object-fit rounded-lg "/>
         </div>
       }
       <p className="mt-4 text-sm leading-[17.28px] 3xl:leading-[21.28px] font-nunitoSans 3xl:text-base font-medium text-[#989898]">{description}</p>

@@ -80,7 +80,7 @@ const CustomServices = ({duration, setDuration}: Selector) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
     
   return (
-    <section className=" mt-8 lg:mt-10">
+    <section className=" mt-8 lg:mt-10 md:w-[90%] lg:w-full mx-auto">
         <h2 className="header-text">
           à la carte services
         <span className="text-xl leading-[28.74px] 3xl:text-2xl italic 3xl:leading-[32.74px] text-[#989898]">(optional)</span>

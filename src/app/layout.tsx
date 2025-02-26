@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Hanken_Grotesk, Nunito_Sans, Mulish } from 'next/font/google';
-// import { AnalyticScripts } from '@/lib/analyticScripts';
-// import { LinkedInScripts } from '@/lib/linkedinscript';
+import { AnalyticScripts } from '@/lib/analyticScripts';
+import { LinkedInScripts } from '@/lib/linkedinscript';
+import { GoogleScripts } from '@/lib/googlescripts';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Cursor from '@/components/custom-cursor';
@@ -45,7 +46,8 @@ export default function RootLayout({
        <link rel="preconnect" href="https://fonts.googleapis.com" />
        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        {/* <AnalyticScripts/> */}
+        <AnalyticScripts/>
+        <GoogleScripts/>
       </head>
       <body
         className={`${hankenGrotesk.variable} ${nunitoSans.variable}  ${mulish.variable} antialiased cursor-none`}
@@ -53,7 +55,7 @@ export default function RootLayout({
         <Cursor/>
         <ToastContainer position="top-right" autoClose={3000} />
         {children}
-        {/* <LinkedInScripts/> */}
+        <LinkedInScripts/>
       </body>
     </html>
   );
