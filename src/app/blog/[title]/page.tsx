@@ -1,17 +1,13 @@
 'use client'
 import React, {useEffect, useState} from 'react';
+import { useParams, useSearchParams } from 'next/navigation';
 import NavigationBar from '@/components/homepage-components/nav-bar';
-import Image from 'next/image';
 import Card from '@/components/blog-components/blog-card/card';
 import NewsletterSignup from '@/components/homepage-components/newsletter/newsletter';
 import Footer from '@/components/homepage-components/footer/footer';
+import Image from 'next/image';
 
-type Props = {
-  params: {
-    title: string;
-  };
-  searchParams: { [key: string]: string | string[] | undefined }
-};
+
 
 const cards = [
     {
@@ -81,11 +77,12 @@ const useScreenWidth = () => {
   
     return isDesktop;
   };
-const IndividualBlog = ({ params, searchParams }: Props) => {
+const IndividualBlog = () => {
     const isDesktop = useScreenWidth();
-    
-    // const post = cards[params.title];
-    console.log(params.title + searchParams);
+    const params = useParams();
+    const searchParams = useSearchParams();
+    const post = searchParams.get('title');
+    console.log(params, post);
 
   return (
     <div className='  md:mb-[51px] lg:mb-0  3xl:mb-[120px] bg-[#fcfcfc]'>
