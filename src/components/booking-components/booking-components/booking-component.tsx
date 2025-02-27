@@ -321,17 +321,16 @@ const StudioBooking= () => {
         setShowWarning(true);
         return;
       }
-      
+      const bookingResult = await bookStudio();
       try {
-        await bookStudio();
-        // Route to thank you page
-        router.push('/bookings/thank-you');
+        if (bookingResult) {
+          clearProgress();
+          router.push('/bookings/thank-you');
+        }
       } catch (error) {
         console.error('Booking failed:', error);
-        // Handle error appropriately
        
       }
-      clearProgress();
      
       return;
     }
