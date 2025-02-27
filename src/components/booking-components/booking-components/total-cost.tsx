@@ -17,7 +17,7 @@ const TotalCost = ({ studioName, description, total, buttonText, currency, durat
       <div className="flex flex-col flex-1 justify-center self-stretch my-auto basis-12 ">
         <p className="3xl:text-sm text-xs font-normal text-[#989898] leading-[16.37px] lg:leading-4 3xl:leading-[19.1px]">{studioName} {description}</p>
         <strong className="3xl:mt-1 mt-0.5 text-sm leading-[19.1px] lg:text-lg lg:leading-[24px] 3xl:text-xl font-semibold text-[#333333] 3xl:leading-[32.74px]">
-          <span className="text-xs 3xl:text-sm">{duration}hrs X </span>
+          <span className="text-xs 3xl:text-sm">{duration}hr(s) X </span>
             {total} {currency}
         </strong>
       </div>
