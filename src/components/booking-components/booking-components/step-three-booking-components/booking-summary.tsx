@@ -49,7 +49,7 @@ const BookingSummary = ({ selectedPackage, selectedStudio, studioLocation, price
         return new Date().toISOString();
       }
     }
-
+    const total = Number(price) * duration;
   return (
     <div className="flex flex-col md:w-[90%] mx-auto lg:w-full pb-10 mt-10 w-full ">
       <>
@@ -133,7 +133,7 @@ const BookingSummary = ({ selectedPackage, selectedStudio, studioLocation, price
                 </div>
                 <div className="flex flex-wrap justify-between items-center 3xl:mt-6 mt-5 w-full text-[22px] leading-[27.28px]">
                   <p className="self-stretch my-auto font-medium">Total</p>
-                  <p className="self-stretch my-auto font-semibold"> {price ?? "0"} {currency ?? "AED"}</p>
+                  <p className="self-stretch my-auto font-semibold"> {total ?? "0"} {currency ?? "AED"}</p>
                 </div>
             </div>
           </div>
