@@ -16,8 +16,8 @@ const StudioCardList = ({
     
     const sortedStudios = studios?.sort((a, b) => {
       // Always put Mobile Studio Service first
-      if (a.name === "Mobile Studio Service") return -1;
-      if (b.name === "Mobile Studio Service") return 1;
+      if (a.name === "Mobile Setup Service") return -1;
+      if (b.name === "Mobile Setup Service") return 1;
       
       // Extract numbers from setup names
       const aNumber = a.name.match(/\d+/);

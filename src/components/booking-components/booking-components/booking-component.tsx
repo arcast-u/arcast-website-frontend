@@ -42,7 +42,7 @@ const StudioBooking= () => {
   const [dateData,setDateData] = useState<AvailabilityItemProps[] | null>(null);
   const [timeSlots, setTimeSlots] = useState<TimeSlotListProps[] | null>(null);
   const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>("10:00");
-  
+  const [isBooking, setIsBooking] = useState(false);
   const [duration, setDuration] = useState(1);
   const selectedPackage = packages?.[selectedPackageIndex] || null;
   const selectedStudio = studio?.[selectedStudioIndex] || null;
@@ -163,6 +163,7 @@ const StudioBooking= () => {
   
   // submit form
   const bookStudio = async (): Promise<BookingProps | null> => {
+    setIsBooking(true);
     const url = `https://arcast-ai-backend.vercel.app/api/bookings`;
   
     const requestBody = {
@@ -198,7 +199,7 @@ const StudioBooking= () => {
         return data;
       } else {
         if (response.status === 500) {
-          toast.error('An unexpected error occurred while processing your request');
+          toast.error('Internal Server Error - Please try again later');
         } else {
           const errorData = await response.json();
           toast.error(errorData.message || 'An unexpected error occurred');
@@ -213,6 +214,8 @@ const StudioBooking= () => {
         toast.error("An unexpected error occurred");
       }
       return null;
+    } finally {
+      setIsBooking(false);
     }
   
   };
@@ -426,8 +429,9 @@ const StudioBooking= () => {
         total={isStepOne? '' : `${selectedPackage?.price_per_hour}`}
         duration={isStepOne ? '' : duration}
         currency={isStepOne ? '' : selectedPackage?.currency}
-        buttonText={'Continue'}
+        buttonText={isStepFour ? 'Book Now' : 'Continue'}
         step={currentStep}
+        load={isBooking}
         onContinue={handleContinue}
       />
       </div>
