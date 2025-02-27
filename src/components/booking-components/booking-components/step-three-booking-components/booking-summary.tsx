@@ -82,7 +82,7 @@ const BookingSummary = ({ selectedPackage, selectedStudio, studioLocation, price
               <div className=" mt-5 3xl:mt-6 w-full text-base leading-5 font-nunitoSans font-medium text-[#333333] ">
                 <div className="flex flex-wrap gap-3 items-center justify-between">
                     <p>{selectedPackage ?? "No Package Selected"}</p>
-                    <p>{price ?? "0"} {currency ?? "AED"}</p>
+                    <p>{total ?? "0"} {currency ?? "AED"}</p>
                 </div>
                 
               </div>

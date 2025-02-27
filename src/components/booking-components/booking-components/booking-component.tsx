@@ -423,7 +423,7 @@ const StudioBooking= () => {
       <TotalCost 
         studioName={selectedStudio?.name}
         description={isStepOne  ? "" : `+ ${selectedPackage?.name}`} 
-        total={isStepOne? '' : selectedPackage?.price_per_hour}
+        total={isStepOne? '' : `${Number(selectedPackage?.price_per_hour) * duration}`}
         currency={isStepOne ? '' : selectedPackage?.currency}
         buttonText={'Continue'}
         onContinue={handleContinue}
