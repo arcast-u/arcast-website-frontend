@@ -132,11 +132,15 @@ const BookingSummary = ({ selectedPackage, selectedStudio, studioLocation, price
             </div>
             <div className="flex flex-col mt-8 3xl:mt-10 px-5 w-full text-base leading-5 font-nunitoSans font-medium text-[#333333]  ">
                 <div className="flex flex-wrap items-center justify-between">
-                    <p>VAT (0%)</p>
+                    <p className="text-[#989898]">Total Services</p>
+                    <p>{total ?? "0"} {currency ?? "AED"}</p>
+                </div>
+                <div className="flex flex-wrap items-center mt-2 justify-between">
+                    <p className="text-[#989898]">VAT (0%)</p>
                     <p>{"0"} {currency ?? "AED"}</p>
                 </div>
                 <div className="flex flex-wrap items-center mt-2 justify-between">
-                    <p>Discount</p>
+                    <p className="text-[#989898]">Discount</p>
                     <p>{ "0"} {currency ?? "AED"}</p>
                 </div>
                 <div className="flex flex-wrap justify-between items-center 3xl:mt-6 mt-5 w-full text-[22px] leading-[27.28px]">
