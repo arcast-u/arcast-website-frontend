@@ -388,6 +388,7 @@ const StudioBooking= () => {
               <DateSelector date={date} setDate={setDate} dateData={dateData}/>
               <SelectTime
                timeSlots={timeSlots}
+               duration={duration}
                selectedTimeSlot={selectedTimeSlot}
                setSelectedTimeSlot={setSelectedTimeSlot}
               />
