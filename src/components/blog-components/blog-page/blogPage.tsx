@@ -1,6 +1,7 @@
 'use client'
 import React, {useState,useEffect} from 'react';
 import Card from '../blog-card/card';
+import NavigationBar from '@/components/homepage-components/nav-bar';
 
 
 const cards = [
@@ -76,6 +77,9 @@ const BlogPage = () => {
 
   return (
     <div className='w-full'>
+        <div className='max-w-[1728px] mx-auto relative z-30'>
+            <NavigationBar/>
+        </div>
         <div className='max-w-[1728px] mx-auto px-[21px] md:px-10 mt-[50px] 3xl:px-[100px] lg:mt-10  pb-8 md:pb-[51px] 3xl:pb-[120px]'>
             <h1 className='font-hankenGrotesk text-[#333333] text-[32px] mb-6 3xl:mb-10 leading-[46.91px] 3xl:text-5xl 3xl:leading-[62.5px] font-semibold'>
                 Blogs
