@@ -1,18 +1,13 @@
 'use client'
 import React from 'react';
-import { LinkedInScripts } from '@/lib/linkedinscript';
-import { AnalyticScripts } from '@/lib/analyticScripts';
 import { Carousel } from '@/components/booking-components/carousel-components/carousel';
 import BookingConfirmation from '@/components/booking-components/booking-components/step-three-booking-components/bookingConfirmation';
-import {GoogleScripts} from '@/lib/googlescripts';
+
 
 
 const BookinPage = () => {
   return (
     <>
-    <GoogleScripts/>
-    <LinkedInScripts/>
-    <AnalyticScripts/>
     <section className='w-full lg:h-screen bg-[#FCFCFC] lg:overflow-hidden'>
         <main className='w-full grid grid-cols-1 lg:flex '>
           
