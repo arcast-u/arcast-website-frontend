@@ -60,6 +60,7 @@ export interface PackagePerkProps {
     available: boolean;
     end: string;
     start:string;
+    duration: number;
 
   }
   
