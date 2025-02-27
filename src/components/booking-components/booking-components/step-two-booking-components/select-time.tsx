@@ -7,10 +7,10 @@ type TimeSlotData ={
   timeSlots:TimeSlotListProps[] | null;
   selectedTimeSlot: string;
   setSelectedTimeSlot: (time: string) => void;
-
+  duration: number;
 }
 
-function SelectTime({ timeSlots, selectedTimeSlot, setSelectedTimeSlot }: TimeSlotData) {
+function SelectTime({ timeSlots, selectedTimeSlot, setSelectedTimeSlot, duration }: TimeSlotData) {
 
   
   return (
@@ -22,6 +22,7 @@ function SelectTime({ timeSlots, selectedTimeSlot, setSelectedTimeSlot }: TimeSl
         times={timeSlots || []} 
         selectedTime={selectedTimeSlot}
         onTimeSelect={setSelectedTimeSlot}
+        duration={duration}
         />
     </section>
   )
