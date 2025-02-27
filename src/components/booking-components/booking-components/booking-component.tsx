@@ -427,6 +427,7 @@ const StudioBooking= () => {
         duration={isStepOne ? '' : duration}
         currency={isStepOne ? '' : selectedPackage?.currency}
         buttonText={'Continue'}
+        step={currentStep}
         onContinue={handleContinue}
       />
       </div>
