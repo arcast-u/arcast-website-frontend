@@ -8,16 +8,17 @@ type TotalCostProps = {
   currency?: string;
   buttonText?: string;
   duration: number | string;
+  step: number;
   onContinue: () => void;
 };
 
-const TotalCost = ({ studioName, description, total, buttonText, currency, duration, onContinue }: TotalCostProps) => (
+const TotalCost = ({ studioName, description, total, buttonText, currency, step, duration, onContinue }: TotalCostProps) => (
   <div className=" bg-zinc-50 shadow-lg md:w-[90%] mx-auto lg:w-full border border-[#989898] rounded-2xl border-opacity-50">
     <div className="flex justify-between items-center mx-auto px-4 py-3 lg:px-6 font-nunitoSans 3xl:py-4 w-full 3xl:px-8">
       <div className="flex flex-col flex-1 justify-center self-stretch my-auto basis-12 ">
         <p className="3xl:text-sm text-xs font-normal text-[#989898] leading-[16.37px] lg:leading-4 3xl:leading-[19.1px]">{studioName} {description}</p>
         <strong className="3xl:mt-1 mt-0.5 text-sm leading-[19.1px] lg:text-lg lg:leading-[24px] 3xl:text-xl font-semibold text-[#333333] 3xl:leading-[32.74px]">
-          <span className="text-xs 3xl:text-sm">{duration}hr(s) X </span>
+          {step !== 0 && <span className="text-xs 3xl:text-sm">{duration}hr(s) X </span>}
             {total} {currency}
         </strong>
       </div>
