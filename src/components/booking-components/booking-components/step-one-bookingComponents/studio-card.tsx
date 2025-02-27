@@ -15,7 +15,7 @@ const img = "/images/studio1.webp"
 
 const StudioCard = ({ imageUrl, name, location, totalSeats, isFullyBooked, selectedStudio, setSelectedStudio, count }: StudioCardProps) => {
   // Add check for Mobile Studio Service
-  const isMobileStudio = name === "Mobile Studio Service";
+  const isMobileStudio = name === "Mobile Setup Service";
   const bgColor = isMobileStudio ? "bg-black" : "bg-[#F5F5F7]";
   const textColor = isMobileStudio ? "text-[#FCFCFC]" : "text-[#333333]";
 
@@ -33,7 +33,7 @@ const StudioCard = ({ imageUrl, name, location, totalSeats, isFullyBooked, selec
       role="button"
       onClick={handleStudioSelect}
     >
-      <div className="w-full 3xl:[288.5px] 3xl:h-[208px] 4xl:h-[308px]">
+      <div className="w-full 3xl:h-[208px]">
         <Image
           loading="lazy" 
           src={imageUrl || img} 
@@ -41,7 +41,7 @@ const StudioCard = ({ imageUrl, name, location, totalSeats, isFullyBooked, selec
           height={110}
           quality={100}
           alt='studio card' 
-          className="object-cover flex-1 w-full rounded-lg aspect-[1.3]  " 
+          className="object-cover flex-1 w-full 3xl:h-[208px] rounded-lg aspect-[1.3]  " 
         />
       </div>
       <div className="flex justify-between font-nunitoSans mt-3 w-full">
@@ -62,7 +62,7 @@ const StudioCard = ({ imageUrl, name, location, totalSeats, isFullyBooked, selec
           className="self-start mt-1 focus:outline-none accent-[#FF8C42]" 
         />
       </div>
-      {isFullyBooked || name !== "Mobile Studio Service" && (
+      {isFullyBooked || name !== "Mobile Setup Service" && (
         <div className="absolute top-0 cursor-not-allowed right-0 flex justify-center pt-14 3xl:pt-20 md:pt-32 lg:pt-16 w-full h-full bg-[#F5F5F7]/50 rounded-xl">
           <p className="text-[#333333] font-semibold text-sm leading-[19.1px] 3xl:leading-[27.28px] lg:text-base lg:leading-[25.82px] 3xl:text-xl">
             Fully Booked
