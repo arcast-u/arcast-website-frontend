@@ -2,6 +2,7 @@
 import React, {useState} from "react";
 import { TbCaretDown, TbCaretUp } from "react-icons/tb";
 import { getCountries, getCountryCallingCode } from "libphonenumber-js";
+import { useEmailValidation } from "./useEmailValidation";
 
 
 type BookingDetailsProps = {
@@ -36,6 +37,7 @@ const FormSection = ({ form, setForm, showWarning, selectedStudio }: BookingDeta
   // const [checked, setChecked] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [whatsappDropdownOpen, setwhatsappDropdownOpen] = useState(false);
+  const { emailError, checkEmail } = useEmailValidation();
   
   const countries = getCountries().map((code) => ({
     code: `+${getCountryCallingCode(code)}`,
@@ -58,7 +60,17 @@ const FormSection = ({ form, setForm, showWarning, selectedStudio }: BookingDeta
   };
 
  
-  
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    if (e.target.id === 'email') {
+      const error = checkEmail(form.email);
+      if (error) {
+        e.target.setCustomValidity(error);
+      } else {
+        e.target.setCustomValidity('');
+      }
+      e.target.reportValidity();
+    }
+  };
   
 
   return (
@@ -97,8 +109,10 @@ const FormSection = ({ form, setForm, showWarning, selectedStudio }: BookingDeta
           type="email"
           value={form.email}
           onChange={handleChange}
+          onBlur={handleBlur}
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
           placeholder="Email address"
-          className={`${showWarning  ? 'border border-red-500' : ''} gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none`}
+          className={`${showWarning  || emailError ? 'border border-red-500' : ''} gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none`}
           aria-label="Email address"
         />
         <label
@@ -207,6 +221,11 @@ const FormSection = ({ form, setForm, showWarning, selectedStudio }: BookingDeta
       {showWarning && (
         <p className="text-[#FF4242] text-sm leading-[19.1px] font-nunitoSans mt-2">
           Please fill in all required fields before confirming
+        </p>
+      )}
+      {emailError && (
+        <p className="text-[#FF4242] text-sm leading-[19.1px] font-nunitoSans mt-2">
+          Please enter a correct email address
         </p>
       )}
       
