@@ -15,7 +15,7 @@ const BookingConfirmation = () => {
           Back
         </button>
       </div>
-      <div className='flex flex-col h-full items-center justify-center'>
+      <div className='flex flex-col h-full items-center justify-center pb-5 lg:pb-0'>
       
         
         {/* Ticket with Checkmark */}
