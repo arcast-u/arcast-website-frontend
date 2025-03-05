@@ -3,12 +3,13 @@ import { Hanken_Grotesk, Nunito_Sans, Mulish } from 'next/font/google';
 import { AnalyticScripts } from '@/lib/analyticScripts';
 import { LinkedInScripts } from '@/lib/linkedinscript';
 // import { GoogleScripts } from '@/lib/googlescripts';
-import {GoogleAnalytics} from '@next/third-parties/google';
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { GoogleAnalytics } from '@next/third-parties/google';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Cursor from '@/components/custom-cursor';
 
 import './globals.css';
+import { PostHogProvider } from './provider';
 
 const hankenGrotesk = Hanken_Grotesk({
   variable: '--font-hanken-grotesk',
@@ -42,23 +43,29 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'
-    suppressHydrationWarning={true}>
-       <head>
-       <link rel="preconnect" href="https://fonts.googleapis.com" />
-       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-        <AnalyticScripts/>
+    <html lang='en' suppressHydrationWarning={true}>
+      <head>
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link
+          rel='preconnect'
+          href='https://fonts.gstatic.com'
+          crossOrigin='anonymous'
+        />
+        <meta
+          name='viewport'
+          content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no'
+        />
+        <AnalyticScripts />
         {/* <GoogleScripts/> */}
       </head>
       <body
         className={`${hankenGrotesk.variable} ${nunitoSans.variable}  ${mulish.variable} antialiased cursor-none`}
       >
-        <Cursor/>
-        <ToastContainer position="top-right" autoClose={3000} />
-        {children}
-        <LinkedInScripts/>
-        <GoogleAnalytics gaId="G-M1E9W0FZ76" />
+        <Cursor />
+        <ToastContainer position='top-right' autoClose={3000} />
+        <PostHogProvider>{children}</PostHogProvider>
+        <LinkedInScripts />
+        <GoogleAnalytics gaId='G-M1E9W0FZ76' />
       </body>
     </html>
   );
