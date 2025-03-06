@@ -1,104 +1,142 @@
-"use client";
+'use client';
 
 import React, { useState } from 'react';
 import { FAQItem } from './faq-item';
-import { HiOutlineLocationMarker } from "react-icons/hi";
+import { HiOutlineLocationMarker } from 'react-icons/hi';
 
 export const FAQSection = () => {
   const [openItem, setOpenItem] = useState<number | null>(0);
 
   const faqItems = [
     {
-      question: "Where are your studio located?",
+      question: 'Where are your studio located?',
       answer: (
         <div className='w-[80%]'>
-          <p className="text-neutral-400">Our studio&apos;s prime location is in Dubai Media City</p>
-          <div className="mt-2 3xl:mt-3">
-            <div className="flex flex-wrap gap-2 items-start text-neutral-400">
-              <HiOutlineLocationMarker className='3xl:size-6 size-4 stroke-[1.5px] text-[#989898]'/>
-              <p className="flex-1 shrink self-stretch my-auto basis-0 max-md:max-w-full">
-                Loft Offices 3, Dubai - Ideal for corporate podcasts and business content.
+          <p className='text-neutral-400'>
+            Our studio&apos;s prime location is in Dubai Media City
+          </p>
+          <div className='mt-2 3xl:mt-3'>
+            <div className='flex flex-wrap gap-2 items-start text-neutral-400'>
+              <HiOutlineLocationMarker className='3xl:size-6 size-4 stroke-[1.5px] text-[#989898]' />
+              <p className='flex-1 shrink self-stretch my-auto basis-0 max-md:max-w-full'>
+                Loft Offices 3, Dubai - Ideal for corporate podcasts and
+                business content.
               </p>
             </div>
-            <a href="https://maps.app.goo.gl/U8VGBxLVvZ9sdpH67?g_st=com.google.maps.preview.copy" className="mt-2 text-[#5081FF]  text-sm leading-5 3xl:text-xl 3xl:leading-8 hover:underline">
+            <a
+              href='https://maps.app.goo.gl/U8VGBxLVvZ9sdpH67?g_st=com.google.maps.preview.copy'
+              className='mt-2 text-[#5081FF]  text-sm leading-5 3xl:text-xl 3xl:leading-8 hover:underline'
+            >
               View location & direction
             </a>
           </div>
         </div>
-      )
+      ),
     },
     {
-      question: "What are your studio hours?",
-      answer: (<div className='w-[80%]'>
-          <p className="text-neutral-400">We are open to serve you during the following hours:</p>
-          <div className="mt-2 3xl:mt-3">
-            <div className="flex flex-wrap gap-2 items-center text-neutral-400">
-              <HiOutlineLocationMarker className='3xl:size-6 size-4 stroke-[1.5px] text-[#989898]'/>
-              <p className="flex-1 shrink self-stretch my-auto basis-0 max-md:max-w-full">
-              Monday to Friday: 9:00 AM to 9:00 PM
+      question: 'What are your studio hours?',
+      answer: (
+        <div className='w-[80%]'>
+          <p className='text-neutral-400'>
+            We are open to serve you during the following hours:
+          </p>
+          <div className='mt-2 3xl:mt-3'>
+            <div className='flex flex-wrap gap-2 items-center text-neutral-400'>
+              <HiOutlineLocationMarker className='3xl:size-6 size-4 stroke-[1.5px] text-[#989898]' />
+              <p className='flex-1 shrink self-stretch my-auto basis-0 max-md:max-w-full'>
+                Monday to Friday: 9:00 AM to 9:00 PM
               </p>
             </div>
-            <div className="flex flex-wrap gap-2 items-center text-neutral-400">
-              <HiOutlineLocationMarker className='3xl:size-6 size-4 stroke-[1.5px] text-[#989898]'/>
-              <p className="flex-1 shrink self-stretch my-auto basis-0 max-md:max-w-full">
-              Saturday to Sunday: 9:00 AM to 9:00 PM
+            <div className='flex flex-wrap gap-2 items-center text-neutral-400'>
+              <HiOutlineLocationMarker className='3xl:size-6 size-4 stroke-[1.5px] text-[#989898]' />
+              <p className='flex-1 shrink self-stretch my-auto basis-0 max-md:max-w-full'>
+                Saturday to Sunday: 9:00 AM to 9:00 PM
               </p>
             </div>
-            <a href="/bookings" className="mt-2 text-[#5081FF]  text-sm leading-5 3xl:text-xl 3xl:leading-8 hover:underline">
+            <a
+              href='/bookings'
+              className='mt-2 text-[#5081FF]  text-sm leading-5 3xl:text-xl 3xl:leading-8 hover:underline'
+            >
               Book Now
             </a>
           </div>
-        </div>)
+        </div>
+      ),
     },
     {
-      question: "Do I need to bring my own equipment?",
-      answer: (<div className='w-[80%]'>
-          <p className="text-neutral-400">No, you don&apos;t need to bring your own equipment unless you prefer to use specific personal gear. We provide all the necessary equipment for your session</p>
-          
-        </div>)
+      question: 'Do I need to bring my own equipment?',
+      answer: (
+        <div className='w-[80%]'>
+          <p className='text-neutral-400'>
+            No, you don&apos;t need to bring your own equipment unless you
+            prefer to use specific personal gear. We provide all the necessary
+            equipment for your session
+          </p>
+        </div>
+      ),
     },
     {
-      question: "Can beginners record at ARcast?",
-      answer: (<>
-          <p className="text-neutral-400 w-[80%]">Absolutely! ARcast is beginner-friendly. Our team of experienced technicians will guide you through the entire recording process</p>
-          
-        </>)
+      question: 'Can beginners record at ARcast?',
+      answer: (
+        <>
+          <p className='text-neutral-400 w-[80%]'>
+            Absolutely! ARcast is beginner-friendly. Our team of experienced
+            technicians will guide you through the entire recording process
+          </p>
+        </>
+      ),
     },
     {
-      question: "What payment methods do you accept?",
-      answer: (<div className='w-[80%]'>
-          <p className="text-neutral-400">We accept a wide variety of payment methods to make your booking process as smooth as possible</p>
-          <div className="mt-2 3xl:mt-3">
-            <div className="flex flex-col gap-2 items-center text-neutral-400">
+      question: 'What payment methods do you accept?',
+      answer: (
+        <div className='w-[80%]'>
+          <p className='text-neutral-400'>
+            We accept a wide variety of payment methods to make your booking
+            process as smooth as possible
+          </p>
+          <div className='mt-2 3xl:mt-3'>
+            <div className='flex flex-col gap-2 items-center text-neutral-400'>
               <p className="flex-1 before:content-['•'] before:mr-2 shrink self-stretch my-auto basis-0 max-md:max-w-full">
-              Credit/Debit Cards 
+                Credit/Debit Cards
               </p>
               <p className="flex-1 before:content-['•'] before:mr-2 shrink self-stretch my-auto basis-0 max-md:max-w-full">
-              Bank Transfer
+                Bank Transfer
               </p>
               <p className="flex-1 before:content-['•'] before:mr-2 shrink self-stretch my-auto basis-0 max-md:max-w-full">
-              Cash
+                Cash
               </p>
             </div>
           </div>
-        </div>)
+        </div>
+      ),
     },
     {
-      question: "Can I record a live podcast or livestream?",
-      answer: (<>
-          <p className="text-neutral-400 w-[80%]">Yes, you can definitely record a live podcast or livestream at ARcast!. Let us know your streaming platform preferences, and we&apos;ll set everything up for you</p>
-          
-        </>)
-    }
+      question: 'Can I record a live podcast or livestream?',
+      answer: (
+        <>
+          <p className='text-neutral-400 w-[80%]'>
+            Yes, you can definitely record a live podcast or livestream at
+            ARcast!. Let us know your streaming platform preferences, and
+            we&apos;ll set everything up for you
+          </p>
+        </>
+      ),
+    },
   ];
 
   return (
-    <section className=" py-10 3xl:py-20 bg-neutral-100" aria-labelledby="faq-title">
+    <section
+      className=' py-10 3xl:py-20 bg-neutral-100'
+      aria-labelledby='faq-title'
+    >
       <div className='max-w-[1728px] px-[21px] md:px-10 3xl:px-[100px] h-full mx-auto flex overflow-hidden font-medium flex-wrap lg:flex-nowrap justify-between'>
-        <h1 id="faq-title" className=" w-full lg:w-[30%] self-start font-hankenGrotesk text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px]">
+        <h2
+          id='faq-title'
+          className=' w-full lg:w-[30%] self-start font-hankenGrotesk text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px]'
+        >
           Frequently asked questions
-        </h1>
-        <div className="w-full mt-16 lg:mt-0 lg:w-[60%]">
+        </h2>
+        <div className='w-full mt-16 lg:mt-0 lg:w-[60%]'>
           {faqItems.map((item, index) => (
             <FAQItem
               key={index}
@@ -111,7 +149,6 @@ export const FAQSection = () => {
           ))}
         </div>
       </div>
-
     </section>
   );
 };
