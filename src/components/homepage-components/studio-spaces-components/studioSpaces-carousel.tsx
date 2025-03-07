@@ -207,20 +207,24 @@ const StudioSpacesCarousel = () => {
       if (width < 900) setIsMobile(true);
 
       if (width < 640) {
-        // mobile
-        setGapSize(75);
-      } else if (width < 1024) {
-        // tablet
+        setGapSize(85);
+      } else if (width < 768) {
+        setGapSize(110);
+      } else if (width < 900) {
         setGapSize(120);
-      } else if (width < 1200) {
-        // notebook
+      } else if (width < 1024) {
+        setGapSize(140);
+      } else if (width < 1100) {
         setGapSize(150);
-      } else if (width < 1700) {
-        //small desktop
-        setGapSize(180);
+      } else if (width < 1200) {
+        setGapSize(170);
+      } else if (width < 1400) {
+        setGapSize(200);
+      } else if (width < 1600) {
+        setGapSize(230);
       } else {
         // desktop
-        setGapSize(280);
+        setGapSize(270);
       }
     };
 
