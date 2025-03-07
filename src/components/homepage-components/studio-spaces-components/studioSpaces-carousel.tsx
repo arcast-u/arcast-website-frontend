@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useSpring, animated, config, SpringValue } from '@react-spring/web';
-import { TbCaretLeft, TbCaretRight } from "react-icons/tb";
+import { TbCaretLeft, TbCaretRight } from 'react-icons/tb';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
@@ -10,8 +10,8 @@ interface SlideData {
   id: number;
   title: string;
   buttonText: string;
-  images: string[]; 
-  mobileImages: string[]; 
+  images: string[];
+  mobileImages: string[];
 }
 
 // Define the animated component type
@@ -30,56 +30,151 @@ const AnimatedDiv = animated.div as unknown as React.FC<AnimatedDivProps>;
 const slides: SlideData[] = [
   {
     id: 1,
-    title: "Mobile Studio",
-    buttonText: "Book Your Session",
-    images: ["/images/studio7.png", "/images/studio8.png", "/images/studio9.png"],
-    mobileImages: ["/images/studiom7.png", "/images/studiom8.png", "/images/studiom9.png"]
+    title: 'Mobile Studio',
+    buttonText: 'Book Your Session',
+    images: [
+      '/images/studio8.png',
+      '/images/studio2.jpg',
+      '/images/studio4.jpg',
+    ],
+    mobileImages: [
+      '/images/studio8.png',
+      '/images/studio2.jpg',
+      '/images/studio4.jpg',
+    ],
   },
   {
     id: 2,
-    title: "Setup 2",
-    buttonText: "Book Your Session",
-    images: ["/images/studio8.png", "/images/studio9.png", "/images/studio10.png"],
-    mobileImages: ["/images/studiom8.png", "/images/studiom9.png", "/images/studiom10.png"]
+    title: 'Setup 1',
+    buttonText: 'Book Your Session',
+    images: [
+      '/images/studio2.jpg',
+      '/images/studio4.jpg',
+      '/images/studio3.jpg',
+    ],
+    mobileImages: [
+      '/images/studio2.jpg',
+      '/images/studio4.jpg',
+      '/images/studio3.jpg',
+    ],
   },
   {
     id: 3,
-    title: "Setup 3",
-    buttonText: "Book Your Session",
-    images: ["/images/studio9.png", "/images/studio10.png", "/images/studio11.png"],
-    mobileImages: ["/images/studiom9.png", "/images/studiom10.png", "/images/studiom11.png"]
+    title: 'Setup 2',
+    buttonText: 'Book Your Session',
+    images: [
+      '/images/studio3.jpg',
+      '/images/studio9.jpg',
+      '/images/studio2.jpg',
+    ],
+    mobileImages: [
+      '/images/studio3.jpg',
+      '/images/studio9.jpg',
+      '/images/studio2.jpg',
+    ],
   },
   {
     id: 4,
-    title: "Setup 4",
-    buttonText: "Book Your Session",
-    images: ["/images/studio10.png", "/images/studio11.png", "/images/studio14.png"],
-    mobileImages: ["/images/studiom10.png", "/images/studiom11.png", "/images/studiom14.png"]
+    title: 'Setup 3',
+    buttonText: 'Book Your Session',
+    images: [
+      '/images/studio4.jpg',
+      '/images/studio9.jpg',
+      '/images/studio5.jpg',
+    ],
+    mobileImages: [
+      '/images/studio4.jpg',
+      '/images/studio9.jpg',
+      '/images/studio5.jpg',
+    ],
   },
   {
     id: 5,
-    title: "Setup 5",
-    buttonText: "Book Your Session",
-    images: ["/images/studio11.png", "/images/studio14.png", "/images/studio7.png"],
-    mobileImages: ["/images/studiom11.png", "/images/studiom14.png", "/images/studiom7.png"]
+    title: 'Setup 4',
+    buttonText: 'Book Your Session',
+    images: [
+      '/images/studio5.jpg',
+      '/images/studio6.jpg',
+      '/images/studio2.jpg',
+    ],
+    mobileImages: [
+      '/images/studio5.jpg',
+      '/images/studio6.jpg',
+      '/images/studio2.jpg',
+    ],
   },
   {
     id: 6,
-    title: "Setup 6",
-    buttonText: "Book Your Session",
-    images: ["/images/studio14.png", "/images/studio8.png", "/images/studio7.png"],
-    mobileImages: ["/images/studiom14.png", "/images/studiom8.png", "/images/studiom7.png"]
+    title: 'Setup 5',
+    buttonText: 'Book Your Session',
+    images: [
+      '/images/studio6.jpg',
+      '/images/studio7.jpg',
+      '/images/studio8.jpg',
+    ],
+    mobileImages: [
+      '/images/studio6.jpg',
+      '/images/studio7.jpg',
+      '/images/studio8.jpg',
+    ],
+  },
+  {
+    id: 7,
+    title: 'Setup 6',
+    buttonText: 'Book Your Session',
+    images: [
+      '/images/studio7.jpg',
+      '/images/studio8.jpg',
+      '/images/studio5.jpg',
+    ],
+    mobileImages: [
+      '/images/studio7.jpg',
+      '/images/studio8.jpg',
+      '/images/studio5.jpg',
+    ],
+  },
+  {
+    id: 8,
+    title: 'Setup 7',
+    buttonText: 'Book Your Session',
+    images: [
+      '/images/studio8.jpg',
+      '/images/studio9.jpg',
+      '/images/studio6.jpg',
+    ],
+    mobileImages: [
+      '/images/studio8.jpg',
+      '/images/studio9.jpg',
+      '/images/studio6.jpg',
+    ],
+  },
+  {
+    id: 9,
+    title: 'Setup 8',
+    buttonText: 'Book Your Session',
+    images: [
+      '/images/studio9.jpg',
+      '/images/studio3.jpg',
+      '/images/studio8.jpg',
+    ],
+    mobileImages: [
+      '/images/studio9.jpg',
+      '/images/studio3.jpg',
+      '/images/studio8.jpg',
+    ],
   },
 ];
 
 const StudioSpacesCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [imageIndex, setImageIndex] = useState(new Array(slides.length).fill(0)); // Track which image is displayed for each slide
+  const [imageIndex, setImageIndex] = useState(
+    new Array(slides.length).fill(0)
+  ); // Track which image is displayed for each slide
   const [gapSize, setGapSize] = useState(280);
   const [isMobile, setIsMobile] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const router = useRouter();  
+  const router = useRouter();
   const minSwipeDistance = 50;
 
   const onTouchStart = (e: React.TouchEvent) => {
@@ -93,7 +188,7 @@ const StudioSpacesCarousel = () => {
 
   const onTouchEnd = () => {
     if (!touchStart || !touchEnd) return;
-    
+
     const distance = touchStart - touchEnd;
     const isLeftSwipe = distance > minSwipeDistance;
     const isRightSwipe = distance < -minSwipeDistance;
@@ -111,15 +206,20 @@ const StudioSpacesCarousel = () => {
       const width = window.innerWidth;
       if (width < 900) setIsMobile(true);
 
-      if (width < 640) { // mobile
+      if (width < 640) {
+        // mobile
         setGapSize(75);
-      } else if (width < 1024) { // tablet
+      } else if (width < 1024) {
+        // tablet
         setGapSize(120);
-      } else if (width < 1200) { // notebook
+      } else if (width < 1200) {
+        // notebook
         setGapSize(150);
-      } else if (width < 1700) { //small desktop
+      } else if (width < 1700) {
+        //small desktop
         setGapSize(180);
-      } else { // desktop
+      } else {
+        // desktop
         setGapSize(280);
       }
     };
@@ -131,14 +231,17 @@ const StudioSpacesCarousel = () => {
 
   const CalculateStyles = (index: number) => {
     const totalSlides = slides.length;
-    const position = ((index - currentIndex) % totalSlides + totalSlides) % totalSlides;
-  
+    const position =
+      (((index - currentIndex) % totalSlides) + totalSlides) % totalSlides;
+
     let adjustedPosition = position;
     if (position > totalSlides / 2) adjustedPosition = position - totalSlides;
-  
+
     return useSpring({
       to: {
-        transform: `translateX(calc(${adjustedPosition * 85}% + ${adjustedPosition * gapSize}px))`,
+        transform: `translateX(calc(${adjustedPosition * 85}% + ${
+          adjustedPosition * gapSize
+        }px))`,
         opacity: adjustedPosition === 0 ? 1 : 0.9,
       },
       config: config.gentle,
@@ -146,7 +249,6 @@ const StudioSpacesCarousel = () => {
   };
 
   const handleBookSession = () => {
-    
     router.push('/bookings');
   };
 
@@ -158,15 +260,18 @@ const StudioSpacesCarousel = () => {
     setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
-  const handleImageChange = (direction: "next" | "prev") => {
+  const handleImageChange = (direction: 'next' | 'prev') => {
     setImageIndex((prev) => {
       const newIndexArray = [...prev];
-      const totalImages = isMobile? slides[currentIndex].mobileImages.length : slides[currentIndex].images.length;
+      const totalImages = isMobile
+        ? slides[currentIndex].mobileImages.length
+        : slides[currentIndex].images.length;
 
-      if (direction === "next") {
+      if (direction === 'next') {
         newIndexArray[currentIndex] = (prev[currentIndex] + 1) % totalImages;
       } else {
-        newIndexArray[currentIndex] = (prev[currentIndex] - 1 + totalImages) % totalImages;
+        newIndexArray[currentIndex] =
+          (prev[currentIndex] - 1 + totalImages) % totalImages;
       }
 
       return newIndexArray;
@@ -175,26 +280,32 @@ const StudioSpacesCarousel = () => {
 
   return (
     <div
-    onTouchStart={onTouchStart}
+      onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
-      onTouchEnd={onTouchEnd} className="relative w-full h-full overflow-hidden">
+      onTouchEnd={onTouchEnd}
+      className='relative w-full h-full overflow-hidden'
+    >
       {/* Main Content */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[85%] h-[90%]">
+      <div className='absolute top-0 left-1/2 -translate-x-1/2 w-[85%] h-[90%]'>
         {slides.map((slide, index) => (
           <AnimatedDiv
             key={slide.id}
             style={CalculateStyles(index)}
-            className="absolute w-full h-full"
+            className='absolute w-full h-full'
           >
-            <div className="relative w-full h-full">
+            <div className='relative w-full h-full'>
               {/* Display Current Image */}
-              <div className="relative w-full h-full">
+              <div className='relative w-full h-full'>
                 <Image
-                  src={isMobile? slide.mobileImages[imageIndex[index]] : slide.images[imageIndex[index]]}
+                  src={
+                    isMobile
+                      ? slide.mobileImages[imageIndex[index]]
+                      : slide.images[imageIndex[index]]
+                  }
                   alt={slide.title}
                   fill
                   quality={100}
-                  className="object-fit rounded-lg"
+                  className='object-cover object-center rounded-lg'
                   loading='lazy'
                 />
               </div>
@@ -204,25 +315,28 @@ const StudioSpacesCarousel = () => {
                 <>
                   {/* Image Change Buttons */}
                   <button
-                    onClick={() => handleImageChange("prev")}
-                    className="absolute left-6 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded flex items-center justify-center transition-colors"
+                    onClick={() => handleImageChange('prev')}
+                    className='absolute left-6 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded flex items-center justify-center transition-colors'
                   >
-                    <TbCaretLeft className="size-5 text-white" />
+                    <TbCaretLeft className='size-5 text-white' />
                   </button>
 
                   <button
-                    onClick={() => handleImageChange("next")}
-                    className="absolute right-6 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded flex items-center justify-center transition-colors"
+                    onClick={() => handleImageChange('next')}
+                    className='absolute right-6 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded flex items-center justify-center transition-colors'
                   >
-                    <TbCaretRight className="size-5 text-white" />
+                    <TbCaretRight className='size-5 text-white' />
                   </button>
 
                   {/* Button for Booking */}
-                  <div className="absolute bottom-8 left-6 w-fit 3xl:px-6 3xl:py-4 py-3 px-[14px] bg-[#F5F5F7] font-nunitoSans rounded-lg">
-                    <h3 className="text-sm 3xl:text-2xl font-medium text-[#333333] mb-2 3xl:mb-4">
+                  <div className='absolute bottom-8 left-6 w-fit 3xl:px-6 3xl:py-4 py-3 px-[14px] bg-[#F5F5F7] font-nunitoSans rounded-lg'>
+                    <h3 className='text-sm 3xl:text-2xl font-medium text-[#333333] mb-2 3xl:mb-4'>
                       {slide.title}
                     </h3>
-                    <button onClick={handleBookSession} className="px-4 py-2 3xl:py-3 bg-[#FF8C42] border border-[#FFC49D] text-[#FCFCFC] font-nunitoSans text-xs 3xl:text-base rounded-md shadow-md shadow-[#FAE2D2] transition-colors">
+                    <button
+                      onClick={handleBookSession}
+                      className='px-4 py-2 3xl:py-3 bg-[#FF8C42] border border-[#FFC49D] text-[#FCFCFC] font-nunitoSans text-xs 3xl:text-base rounded-md shadow-md shadow-[#FAE2D2] transition-colors'
+                    >
                       {slide.buttonText}
                     </button>
                   </div>
@@ -234,13 +348,19 @@ const StudioSpacesCarousel = () => {
       </div>
 
       {/* Slide Navigation */}
-      <div className="absolute z-40 bottom-0 w-[90%] lg:w-auto lg:right-10 flex justify-between lg:justify-end gap-2">
-        <button onClick={handlePrevious} className="p-1 md:p-2 rounded-lg ml-9 lg:ml-0  border-[1.5px] border-gray-500 shadow-sm">
-          <IoIosArrowBack className="size-4 text-gray-500" />
+      <div className='absolute z-40 bottom-0 w-[90%] lg:w-auto lg:right-10 flex justify-between lg:justify-end gap-2'>
+        <button
+          onClick={handlePrevious}
+          className='p-1 md:p-2 rounded-lg ml-9 lg:ml-0  border-[1.5px] border-gray-500 shadow-sm'
+        >
+          <IoIosArrowBack className='size-4 text-gray-500' />
         </button>
 
-        <button onClick={handleNext} className="p-1 md:p-2 rounded-lg border-[1.5px] border-gray-500 shadow-sm">
-          <IoIosArrowForward className="size-4 text-gray-500" />
+        <button
+          onClick={handleNext}
+          className='p-1 md:p-2 rounded-lg border-[1.5px] border-gray-500 shadow-sm'
+        >
+          <IoIosArrowForward className='size-4 text-gray-500' />
         </button>
       </div>
     </div>

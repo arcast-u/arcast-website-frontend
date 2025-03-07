@@ -4,9 +4,10 @@ import NavigationBar from '@/components/homepage-components/nav-bar';
 import FeatureGrid from '@/components/membership-components/how-it-works-components/featureGrid';
 import Community from '@/components/homepage-components/community/community';
 import Footer from '@/components/homepage-components/footer/footer';
-import NewsletterSignup from '@/components/homepage-components/newsletter/newsletter';
 import React, { useState } from 'react';
 import BasicPricingTable from '@/components/membership-components/Basic-pricing-table';
+import StandardPricingTable from '@/components/membership-components/standard-pricing-table';
+import PremiumPricingTable from '@/components/membership-components/premium-pricing-table';
 
 const Page = () => {
   const [selectedMembership, setSelectedMembership] = useState<
@@ -58,8 +59,8 @@ const Page = () => {
           </div>
           <div className=' flex flex-col justify-center'>
             {selectedMembership === 'Basic' && <BasicPricingTable />}
-            {/* {selectedMembership === 'Standard' && <StandardPricingTable />}
-            {selectedMembership === 'Premium' && <PremiumPricingTable />} */}
+            {selectedMembership === 'Standard' && <StandardPricingTable />}
+            {selectedMembership === 'Premium' && <PremiumPricingTable />}
           </div>
         </div>
         <div className='bg-[#F5F5F7] px-[21px] mb-10 3xl:mb-20 py-10 3xl:pb-20 md:px-10 3xl:px-[100px] '>
@@ -77,7 +78,7 @@ const Page = () => {
         </div>
       </div>
       <Community />
-      <NewsletterSignup />
+      {/* <NewsletterSignup /> */}
       <Footer />
     </div>
   );

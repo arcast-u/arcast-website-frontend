@@ -1,106 +1,130 @@
-'use client'
-import React, {useState} from 'react';
+'use client';
+import React, { useState } from 'react';
 import ServiceOption from './service-option';
 
-
 type Selector = {
-    duration: number;
-  setDuration: (value: number) => void
-}
+  duration: number;
+  setDuration: (value: number) => void;
+  onServiceSelect: (service: { name: string; price: string } | null) => void;
+};
 
 const services = [
-    {
-        id: 'Standard Edit (Short Form)',
-        name: 'Standard Edit (Short Form)',
-        price: '500 AED',
-        description: 'Three scroll-stopping clips (each up to ~90s). Subtitles, branding elements, and on-screen text.',
-        imgSrc: ['/images/Reel1.png', '/images/Reel2.png', '/images/Reel3.png'],
-        imgAlt: 'Illustration of standard reels service'
-      },
-      {
-        id: 'Custom Edit (Short Form)',
-        name: 'Custom Edit (Short Form)',
-        price: '1000 AED',
-        description: 'Five scroll-stopping clips with advanced styling, perfect for multi-platform promotion.',
-        imgSrc: ['/images/Reel4.png', '/images/Reel5.png', '/images/Reel6.png'],
-        imgAlt: 'Illustration of signature reels service'
-      },
-      {
-        id: 'Standard Edit (Long Form)',
-        name: 'Standard Edit (Long Form)',
-        price: '500 AED',
-        description: 'Complete audio/video editing for 1 episode (up to 60 min raw). Includes logos, music integration, removing unwanted parts, color correction, and audio leveling.',
-        imgSrc: ['/images/custom3.png'],
-        imgAlt: 'Illustration of standard episode edit service'
-      },
-      {
-        id: 'Custom Edit (Long Form)',
-        name: 'Custom Edit (Long Form)',
-        price: '1000 AED',
-        description: 'Complete audio/video editing for 1 episode (up to 60 min raw). Includes logos, music integration, removing unwanted parts, color correction, and audio leveling.',
-        imgSrc: ['/images/custom4.png'],
-        imgAlt: 'Illustration of signature episode edit service'
-      },
-      {
-        id: 'live-mix',
-        name: 'Live Mix',
-        price: '400 AED',
-        description: 'Live-mixed episode with synced cameras and audio. Live cutting of your video with synced audio.',
-        imgSrc: ['/images/custom5.png'],
-        imgAlt: 'Illustration of live mix service'
-      },
-      {
-        id: 'Subtitles (per session)',
-        name: 'Subtitles (per session)',
-        price: '400 AED',
-        description: 'Adding subtitles/captions to your final video for accessibility and audience engagement.',
-        imgSrc: ['/images/custom6.png'],
-        imgAlt: 'Illustration of podcast trailer service'
-      },
-      {
-        id: 'Teleprompter',
-        name: 'Teleprompter',
-        price: '50 AED',
-        description: 'Use of a teleprompter in-studio for smooth delivery.',
-        imgSrc: ['/images/custom7.png'],
-        imgAlt: 'Illustration of podcast branding service'
-      },
-      {
-        id: 'Multi-Cam Recording',
-        name: 'Multi-Cam Recording',
-        price: '200 AED',
-        description: 'Upgrade from 3 cameras to 5 cameras total for maximum engagement.',
-        imgSrc: ['/images/custom8.png'],
-        imgAlt: 'Illustration of jingle service'
-      },
-     
+  {
+    id: 'Standard Edit (Short Form)',
+    name: 'Standard Edit (Short Form)',
+    price: '176 AED',
+    description:
+      'Short-form video clips optimized for social media, using simple transitions and branding.',
+    imgSrc: ['/images/Reel1.png', '/images/Reel2.png', '/images/Reel3.png'],
+    imgAlt: 'Illustration of standard reels service',
+  },
+  {
+    id: 'Custom Edit (Short Form)',
+    name: 'Custom Edit (Short Form)',
+    price: '440 AED',
+    description:
+      'High-quality, premium reels with advanced editing, motion graphics, and engaging cuts.',
+    imgSrc: ['/images/Reel4.png', '/images/Reel5.png', '/images/Reel6.png'],
+    imgAlt: 'Illustration of signature reels service',
+  },
+  {
+    id: 'Standard Edit (Long Form)',
+    name: 'Standard Edit (Long Form)',
+    price: '440 AED',
+    description:
+      'Basic podcast episode editing, including noise reduction, filler word removal, and audio balancing.',
+    imgSrc: ['/images/custom3.png'],
+    imgAlt: 'Illustration of standard episode edit service',
+  },
+  {
+    id: 'Custom Edit (Long Form)',
+    name: 'Custom Edit (Long Form)',
+    price: '960 AED',
+    description:
+      'Professional-grade editing with in-depth sound design, smooth transitions, and high production quality.',
+    imgSrc: ['/images/custom4.png'],
+    imgAlt: 'Illustration of signature episode edit service',
+  },
+  {
+    id: 'Live Video Cutting with Synced Audio',
+    name: 'Live Video Cutting with Synced Audio',
+    price: '150 AED',
+    description:
+      'Real-time video switching and cutting with perfectly synced audio for a polished final content.',
+    imgSrc: ['/images/custom5.png'],
+    imgAlt: 'Illustration of live mix service',
+  },
+  {
+    id: 'Subtitles (per session)',
+    name: 'Subtitles (per session)',
+    price: '440 AED',
+    description:
+      'Accurate subtitles and captions to improve accessibility and engagement for video content.',
+    imgSrc: ['/images/custom6.png'],
+    imgAlt: 'Illustration of podcast trailer service',
+  },
+  {
+    id: 'Teleprompter Support',
+    name: 'Teleprompter Support',
+    price: '80 AED',
+    description:
+      'On-screen script assistance for seamless delivery, perfect for structured interviews and presentations.',
+    imgSrc: ['/images/custom7.png'],
+    imgAlt: 'Illustration of podcast branding service',
+  },
+  {
+    id: 'Multi-Cam Recording',
+    name: 'Multi-Cam Recording',
+    price: '200 AED',
+    description:
+      'Professional-grade editing with in-depth sound design, smooth transitions, and high production quality.',
+    imgSrc: ['/images/custom8.png'],
+    imgAlt: 'Illustration of jingle service',
+  },
 ];
 
-const CustomServices = ({duration, setDuration}: Selector) => {
+const CustomServices = ({
+  duration,
+  setDuration,
+  onServiceSelect,
+}: Selector) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(0);
-    
+
+  const handleServiceSelect = (index: number) => {
+    setSelectedIndex(index);
+    onServiceSelect(
+      index === null
+        ? null
+        : {
+            name: services[index].name,
+            price: services[index].price,
+          }
+    );
+  };
   return (
-    <section className=" mt-8 lg:mt-10 md:w-[90%] lg:w-full mx-auto">
-        <h2 className="header-text">
-          à la carte services
-        <span className="text-xl leading-[28.74px] 3xl:text-2xl italic 3xl:leading-[32.74px] text-[#989898]">(optional)</span>
-        </h2>
-        <div className="flex flex-col mt-3 3xl:mt-5">
+    <section className=' mt-8 lg:mt-10 md:w-[90%] lg:w-full mx-auto'>
+      <h2 className='header-text'>
+        à la carte services
+        <span className='text-xl leading-[28.74px] 3xl:text-2xl italic 3xl:leading-[32.74px] text-[#989898]'>
+          (optional)
+        </span>
+      </h2>
+      <div className='flex flex-col mt-3 3xl:mt-5'>
         {services.map((service, index) => (
-            <ServiceOption
+          <ServiceOption
             key={index}
             {...service}
             count={index}
-            groupName="service-options" 
+            groupName='service-options'
             selected={selectedIndex === index}
-            onSelect={() => setSelectedIndex(index)}
-            duration={duration} 
+            onSelect={() => handleServiceSelect(index)}
+            duration={duration}
             setDuration={setDuration}
-            />
+          />
         ))}
-        </div>
+      </div>
     </section>
-  )
-}
+  );
+};
 
-export default CustomServices
+export default CustomServices;

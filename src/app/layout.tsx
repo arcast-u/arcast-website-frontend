@@ -6,7 +6,7 @@ import { LinkedInScripts } from '@/lib/linkedinscript';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Cursor from '@/components/custom-cursor';
+// import Cursor from '@/components/custom-cursor';
 
 import './globals.css';
 import { PostHogProvider } from './provider';
@@ -59,9 +59,9 @@ export default function RootLayout({
         {/* <GoogleScripts/> */}
       </head>
       <body
-        className={`${hankenGrotesk.variable} ${nunitoSans.variable}  ${mulish.variable} antialiased cursor-none`}
+        className={`${hankenGrotesk.variable} ${nunitoSans.variable}  ${mulish.variable} antialiased `}
       >
-        <Cursor />
+        {/* <Cursor /> */}
         <ToastContainer position='top-right' autoClose={3000} />
         <PostHogProvider>{children}</PostHogProvider>
         <LinkedInScripts />

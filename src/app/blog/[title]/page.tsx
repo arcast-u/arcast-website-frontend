@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useSearchParams } from 'next/navigation';
 import NavigationBar from '@/components/homepage-components/nav-bar';
 import Card from '@/components/blog-components/blog-card/card';
-import NewsletterSignup from '@/components/homepage-components/newsletter/newsletter';
 import Footer from '@/components/homepage-components/footer/footer';
 import Image from 'next/image';
 
@@ -244,7 +243,7 @@ const IndividualBlog = () => {
           </div>
         </div>
       </div>
-      <NewsletterSignup />
+      {/* <NewsletterSignup /> */}
       <Footer />
     </div>
   );

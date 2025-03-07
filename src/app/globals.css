@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
 
@@ -11,11 +10,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
-  cursor: none;
+  cursor: auto;
 }
 
 button {
-  cursor: none;
+  cursor: auto;
 }
 
 .font-hanken-grotesk {
@@ -33,24 +32,22 @@ button {
   scrollbar-width: none; /* Firefox */
 }
 
-
 .header-text {
   font-size: 20px;
   line-height: 31.27px;
   font-family: 'Hanken Grotesk', sans-serif;
-  font-weight: 400; 
+  font-weight: 400;
   color: #333333;
 }
 
 .image-hover-animation {
-  background: cover; 
+  background: cover;
   transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
 }
 
 .image-hover-animation:hover {
   transform: scale(1.1);
 }
-
 
 /* Media query for 3xl screens (1920px and above in Tailwind) */
 @media (min-width: 1700px) {
@@ -122,4 +119,3 @@ button {
     @apply bg-background text-foreground;
   }
 }
-

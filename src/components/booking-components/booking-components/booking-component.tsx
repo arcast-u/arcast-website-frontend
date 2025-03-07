@@ -22,6 +22,7 @@ import Image from 'next/image';
 import { DurationProvider } from '@/contex/durationContext';
 import EquipmentSection from './step-one-bookingComponents/recording-EquipmentList';
 import { useRouter } from 'next/navigation';
+import CustomServices from './step-two-booking-components/custom-services';
 // import CustomServices from './step-two-booking-components/custom-services';
 
 const initialFormState = {
@@ -47,6 +48,11 @@ const StudioBooking = () => {
   const [dateData, setDateData] = useState<AvailabilityItemProps[] | null>(
     null
   );
+  const [selectedCustomService, setSelectedCustomService] = useState<{
+    name: string;
+    price: string;
+  } | null>(null);
+
   const [timeSlots, setTimeSlots] = useState<TimeSlotListProps[] | null>(null);
   const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>('10:00');
   const [isBooking, setIsBooking] = useState(false);
@@ -403,11 +409,17 @@ const StudioBooking = () => {
                     selectedTimeSlot={selectedTimeSlot}
                     setSelectedTimeSlot={setSelectedTimeSlot}
                   />
-                  {/* <CustomServices duration={duration} setDuration={setDuration}/> */}
+                  <CustomServices
+                    duration={duration}
+                    setDuration={setDuration}
+                    onServiceSelect={(service) =>
+                      setSelectedCustomService(service)
+                    }
+                  />
                 </div>
               )}
               {isStepFour && (
-                <div>
+                <div className='mb-2'>
                   <FormSection
                     form={form}
                     setForm={setForm}
@@ -426,6 +438,7 @@ const StudioBooking = () => {
                     duration={duration}
                     location={form.recordingLocation}
                     studioLocation={selectedStudio?.location}
+                    customService={selectedCustomService}
                   />
                 </div>
               )}
@@ -443,6 +456,7 @@ const StudioBooking = () => {
             step={currentStep}
             load={isBooking}
             onContinue={handleContinue}
+            customService={selectedCustomService}
           />
         </div>
       </main>

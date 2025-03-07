@@ -43,7 +43,7 @@ const StudioCard = ({
 
   return (
     <div
-      className={`flex flex-col relative shrink cursor-none justify-center py-2.5 px-3 3xl:px-5 3xl:py-4 rounded-xl 
+      className={`flex flex-col relative shrink  justify-center py-2.5 px-3 3xl:px-5 3xl:py-4 rounded-xl 
         basis-0 ${bgColor} transition-transform  ${
         !isFullyBooked && isMobileStudio ? 'hover:scale-105' : ''
       }`}
