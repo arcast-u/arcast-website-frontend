@@ -69,11 +69,11 @@ const Page = () => {
         />
         {currentStep === 0 && (
           <div className='w-full px-[21px] flex flex-col justify-center mb-10'>
-            <div className='my-8 3xl:my-[50px] gap-16 mx-auto flex items-center justify-between w-[90%] md:w-[70%] lg:w-[40%] '>
-              <p className='text-[#333333] font-medium font-hankenGrostek 3xl:text-5xl text-[40px] leading-[52px] 3xl:leading-[62.54px]'>
+            <div className='my-8 3xl:my-[50px] gap-8 md:gap-16 mx-auto flex items-center justify-between w-[90%] md:w-[70%] lg:w-[40%] '>
+              <p className='text-[#333333] font-medium font-hankenGrostek 3xl:text-5xl text-2xl md:text-[40px] leading-[52px] 3xl:leading-[62.54px]'>
                 AED 4,800
               </p>
-              <div className=' w-fit  hidden hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#FAE2D2] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] '>
+              <div className=' w-fit hover:scale-105 flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#FAE2D2] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] '>
                 <button className='flex-1 bg-[#FF8C42] w-fit px-3 py-2 3xl:px-4 3xl:py-3 rounded-lg'>
                   Select Your Bundle
                 </button>
@@ -84,11 +84,11 @@ const Page = () => {
         )}
         {currentStep === 1 && (
           <div className='w-full px-[21px] flex flex-col justify-center mb-10'>
-            <div className='my-8 3xl:my-[50px] gap-16 mx-auto flex items-center justify-between w-[90%] md:w-[70%] lg:w-[40%] '>
-              <p className='text-[#333333] font-medium font-hankenGrostek 3xl:text-5xl text-[40px] leading-[52px] 3xl:leading-[62.54px]'>
+            <div className='my-8 3xl:my-[50px] gap-8 md:gap-16 lg:gap-12 mx-auto flex items-center justify-between w-[90%] md:w-[70%] lg:w-[40%] '>
+              <p className='text-[#333333] font-medium font-hankenGrostek 3xl:text-5xl text-2xl md:text-[40px] leading-[52px] 3xl:leading-[62.54px]'>
                 AED 10,500
               </p>
-              <div className=' w-fit  hidden hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#FAE2D2] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] '>
+              <div className=' w-fit hover:scale-105 flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#FAE2D2] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] '>
                 <button className='flex-1 bg-[#FF8C42] w-fit px-3 py-2 3xl:px-4 3xl:py-3 rounded-lg'>
                   Select Your Bundle
                 </button>
@@ -100,10 +100,10 @@ const Page = () => {
         {currentStep === 2 && (
           <div className='w-full px-[21px] flex flex-col justify-center mb-10'>
             <div className='my-8 3xl:my-[50px] gap-16 mx-auto flex items-center justify-between w-[90%] md:w-[70%] lg:w-[40%] '>
-              <p className='text-[#333333] font-medium font-hankenGrostek 3xl:text-5xl text-[40px] leading-[52px] 3xl:leading-[62.54px]'>
+              <p className='text-[#333333] font-medium font-hankenGrostek 3xl:text-5xl text-2xl md:text-[40px] leading-[52px] 3xl:leading-[62.54px]'>
                 AED 14,240
               </p>
-              <div className=' w-fit  hidden hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#FAE2D2] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] '>
+              <div className=' w-fit hover:scale-105 flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#FAE2D2] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] '>
                 <button className='flex-1 bg-[#FF8C42] w-fit px-3 py-2 3xl:px-4 3xl:py-3 rounded-lg'>
                   Select Your Bundle
                 </button>

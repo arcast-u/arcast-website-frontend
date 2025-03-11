@@ -45,6 +45,10 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning={true}>
       <head>
+        <script
+          src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
+          defer
+        ></script>
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link
           rel='preconnect'

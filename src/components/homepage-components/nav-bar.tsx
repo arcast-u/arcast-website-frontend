@@ -1,7 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import NavigationItem from './nav-item';
-// import { GoGlobe } from "react-icons/go";
 import { TbCaretRight } from 'react-icons/tb';
 import { IoIosMenu } from 'react-icons/io';
 import ChooseSetup from './studio-Dropdown';
@@ -9,6 +8,7 @@ import ContactOverlay from '../contact-components/contact-overlay';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
+import LanguageSelector from '../language-translate/page';
 
 interface NavigationItemData {
   label: string;
@@ -170,25 +170,11 @@ const NavigationBar = () => {
               </button>
             </div>
 
-            {/* <button 
-                      className={`
-                        flex
-                        lg:ml-6 
-                        cursor-none 
-                        hover:scale-105 
-                        items-center 
-                        gap-1 
-                        self-stretch
-                      `}
-                    >
-                      <GoGlobe 
-                        className={`${isOpen || isStudioOpen || pathname !== '/' && pathname !== '/about-us' ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-6`}
-                      />
-                      <TbCaretDown 
-                        className={`${isOpen || isStudioOpen || pathname !== '/' && pathname !== '/about-us' ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-5 stroke-[1.5px]`}
-                      />
-                    </button> */}
-
+            <LanguageSelector
+              isOpen={isOpen}
+              isStudioOpen={isStudioOpen}
+              pathname={pathname}
+            />
             <button
               onClick={handleDropdown}
               className='flex hover:scale-105 3xl:ml-3 ml-2 lg:hidden items-center gap-1 self-stretch '

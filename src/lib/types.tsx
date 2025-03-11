@@ -165,3 +165,18 @@ export interface TextAnimationOptions {
   delimiter: string;
   useHTML: boolean;
 }
+
+export interface AdditionalServiceType {
+  id: string;
+  title: string;
+  type: string;
+  price: string;
+  currency: string;
+  count: number;
+  description: string;
+  imageUrls: string[];
+  videoUrl: string | null;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+}

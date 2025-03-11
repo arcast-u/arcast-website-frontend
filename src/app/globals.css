@@ -32,6 +32,15 @@ button {
   scrollbar-width: none; /* Firefox */
 }
 
+/* Hide Google Translate elements */
+.goog-te-banner-frame,
+.skiptranslate {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}
+
 .header-text {
   font-size: 20px;
   line-height: 31.27px;

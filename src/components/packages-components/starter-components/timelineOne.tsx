@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -51,12 +51,12 @@ export const Timeline = ({ maxSteps }: TimelineProps) => {
       if (overlay) {
         gsap.to(overlay, {
           scrollTrigger: {
-            trigger: line,           
-            start: 'top bottom',    
-            end: 'bottom top',    
+            trigger: line,
+            start: 'top bottom',
+            end: 'bottom top',
             scrub: true,
           },
-          height: '100%',           
+          height: '100%',
           ease: 'none',
         });
       }
@@ -66,10 +66,10 @@ export const Timeline = ({ maxSteps }: TimelineProps) => {
   return (
     <nav
       ref={navRef}
-      className="flex flex-col items-center mt-2 text-base font-medium text-[#FCFCFC] font-mullish whitespace-nowrap md:order-2 order-1"
-      aria-label="Pricing timeline"
+      className='flex flex-col items-center mt-2 text-base font-medium text-[#FCFCFC] font-mullish whitespace-nowrap md:order-2 order-1'
+      aria-label='Pricing timeline'
     >
-      <ol className="list-none p-0 m-0">
+      <ol className='list-none p-0 m-0'>
         {[...Array(maxSteps)].map((_, index) => {
           const num = index + 1;
           const isLastStep = num === maxSteps;
@@ -78,18 +78,18 @@ export const Timeline = ({ maxSteps }: TimelineProps) => {
             : 'step-circle px-2 w-6 border h-6 rounded-xl bg-[#333333] min-h-[24px] flex items-center justify-center';
 
           return (
-            <li key={num} className="mb-4">
+            <li key={num} className='mb-4'>
               <div className={circleClasses} aria-label={`Step ${num}`}>
                 {!isLastStep && num}
               </div>
               {num < maxSteps && (
                 // Wrapped each line in a container and add an overlay for the fill effect
                 <div
-                  className="timeline-line relative mt-4 w-[0.8px] border border-solid border-[#B3B3B3] mx-auto h-[250px] md:min-h-[400px]"
-                  role="presentation"
-                  aria-hidden="true"
+                  className='timeline-line relative mt-4 w-[0.8px] border border-solid border-[#B3B3B3] mx-auto h-[265px] md:min-h-[250px] 3xl:min-h-[360px] '
+                  role='presentation'
+                  aria-hidden='true'
                 >
-                  <div className="line-overlay absolute top-0 -left-[0.5px] w-full h-0 border border-black"></div>
+                  <div className='line-overlay absolute top-0 -left-[0.5px] w-full h-0 border border-black'></div>
                 </div>
               )}
             </li>

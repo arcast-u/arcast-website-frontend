@@ -63,81 +63,81 @@ const slides: SlideData[] = [
     title: 'Setup 2',
     buttonText: 'Book Your Session',
     images: [
-      '/images/studio3.jpg',
+      '/images/studio4.jpg',
       '/images/studio9.jpg',
       '/images/studio2.jpg',
     ],
     mobileImages: [
-      '/images/studio3.jpg',
+      '/images/studio4.jpg',
       '/images/studio9.jpg',
       '/images/studio2.jpg',
     ],
   },
+  // {
+  //   id: 4,
+  //   title: 'Setup 3',
+  //   buttonText: 'Book Your Session',
+  //   images: [
+  //     '/images/studio4.jpg',
+  //     '/images/studio9.jpg',
+  //     '/images/studio5.jpg',
+  //   ],
+  //   mobileImages: [
+  //     '/images/studio4.jpg',
+  //     '/images/studio9.jpg',
+  //     '/images/studio5.jpg',
+  //   ],
+  // },
+  // {
+  //   id: 5,
+  //   title: 'Setup 4',
+  //   buttonText: 'Book Your Session',
+  //   images: [
+  //     '/images/studio5.jpg',
+  //     '/images/studio6.jpg',
+  //     '/images/studio2.jpg',
+  //   ],
+  //   mobileImages: [
+  //     '/images/studio5.jpg',
+  //     '/images/studio6.jpg',
+  //     '/images/studio2.jpg',
+  //   ],
+  // },
   {
-    id: 4,
+    id: 6,
     title: 'Setup 3',
     buttonText: 'Book Your Session',
     images: [
-      '/images/studio4.jpg',
-      '/images/studio9.jpg',
+      '/images/studio6.jpg',
+      '/images/studio7.jpg',
       '/images/studio5.jpg',
     ],
     mobileImages: [
-      '/images/studio4.jpg',
-      '/images/studio9.jpg',
+      '/images/studio6.jpg',
+      '/images/studio7.jpg',
       '/images/studio5.jpg',
     ],
   },
+  // {
+  //   id: 7,
+  //   title: 'Setup 6',
+  //   buttonText: 'Book Your Session',
+  //   images: [
+  //     '/images/studio7.jpg',
+  //     '/images/studio8.jpg',
+  //     '/images/studio5.jpg',
+  //   ],
+  //   mobileImages: [
+  //     '/images/studio7.jpg',
+  //     '/images/studio8.jpg',
+  //     '/images/studio5.jpg',
+  //   ],
+  // },
   {
-    id: 5,
+    id: 8,
     title: 'Setup 4',
     buttonText: 'Book Your Session',
     images: [
-      '/images/studio5.jpg',
-      '/images/studio6.jpg',
-      '/images/studio2.jpg',
-    ],
-    mobileImages: [
-      '/images/studio5.jpg',
-      '/images/studio6.jpg',
-      '/images/studio2.jpg',
-    ],
-  },
-  {
-    id: 6,
-    title: 'Setup 5',
-    buttonText: 'Book Your Session',
-    images: [
-      '/images/studio6.jpg',
-      '/images/studio7.jpg',
-      '/images/studio8.jpg',
-    ],
-    mobileImages: [
-      '/images/studio6.jpg',
-      '/images/studio7.jpg',
-      '/images/studio8.jpg',
-    ],
-  },
-  {
-    id: 7,
-    title: 'Setup 6',
-    buttonText: 'Book Your Session',
-    images: [
-      '/images/studio7.jpg',
-      '/images/studio8.jpg',
-      '/images/studio5.jpg',
-    ],
-    mobileImages: [
-      '/images/studio7.jpg',
-      '/images/studio8.jpg',
-      '/images/studio5.jpg',
-    ],
-  },
-  {
-    id: 8,
-    title: 'Setup 7',
-    buttonText: 'Book Your Session',
-    images: [
       '/images/studio8.jpg',
       '/images/studio9.jpg',
       '/images/studio6.jpg',
@@ -148,21 +148,21 @@ const slides: SlideData[] = [
       '/images/studio6.jpg',
     ],
   },
-  {
-    id: 9,
-    title: 'Setup 8',
-    buttonText: 'Book Your Session',
-    images: [
-      '/images/studio9.jpg',
-      '/images/studio3.jpg',
-      '/images/studio8.jpg',
-    ],
-    mobileImages: [
-      '/images/studio9.jpg',
-      '/images/studio3.jpg',
-      '/images/studio8.jpg',
-    ],
-  },
+  // {
+  //   id: 9,
+  //   title: 'Setup 8',
+  //   buttonText: 'Book Your Session',
+  //   images: [
+  //     '/images/studio9.jpg',
+  //     '/images/studio3.jpg',
+  //     '/images/studio8.jpg',
+  //   ],
+  //   mobileImages: [
+  //     '/images/studio9.jpg',
+  //     '/images/studio3.jpg',
+  //     '/images/studio8.jpg',
+  //   ],
+  // },
 ];
 
 const StudioSpacesCarousel = () => {

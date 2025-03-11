@@ -63,7 +63,7 @@ const Card = ({
       loading='lazy'
       className={`w-full ${
         inFocus ? 'h-full' : 'h-[85%]'
-      } relative shadow-lg object-cover rounded-2xl`}
+      } relative shadow-lg object-cover object-center rounded-2xl`}
     />
     {/* Multi-Cam Recording Toggle */}
     {inFocus && (
@@ -152,10 +152,10 @@ const Carousel3D = () => {
       const width = window.innerWidth;
       if (width < 1200) {
         // mobile
-        setGapSize(300);
+        setGapSize(380);
       } else if (width < 1700) {
         //small desktop
-        setGapSize(320);
+        setGapSize(380);
       } else {
         // desktop
         setGapSize(500);
@@ -169,7 +169,7 @@ const Carousel3D = () => {
 
   const cards: CardData[] = [
     {
-      price: 'AED 50',
+      price: 'AED 80',
       title: 'Teleprompter',
       src: '/images/3d4.png',
       description: 'Use of a teleprompter in-studio for smooth delivery.',
@@ -189,14 +189,14 @@ const Carousel3D = () => {
         'Upgrade from 3 cameras to 5 cameras total for maximum engagement.',
     },
     {
-      price: 'AED 2500',
+      price: 'AED 2400',
       title: 'Podcast Trailer',
       src: '/images/3d1.png',
       description:
         "Craft a compelling intro video for your show's mission. Includes voiceover, music, tailored visuals, and a logo jingle for a lasting impression.",
     },
     {
-      price: 'AED 7500',
+      price: 'AED 6400',
       title: 'Podcast Branding',
       src: '/images/3d2.png',
       description:
@@ -242,10 +242,10 @@ const Carousel3D = () => {
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
-      className='relative w-full h-[500px] 3xl:h-[780px] flex items-center justify-center overflow-hidden'
+      className='relative w-full h-[600px] 3xl:h-[780px] flex items-center justify-center overflow-hidden'
     >
       {/* Carousel Container */}
-      <div className='relative w-[300px] h-[400px] 3xl:w-[520px] flex rounded-2xl p-4 border-[0.8px] bg-transparent border-[#989898] 3xl:h-[680px] mb-8 lg:mb-0'>
+      <div className='relative w-[400px] h-[500px] 3xl:w-[520px] flex rounded-2xl p-4 border-[0.8px] bg-transparent border-[#989898] 3xl:h-[680px] mb-8 lg:mb-0'>
         {cards.map((card, index) => (
           <Card
             key={index}

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { getCountries, getCountryCallingCode } from 'libphonenumber-js';
 import { TbCaretDown, TbCaretUp } from 'react-icons/tb';
+import { toast } from 'react-toastify';
 
 interface ContactOverlayProps {
   isOpen: boolean;
@@ -11,6 +12,8 @@ interface ContactOverlayProps {
 
 const ContactOverlay = ({ isOpen, onClose }: ContactOverlayProps) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -20,6 +23,16 @@ const ContactOverlay = ({ isOpen, onClose }: ContactOverlayProps) => {
     countryCode: '+971',
   });
 
+  const resetForm = () => {
+    setFormData({
+      firstName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      message: '',
+      countryCode: '+971',
+    });
+  };
   const countries = getCountries().map((code) => ({
     code: `+${getCountryCallingCode(code)}`,
     country: code,
@@ -27,8 +40,40 @@ const ContactOverlay = ({ isOpen, onClose }: ContactOverlayProps) => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Add your form submission logic here
-    console.log('Form submitted:', formData);
+
+    // Basic validation
+    if (!formData.firstName || !formData.email) {
+      toast.error('Please fill in all fields');
+      return;
+    }
+
+    setLoading(true);
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong');
+      }
+      if (response.status === 201) {
+        toast.success(
+          'Thank you for your message! We will get back to you soon.'
+        );
+        resetForm();
+        onClose();
+      }
+    } catch {
+      toast.error('Failed to submit form');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -246,7 +291,7 @@ const ContactOverlay = ({ isOpen, onClose }: ContactOverlayProps) => {
                           type='submit'
                           className='flex-1 bg-[#FF8C42] w-fit px-[43.5px] py-[10.5px] 3xl:py-4 3xl:px-[83.5px] rounded-lg'
                         >
-                          Send
+                          {loading ? 'Sending...' : 'Send'}
                         </button>
                       </div>
                     </div>

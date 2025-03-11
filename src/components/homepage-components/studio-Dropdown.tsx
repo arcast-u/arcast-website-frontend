@@ -9,14 +9,15 @@ const setups = [
     image: '/images/studio1.webp',
     available: true,
   },
-  { id: 2, name: 'Setup 2', image: '/images/studio2.jpg', available: false },
-  { id: 3, name: 'Setup 3', image: '/images/studio3.jpg', available: false },
-  { id: 4, name: 'Setup 4', image: '/images/studio4.jpg', available: false },
-  { id: 5, name: 'Setup 5', image: '/images/studio5.jpg', available: false },
-  { id: 6, name: 'Setup 6', image: '/images/studio6.jpg', available: false },
-  { id: 7, name: 'Setup 7', image: '/images/studio7.jpg', available: false },
-  { id: 8, name: 'Setup 8', image: '/images/studio8.jpg', available: false },
-  { id: 9, name: 'Setup 9', image: '/images/studio9.jpg', available: false },
+  { id: 2, name: 'Setup 1', image: '/images/studio2.jpg', available: false },
+  // { id: 3, name: 'Setup 3', image: '/images/studio3.jpg', available: false },
+  { id: 4, name: 'Setup 2', image: '/images/studio4.jpg', available: false },
+  { id: 5, name: 'nil', available: true },
+  // { id: 5, name: 'Setup 5', image: '/images/studio5.jpg', available: false },
+  { id: 6, name: 'Setup 3', image: '/images/studio6.jpg', available: false },
+  // { id: 7, name: 'Setup 7', image: '/images/studio7.jpg', available: false },
+  { id: 8, name: 'Setup 4', image: '/images/studio8.jpg', available: false },
+  // { id: 9, name: 'Setup 9', image: '/images/studio9.jpg', available: false },
 ];
 
 const ChooseSetup = () => {
@@ -31,18 +32,22 @@ const ChooseSetup = () => {
         {setups.map((setup) => (
           <div
             key={setup.id}
-            className='relative h-[250px] max-h-[308px] rounded-lg overflow-hidden shadow-md'
+            className={`relative h-[250px] max-h-[308px] rounded-lg overflow-hidden ${
+              setup.name === 'nil' ? 'hidden xl:block' : 'shadow-md'
+            } `}
           >
-            <Image
-              src={setup.image}
-              alt={setup.name}
-              width={277.67}
-              height={308}
-              quality={100}
-              className={`w-full h-full object-cover ${
-                !setup.available ? 'opacity-50' : ''
-              }`}
-            />
+            {setup.image && setup.name !== 'nil' && (
+              <Image
+                src={setup?.image}
+                alt={setup.name}
+                width={277.67}
+                height={308}
+                quality={100}
+                className={`w-full h-full object-cover ${
+                  !setup.available ? 'opacity-50' : ''
+                }`}
+              />
+            )}
             {!setup.available && (
               <div className='absolute inset-0 flex items-center justify-center bg-black bg-opacity-40'>
                 <p className='text-[#333333] text-xl font-semibold'>
@@ -50,7 +55,7 @@ const ChooseSetup = () => {
                 </p>
               </div>
             )}
-            {setup.available && (
+            {setup.available && setup.name !== 'nil' && (
               <div
                 className={`absolute rounded-lg top-3 font-nunitoSans left-2 ${
                   setup.name === 'Mobile Studio'

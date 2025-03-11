@@ -78,12 +78,12 @@ export const PricingDisplayPremium = () => {
             {/* Timeline - only render once */}
             {index === 0 && (
               <div className='row-span-9'>
-                <Timeline maxSteps={4} />
+                <Timeline maxSteps={5} />
               </div>
             )}
 
             {/* Right side */}
-            <div className={`${index > 0 ? 'mt-[70px]' : 'mt-0'}`}>
+            <div className={`${index > 0 ? 'mt-[14px]' : 'mt-0'}`}>
               <div className='flex flex-col mb-4'>
                 <h2 className='3xl:text-2xl text-[#333333] font-hankenGrotesk font-normal text-base leading-5'>
                   {item.title}
@@ -115,7 +115,7 @@ export const PricingDisplayPremium = () => {
             {/* Left side */}
             <div
               className={`flex justify-end ${
-                index > 0 ? 'md:mt-[16.5rem] 3xl:mt-14 mt-10' : 'mt-0'
+                index > 0 ? 'md:mt-[70px] 3xl:mt-[40px]' : 'mt-0'
               }`}
             >
               {index % 2 === 0 ? (
@@ -151,9 +151,7 @@ export const PricingDisplayPremium = () => {
 
             {/* Right side */}
             <div
-              className={`${
-                index > 0 ? 'md:mt-[16.5rem] 3xl:mt-14 mt-10' : 'mt-0'
-              }`}
+              className={`${index > 0 ? 'md:mt-[70px] 3xl:mt-[40px]' : 'mt-0'}`}
             >
               {index % 2 === 0 ? (
                 <div className='flex flex-col'>

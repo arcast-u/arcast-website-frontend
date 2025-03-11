@@ -63,7 +63,7 @@ const Page = () => {
             {selectedMembership === 'Premium' && <PremiumPricingTable />}
           </div>
         </div>
-        <div className='bg-[#F5F5F7] px-[21px] mb-10 3xl:mb-20 py-10 3xl:pb-20 md:px-10 3xl:px-[100px] '>
+        <div className='bg-[#F5F5F7] px-[21px] my-10 3xl:mb-20 py-12 3xl:pb-20 md:px-10 3xl:px-[100px] '>
           <header className='flex gap-5 justify-between mx-auto mb-[64px] lg:mb-[85px] 3xl:mb-[120px] w-full text-[#333333]'>
             <div className='flex flex-col font-hankenGrotesk'>
               <h2 className='text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px] font-medium '>
