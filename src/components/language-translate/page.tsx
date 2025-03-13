@@ -320,17 +320,16 @@ export default function LanguageSelector({
           <div className='absolute top-10 right-0 bg-[#FCFCFC] shadow-lg rounded-xl py-2 z-50 min-w-[150px]'>
             <ul className='flex flex-col w-full'>
               {languages.map((language) => (
-                <li key={language.code}>
-                  <button
-                    onClick={() => changeLanguage(language.code)}
-                    className={`w-full text-left px-4 py-2 hover:bg-gray-100 text-sm ${
-                      selectedLanguage === language.code
-                        ? 'font-semibold bg-gray-50'
-                        : ''
-                    }`}
-                  >
-                    {language.name}
-                  </button>
+                <li
+                  key={language.code}
+                  onClick={() => changeLanguage(language.code)}
+                  className={`w-full text-left px-4 py-2 hover:bg-gray-100 text-sm ${
+                    selectedLanguage === language.code
+                      ? 'font-semibold bg-gray-50'
+                      : ''
+                  }`}
+                >
+                  {language.name}
                 </li>
               ))}
             </ul>

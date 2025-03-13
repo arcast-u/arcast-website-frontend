@@ -137,16 +137,16 @@ const DubaiStudioLocation = () => {
           </div>
 
           {/* Map Location */}
-          <div className='bg-[#F5F5F7] h-full p-6 3xl:py-10 3xl:px-[60px] relative rounded-xl shadow-md flex flex-col border items-center'>
-            <div className=' w-full md:w-auto h-full'>
+          <div className='bg-[#F5F5F7] h-full pt-8 pb-6 px-6 3xl:py-10 3xl:px-[60px] relative rounded-xl shadow-md flex flex-col border items-center'>
+            <div className=' w-full md:w-auto h-full flex items-center justify-center'>
               <Image
                 quality={100}
-                width={100}
-                height={100}
+                width={300}
+                height={650}
                 src='/images/iphone-16.png'
                 loading='lazy'
                 alt='Google Maps Location'
-                className='w-full rounded-t-[53px] h-full object-cover '
+                className=' rounded-t-[53px] object-cover '
               />
             </div>
             <div className='absolute bottom-0 bg-gradient-to-t w-full flex flex-col h-[45%] text-center justify-center from-[#F5F5F7] via-[#F5F5F7] to-transparent '>
