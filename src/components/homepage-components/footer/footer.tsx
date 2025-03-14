@@ -198,6 +198,9 @@ const Footer = () => {
           <div className='flex flex-wrap lg:flex-nowrap items-center justify-between mb-6 text-[#333333] text-xs'>
             <span className=''>© 2025 ARcast Studio. All Rights Reserved.</span>
             <div className='flex mt-4 space-x-6 sm:justify-center sm:mt-0'>
+              <a href='/data-deletion' className=''>
+                Data Deletion
+              </a>
               <a href='/privacy-policy' className=''>
                 Privacy Policy
               </a>

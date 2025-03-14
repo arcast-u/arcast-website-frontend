@@ -58,8 +58,8 @@ const Card = ({
       src={src}
       alt={title}
       quality={100}
-      width={100}
-      height={100}
+      width={520}
+      height={680}
       loading='lazy'
       className={`w-full ${
         inFocus ? 'h-full' : 'h-[85%]'
@@ -168,6 +168,27 @@ const Carousel3D = () => {
   }, []);
 
   const cards: CardData[] = [
+    {
+      price: 'AED 176',
+      title: 'Standard Edit (Short Form)',
+      src: '/images/Reel1.png',
+      description:
+        'Short-form video clips optimized for social media, using simple transitions and branding.',
+    },
+    {
+      price: 'AED 440',
+      title: 'Custom Edit (Short Form)',
+      src: '/images/Reel4.png',
+      description:
+        'High-quality, premium reels with advanced editing, motion graphics, and engaging cuts.',
+    },
+    {
+      price: 'AED 440',
+      title: 'Standard Edit (Long Form)',
+      src: '/images/Reel7.png',
+      description:
+        'Basic podcast episode editing, including noise reduction, filler word removal, and audio balancing.',
+    },
     {
       price: 'AED 80',
       title: 'Teleprompter',

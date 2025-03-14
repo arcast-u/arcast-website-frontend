@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useSpring, animated, config, SpringValue } from '@react-spring/web';
-import { TbCaretLeft, TbCaretRight } from 'react-icons/tb';
+// import { TbCaretLeft, TbCaretRight } from 'react-icons/tb';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
@@ -34,13 +34,13 @@ const slides: SlideData[] = [
     buttonText: 'Book Your Session',
     images: [
       '/images/studio8.png',
-      '/images/studio2.jpg',
-      '/images/studio4.jpg',
+      // '/images/studio2.jpg',
+      // '/images/studio4.jpg',
     ],
     mobileImages: [
       '/images/studio8.png',
-      '/images/studio2.jpg',
-      '/images/studio4.jpg',
+      // '/images/studio2.jpg',
+      // '/images/studio4.jpg',
     ],
   },
   {
@@ -49,13 +49,13 @@ const slides: SlideData[] = [
     buttonText: 'Book Your Session',
     images: [
       '/images/studio2.jpg',
-      '/images/studio4.jpg',
-      '/images/studio3.jpg',
+      // '/images/studio4.jpg',
+      // '/images/studio3.jpg',
     ],
     mobileImages: [
       '/images/studio2.jpg',
-      '/images/studio4.jpg',
-      '/images/studio3.jpg',
+      // '/images/studio4.jpg',
+      // '/images/studio3.jpg',
     ],
   },
   {
@@ -64,13 +64,13 @@ const slides: SlideData[] = [
     buttonText: 'Book Your Session',
     images: [
       '/images/studio4.jpg',
-      '/images/studio9.jpg',
-      '/images/studio2.jpg',
+      // '/images/studio9.jpg',
+      // '/images/studio2.jpg',
     ],
     mobileImages: [
       '/images/studio4.jpg',
-      '/images/studio9.jpg',
-      '/images/studio2.jpg',
+      // '/images/studio9.jpg',
+      // '/images/studio2.jpg',
     ],
   },
   // {
@@ -109,13 +109,13 @@ const slides: SlideData[] = [
     buttonText: 'Book Your Session',
     images: [
       '/images/studio6.jpg',
-      '/images/studio7.jpg',
-      '/images/studio5.jpg',
+      // '/images/studio7.jpg',
+      // '/images/studio5.jpg',
     ],
     mobileImages: [
       '/images/studio6.jpg',
-      '/images/studio7.jpg',
-      '/images/studio5.jpg',
+      // '/images/studio7.jpg',
+      // '/images/studio5.jpg',
     ],
   },
   // {
@@ -139,13 +139,13 @@ const slides: SlideData[] = [
     buttonText: 'Book Your Session',
     images: [
       '/images/studio8.jpg',
-      '/images/studio9.jpg',
-      '/images/studio6.jpg',
+      // '/images/studio9.jpg',
+      // '/images/studio6.jpg',
     ],
     mobileImages: [
       '/images/studio8.jpg',
-      '/images/studio9.jpg',
-      '/images/studio6.jpg',
+      // '/images/studio9.jpg',
+      // '/images/studio6.jpg',
     ],
   },
   // {
@@ -167,9 +167,9 @@ const slides: SlideData[] = [
 
 const StudioSpacesCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [imageIndex, setImageIndex] = useState(
-    new Array(slides.length).fill(0)
-  ); // Track which image is displayed for each slide
+  // const [imageIndex, setImageIndex] = useState(
+  //   new Array(slides.length).fill(0)
+  // ); // Track which image is displayed for each slide
   const [gapSize, setGapSize] = useState(280);
   const [isMobile, setIsMobile] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -264,23 +264,23 @@ const StudioSpacesCarousel = () => {
     setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
-  const handleImageChange = (direction: 'next' | 'prev') => {
-    setImageIndex((prev) => {
-      const newIndexArray = [...prev];
-      const totalImages = isMobile
-        ? slides[currentIndex].mobileImages.length
-        : slides[currentIndex].images.length;
+  // const handleImageChange = (direction: 'next' | 'prev') => {
+  //   setImageIndex((prev) => {
+  //     const newIndexArray = [...prev];
+  //     const totalImages = isMobile
+  //       ? slides[currentIndex].mobileImages.length
+  //       : slides[currentIndex].images.length;
 
-      if (direction === 'next') {
-        newIndexArray[currentIndex] = (prev[currentIndex] + 1) % totalImages;
-      } else {
-        newIndexArray[currentIndex] =
-          (prev[currentIndex] - 1 + totalImages) % totalImages;
-      }
+  //     if (direction === 'next') {
+  //       newIndexArray[currentIndex] = (prev[currentIndex] + 1) % totalImages;
+  //     } else {
+  //       newIndexArray[currentIndex] =
+  //         (prev[currentIndex] - 1 + totalImages) % totalImages;
+  //     }
 
-      return newIndexArray;
-    });
-  };
+  //     return newIndexArray;
+  //   });
+  // };
 
   return (
     <div
@@ -301,11 +301,7 @@ const StudioSpacesCarousel = () => {
               {/* Display Current Image */}
               <div className='relative w-full h-full'>
                 <Image
-                  src={
-                    isMobile
-                      ? slide.mobileImages[imageIndex[index]]
-                      : slide.images[imageIndex[index]]
-                  }
+                  src={isMobile ? slide.mobileImages[0] : slide.images[0]}
                   alt={slide.title}
                   fill
                   quality={100}
@@ -318,7 +314,7 @@ const StudioSpacesCarousel = () => {
               {index === currentIndex && (
                 <>
                   {/* Image Change Buttons */}
-                  <button
+                  {/* <button
                     onClick={() => handleImageChange('prev')}
                     className='absolute left-6 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded flex items-center justify-center transition-colors'
                   >
@@ -330,7 +326,7 @@ const StudioSpacesCarousel = () => {
                     className='absolute right-6 top-1/2 -translate-y-1/2 z-10 w-7 h-7 rounded flex items-center justify-center transition-colors'
                   >
                     <TbCaretRight className='size-5 text-white' />
-                  </button>
+                  </button> */}
 
                   {/* Button for Booking */}
                   <div className='absolute bottom-8 left-6 w-fit 3xl:px-6 3xl:py-4 py-3 px-[14px] bg-[#F5F5F7] font-nunitoSans rounded-lg'>

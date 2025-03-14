@@ -4,10 +4,10 @@ import NavigationBar from '@/components/homepage-components/nav-bar';
 const PrivacyPolicies = () => {
   return (
     <div>
-      <div className=' min-h-screen w-full max-w-[1728px]  '>
+      <div className=' min-h-screen w-full max-w-[1728px] mx-auto  '>
         <NavigationBar />
-        <div className='py-6 px-[21px] md:px-10 3xl:px-[100px]  mx-auto'>
-          <h1 className='text-[28px] md:text-3xl mdLg:text-5xl font-medium lg:leading-[3.13rem] mb-14 font-HankenGrotesk'>
+        <div className='py-6 px-[21px] md:px-10 3xl:px-[100px]  '>
+          <h1 className='text-[28px] md:text-3xl mdLg:text-4xl font-medium lg:leading-[3.13rem] mb-14 font-HankenGrotesk'>
             Privacy Policy
           </h1>
 

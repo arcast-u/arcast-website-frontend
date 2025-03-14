@@ -59,7 +59,7 @@ const StudioBooking = () => {
   const [duration, setDuration] = useState(1);
   const selectedPackage = packages?.[selectedPackageIndex] || null;
   const selectedStudio = studio?.[selectedStudioIndex] || null;
-
+  const [loading, setLoading] = useState(true);
   const [showWarning, setShowWarning] = useState<boolean>(false);
   const [form, setForm] = useState(initialFormState);
   const router = useRouter();
@@ -72,6 +72,7 @@ const StudioBooking = () => {
       const apiUrl = `https://arcast-ai-backend.vercel.app/api/studios`;
 
       try {
+        setLoading(true);
         const response = await fetch(apiUrl);
 
         if (!response.ok) {
@@ -100,6 +101,8 @@ const StudioBooking = () => {
           toast.error('An unexpected error occurred');
         }
         return null;
+      } finally {
+        setLoading(false);
       }
     }
 
@@ -357,6 +360,7 @@ const StudioBooking = () => {
                     selectedStudioIndex={selectedStudioIndex}
                     setSelectedStudioIndex={setSelectedStudioIndex}
                     studios={studio}
+                    loading={loading}
                   />
                   <div className=' mt-8 md:w-[90%] mx-auto lg:w-full lg:mt-10 '>
                     <p className='header-text'>Included with every package</p>

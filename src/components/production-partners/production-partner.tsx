@@ -5,43 +5,37 @@ export const ProductionPartners = () => {
   const teamMembers = [
     [
       {
-        imageSrc:
-          'https://cdn.builder.io/api/v1/image/assets/da0366cd14364f569c342b06124fe9df/e62661a3235b8999c0694367f157c527e24edf6667f1836fcc73203e6f52fda2',
+        imageSrc: '/images/partner1.png',
         title: 'Executive Producer',
         description:
           'Oversees the entire production for a flawless experience.',
       },
       {
-        imageSrc:
-          'https://cdn.builder.io/api/v1/image/assets/da0366cd14364f569c342b06124fe9df/1cf22269111a0b8c3e0d5617cc7aeacb23d3fe4d06590665a1881fa09e1d53e7',
+        imageSrc: '/images/partner2.png',
         title: 'Live Editor',
         description: 'Handles real-time edits for a polished final product.',
       },
     ],
     [
       {
-        imageSrc:
-          'https://cdn.builder.io/api/v1/image/assets/da0366cd14364f569c342b06124fe9df/fb1e21418e6b7ef9a2ed1c0a86c81c553922d7985c1c8373241345a03b6e39c9',
+        imageSrc: '/images/partner3.png',
         title: 'Audio Engineer',
         description: 'Ensures pristine sound quality and mixing.',
       },
       {
-        imageSrc:
-          'https://cdn.builder.io/api/v1/image/assets/da0366cd14364f569c342b06124fe9df/b317b202da37245917873ff0cc866f1673d276228b86320caf88a38c04dd82e2',
+        imageSrc: '/images/partner4.png',
         title: 'Video Director',
         description: 'Manages camera angles, lighting, and visuals.',
       },
     ],
     [
       {
-        imageSrc:
-          'https://cdn.builder.io/api/v1/image/assets/da0366cd14364f569c342b06124fe9df/add18f3711c07b72956fde91b0c5fc7e12649a931b97341e542773f250b85bf3',
+        imageSrc: '/images/partner5.png',
         title: 'Studio Technician',
         description: 'Sets up and maintains all equipment.',
       },
       {
-        imageSrc:
-          'https://cdn.builder.io/api/v1/image/assets/da0366cd14364f569c342b06124fe9df/d1c18c7948d17039b7cbdc00a5b48aee6b0021806df913de656d5d037c7ccb6e',
+        imageSrc: '/images/partner6.png',
         title: 'Production Assistant',
         description: 'Handles logistics and supports the team.',
       },

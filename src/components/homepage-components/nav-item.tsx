@@ -34,11 +34,11 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
   };
 
   return (
-    <div className='flex flex-col whitespace-nowrap'>
+    <div className='flex flex-col whitespace-nowrap '>
       <div className={`w-full ${hasDropdown ? '' : 'self-stretch'}`}>
         <button
           onClick={clickHandler}
-          className={`flex justify-center ${
+          className={`flex justify-center cursor-pointer ${
             isStudioOpen === true ||
             (pathname !== '/' && pathname !== '/about-us')
               ? 'text-[#333333]'

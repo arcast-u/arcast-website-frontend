@@ -34,9 +34,8 @@ const StudioCard = ({
   //   }
   // };
   const handleStudioSelect = () => {
-    if (!isFullyBooked && isMobileStudio) {
-      // Toggle selection: if already selected, clear it (set to -1 or 0 depending on your needs)
-      // otherwise select this studio
+    if (!isFullyBooked) {
+      // Toggle selection: if already selected, clear it, otherwise select this studio
       setSelectedStudio(count === selectedStudio ? -1 : count);
     }
   };
@@ -45,7 +44,7 @@ const StudioCard = ({
     <div
       className={`flex flex-col relative shrink  justify-center py-2.5 px-3 3xl:px-5 3xl:py-4 rounded-xl 
         basis-0 ${bgColor} transition-transform  ${
-        !isFullyBooked && isMobileStudio ? 'hover:scale-105' : ''
+        !isFullyBooked ? 'hover:scale-105' : ''
       }`}
       tabIndex={0}
       role='button'
@@ -82,14 +81,13 @@ const StudioCard = ({
           className='self-start mt-1 focus:outline-none accent-[#FF8C42]'
         />
       </div>
-      {isFullyBooked ||
-        (name !== 'Mobile Setup Service' && (
-          <div className='absolute top-0 cursor-not-allowed right-0 flex justify-center pt-14 3xl:pt-28 4xl:pt-44 md:pt-32 lg:pt-16 w-full h-full bg-[#F5F5F7]/50 rounded-xl'>
-            <p className='text-[#333333] font-semibold text-sm leading-[19.1px] 3xl:leading-[27.28px] lg:text-base lg:leading-[25.82px] 3xl:text-xl'>
-              Fully Booked
-            </p>
-          </div>
-        ))}
+      {isFullyBooked && (
+        <div className='absolute top-0 cursor-not-allowed right-0 flex justify-center pt-14 3xl:pt-28 4xl:pt-44 md:pt-32 lg:pt-16 w-full h-full bg-[#F5F5F7]/50 rounded-xl'>
+          <p className='text-[#333333] font-semibold text-sm leading-[19.1px] 3xl:leading-[27.28px] lg:text-base lg:leading-[25.82px] 3xl:text-xl'>
+            Fully Booked
+          </p>
+        </div>
+      )}
     </div>
   );
 };

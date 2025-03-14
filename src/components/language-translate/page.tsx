@@ -5,6 +5,7 @@ import Script from 'next/script';
 import Cookies from 'js-cookie';
 import { GoGlobe } from 'react-icons/go';
 import { TbCaretDown } from 'react-icons/tb';
+import { IoCheckmarkOutline } from 'react-icons/io5';
 
 interface Language {
   code: string;
@@ -21,9 +22,9 @@ export default function LanguageSelector({
   pathname,
 }: LanguageSelectorProps) {
   const [languages] = useState<Language[]>([
-    { code: 'en', name: 'English' },
-    { code: 'ru', name: 'Russian' },
-    { code: 'ar', name: 'Arabic' },
+    { code: 'en', name: 'ENG' },
+    { code: 'ru', name: 'RUS' },
+    { code: 'ar', name: 'ARAB' },
 
     // Add more languages as needed
   ]);
@@ -174,49 +175,70 @@ export default function LanguageSelector({
       return;
     }
 
+    localStorage.setItem('preferredLanguage', languageCode);
+    Cookies.set('preferredLanguage', languageCode, { expires: 365 });
+    setSelectedLanguage(languageCode);
+
     // Try different methods to change the language
 
     // Method 1: Using the combo box
-    const select = document.querySelector(
-      '.goog-te-combo'
-    ) as HTMLSelectElement;
-    if (select) {
-      select.value = languageCode;
-      select.dispatchEvent(new Event('change'));
+    const trySelectWithComboBox = (attempts = 0) => {
+      const select = document.querySelector(
+        '.goog-te-combo'
+      ) as HTMLSelectElement;
+      if (select) {
+        select.value = languageCode;
+        // Use both event approaches for better browser compatibility
+        select.dispatchEvent(new Event('change', { bubbles: true }));
 
-      // Save preference
-      localStorage.setItem('preferredLanguage', languageCode);
-      Cookies.set('preferredLanguage', languageCode, { expires: 365 });
-      setSelectedLanguage(languageCode);
-      return;
-    }
+        // Also try with a more compatible approach
+        const event = document.createEvent('HTMLEvents');
+        event.initEvent('change', true, false);
+        select.dispatchEvent(event);
+
+        return true;
+      } else if (attempts < 3) {
+        // Retry a few times with increasing delay
+        setTimeout(
+          () => trySelectWithComboBox(attempts + 1),
+          300 * (attempts + 1)
+        );
+        return false;
+      }
+      return false;
+    };
+
+    if (trySelectWithComboBox()) return;
 
     // Method 2: Using the iframe approach as fallback
     try {
-      const iframe = document.getElementsByClassName(
-        'goog-te-menu-frame'
-      )[0] as HTMLIFrameElement;
-      if (iframe) {
-        const iframeDoc =
-          iframe.contentDocument || iframe.contentWindow?.document;
-        if (iframeDoc) {
-          const languageLinks = iframeDoc.getElementsByTagName('a');
+      const iframes = document.getElementsByClassName('goog-te-menu-frame');
+      if (iframes && iframes.length > 0) {
+        const iframe = iframes[0] as HTMLIFrameElement;
+        if (iframe) {
+          const iframeDoc =
+            iframe.contentDocument || iframe.contentWindow?.document;
+          if (iframeDoc) {
+            const languageLinks = iframeDoc.getElementsByTagName('a');
 
-          for (let i = 0; i < languageLinks.length; i++) {
-            const langText = languageLinks[i].textContent;
-            const langMatch = languages.find(
-              (lang) =>
-                langText?.includes(lang.name) && lang.code === languageCode
-            );
+            for (let i = 0; i < languageLinks.length; i++) {
+              const langText = languageLinks[i].textContent;
+              const langMatch = languages.find(
+                (lang) =>
+                  langText?.includes(lang.name) && lang.code === languageCode
+              );
 
-            if (langMatch) {
-              languageLinks[i].click();
-
-              // Save preference
-              localStorage.setItem('preferredLanguage', languageCode);
-              Cookies.set('preferredLanguage', languageCode, { expires: 365 });
-              setSelectedLanguage(languageCode);
-              return;
+              if (langMatch) {
+                // Try to simulate a more natural click
+                languageLinks[i].dispatchEvent(
+                  new MouseEvent('mousedown', { bubbles: true })
+                );
+                languageLinks[i].dispatchEvent(
+                  new MouseEvent('mouseup', { bubbles: true })
+                );
+                languageLinks[i].click();
+                return;
+              }
             }
           }
         }
@@ -225,16 +247,40 @@ export default function LanguageSelector({
       console.error('Error selecting language via iframe:', error);
     }
 
-    // Still save preference even if changing language fails
-    localStorage.setItem('preferredLanguage', languageCode);
-    Cookies.set('preferredLanguage', languageCode, { expires: 365 });
-    setSelectedLanguage(languageCode);
+    // Method 3: Last resort - try to access the translation cookie directly
+    try {
+      // Force a reload if we've changed the language but the UI hasn't updated
+      if (document.cookie.includes('googtrans')) {
+        const currentTransCookie = Cookies.get('googtrans');
+        const newTransValue = `/en/${languageCode}`;
+
+        if (currentTransCookie !== newTransValue) {
+          // Set the Google Translate cookies
+          Cookies.set('googtrans', newTransValue, { path: '/' });
+          Cookies.set('googtrans', newTransValue, {
+            path: '/',
+            domain: `.${window.location.hostname}`,
+          });
+
+          // Reload the page to apply the translation
+          window.location.reload();
+        }
+      }
+    } catch (error) {
+      console.error('Error setting translation cookie:', error);
+    }
   };
 
   const changeLanguage = (languageCode: string) => {
     if (languageCode === selectedLanguage) return;
+
+    // Close dropdown immediately for better UX
     setIsDropdownOpen(false);
-    selectLanguage(languageCode);
+
+    // Add a small delay before changing language to ensure UI updates first
+    setTimeout(() => {
+      selectLanguage(languageCode);
+    }, 50);
   };
 
   const toggleDropdown = () => {
@@ -317,19 +363,20 @@ export default function LanguageSelector({
                       />
                     </button> */}
         {isDropdownOpen && (
-          <div className='absolute top-10 right-0 bg-[#FCFCFC] shadow-lg rounded-xl py-2 z-50 min-w-[150px]'>
+          <div className='absolute top-10 right-0 bg-[#FCFCFC] shadow-lg rounded-xl py-3 z-50 w-[106px]'>
             <ul className='flex flex-col w-full'>
               {languages.map((language) => (
                 <li
                   key={language.code}
                   onClick={() => changeLanguage(language.code)}
-                  className={`w-full text-left px-4 py-2 hover:bg-gray-100 text-sm ${
-                    selectedLanguage === language.code
-                      ? 'font-semibold bg-gray-50'
-                      : ''
+                  className={`w-full text-left px-4 py-2 hover:bg-gray-100 text-sm flex justify-between items-center gap-2 ${
+                    selectedLanguage === language.code ? ' bg-gray-50' : ''
                   }`}
                 >
-                  {language.name}
+                  <p className=''>{language.name}</p>
+                  {selectedLanguage === language.code && (
+                    <IoCheckmarkOutline size={16} className='text-[#FF8C42]' />
+                  )}
                 </li>
               ))}
             </ul>
