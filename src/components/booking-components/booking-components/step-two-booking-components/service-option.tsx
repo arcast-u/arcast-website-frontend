@@ -59,7 +59,7 @@ const ServiceOption = ({
       )}
       {/* <video muted autoPlay controls={false} poster={imgSrc}onMouseEnter={(e) => e.currentTarget.play()}
   onMouseLeave={(e) => e.currentTarget.pause()} src="/video/video.mp4" className="object-contain mt-4 w-full rounded-lg aspect-[1.86]" /> */}
-      {count === 0 ? (
+      {/* {count === 0 ? (
         <div className='grid grid-cols-3 w-full gap-2 mt-4'>
           <video
             src='/video/video.mp4'
@@ -124,7 +124,17 @@ const ServiceOption = ({
             className='  w-full mt-4 object-fit rounded-lg '
           />
         </div>
-      )}
+      )} */}
+      <div className='w-full '>
+        <video
+          src='/video/video.mp4'
+          preload='none'
+          playsInline
+          muted
+          poster={services?.imageUrls[0] ?? '/images/custom3.png'}
+          className='  w-full h-[280px] mt-4 object-cover rounded-lg '
+        />
+      </div>
       <p className='mt-4 text-sm leading-[17.28px] 3xl:leading-[21.28px] font-nunitoSans 3xl:text-base font-medium text-[#989898]'>
         {services.description}
       </p>
