@@ -28,6 +28,8 @@ const TotalCost = ({
   onContinue,
   customService,
 }: TotalCostProps) => {
+  const hasBonusHour = duration === 3 || duration === '3';
+  const displayDuration = hasBonusHour ? Number(duration) + 1 : duration;
   return (
     <div className=' bg-zinc-50 shadow-lg md:w-[90%] mx-auto lg:w-full border border-[#989898] rounded-2xl border-opacity-50'>
       <div className='flex justify-between items-center mx-auto px-4 py-3 lg:px-6 font-nunitoSans 3xl:py-4 w-full 3xl:px-8'>
@@ -41,7 +43,9 @@ const TotalCost = ({
           <strong className='3xl:mt-1 mt-0.5 text-sm leading-[19.1px] lg:text-lg lg:leading-[24px] 3xl:text-xl font-semibold text-[#333333] 3xl:leading-[32.74px]'>
             {step !== 0 && (
               <>
-                <span className='text-xs 3xl:text-sm'>{duration}hr(s) X </span>
+                <span className='text-xs 3xl:text-sm'>
+                  {displayDuration}hr(s) X{' '}
+                </span>
               </>
             )}
             {total} {currency}{' '}

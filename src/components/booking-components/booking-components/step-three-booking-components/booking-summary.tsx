@@ -73,6 +73,10 @@ const BookingSummary = ({
     ? parsePrice(customService.price)
     : 0;
   const total = packageTotal + customServicePrice;
+  const actualDuration = duration;
+  const displayDuration = duration === 3 ? duration + 1 : duration;
+  const hasBonusHour = duration === 3;
+
   return (
     <div className='flex flex-col md:w-[90%] mx-auto lg:w-full pb-10 mt-10 w-full '>
       <>
@@ -84,7 +88,7 @@ const BookingSummary = ({
                 <div className='flex flex-wrap justify-between w-full'>
                   <Image
                     loading='lazy'
-                    src={image || img}
+                    src={image?.trimEnd() || img.trimEnd()}
                     width={72}
                     height={64}
                     quality={100}
@@ -106,11 +110,17 @@ const BookingSummary = ({
                     <p>{selectedPackage ?? 'No Package Selected'}</p>
                     <p>
                       <span className='text-xs leading-[19.1px]'>
-                        {duration}hr(s) X{' '}
+                        {actualDuration}hr(s) X{' '}
                       </span>
                       {price ?? '0'} {currency ?? 'AED'}
                     </p>
                   </div>
+                  {hasBonusHour && (
+                    <div className='flex flex-wrap gap-3 items-center justify-between mt-2'>
+                      <p className='text-green-600 font-medium'>Bonus Hour</p>
+                      <p className='text-green-600 font-medium'>+1 hour free</p>
+                    </div>
+                  )}
                   {/* <div className="flex flex-wrap gap-3 items-center justify-between">
                     <p>{selectedPackage ?? "No Package Selected"}</p>
                     <p><span className="text-xs leading-[19.1px]">{duration}hrs X </span>
@@ -153,7 +163,7 @@ const BookingSummary = ({
                     <p className='text-base leading-5  3xl:mt-3 mt-2 font-nunitoSans font-medium text-[#333333]'>
                       {time
                         ? `${formatTime(time)} - ${formatTime(
-                            addHours(time, duration)
+                            addHours(time, displayDuration)
                           )}`
                         : 'N/A'}
                     </p>

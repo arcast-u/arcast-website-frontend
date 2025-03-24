@@ -158,7 +158,7 @@ const CitySlider = () => {
               >
                 <div className='relative h-[400px]'>
                   <Image
-                    src={city.image}
+                    src={city.image.trimEnd()}
                     alt={city.name}
                     width={300}
                     height={380}

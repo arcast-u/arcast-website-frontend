@@ -174,12 +174,14 @@ const StudioBooking = () => {
     setIsBooking(true);
     const url = `https://arcast-ai-backend.vercel.app/api/bookings`;
 
+    const actualDuration = duration === 3 ? duration + 1 : duration;
+
     const requestBody = {
       studioId: selectedStudio?.id,
       packageId: selectedPackage?.id,
       numberOfSeats: selectedPeopleCount,
       startTime: selectedTimeSlot,
-      duration: duration,
+      duration: actualDuration,
       discountCode: form.discountCode,
       lead: {
         fullName: form.fullName,

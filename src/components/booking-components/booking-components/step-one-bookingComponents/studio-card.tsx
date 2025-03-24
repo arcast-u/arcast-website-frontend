@@ -53,7 +53,7 @@ const StudioCard = ({
       <div className='w-full 3xl:h-[208px] 4xl:h-[308px]'>
         <Image
           loading='lazy'
-          src={imageUrl || img}
+          src={imageUrl.trimEnd() || img.trimEnd()}
           width={137.5}
           height={110}
           quality={100}

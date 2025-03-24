@@ -34,28 +34,27 @@ const testimonialImages = [
 const TestimonialMarquee = () => {
   // Flatten arrays for mobile view
   const mobileImages = testimonialImages.flat();
-  
+
   return (
-    <div className="relative overflow-hidden h-full">
+    <div className='relative overflow-hidden h-full'>
       {/* Mobile View (1 column) */}
-      <div className="md:hidden relative flex gap-4 overflow-hidden">
-        <div className="flex-1 animate-marquee-up-delayedMobile">
-          <div className="flex flex-col gap-4">
+      <div className='md:hidden relative flex gap-4 overflow-hidden'>
+        <div className='flex-1 animate-marquee-up-delayedMobile'>
+          <div className='flex flex-col gap-4'>
             {[...mobileImages, ...mobileImages].map((src, idx) => (
-              <div 
-                key={`mobile-${idx}`} 
-                className="w-full rounded-xl overflow-hidden shadow-lg"
+              <div
+                key={`mobile-${idx}`}
+                className='w-full rounded-xl overflow-hidden shadow-lg'
               >
                 <Image
                   src={src}
                   alt={`Client testimonial ${idx + 1}`}
                   width={250}
                   height={500}
-                  className="w-full h-auto"
+                  className='w-full h-auto'
                   quality={50}
                   loading={'eager'}
                   // placeholder="blur"
-                  
                 />
               </div>
             ))}
@@ -64,20 +63,25 @@ const TestimonialMarquee = () => {
       </div>
 
       {/* Tablet View (2 columns) */}
-      <div className="hidden md:flex lg:hidden gap-4 overflow-hidden">
-        <div className="flex-1 animate-marquee-up">
-          <div className="flex flex-col gap-4">
-            {[...testimonialImages[0], ...testimonialImages[2], ...testimonialImages[0], ...testimonialImages[2]].map((src, idx) => (
-              <div 
-                key={`tablet1-${idx}`} 
-                className="w-full rounded-xl overflow-hidden shadow-lg"
+      <div className='hidden md:flex lg:hidden gap-4 overflow-hidden'>
+        <div className='flex-1 animate-marquee-up'>
+          <div className='flex flex-col gap-4'>
+            {[
+              ...testimonialImages[0],
+              ...testimonialImages[2],
+              ...testimonialImages[0],
+              ...testimonialImages[2],
+            ].map((src, idx) => (
+              <div
+                key={`tablet1-${idx}`}
+                className='w-full rounded-xl overflow-hidden shadow-lg'
               >
                 <Image
-                  src={src}
+                  src={src.trimEnd()}
                   alt={`Client testimonial ${idx + 1}`}
                   width={250}
                   height={500}
-                  className="w-full h-auto"
+                  className='w-full h-auto'
                   quality={100}
                 />
               </div>
@@ -85,19 +89,24 @@ const TestimonialMarquee = () => {
           </div>
         </div>
 
-        <div className="flex-1 animate-marquee-up-delayed translate-y-[-10%]">
-          <div className="flex flex-col gap-4">
-            {[...testimonialImages[1], ...testimonialImages[3], ...testimonialImages[1], ...testimonialImages[3]].map((src, idx) => (
-              <div 
-                key={`tablet2-${idx}`} 
-                className="w-full rounded-xl overflow-hidden shadow-lg"
+        <div className='flex-1 animate-marquee-up-delayed translate-y-[-10%]'>
+          <div className='flex flex-col gap-4'>
+            {[
+              ...testimonialImages[1],
+              ...testimonialImages[3],
+              ...testimonialImages[1],
+              ...testimonialImages[3],
+            ].map((src, idx) => (
+              <div
+                key={`tablet2-${idx}`}
+                className='w-full rounded-xl overflow-hidden shadow-lg'
               >
                 <Image
-                  src={src}
+                  src={src.trimEnd()}
                   alt={`Client testimonial ${idx + 1}`}
                   width={250}
                   height={500}
-                  className="w-full h-auto"
+                  className='w-full h-auto'
                   quality={100}
                 />
               </div>
@@ -107,24 +116,31 @@ const TestimonialMarquee = () => {
       </div>
 
       {/* Desktop View (4 columns) */}
-      <div className="hidden lg:flex gap-4 overflow-hidden">
+      <div className='hidden lg:flex gap-4 overflow-hidden'>
         {[0, 1, 2, 3].map((colIndex) => (
-          <div 
+          <div
             key={`desktop-col-${colIndex}`}
-            className={`flex-1 ${colIndex % 2 ? 'animate-marquee-up-delayed translate-y-[-10%]' : 'animate-marquee-up'}`}
+            className={`flex-1 ${
+              colIndex % 2
+                ? 'animate-marquee-up-delayed translate-y-[-10%]'
+                : 'animate-marquee-up'
+            }`}
           >
-            <div className="flex flex-col gap-4">
-              {[...testimonialImages[colIndex], ...testimonialImages[colIndex]].map((src, idx) => (
-                <div 
-                  key={`desktop-${colIndex}-${idx}`} 
-                  className="w-full rounded-xl overflow-hidden shadow-lg"
+            <div className='flex flex-col gap-4'>
+              {[
+                ...testimonialImages[colIndex],
+                ...testimonialImages[colIndex],
+              ].map((src, idx) => (
+                <div
+                  key={`desktop-${colIndex}-${idx}`}
+                  className='w-full rounded-xl overflow-hidden shadow-lg'
                 >
                   <Image
                     src={src}
                     alt={`Client testimonial ${idx + 1}`}
                     width={250}
                     height={500}
-                    className="w-full h-auto"
+                    className='w-full h-auto'
                     quality={100}
                   />
                 </div>
@@ -135,8 +151,8 @@ const TestimonialMarquee = () => {
       </div>
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FCFCFC] to-transparent z-10" />
-      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FCFCFC] to-transparent z-10" />
+      <div className='absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#FCFCFC] to-transparent z-10' />
+      <div className='absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#FCFCFC] to-transparent z-10' />
     </div>
   );
 };
