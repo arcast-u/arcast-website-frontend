@@ -93,7 +93,7 @@ const Footer = () => {
                         href='https://api.whatsapp.com/send?phone=971544287756&text=Hi%20I%20would%20love%20to%20get%20some%20information%20about%20the%20services%20I%20filled%20on%20the%20company.'
                         className='underline-offset-2 text-blue-500 underline hover:text-blue-400'
                       >
-                        +971 544287756
+                    +971 508249795
                       </Link>
                     </li>
                   </ul>

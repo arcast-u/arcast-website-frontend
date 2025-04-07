@@ -182,12 +182,12 @@ const DubaiStudioLocation = () => {
                 </span>
               </Link>
               <Link
-                href='tel:+971544287756'
+                href='tel:+971508249795'
                 className='flex flex-col items-center justify-center bg-[#FCFCFC] px-5 py-4 rounded-[12px] h-[148px]'
               >
                 <Phone className='size-[14px] 3xl:size-[19.33px]  text-orange-500' />
                 <span className='text-[#2563EB] text-sm font-normal leading-[19.1px] mt-6 3xl:mt-[22px] underline underline-offset-2'>
-                  +971544287756
+                  +971508249795
                 </span>
               </Link>
             </div>
@@ -233,12 +233,12 @@ const DubaiStudioLocation = () => {
                   </span>
                 </Link>
                 <Link
-                  href='tel:+971544287756'
+                  href='tel:+971508249795'
                   className='flex flex-col items-center space-x-2 bg-[#FCFCFC] px-5 py-4 rounded-lg'
                 >
                   <Phone className='size-[14px] 3xl:size-[19.33px]  text-orange-500' />
                   <span className='text-[#333333] text-sm font-normal leading-[19.1px] mt-4 3xl:mt-[22px]'>
-                    +971544287756
+                    +971508249795
                   </span>
                 </Link>
               </div>
