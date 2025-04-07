@@ -147,7 +147,7 @@ const TermsAndConditions = () => {
                   >
                     Phone:{' '}
                     <span className='text-[#5E17EB] hover:underline underline-offset-2'>
-                      +971 544287756{' '}
+                    +971 508249795{' '}
                     </span>
                   </a>
                 </li>

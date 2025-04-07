@@ -49,10 +49,10 @@ const BookingConfirmation = () => {
             booking@arcast.studio
           </a>
           <a
-            href='tel:+971544287756'
+            href='tel:+971508249795'
             className='text-blue-500 hover:text-blue-600'
           >
-            +971 544287756
+            +971 508249795
           </a>
         </div>
       </div>
