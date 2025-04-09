@@ -3,20 +3,20 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
 const setups = [
-  {
-    id: 1,
-    name: 'Mobile Studio',
-    image: '/images/studio1.webp',
-    available: true,
-  },
-  { id: 2, name: 'Setup 1', image: '/images/studio2.jpg', available: true },
+  // {
+  //   id: 1,
+  //   name: 'Mobile Studio',
+  //   image: '/images/studio1.webp',
+  //   available: true,
+  // },
+  { id: 2, name: 'Setup 1', image: '/images/newstudio2.png', available: true },
   // { id: 3, name: 'Setup 3', image: '/images/studio3.jpg', available: false },
-  { id: 4, name: 'Setup 2', image: '/images/studio4.jpg', available: true },
+  { id: 4, name: 'Setup 2', image: '/images/newstudio3.png', available: true },
   { id: 5, name: 'nil', available: true },
   // { id: 5, name: 'Setup 5', image: '/images/studio5.jpg', available: false },
-  { id: 6, name: 'Setup 3', image: '/images/studio6.jpg', available: true },
+  { id: 6, name: 'Setup 3', image: '/images/newstudio6.png', available: true },
   // { id: 7, name: 'Setup 7', image: '/images/studio7.jpg', available: false },
-  { id: 8, name: 'Setup 4', image: '/images/studio8.jpg', available: true },
+  { id: 8, name: 'Setup 4', image: '/images/newstudio8.png', available: true },
   // { id: 9, name: 'Setup 9', image: '/images/studio9.jpg', available: false },
 ];
 

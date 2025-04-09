@@ -28,32 +28,32 @@ interface AnimatedDivProps {
 const AnimatedDiv = animated.div as unknown as React.FC<AnimatedDivProps>;
 
 const slides: SlideData[] = [
-  {
-    id: 1,
-    title: 'Mobile Studio',
-    buttonText: 'Book Your Session',
-    images: [
-      '/images/studio8.png',
-      // '/images/studio2.jpg',
-      // '/images/studio4.jpg',
-    ],
-    mobileImages: [
-      '/images/studio8.png',
-      // '/images/studio2.jpg',
-      // '/images/studio4.jpg',
-    ],
-  },
+  // {
+  //   id: 1,
+  //   title: 'Mobile Studio',
+  //   buttonText: 'Book Your Session',
+  //   images: [
+  //     '/images/studio8.png',
+  //     // '/images/studio2.jpg',
+  //     // '/images/studio4.jpg',
+  //   ],
+  //   mobileImages: [
+  //     '/images/studio8.png',
+  //     // '/images/studio2.jpg',
+  //     // '/images/studio4.jpg',
+  //   ],
+  // },
   {
     id: 2,
     title: 'Setup 1',
     buttonText: 'Book Your Session',
     images: [
-      '/images/studio2.jpg',
+      '/images/newstudio2.png',
       // '/images/studio4.jpg',
       // '/images/studio3.jpg',
     ],
     mobileImages: [
-      '/images/studio2.jpg',
+      '/images/newstudio2.png',
       // '/images/studio4.jpg',
       // '/images/studio3.jpg',
     ],
@@ -63,12 +63,12 @@ const slides: SlideData[] = [
     title: 'Setup 2',
     buttonText: 'Book Your Session',
     images: [
-      '/images/studio4.jpg',
+      '/images/newstudio3.png',
       // '/images/studio9.jpg',
       // '/images/studio2.jpg',
     ],
     mobileImages: [
-      '/images/studio4.jpg',
+      '/images/newstudio3.png',
       // '/images/studio9.jpg',
       // '/images/studio2.jpg',
     ],
@@ -108,12 +108,12 @@ const slides: SlideData[] = [
     title: 'Setup 3',
     buttonText: 'Book Your Session',
     images: [
-      '/images/studio6.jpg',
+      '/images/newstudio6.png',
       // '/images/studio7.jpg',
       // '/images/studio5.jpg',
     ],
     mobileImages: [
-      '/images/studio6.jpg',
+      '/images/newstudio6.png',
       // '/images/studio7.jpg',
       // '/images/studio5.jpg',
     ],
@@ -138,12 +138,12 @@ const slides: SlideData[] = [
     title: 'Setup 4',
     buttonText: 'Book Your Session',
     images: [
-      '/images/studio8.jpg',
+      '/images/newstudio8.png',
       // '/images/studio9.jpg',
       // '/images/studio6.jpg',
     ],
     mobileImages: [
-      '/images/studio8.jpg',
+      '/images/newstudio8.png',
       // '/images/studio9.jpg',
       // '/images/studio6.jpg',
     ],

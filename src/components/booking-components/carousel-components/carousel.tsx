@@ -5,11 +5,11 @@ import Image from "next/image";
 import Link from "next/link";
 
 const images = [
-  "/images/carousel1.webp",
-  "/images/carousel2.webp",
-  "/images/carousel3.webp",
-  "/images/carousel4.webp",
-  "/images/carousel5.webp",
+  "/images/carousel6.webp",
+  "/images/carousel7.webp",
+  "/images/carousel8.webp",
+  "/images/carousel9.webp",
+  // "/images/carousel5.webp",
   
 ];
 
