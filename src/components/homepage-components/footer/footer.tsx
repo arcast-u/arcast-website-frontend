@@ -38,7 +38,8 @@ const Footer = () => {
 
                   {/* Location Link */}
                   <Link
-                    href='https://maps.app.goo.gl/U8VGBxLVvZ9sdpH67?g_st=com.google.maps.preview.copy'
+                    //href='https://maps.app.goo.gl/U8VGBxLVvZ9sdpH67?g_st=com.google.maps.preview.copy'
+                    href='https://maps.app.goo.gl/qNuFiZAdBqUnH3RE7?g_st=com.google.maps.preview.copy'
                     className='text-blue-500 underline hover:text-blue-400 font-normal text-sm leading-[19.1px] mb-6 block'
                   >
                     View location & direction

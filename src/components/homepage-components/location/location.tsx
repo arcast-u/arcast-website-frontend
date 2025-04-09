@@ -154,7 +154,8 @@ const DubaiStudioLocation = () => {
                 Studio location
               </p>
               <a
-                href='https://maps.app.goo.gl/U8VGBxLVvZ9sdpH67?g_st=com.google.maps.preview.copy'
+                // href='https://maps.app.goo.gl/U8VGBxLVvZ9sdpH67?g_st=com.google.maps.preview.copy'4
+                href='https://maps.app.goo.gl/qNuFiZAdBqUnH3RE7?g_st=com.google.maps.preview.copy'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='text-blue-600 flex gap-1 justify-center text-xs leading-4 3xl:text-xl 3xl:leading-7 font-medium underline mt-1 md:mt-3 '
