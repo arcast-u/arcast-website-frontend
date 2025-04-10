@@ -9,7 +9,7 @@ const images = [
   "/images/carousel8.webp",
   "/images/carousel7.webp",
  
-  "/images/carousel9.png",
+  "/images/carousel9.webp",
   // "/images/carousel5.webp",
   
 ];
