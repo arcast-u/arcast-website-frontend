@@ -19,6 +19,9 @@ interface BookingComponentProps {
   } | null;
 }
 
+
+
+
 const BookingSummary = ({
   selectedPackage,
   selectedStudio,
@@ -47,6 +50,8 @@ const BookingSummary = ({
       minute: '2-digit',
       hour12: true,
     });
+
+    console.log(time, 'time')
   const addHours = (isoDate: string | undefined, hours: number): string => {
     try {
       // If no date provided or invalid date, use current date/time as default

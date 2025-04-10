@@ -6,9 +6,10 @@ import Link from "next/link";
 
 const images = [
   "/images/carousel6.webp",
-  "/images/carousel7.webp",
   "/images/carousel8.webp",
-  "/images/carousel9.webp",
+  "/images/carousel7.webp",
+ 
+  "/images/carousel9.png",
   // "/images/carousel5.webp",
   
 ];
