@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 
 interface StudioCardProps {
@@ -40,6 +40,10 @@ const StudioCard = ({
     }
   };
 
+  console.log(selectedStudio, count, 'selectedStudio');
+  useEffect(() => {
+    localStorage.setItem('selectedStudio', selectedStudio.toString());
+  }, [selectedStudio]);
   return (
     <div
       className={`flex flex-col relative shrink  justify-center py-2.5 px-3 3xl:px-5 3xl:py-4 rounded-xl 

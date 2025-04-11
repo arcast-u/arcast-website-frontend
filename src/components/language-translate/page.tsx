@@ -3,9 +3,9 @@
 import { useEffect, useState, useRef } from 'react';
 import Script from 'next/script';
 import Cookies from 'js-cookie';
-import { GoGlobe } from 'react-icons/go';
-import { TbCaretDown } from 'react-icons/tb';
-import { IoCheckmarkOutline } from 'react-icons/io5';
+// import { GoGlobe } from 'react-icons/go';
+// import { TbCaretDown } from 'react-icons/tb';
+// import { IoCheckmarkOutline } from 'react-icons/io5';
 
 interface Language {
   code: string;
@@ -29,7 +29,10 @@ export default function LanguageSelector({
     // Add more languages as needed
   ]);
 
+  console.log(isOpen, isStudioOpen, pathname, 'isOpen');
+
   const [selectedLanguage, setSelectedLanguage] = useState<string>('en');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
   const [scriptLoaded, setScriptLoaded] = useState<boolean>(false);
   const [googleInitialized, setGoogleInitialized] = useState<boolean>(false);
@@ -271,21 +274,21 @@ export default function LanguageSelector({
     }
   };
 
-  const changeLanguage = (languageCode: string) => {
-    if (languageCode === selectedLanguage) return;
+  // const changeLanguage = (languageCode: string) => {
+  //   if (languageCode === selectedLanguage) return;
 
-    // Close dropdown immediately for better UX
-    setIsDropdownOpen(false);
+  //   // Close dropdown immediately for better UX
+  //   setIsDropdownOpen(false);
 
-    // Add a small delay before changing language to ensure UI updates first
-    setTimeout(() => {
-      selectLanguage(languageCode);
-    }, 50);
-  };
+  //   // Add a small delay before changing language to ensure UI updates first
+  //   setTimeout(() => {
+  //     selectLanguage(languageCode);
+  //   }, 50);
+  // };
 
-  const toggleDropdown = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
+  // const toggleDropdown = () => {
+  //   setIsDropdownOpen(!isDropdownOpen);
+  // };
 
   // Get language name from code
   // const getLanguageName = (code: string): string => {
@@ -317,7 +320,7 @@ export default function LanguageSelector({
         onError={handleScriptError}
       />
 
-      <div className='relative' ref={dropdownRef}>
+      {/* <div className='relative' ref={dropdownRef}>
         <button
           onClick={toggleDropdown}
           className='flex lg:ml-6 cursor-pointer hover:scale-105 items-center gap-1 self-stretch'
@@ -344,24 +347,7 @@ export default function LanguageSelector({
           />
         </button>
 
-        {/* <button 
-                      className={`
-                        flex
-                        lg:ml-6 
-                        cursor-none 
-                        hover:scale-105 
-                        items-center 
-                        gap-1 
-                        self-stretch
-                      `}
-                    >
-                      <GoGlobe 
-                        className={`${isOpen || isStudioOpen || pathname !== '/' && pathname !== '/about-us' ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-6`}
-                      />
-                      <TbCaretDown 
-                        className={`${isOpen || isStudioOpen || pathname !== '/' && pathname !== '/about-us' ? 'text-[#333333]' : 'text-[#FCFCFC]'} size-5 stroke-[1.5px]`}
-                      />
-                    </button> */}
+       
         {isDropdownOpen && (
           <div className='absolute top-10 right-0 bg-[#FCFCFC] shadow-lg rounded-xl py-3 z-50 w-[106px]'>
             <ul className='flex flex-col w-full'>
@@ -382,7 +368,7 @@ export default function LanguageSelector({
             </ul>
           </div>
         )}
-      </div>
+      </div> */}
 
       {/* Invisible container for Google Translate */}
       <div id='google_translate_element' style={{ display: 'none' }}></div>
