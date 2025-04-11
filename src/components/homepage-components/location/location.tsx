@@ -129,7 +129,7 @@ const DubaiStudioLocation = () => {
                     Sat-Sun
                   </p>
                   <p className='text-xl leading-7 3xl:text-2xl 3xl:leading-8 font-semibold'>
-                    9 AM - 9 PM
+                    10 AM - 9 PM
                   </p>
                 </div>
               </div>
