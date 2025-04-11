@@ -53,7 +53,7 @@ const slides: SlideData[] = [
       // '/images/studio3.jpg',
     ],
     mobileImages: [
-      '/images/newstudio2.png',
+      '/images/newstudio2mobile.png',
       // '/images/studio4.jpg',
       // '/images/studio3.jpg',
     ],
@@ -68,7 +68,7 @@ const slides: SlideData[] = [
       // '/images/studio2.jpg',
     ],
     mobileImages: [
-      '/images/newstudio3.png',
+      '/images/newstudio3mobile.png',
       // '/images/studio9.jpg',
       // '/images/studio2.jpg',
     ],
@@ -113,7 +113,7 @@ const slides: SlideData[] = [
       // '/images/studio5.jpg',
     ],
     mobileImages: [
-      '/images/newstudio6.png',
+      '/images/newstudio6mobile.png',
       // '/images/studio7.jpg',
       // '/images/studio5.jpg',
     ],
@@ -143,7 +143,7 @@ const slides: SlideData[] = [
       // '/images/studio6.jpg',
     ],
     mobileImages: [
-      '/images/newstudio8.png',
+      '/images/newstudio8mobile.png',
       // '/images/studio9.jpg',
       // '/images/studio6.jpg',
     ],
