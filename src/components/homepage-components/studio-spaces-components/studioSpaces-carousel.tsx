@@ -44,7 +44,7 @@ const slides: SlideData[] = [
   //   ],
   // },
   {
-    id: 2,
+    id: 0,
     title: 'Setup 1',
     buttonText: 'Book Your Session',
     images: [
@@ -59,7 +59,7 @@ const slides: SlideData[] = [
     ],
   },
   {
-    id: 3,
+    id: 1,
     title: 'Setup 2',
     buttonText: 'Book Your Session',
     images: [
@@ -104,7 +104,7 @@ const slides: SlideData[] = [
   //   ],
   // },
   {
-    id: 6,
+    id: 2,
     title: 'Setup 3',
     buttonText: 'Book Your Session',
     images: [
@@ -134,7 +134,7 @@ const slides: SlideData[] = [
   //   ],
   // },
   {
-    id: 8,
+    id: 3,
     title: 'Setup 4',
     buttonText: 'Book Your Session',
     images: [
@@ -254,6 +254,7 @@ const StudioSpacesCarousel = () => {
 
   const handleBookSession = (setupId: number) => {
     router.push(`/bookings?setup=${setupId}`);
+    localStorage.setItem('selectedStudio', setupId.toString());
   };
 
   const handleNext = () => {

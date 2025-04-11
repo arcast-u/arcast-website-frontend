@@ -197,7 +197,7 @@ const FormSection = ({ form, setForm, showWarning, selectedStudio }: BookingDeta
             type="tel"
             value={form.whatsappNumber}
             onChange={handleChange}
-            placeholder="Whatspp number"
+            placeholder="WhatsApp number"
             className={`${showWarning ? 'border border-red-500' : ''} flex-1 shrink gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 rounded-xl focus:outline-none bg-[#F5F5F7]`}
             aria-label="Whatsapp number"
           />
