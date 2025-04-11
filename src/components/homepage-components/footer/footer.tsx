@@ -1,7 +1,6 @@
 import React from 'react';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { PiInstagramLogo, PiTiktokLogo, PiLinkedinLogo } from 'react-icons/pi';
-// import { CiYoutube } from "react-icons/ci";
 import { FaXTwitter } from 'react-icons/fa6';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,7 +13,12 @@ const Footer = () => {
           <div className='flex-grow'>
             <div className='md:flex md:justify-between mb-32 text-[#989898]'>
               <div className='mb-6 md:mb-0'>
-                <Link href='/' className='flex items-center'>
+                <Link 
+                  href='/' 
+                  className='flex items-center'
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                >
                   <Image
                     src='/icons/logodarv.svg'
                     width={140}
@@ -28,7 +32,6 @@ const Footer = () => {
                   Where Stories Come to Life.
                 </p>
                 <div className='text-[#333333] mt-8 3xl:mt-16'>
-                  {/* Location Section */}
                   <div className='flex items-start gap-2 mb-2'>
                     <HiOutlineLocationMarker className='3xl:size-6 size-4 stroke-[1.5px] text-[#333333]' />
                     <p className='text-[13px] md:text-sm leading-[19.1px]'>
@@ -36,47 +39,52 @@ const Footer = () => {
                     </p>
                   </div>
 
-                  {/* Location Link */}
                   <Link
-                    href='https://maps.app.goo.gl/U8VGBxLVvZ9sdpH67?g_st=com.google.maps.preview.copy'
+                    href='https://maps.app.goo.gl/qNuFiZAdBqUnH3RE7?g_st=com.google.maps.preview.copy'
                     className='text-blue-500 underline hover:text-blue-400 font-normal text-sm leading-[19.1px] mb-6 block'
+                    target="_blank" 
+                    rel="noopener noreferrer"
                   >
                     View location & direction
                   </Link>
 
-                  {/* Social Media Icons */}
                   <div className='flex gap-4 mt-4'>
                     <Link
                       href='https://www.instagram.com/arcast.studio/'
                       className='bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80'
+                      target="_blank" 
+                      rel="noopener noreferrer"
                     >
                       <PiInstagramLogo className='text-black text-base 3xl:text-xl' />
                     </Link>
                     <Link
                       href='https://x.com/arcast_studio'
                       className='bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80'
+                      target="_blank" 
+                      rel="noopener noreferrer"
                     >
                       <FaXTwitter className='text-black text-base 3xl:text-xl' />
                     </Link>
                     <Link
                       href='https://www.tiktok.com/@arcast.studio'
                       className='bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80'
+                      target="_blank" 
+                      rel="noopener noreferrer"
                     >
                       <PiTiktokLogo className='text-black text-base 3xl:text-xl' />
                     </Link>
                     <Link
                       href='https://www.linkedin.com/company/arcast-studio/?viewAsMember=true'
                       className='bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80'
+                      target="_blank" 
+                      rel="noopener noreferrer"
                     >
                       <PiLinkedinLogo className='text-black text-base 3xl:text-xl' />
                     </Link>
-                    {/* <Link href="#" className="bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80">
-                      <CiYoutube className="text-black text-base 3xl:text-xl" />
-                      </Link> */}
                   </div>
                 </div>
               </div>
-              <div className=' flex flex-col md:flex-row md:gap-12 3xl:gap-16 gap-6   '>
+              <div className=' flex flex-col md:flex-row md:gap-12 3xl:gap-16 gap-6'>
                 <div className='text-base'>
                   <p className=' text-[#989898] mb-1'>Contact us</p>
                   <ul className='text-[#333333] text-sm 3xl:text-base space-y-1'>
@@ -84,6 +92,8 @@ const Footer = () => {
                       <Link
                         href='mailto:booking@arcastdubai.com'
                         className='underline-offset-2 text-blue-500 underline hover:text-blue-400'
+                        target="_blank" 
+                        rel="noopener noreferrer"
                       >
                         booking@arcastdubai.com
                       </Link>
@@ -92,8 +102,10 @@ const Footer = () => {
                       <Link
                         href='https://api.whatsapp.com/send?phone=971544287756&text=Hi%20I%20would%20love%20to%20get%20some%20information%20about%20the%20services%20I%20filled%20on%20the%20company.'
                         className='underline-offset-2 text-blue-500 underline hover:text-blue-400'
+                        target="_blank" 
+                        rel="noopener noreferrer"
                       >
-                    +971 508249795
+                        +971 508249795
                       </Link>
                     </li>
                   </ul>
@@ -106,91 +118,24 @@ const Footer = () => {
                       <Link
                         href='/'
                         className='hover:underline underline-offset-2'
+                        target="_blank" 
+                        rel="noopener noreferrer"
                       >
                         Home
                       </Link>
                     </li>
-
                     <li>
                       <Link
                         href='/studios'
                         className='hover:underline underline-offset-2'
+                        target="_blank" 
+                        rel="noopener noreferrer"
                       >
                         Studios
                       </Link>
                     </li>
-                    {/* <li>
-                      <Link
-                        href='/blogs'
-                        className='hover:underline underline-offset-2'
-                      >
-                        Blogs
-                      </Link>
-                    </li> */}
-                    <li>
-                      <Link
-                        href='/faqs'
-                        className='hover:underline underline-offset-2'
-                      >
-                        FAQs
-                      </Link>
-                    </li>
                   </ul>
                 </div>
-
-                {/* <div className='text-base'>
-                  <p className=' text-[#989898] mb-1'>Setups</p>
-                  <ul className=' space-y-1 text-sm 3xl:text-base text-[#333333]'>
-                    <li className=''>
-                      <Link
-                        href=''
-                        className='hover:underline'
-                      >
-                      Mobile Studio service
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href='/'
-                        className='hover:underline'
-                      >
-                        Setup 1
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href='/'
-                        className='hover:underline'
-                      >
-                        Setup 2
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href='/'
-                        className='hover:underline'
-                      >
-                        Setup 3
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href='/'
-                        className='hover:underline'
-                      >
-                        Setup 4
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href='/'
-                        className='hover:underline'
-                      >
-                        Setup 5
-                      </Link>
-                    </li>
-                  </ul>
-                </div> */}
               </div>
             </div>
           </div>
@@ -198,15 +143,30 @@ const Footer = () => {
           <div className='flex flex-wrap lg:flex-nowrap items-center justify-between mb-6 text-[#333333] text-xs'>
             <span className=''>© 2025 ARcast Studio. All Rights Reserved.</span>
             <div className='flex mt-4 space-x-6 sm:justify-center sm:mt-0'>
-              <a href='/data-deletion' className=''>
+              <Link 
+                href='/data-deletion' 
+                className=''
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 Data Deletion
-              </a>
-              <a href='/privacy-policy' className=''>
+              </Link>
+              <Link 
+                href='/privacy-policy' 
+                className=''
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 Privacy Policy
-              </a>
-              <a href='terms-of-service' className=''>
+              </Link>
+              <Link 
+                href='terms-of-service' 
+                className=''
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
                 Terms of Service
-              </a>
+              </Link>
             </div>
           </div>
         </div>

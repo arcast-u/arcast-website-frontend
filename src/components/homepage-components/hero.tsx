@@ -7,7 +7,7 @@ function Hero() {
   const router = useRouter();
   const bookSession = () => {router.push('/bookings');};
   return (
-    <div className="h-screen w-full md:bg-[url('/images/newHerosection.png')] ipadPro:bg-[url('/images/newHerosection.png')] lg:bg-[url('/images/newHerosection.png')] bg-[url('/images/newHeroMobile.png')] bg-cover bg-center bg-no-repeat border-0 outline-none">
+    <div className="h-screen w-full md:bg-[url('/images/heronew.png')] ipadPro:bg-[url('/images/heronew.png')] lg:bg-[url('/images/heronew.png')] bg-[url('/images/newHeroMobile.png')] bg-cover bg-center bg-no-repeat border-0 outline-none">
         <div className='max-w-[1728px] h-full flex flex-col mx-auto'>
           <NavigationBar/>
           <div className='w-[85%] mx-[21px] lg:w-[55%] lg:mx-10 mb-28 md:mb-10 3xl:mx-[100px] mt-auto'>

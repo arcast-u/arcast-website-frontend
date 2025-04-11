@@ -252,8 +252,8 @@ const StudioSpacesCarousel = () => {
     });
   };
 
-  const handleBookSession = () => {
-    router.push('/bookings');
+  const handleBookSession = (setupId: number) => {
+    router.push(`/bookings?setup=${setupId}`);
   };
 
   const handleNext = () => {
@@ -334,7 +334,7 @@ const StudioSpacesCarousel = () => {
                       {slide.title}
                     </h3>
                     <button
-                      onClick={handleBookSession}
+                     onClick={() => handleBookSession(slide.id)}
                       className='px-4 py-2 3xl:py-3 bg-[#FF8C42] border border-[#FFC49D] text-[#FCFCFC] font-nunitoSans text-xs 3xl:text-base rounded-md shadow-md shadow-[#FAE2D2] transition-colors'
                     >
                       {slide.buttonText}

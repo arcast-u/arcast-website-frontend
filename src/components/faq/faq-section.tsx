@@ -19,12 +19,14 @@ export const FAQSection = () => {
             <div className='flex flex-wrap gap-2 items-start text-neutral-400'>
               <HiOutlineLocationMarker className='3xl:size-6 size-4 stroke-[1.5px] text-[#989898]' />
               <p className='flex-1 shrink self-stretch my-auto basis-0 max-md:max-w-full'>
-                Loft Offices 3, Dubai - Ideal for corporate podcasts and
+              Loft Offices Building 2, Entrance C, unit 210  - Ideal for corporate podcasts and
                 business content.
               </p>
             </div>
             <a
-              href='https://maps.app.goo.gl/U8VGBxLVvZ9sdpH67?g_st=com.google.maps.preview.copy'
+              // href='https://maps.app.goo.gl/U8VGBxLVvZ9sdpH67?g_st=com.google.maps.preview.copy'
+
+              href='https://maps.app.goo.gl/qNuFiZAdBqUnH3RE7?g_st=com.google.maps.preview.copy'
               className='mt-2 text-[#5081FF]  text-sm leading-5 3xl:text-xl 3xl:leading-8 hover:underline'
             >
               View location & direction

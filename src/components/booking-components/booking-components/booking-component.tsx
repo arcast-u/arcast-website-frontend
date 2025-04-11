@@ -53,8 +53,12 @@ const StudioBooking = () => {
     price: string;
   } | null>(null);
 
+
+
+
   const [timeSlots, setTimeSlots] = useState<TimeSlotListProps[] | null>(null);
-  const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>('10:00');
+  const nowISO = new Date().toISOString();
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>(nowISO);
   const [isBooking, setIsBooking] = useState(false);
   const [duration, setDuration] = useState(1);
   const selectedPackage = packages?.[selectedPackageIndex] || null;
@@ -66,6 +70,10 @@ const StudioBooking = () => {
   const tabs = ['Step 1', 'Step 2', 'Step 3', 'Step 4'];
 
   // get studios
+
+  console.log(selectedTimeSlot, 'time')
+
+
 
   useEffect(() => {
     async function fetchStudios() {
