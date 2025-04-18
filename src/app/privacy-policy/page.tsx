@@ -12,250 +12,363 @@ const PrivacyPolicies = () => {
           </h1>
 
           <div className='font-nunitoSans'>
-            <h3 className='text-xl md:text-2xl font-semibold mb-4'>
-              1. Introduction
-            </h3>
-            <p className='text-base leading-6'>
-              Welcome to Arcast. We are committed to safeguarding your privacy
-              and ensuring that your personal information is protected. This
-              Privacy Policy outlines how we collect, use, disclose, and protect
-              your information.
-            </p>
-
-            <h3 className='text-xl md:text-2xl font-semibold my-4'>
-              2. Information We Collect
-            </h3>
-            <div>
-              <p>
-                We collect information to provide better services to our users.
-                This includes:
+            <div className='space-y-3'>
+              <h3 className='text-xl md:text-2xl font-semibold mb-4'>
+                1. Introduction
+              </h3>
+              <p className='text-base leading-6'>
+                This Privacy Policy is issued by <strong>Arcast Studio FZ-LLC</strong>, a company registered in the <strong>Dubai Development Authority under license #106268</strong> (&quot;Arcast Studio,&quot; &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;).
               </p>
-              <ul className='mt-2 space-y-2 text-base leading-6'>
-                <li className='flex gap-2 items-center'>
-                  <span className='text-lg'>•</span>
-                  <span className=''>
-                    <span className='font-semibold mr-1'>
-                      Personal Identification Information:
-                    </span>
-                    Name, email address, phone number, and other contact
-                    details.
-                  </span>
-                </li>
+              <p>Arcast Studio is committed to protecting the privacy and security of personal data collected from users of its website, clients booking services, and any individuals engaging with the company. This policy outlines the collection, processing, use, disclosure, and safeguarding of personal information in accordance with applicable laws.</p>
+              <p>By accessing our website or using our services, you acknowledge and agree to the terms of this Privacy Policy. If you do not agree, you should refrain from using our services.</p>
 
-                <li className='flex gap-2 items-center'>
-                  <span className='text-lg'>•</span>
-                  <span className=''>
-                    <span className='font-semibold mr-1'>
-                      Demographic Information:
-                    </span>
-                    Age, gender, preferences, and interests.
-                  </span>
-                </li>
+            </div> <h3 className='text-xl md:text-2xl font-semibold my-4'>
+              2. INFORMATION WE COLLECT
+            </h3>
+            <p>We collect different types of information to provide and improve our services:</p>
+            <div>
+              <h3 className='text-lg md:text-xl font-semibold my-4'>
+                2.1 Personal Information
+              </h3>
+              <p>We may collect personal data that you provide directly, including but not limited to:</p>
 
-                <li className='flex gap-2 items-center'>
-                  <span className='text-lg'>•</span>
-                  <span className=''>
-                    <span className='font-semibold mr-1'>
-                      Transaction Information:
-                    </span>
-                    Details about payments and services you have purchased.
-                  </span>
-                </li>
+              <div>
 
-                <li className='flex gap-2 items-center'>
-                  <span className='text-lg'>•</span>
-                  <span className=''>
-                    <span className='font-semibold mr-1'>
-                      Technical Information
+                <ul className='mt-2 space-y-2 text-base leading-6'>
+                  <li className='flex gap-2 items-center'>
+                    <span className='text-lg'>•</span>
+                    <span className=''>
+                      <span className='font-semibold mr-1'>
+                        Full Name
+                      </span>
+
                     </span>
-                    IP address, browser type, operating system, and other
-                    technical details when you access our website.
-                  </span>
-                </li>
-              </ul>
+                  </li>
+
+                  <li className='flex gap-2 items-center'>
+                    <span className='text-lg'>•</span>
+                    <span className=''>
+                      <span className='font-semibold mr-1'>
+                        Email Address
+                      </span>
+
+                    </span>
+                  </li>
+
+                  <li className='flex gap-2 items-center'>
+                    <span className='text-lg'>•</span>
+                    <span className=''>
+                      <span className='font-semibold mr-1'>
+                        Phone Number
+                      </span>
+
+                    </span>
+                  </li>
+
+                  <li className='flex gap-2 items-center'>
+                    <span className='text-lg'>•</span>
+                    <span className=''>
+                      <span className='font-semibold mr-1'>
+                        Billing and Payment Information
+                      </span>
+
+                    </span>
+                  </li>
+                  <li className='flex gap-2 items-center'>
+                    <span className='text-lg'>•</span>
+                    <span className=''>
+                      <span className='font-semibold mr-1'>
+                        Company Name (if applicable)
+                      </span>
+
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <p>This information is collected when you book a service, contact us, or subscribe to our updates.</p>
+
             </div>
+            <div>
+              <h3 className='text-lg md:text-xl font-semibold my-4'>
+                2.2 Non-Personal Information
+              </h3>
+              <p>We also collect technical data about how you interact with our website and services, such as:</p>
 
+              <div>
+
+                <ul className='mt-2 space-y-2 text-base leading-6'>
+                  <li className='flex gap-2 items-center'>
+                    <span className='text-lg'>•</span>
+                    <span className=''>
+                      <span className='font-semibold mr-1'>
+                        IP Address
+                      </span>
+
+                    </span>
+                  </li>
+
+                  <li className='flex gap-2 items-center'>
+                    <span className='text-lg'>•</span>
+                    <span className=''>
+                      <span className='font-semibold mr-1'>
+                        Browser Type & Version
+                      </span>
+
+                    </span>
+                  </li>
+
+                  <li className='flex gap-2 items-center'>
+                    <span className='text-lg'>•</span>
+                    <span className=''>
+                      <span className='font-semibold mr-1'>
+                        Operating System
+                      </span>
+
+                    </span>
+                  </li>
+
+                  <li className='flex gap-2 items-center'>
+                    <span className='text-lg'>•</span>
+                    <span className=''>
+                      <span className='font-semibold mr-1'>
+                        Pages Visited & Time Spent
+                      </span>
+
+                    </span>
+                  </li>
+                  <li className='flex gap-2 items-center'>
+                    <span className='text-lg'>•</span>
+                    <span className=''>
+                      <span className='font-semibold mr-1'>
+                        Referring Website
+                      </span>
+
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <p>This helps us analyze trends, improve user experience, and enhance security.</p>
+
+            </div>
+            <div>
+              <h3 className='text-lg md:text-xl font-semibold my-4'>
+                2.3 Cookies & Tracking Technologies
+              </h3>
+              <p>We use cookies and similar technologies to:</p>
+
+              <div>
+
+                <ul className='mt-2 space-y-2 text-base leading-6'>
+                  <li className='flex gap-2 items-center'>
+                    <span className='text-lg'>•</span>
+                    <span className=''>
+                      <span className='font-medium mr-1'>
+                        Improve website functionality
+                      </span>
+
+                    </span>
+                  </li>
+
+                  <li className='flex gap-2 items-center'>
+                    <span className='text-lg'>•</span>
+                    <span className=''>
+                      <span className='font-medium mr-1'>
+                        Personalize user experience
+                      </span>
+
+                    </span>
+                  </li>
+
+                  <li className='flex gap-2 items-center'>
+                    <span className='text-lg'>•</span>
+                    <span className=''>
+                      <span className='font-medium mr-1'>
+                        Analyze traffic patterns
+                      </span>
+
+                    </span>
+                  </li>
+                </ul>
+              </div>
+              <p>You can manage cookie settings via your browser. Disabling cookies may affect website functionality.</p>
+
+            </div>
             <h3 className='text-xl md:text-2xl font-semibold my-4'>
               3. How We Use Your Information
             </h3>
 
             <div>
               <p>
-                We use the information we collect for various purposes,
-                including:
+                We use collected data for the following purposes:
               </p>
               <ul className='mt-2 space-y-2 text-base leading-6'>
                 <li className='flex gap-2 items-center'>
                   <span className='text-lg'>•</span>
                   <span className=''>
-                    To provide and maintain our services.
+                    <strong>Service Delivery</strong>: To process bookings, provide services, and manage customer support
                   </span>
                 </li>
 
                 <li className='flex gap-2 items-center'>
                   <span className='text-lg'>•</span>
-                  <span className=''>To improve our website and services.</span>
+                  <span className=''><strong>Communication</strong>: To send booking confirmations, respond to inquiries, and provide service updates.</span>
                 </li>
 
                 <li className='flex gap-2 items-center'>
                   <span className='text-lg'>•</span>
                   <span className=''>
-                    To communicate with you, including responding to inquiries
-                    and providing updates.
-                  </span>
-                </li>
-
-                <li className='flex gap-2 items-center'>
-                  <span className='text-lg'>•</span>
-                  <span className=''>
-                    To process transactions and manage your bookings.
+                    <strong>Marketing & Promotions</strong>: To inform you about offers, news, and events (you can opt out anytime).
                   </span>
                 </li>
 
                 <li className='flex gap-2 items-center'>
                   <span className='text-lg'>•</span>
                   <span className=''>
-                    To send promotional emails about new services, special
-                    offers, or other information we think you may find
-                    interesting.
+                    <strong>Security & Fraud Prevention</strong>: To protect against unauthorized access, fraud, and breaches.
+                  </span>
+                </li>
+
+                <li className='flex gap-2 items-center'>
+                  <span className='text-lg'>•</span>
+                  <span className=''>
+                    <strong>Legal Compliance</strong> : To comply with applicable laws and regulations.
                   </span>
                 </li>
               </ul>
+              <p>We do <strong>not</strong> use your personal data for automated decision-making or profiling.</p>
             </div>
 
-            <h3 className='text-xl md:text-2xl font-semibold my-4'>
-              4. Sharing Your Information
+            <h3 className='text-xl capitalize md:text-2xl font-semibold my-4'>
+              4. Sharing & Disclosure of Information
             </h3>
+            <div>
+              <p className='text-base leading-6'>
+                We respect your privacy and do not sell, rent, or trade your personal data. However, we may share your information under the following conditions:
+              </p>
+              <ul className='mt-2 space-y-2 text-base leading-6'>
+                <li className='flex gap-2 items-center'>
+                  <span className='text-lg'>•</span>
+                  <span className=''>
+                    <strong>Service Providers & Payment Processors</strong>: We work with third-party partners (e.g., payment gateways) to process transactions securely </span>
+                </li>
 
-            <p className='text-base leading-6'>
-              We do not sell, trade, or otherwise transfer your personal
-              information to outside parties without your consent, except as
-              required by law or as necessary to provide our services. This
-              includes trusted third parties who assist us in operating our
-              website, conducting our business, or servicing you, so long as
-              those parties agree to keep this information confidential.
-            </p>
+                <li className='flex gap-2 items-center'>
+                  <span className='text-lg'>•</span>
+                  <span className=''><strong>Legal Obligations</strong>: If required by law, regulation, or court order, we may disclose your information to authorities.</span>
+                </li>
+
+                <li className='flex gap-2 items-center'>
+                  <span className='text-lg'>•</span>
+                  <span className=''>
+                    <strong>Business Transfers</strong> : In case of a merger, sale, or acquisition, your data may be transferred to the new entity.
+                  </span>
+                </li>
+
+
+              </ul>
+            </div>
+
 
             <h3 className='text-xl md:text-2xl font-semibold my-4'>
               5. Data Security
             </h3>
+            <div>
+              <p className='text-base leading-6'>
+                We implement industry-standard security measures to protect your information, including:
+              </p>
+              <ul className='mt-2 space-y-2 text-base leading-6'>
+                <li className='flex gap-2 items-center'>
+                  <span className='text-lg'>•</span>
+                  <span className='font-semibold'>
+                    Encryption of sensitive data </span>
+                </li>
 
+                <li className='flex gap-2 items-center'>
+                  <span className='text-lg'>•</span>
+                  <span className='font-semibold'>Secure payment processing</span>
+                </li>
+
+                <li className='flex gap-2 items-center'>
+                  <span className='text-lg'>•</span>
+                  <span className='font-semibold'>
+                    Access restrictions for authorized personnel only.
+                  </span>
+                </li>
+
+
+              </ul>
+              <p className='text-base leading-6'>
+                While we strive to safeguard your data, no system is 100% secure. We encourage users to take precautions, such as using strong passwords and avoiding sharing sensitive data via unsecured channels.
+              </p>
+            </div>
+
+
+
+            <h3 className='text-xl md:text-2xl font-semibold my-4'>
+              6. Data Retention
+            </h3>
             <p className='text-base leading-6'>
-              We are committed to ensuring that your information is secure. To
-              prevent unauthorized access or disclosure, we have put in place
-              suitable physical, electronic, and managerial procedures to
-              safeguard and secure the information we collect online.
+              We retain personal data only for as long as necessary to fulfill the purposes stated in this policy or comply with legal obligations. Once no longer needed, data is securely deleted.
+            </p>
+
+
+            <h3 className='text-xl md:text-2xl font-semibold my-4'>
+              7. Third-party Links & Services
+            </h3>
+            <p className='text-base leading-6'>
+              Our website may contain links to third-party websites or services. We are not responsible for their privacy policies, security practices, or content. Please review their policies before providing any personal data.
             </p>
 
             <h3 className='text-xl md:text-2xl font-semibold my-4'>
-              6. Your Rights
+              8. Your Rights & Choices
             </h3>
 
             <div>
-              <p>You have the right to:</p>
+              <p className='text-base leading-6'>
+                Depending on applicable laws, you may have the following rights regarding your personal data:
+              </p>
               <ul className='mt-2 space-y-2 text-base leading-6'>
                 <li className='flex gap-2 items-center'>
                   <span className='text-lg'>•</span>
                   <span className=''>
-                    Access the personal data we hold about you.
+                    <strong>Access & Correction</strong> : Request access to your data and correct inaccuracies.</span>
+                </li>
+
+                <li className='flex gap-2 items-center'>
+                  <span className='text-lg'>•</span>
+                  <span className=''>
+                    <strong>Deletion & Restriction</strong> : Request data deletion or restriction of processing.
                   </span>
                 </li>
 
                 <li className='flex gap-2 items-center'>
                   <span className='text-lg'>•</span>
                   <span className=''>
-                    Request correction of any incorrect or incomplete data.
+                    <strong>Data Portability</strong> : Obtain a copy of your data in a structured format.
                   </span>
                 </li>
-
                 <li className='flex gap-2 items-center'>
                   <span className='text-lg'>•</span>
                   <span className=''>
-                    Request deletion of your personal data.
+                    <strong>Marketing Preferences</strong>: Opt-out of marketing communications at any time.
                   </span>
                 </li>
 
-                <li className='flex gap-2 items-center'>
-                  <span className='text-lg'>•</span>
-                  <span className=''>
-                    Object to the processing of your data.
-                  </span>
-                </li>
-
-                <li className='flex gap-2 items-center'>
-                  <span className='text-lg'>•</span>
-                  <span className=''>
-                    Withdraw consent at any time where we are relying on consent
-                    to process your personal data.
-                  </span>
-                </li>
               </ul>
-              <p className='mt-1'>
-                To exercise any of these rights, please contact us at{' '}
-                <span className='font-semibold text-[#5E17EB]'>
-                  booking@arcast.studio
-                </span>
+              <p className='text-base leading-6'>
+                To exercise these rights, contact us at <a href="mailto:alex@arcast.studio">alex@arcast.studio</a> . We will process your request in accordance with applicable laws.
               </p>
             </div>
 
             <h3 className='text-xl md:text-2xl font-semibold my-4'>
-              7. Cookies
-            </h3>
-            <p className='text-base leading-6'>
-              Our website uses cookies to enhance user experience. Cookies are
-              small files that a site or its service provider transfers to your
-              computer&apos;s hard drive through your web browser (if you allow)
-              that enables the site&apos;s or service provider&apos;s systems to
-              recognize your browser and capture and remember certain
-              information. You can choose to accept or decline cookies. Most web
-              browsers automatically accept cookies, but you can usually modify
-              your browser setting to decline cookies if you prefer.
-            </p>
-
-            <h3 className='text-xl md:text-2xl font-semibold my-4'>
-              8. Changes to This Privacy Policy
-            </h3>
-            <p className='text-base leading-6'>
-              We may update our Privacy Policy from time to time. We will notify
-              you of any changes by posting the new Privacy Policy on this page.
-              You are advised to review this Privacy Policy periodically for any
-              changes.
-            </p>
-
-            <h3 className='text-xl md:text-2xl font-semibold my-4'>
-              9. Contact Us
+              9. Changes to this Privacy Policy
             </h3>
 
             <div>
               <p>
-                If you have any questions about this Privacy Policy, please
-                contact us at:
+                We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. Any modifications will be posted on this page. Continued use of our services after changes are made constitutes acceptance of the updated policy.
               </p>
-              <ul className='mt-2 space-y-2 text-base leading-6'>
-                <li className='flex gap-2 items-center'>
-                  <span className='text-lg'>•</span>
 
-                  <a href='mailto:booking@arcast.studio' className=''>
-                    Email:{' '}
-                    <span className='text-[#5E17EB] hover:underline underline-offset-2'>
-                      Booking@arcast.studio{' '}
-                    </span>
-                  </a>
-                </li>
-
-                <li className='flex gap-2 items-center'>
-                  <span className='text-lg'>•</span>
-                  <a
-                    href='https://api.whatsapp.com/send?phone=971544287756&text=Hi%20I%20would%20love%20to%20get%20some%20information%20about%20the%20services%20I%20filled%20on%20the%20company.'
-                    className=''
-                  >
-                    Phone:{' '}
-                    <span className='text-[#5E17EB] hover:underline underline-offset-2'>
-                    +971 508249795{' '}
-                    </span>
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
         </div>
