@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { PiInstagramLogo, PiTiktokLogo, PiLinkedinLogo } from 'react-icons/pi';
@@ -13,11 +15,11 @@ const Footer = () => {
           <div className='flex-grow'>
             <div className='md:flex md:justify-between mb-32 text-[#989898]'>
               <div className='mb-6 md:mb-0'>
-                <Link 
-                  href='/' 
+                <Link
+                  href='/'
                   className='flex items-center'
-                  target="_blank" 
-                  rel="noopener noreferrer"
+                  target='_blank'
+                  rel='noopener noreferrer'
                 >
                   <Image
                     src='/icons/logodarv.svg'
@@ -42,8 +44,8 @@ const Footer = () => {
                   <Link
                     href='https://maps.app.goo.gl/qNuFiZAdBqUnH3RE7?g_st=com.google.maps.preview.copy'
                     className='text-blue-500 underline hover:text-blue-400 font-normal text-sm leading-[19.1px] mb-6 block'
-                    target="_blank" 
-                    rel="noopener noreferrer"
+                    target='_blank'
+                    rel='noopener noreferrer'
                   >
                     View location & direction
                   </Link>
@@ -52,32 +54,32 @@ const Footer = () => {
                     <Link
                       href='https://www.instagram.com/arcast.studio/'
                       className='bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80'
-                      target="_blank" 
-                      rel="noopener noreferrer"
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       <PiInstagramLogo className='text-black text-base 3xl:text-xl' />
                     </Link>
                     <Link
                       href='https://x.com/arcast_studio'
                       className='bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80'
-                      target="_blank" 
-                      rel="noopener noreferrer"
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       <FaXTwitter className='text-black text-base 3xl:text-xl' />
                     </Link>
                     <Link
                       href='https://www.tiktok.com/@arcast.studio'
                       className='bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80'
-                      target="_blank" 
-                      rel="noopener noreferrer"
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       <PiTiktokLogo className='text-black text-base 3xl:text-xl' />
                     </Link>
                     <Link
                       href='https://www.linkedin.com/company/arcast-studio/?viewAsMember=true'
                       className='bg-[#F5F5F7] flex items-center justify-center p-2 rounded-lg lg:size-8 hover:opacity-80'
-                      target="_blank" 
-                      rel="noopener noreferrer"
+                      target='_blank'
+                      rel='noopener noreferrer'
                     >
                       <PiLinkedinLogo className='text-black text-base 3xl:text-xl' />
                     </Link>
@@ -92,8 +94,8 @@ const Footer = () => {
                       <Link
                         href='mailto:booking@arcastdubai.com'
                         className='underline-offset-2 text-blue-500 underline hover:text-blue-400'
-                        target="_blank" 
-                        rel="noopener noreferrer"
+                        target='_blank'
+                        rel='noopener noreferrer'
                       >
                         booking@arcastdubai.com
                       </Link>
@@ -102,8 +104,8 @@ const Footer = () => {
                       <Link
                         href='https://api.whatsapp.com/send?phone=971544287756&text=Hi%20I%20would%20love%20to%20get%20some%20information%20about%20the%20services%20I%20filled%20on%20the%20company.'
                         className='underline-offset-2 text-blue-500 underline hover:text-blue-400'
-                        target="_blank" 
-                        rel="noopener noreferrer"
+                        target='_blank'
+                        rel='noopener noreferrer'
                       >
                         +971 508249795
                       </Link>
@@ -117,22 +119,27 @@ const Footer = () => {
                     <li>
                       <Link
                         href='/'
-                        className='hover:underline underline-offset-2'
-                        target="_blank" 
-                        rel="noopener noreferrer"
+                        className='hover:underline underline-offset-2 cursor-pointer'
+                        // target="_blank"
+                        rel='noopener noreferrer'
                       >
                         Home
                       </Link>
                     </li>
                     <li>
-                      <Link
-                        href='/studios'
-                        className='hover:underline underline-offset-2'
-                        target="_blank" 
-                        rel="noopener noreferrer"
+                      <div
+                        onClick={() => {
+                          window.scrollTo({ top: 0, behavior: 'smooth' });
+
+                          localStorage.setItem('openStudioDropdown', 'true');
+
+                          const event = new CustomEvent('openStudioDropdown');
+                          window.dispatchEvent(event);
+                        }}
+                        className='hover:underline underline-offset-2 cursor-pointer'
                       >
                         Studios
-                      </Link>
+                      </div>
                     </li>
                   </ul>
                 </div>
@@ -143,27 +150,27 @@ const Footer = () => {
           <div className='flex flex-wrap lg:flex-nowrap items-center justify-between mb-6 text-[#333333] text-xs'>
             <span className=''>© 2025 ARcast Studio. All Rights Reserved.</span>
             <div className='flex mt-4 space-x-6 sm:justify-center sm:mt-0'>
-              <Link 
-                href='/data-deletion' 
+              <Link
+                href='/data-deletion'
                 className=''
-                target="_blank" 
-                rel="noopener noreferrer"
+                // target='_blank'
+                rel='noopener noreferrer'
               >
                 Data Deletion
               </Link>
-              <Link 
-                href='/privacy-policy' 
+              <Link
+                href='/privacy-policy'
                 className=''
-                target="_blank" 
-                rel="noopener noreferrer"
+                // target='_blank'
+                rel='noopener noreferrer'
               >
                 Privacy Policy
               </Link>
-              <Link 
-                href='terms-of-service' 
+              <Link
+                href='terms-of-service'
                 className=''
-                target="_blank" 
-                rel="noopener noreferrer"
+                // target='_blank'
+                rel='noopener noreferrer'
               >
                 Terms of Service
               </Link>

@@ -40,7 +40,6 @@ const StudioCard = ({
     }
   };
 
-  console.log(selectedStudio, count, 'selectedStudio');
   useEffect(() => {
     localStorage.setItem('selectedStudio', selectedStudio.toString());
   }, [selectedStudio]);

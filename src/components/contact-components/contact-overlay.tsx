@@ -268,7 +268,7 @@ const ContactOverlay = ({ isOpen, onClose }: ContactOverlayProps) => {
                         </a>
                         <a
                           href='https://wa.me/+971508249795'
-                          className='flex items-center text-[#333333] hover:text-[#FF8C42] hover:underline'
+                          className='flex items-center text-blue-500 hover:text-[#FF8C42] underline'
                         >
                           <svg
                             className='w-5 h-5 mr-2'

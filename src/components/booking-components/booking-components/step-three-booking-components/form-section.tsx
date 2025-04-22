@@ -1,12 +1,10 @@
-'use client'
-import React, {useState} from "react";
-import { TbCaretDown, TbCaretUp } from "react-icons/tb";
-import { getCountries, getCountryCallingCode } from "libphonenumber-js";
-import { useEmailValidation } from "./useEmailValidation";
-
+'use client';
+import React, { useState } from 'react';
+import { TbCaretDown, TbCaretUp } from 'react-icons/tb';
+import { getCountries, getCountryCallingCode } from 'libphonenumber-js';
+import { useEmailValidation } from './useEmailValidation';
 
 type BookingDetailsProps = {
-  
   form: {
     fullName: string;
     email: string;
@@ -17,49 +15,54 @@ type BookingDetailsProps = {
     whatsappCountryCode: string;
     discountCode: string;
   };
-  setForm: React.Dispatch<React.SetStateAction<{
-    fullName: string;
-    email: string;
-    phoneNumber: string;
-    recordingLocation: string;
-    whatsappNumber: string;
-    countryCode: string;
-    whatsappCountryCode: string;
-    discountCode: string;
-  }>>;
+  setForm: React.Dispatch<
+    React.SetStateAction<{
+      fullName: string;
+      email: string;
+      phoneNumber: string;
+      recordingLocation: string;
+      whatsappNumber: string;
+      countryCode: string;
+      whatsappCountryCode: string;
+      discountCode: string;
+    }>
+  >;
   showWarning: boolean;
   selectedStudio: string | undefined;
-  
 };
 
-
-const FormSection = ({ form, setForm, showWarning, selectedStudio }: BookingDetailsProps) => {
+const FormSection = ({
+  form,
+  setForm,
+  showWarning,
+  selectedStudio,
+}: BookingDetailsProps) => {
   // const [checked, setChecked] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  // const [dropdownOpen, setDropdownOpen] = useState(false);
   const [whatsappDropdownOpen, setwhatsappDropdownOpen] = useState(false);
   const { emailError, checkEmail } = useEmailValidation();
-  
+
   const countries = getCountries().map((code) => ({
     code: `+${getCountryCallingCode(code)}`,
     country: code,
   }));
 
-
-  const handleChange = (e: { target: { id: string; value: string | number }; }) => {
+  const handleChange = (e: {
+    target: { id: string; value: string | number };
+  }) => {
     const { id, value } = e.target;
     setForm((prev) => ({ ...prev, [id]: value }));
   };
 
-  const handleCountrySelect = (code: string) => {
-    setForm((prev) => ({ ...prev, countryCode: code,  }));
-    setDropdownOpen(false);
-  };
+  // const handleCountrySelect = (code: string) => {
+  //   setForm((prev) => ({ ...prev, countryCode: code }));
+  //   setDropdownOpen(false);
+  // };
   const handleWhatsappCountrySelect = (code: string) => {
-    setForm((prev) => ({ ...prev, whatsappCountryCode: code,  }));
+    setForm((prev) => ({ ...prev, whatsappCountryCode: code }));
     setwhatsappDropdownOpen(false);
   };
 
- 
   const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
     if (e.target.id === 'email') {
       const error = checkEmail(form.email);
@@ -71,67 +74,65 @@ const FormSection = ({ form, setForm, showWarning, selectedStudio }: BookingDeta
       e.target.reportValidity();
     }
   };
-  
 
   return (
-    <form onSubmit={(e) => e.preventDefault()} className="flex flex-col mt-8 lg:mt-10 w-full md:w-[90%] mx-auto lg:w-full max-md:mt-10 ">
-      <div className="flex flex-col w-full">
-        <h3 className="header-text">
-          Enter Your Contact Information
-        </h3>
+    <form
+      onSubmit={(e) => e.preventDefault()}
+      className='flex flex-col mt-8 lg:mt-10 w-full md:w-[90%] mx-auto lg:w-full max-md:mt-10 '
+    >
+      <div className='flex flex-col w-full'>
+        <h3 className='header-text'>Enter Your Contact Information</h3>
       </div>
-      <div className="flex flex-col mt-5 text-[#333333] font-nunitoSans text-base leading-3  lg:leading-6 font-normal 3xl:leading-[19.1px] 3xl:mt-6 w-full  ">
-        <div className="flex gap-4 items-start w-full ">
-          <label
-            htmlFor="fullName"
-            className="sr-only"
-          >
+      <div className='flex flex-col mt-5 text-[#333333] font-nunitoSans text-base leading-3  lg:leading-6 font-normal 3xl:leading-[19.1px] 3xl:mt-6 w-full  '>
+        <div className='flex gap-4 items-start w-full '>
+          <label htmlFor='fullName' className='sr-only'>
             Full name
           </label>
           <input
-            id="fullName"
-            type="text"
+            id='fullName'
+            type='text'
             value={form.fullName}
             onChange={handleChange}
-            placeholder="Full name"
-            className={`${showWarning  ? 'border border-red-500' : ''} flex-1 shrink gap-10 self-stretch  px-5 py-4 w-full rounded-xl bg-[#F5F5F7] focus:outline-none`}
-            aria-label="Full name"
+            placeholder='Full name'
+            className={`${
+              showWarning ? 'border border-red-500' : ''
+            } flex-1 shrink gap-10 self-stretch  px-5 py-4 w-full rounded-xl bg-[#F5F5F7] focus:outline-none`}
+            aria-label='Full name'
           />
         </div>
-        <label
-          htmlFor="email"
-          className="sr-only"
-        >
+        <label htmlFor='email' className='sr-only'>
           Email address
         </label>
         <input
-          id="email"
-          type="email"
+          id='email'
+          type='email'
           value={form.email}
           onChange={handleChange}
           onBlur={handleBlur}
-          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-          placeholder="Email address"
-          className={`${showWarning  || emailError ? 'border border-red-500' : ''} gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none`}
-          aria-label="Email address"
+          pattern='[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$'
+          placeholder='Email address'
+          className={`${
+            showWarning || emailError ? 'border border-red-500' : ''
+          } gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none`}
+          aria-label='Email address'
         />
-        <label
-          htmlFor="recordingLocation"
-          className="sr-only"
-        >
+        <label htmlFor='recordingLocation' className='sr-only'>
           Recording Location
         </label>
-        {selectedStudio === "Mobile Studio Service" &&
-        <input
-          id="recordingLocation"
-          type="text"
-          value={form.recordingLocation}
-          onChange={handleChange}
-          placeholder="Recording Location"
-          className={`${showWarning ? 'border border-red-500' : ''} gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none`}
-          aria-label="recording location"
-        />}
-        <div className="flex gap-4 items-start mt-3 relative 3xl:mt-5 w-full max-md:max-w-full">
+        {selectedStudio === 'Mobile Studio Service' && (
+          <input
+            id='recordingLocation'
+            type='text'
+            value={form.recordingLocation}
+            onChange={handleChange}
+            placeholder='Recording Location'
+            className={`${
+              showWarning ? 'border border-red-500' : ''
+            } gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none`}
+            aria-label='recording location'
+          />
+        )}
+        {/* <div className="flex gap-4 items-start mt-3 relative 3xl:mt-5 w-full max-md:max-w-full">
           <button onClick={() => setDropdownOpen(!dropdownOpen)} className="flex gap-1 items-center 3xl:py-5 py-4 pr-3 3xl:pr-4 pl-4 3xl:pl-6 whitespace-nowrap rounded-xl bg-[#F5F5F7] text-[#333333] ">
             <p className="self-stretch font-normal font-nunitoSans my-auto">
               {form.countryCode}</p>
@@ -166,71 +167,74 @@ const FormSection = ({ form, setForm, showWarning, selectedStudio }: BookingDeta
             className={`${showWarning  ? 'border border-red-500' : ''} flex-1 shrink gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 rounded-xl focus:outline-none bg-[#F5F5F7] `}
             aria-label="Phone number"
           />
-        </div>
-        <div className="flex gap-4 items-start mt-3 relative 3xl:mt-5 w-full max-md:max-w-full">
-          <button onClick={() => setwhatsappDropdownOpen(!whatsappDropdownOpen)} className="flex gap-1 items-center 3xl:py-5 py-4 pr-3 3xl:pr-4 pl-4 3xl:pl-6 whitespace-nowrap rounded-xl bg-[#F5F5F7] text-[#333333] ">
-            <p className="self-stretch font-normal font-nunitoSans my-auto">
-              {form.whatsappCountryCode}</p>
-              {whatsappDropdownOpen ?  <TbCaretUp className="size-5 text-[#333333] stroke-[1px]" /> : <TbCaretDown className="size-5 text-[#333333] stroke-[1px]" />}
+        </div> */}
+        <div className='flex gap-4 items-start mt-3 relative 3xl:mt-5 w-full max-md:max-w-full'>
+          <button
+            onClick={() => setwhatsappDropdownOpen(!whatsappDropdownOpen)}
+            className='flex gap-1 items-center 3xl:py-5 py-4 pr-3 3xl:pr-4 pl-4 3xl:pl-6 whitespace-nowrap rounded-xl bg-[#F5F5F7] text-[#333333] '
+          >
+            <p className='self-stretch font-normal font-nunitoSans my-auto'>
+              {form.whatsappCountryCode}
+            </p>
+            {whatsappDropdownOpen ? (
+              <TbCaretUp className='size-5 text-[#333333] stroke-[1px]' />
+            ) : (
+              <TbCaretDown className='size-5 text-[#333333] stroke-[1px]' />
+            )}
           </button>
           {whatsappDropdownOpen && (
-              <ul className="absolute h-[200px] overflow-y-auto left-0 w-1/2 top-full bg-[#F5F5F7] border border-gray-300 rounded-md mt-1 shadow-md z-10">
-                {countries.map((item) => (
-                  <li
-                    key={item.country}
-                    onClick={() => handleWhatsappCountrySelect(item.code)}
-                    className="px-4 py-2 hover:bg-gray-200 text-sm font-nunitoSans"
-                  >
-                    ({item.code}) {item.country} 
-                  </li>
-                ))}
-              </ul>
-            )}
-          <label
-            htmlFor="whatsappNumber"
-            className="sr-only"
-          >
+            <ul className='absolute h-[200px] overflow-y-auto left-0 w-1/2 top-full bg-[#F5F5F7] border border-gray-300 rounded-md mt-1 shadow-md z-10'>
+              {countries.map((item) => (
+                <li
+                  key={item.country}
+                  onClick={() => handleWhatsappCountrySelect(item.code)}
+                  className='px-4 py-2 hover:bg-gray-200 text-sm font-nunitoSans'
+                >
+                  ({item.code}) {item.country}
+                </li>
+              ))}
+            </ul>
+          )}
+          <label htmlFor='whatsappNumber' className='sr-only'>
             whatsapp number
           </label>
           <input
-            id="whatsappNumber"
-            type="tel"
+            id='whatsappNumber'
+            type='tel'
             value={form.whatsappNumber}
             onChange={handleChange}
-            placeholder="WhatsApp number"
-            className={`${showWarning ? 'border border-red-500' : ''} flex-1 shrink gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 rounded-xl focus:outline-none bg-[#F5F5F7]`}
-            aria-label="Whatsapp number"
+            placeholder='WhatsApp number'
+            className={`${
+              showWarning ? 'border border-red-500' : ''
+            } flex-1 shrink gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 rounded-xl focus:outline-none bg-[#F5F5F7]`}
+            aria-label='Whatsapp number'
           />
         </div>
-        <label
-          htmlFor="discountCode"
-          className="sr-only"
-        >
+        <label htmlFor='discountCode' className='sr-only'>
           Discount Code
         </label>
         <input
-          id="discountCode"
-          type="text"
+          id='discountCode'
+          type='text'
           value={form.discountCode}
           onChange={handleChange}
-          placeholder="Discount code (optional)"
+          placeholder='Discount code (optional)'
           className={`gap-10 self-stretch px-5 py-4 3xl:px-6 3xl:py-5 mt-3 3xl:mt-5 w-full rounded-xl bg-[#F5F5F7]  focus:outline-none `}
-          aria-label="Discount code (optional)"
+          aria-label='Discount code (optional)'
         />
-      </div>    
+      </div>
       {showWarning && (
-        <p className="text-[#FF4242] text-sm leading-[19.1px] font-nunitoSans mt-2">
+        <p className='text-[#FF4242] text-sm leading-[19.1px] font-nunitoSans mt-2'>
           Please fill in all required fields before confirming
         </p>
       )}
       {emailError && (
-        <p className="text-[#FF4242] text-sm leading-[19.1px] font-nunitoSans mt-2">
+        <p className='text-[#FF4242] text-sm leading-[19.1px] font-nunitoSans mt-2'>
           Please enter a correct email address
         </p>
       )}
-      
     </form>
   );
-}
+};
 
 export default FormSection;

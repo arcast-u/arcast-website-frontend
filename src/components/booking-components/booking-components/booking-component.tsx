@@ -36,7 +36,11 @@ const initialFormState = {
   recordingLocation: '',
 };
 
-const StudioBooking = () => {
+const StudioBooking = ({
+  onStepChange,
+}: {
+  onStepChange?: (step: number) => void;
+}) => {
   const [isStorageLoaded, setIsStorageLoaded] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
   const [studio, setStudio] = useState<StudioProps[] | null>(null);
@@ -53,9 +57,6 @@ const StudioBooking = () => {
     price: string;
   } | null>(null);
 
-
-
-
   const [timeSlots, setTimeSlots] = useState<TimeSlotListProps[] | null>(null);
   const nowISO = new Date().toISOString();
   const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>(nowISO);
@@ -69,12 +70,12 @@ const StudioBooking = () => {
   const router = useRouter();
   const tabs = ['Step 1', 'Step 2', 'Step 3', 'Step 4'];
 
-  // get studios
-
-  console.log(selectedTimeSlot, 'time')
-
-
-
+  const setCurrentStepWithNotify = (step: number) => {
+    setCurrentStep(step);
+    if (onStepChange) {
+      onStepChange(step);
+    }
+  };
   useEffect(() => {
     async function fetchStudios() {
       const apiUrl = `https://arcast-ai-backend.vercel.app/api/studios`;
@@ -247,7 +248,7 @@ const StudioBooking = () => {
       const saved = localStorage.getItem('bookingProgress');
       if (saved) {
         const savedState = JSON.parse(saved);
-        setCurrentStep(savedState.currentStep ?? 0);
+        setCurrentStepWithNotify(savedState.currentStep ?? 0);
         setSelectedStudioIndex(savedState.selectedStudioIndex ?? 0);
         setSelectedPackageIndex(savedState.selectedPackageIndex ?? 0);
         setSelectedPeopleCount(savedState.selectedPeopleCount ?? 1);
@@ -265,7 +266,7 @@ const StudioBooking = () => {
     } finally {
       setIsStorageLoaded(true);
     }
-  }, []);
+  }, [onStepChange]);
 
   // Save progress
   useEffect(() => {
@@ -350,8 +351,15 @@ const StudioBooking = () => {
       return;
     }
 
-    setCurrentStep((prev: number) => prev + 1);
-  }, [isStepFour, validateRequiredFields, bookStudio, clearProgress, router]);
+    setCurrentStepWithNotify(currentStep + 1);
+  }, [
+    isStepFour,
+    validateRequiredFields,
+    bookStudio,
+    clearProgress,
+    router,
+    currentStep,
+  ]);
 
   return (
     <DurationProvider>
@@ -362,7 +370,7 @@ const StudioBooking = () => {
               <TabList
                 tabs={tabs}
                 currentStep={currentStep}
-                setActiveIndex={setCurrentStep}
+                setActiveIndex={setCurrentStepWithNotify}
               />
               {isStepOne && (
                 <div className='pb-10'>
