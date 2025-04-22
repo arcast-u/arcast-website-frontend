@@ -15,7 +15,6 @@ export type ServiceOptionProps = {
 
 const ServiceOption = ({
   count,
-
   selected,
   onSelect,
   groupName,
@@ -39,8 +38,8 @@ const ServiceOption = ({
           <div className='mt-0.5 3xl:mt-2 font-semibold'>{services.price}</div>
         </div>
         <input
-          type='radio'
-          name={groupName}
+          type='checkbox'
+          name={`${groupName}-${count}`}
           aria-checked={selected}
           checked={selected}
           onChange={onSelect}

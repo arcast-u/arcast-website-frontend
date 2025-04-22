@@ -52,10 +52,12 @@ const StudioBooking = ({
   const [dateData, setDateData] = useState<AvailabilityItemProps[] | null>(
     null
   );
-  const [selectedCustomService, setSelectedCustomService] = useState<{
-    name: string;
-    price: string;
-  } | null>(null);
+  const [selectedCustomServices, setSelectedCustomServices] = useState<
+    Array<{
+      name: string;
+      price: string;
+    }>
+  >([]);
 
   const [timeSlots, setTimeSlots] = useState<TimeSlotListProps[] | null>(null);
   const nowISO = new Date().toISOString();
@@ -70,6 +72,9 @@ const StudioBooking = ({
   const router = useRouter();
   const tabs = ['Step 1', 'Step 2', 'Step 3', 'Step 4'];
 
+  const handleServiceSelect = (services: { name: string; price: string }[]) => {
+    setSelectedCustomServices(services);
+  };
   const setCurrentStepWithNotify = (step: number) => {
     setCurrentStep(step);
     if (onStepChange) {
@@ -434,9 +439,7 @@ const StudioBooking = ({
                   <CustomServices
                     duration={duration}
                     setDuration={setDuration}
-                    onServiceSelect={(service) =>
-                      setSelectedCustomService(service)
-                    }
+                    onServiceSelect={handleServiceSelect}
                   />
                 </div>
               )}
@@ -460,7 +463,7 @@ const StudioBooking = ({
                     duration={duration}
                     location={form.recordingLocation}
                     studioLocation={selectedStudio?.location}
-                    customService={selectedCustomService}
+                    customService={selectedCustomServices}
                   />
                 </div>
               )}
@@ -478,7 +481,7 @@ const StudioBooking = ({
             step={currentStep}
             load={isBooking}
             onContinue={handleContinue}
-            customService={selectedCustomService}
+            customService={selectedCustomServices}
           />
         </div>
       </main>

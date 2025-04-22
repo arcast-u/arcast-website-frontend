@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 type Selector = {
   duration: number;
   setDuration: (value: number) => void;
-  onServiceSelect: (service: { name: string; price: string } | null) => void;
+  onServiceSelect: (services: { name: string; price: string }[]) => void;
 };
 
 // const services = [
@@ -91,22 +91,32 @@ const CustomServices = ({
   setDuration,
   onServiceSelect,
 }: Selector) => {
-  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+  const [selectedIndices, setSelectedIndices] = useState<number[]>([]);
   const [loading, setLoading] = useState(true);
+
   const [additionalServices, setAdditionalServices] = useState<
     AdditionalServiceType[]
   >([]);
 
   const handleServiceSelect = (index: number) => {
-    setSelectedIndex(index);
-    onServiceSelect(
-      index === null
-        ? null
-        : {
-            name: additionalServices[index].title,
-            price: additionalServices[index].price,
-          }
-    );
+    // Check if the index is already selected
+    const isSelected = selectedIndices.includes(index);
+
+    // Toggle selection: if already selected, remove it; otherwise, add it
+    const newSelectedIndices = isSelected
+      ? selectedIndices.filter((i) => i !== index)
+      : [...selectedIndices, index];
+
+    setSelectedIndices(newSelectedIndices);
+
+    // Create an array of selected services
+    const selectedServices = newSelectedIndices.map((i) => ({
+      name: additionalServices[i].title,
+      price: additionalServices[i].price,
+    }));
+
+    // Pass the array to the parent component
+    onServiceSelect(selectedServices);
   };
 
   const fetchServices = async () => {
@@ -147,7 +157,7 @@ const CustomServices = ({
               services={service}
               count={index}
               groupName='service-options'
-              selected={selectedIndex === index}
+              selected={selectedIndices.includes(index)}
               onSelect={() => handleServiceSelect(index)}
               duration={duration}
               setDuration={setDuration}

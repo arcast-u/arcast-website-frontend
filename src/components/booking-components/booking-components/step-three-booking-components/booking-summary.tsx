@@ -13,14 +13,11 @@ interface BookingComponentProps {
   seats?: number;
   location?: string;
   image?: string;
-  customService?: {
+  customService?: Array<{
     name: string;
     price: string;
-  } | null;
+  }>;
 }
-
-
-
 
 const BookingSummary = ({
   selectedPackage,
@@ -51,7 +48,7 @@ const BookingSummary = ({
       hour12: true,
     });
 
-    console.log(time, 'time')
+  console.log(time, 'time');
   const addHours = (isoDate: string | undefined, hours: number): string => {
     try {
       // If no date provided or invalid date, use current date/time as default
@@ -74,10 +71,15 @@ const BookingSummary = ({
   const packageTotal = Number(price) * duration;
   const parsePrice = (priceString: string): number =>
     Number(priceString.replace(/[^0-9.-]+/g, ''));
-  const customServicePrice = customService
-    ? parsePrice(customService.price)
-    : 0;
-  const total = packageTotal + customServicePrice;
+  const customServiceTotal =
+    customService && customService.length > 0
+      ? customService.reduce(
+          (sum, service) => sum + parsePrice(service.price),
+          0
+        )
+      : 0;
+
+  const total = packageTotal + customServiceTotal;
   const actualDuration = duration;
   const displayDuration = duration === 3 ? duration + 1 : duration;
   const hasBonusHour = duration === 3;
@@ -134,13 +136,18 @@ const BookingSummary = ({
                 </div> */}
                 </div>
 
-                {customService && (
+                {customService && customService.length > 0 && (
                   <>
                     <div className='mt-5 3xl:mt-6 w-full min-h-[0.1px] bg-[#98989870]' />
-                    <div className='flex flex-wrap gap-3 items-center justify-between mt-3'>
-                      <p>{customService.name}</p>
-                      <p>{customService.price}</p>
-                    </div>
+                    {customService.map((service, index) => (
+                      <div
+                        key={index}
+                        className='flex flex-wrap gap-3 items-center justify-between mt-3'
+                      >
+                        <p>{service.name}</p>
+                        <p>{service.price}</p>
+                      </div>
+                    ))}
                   </>
                 )}
                 <div className='mt-5 3xl:mt-6 w-full min-h-[0.1px] bg-[#98989870]' />

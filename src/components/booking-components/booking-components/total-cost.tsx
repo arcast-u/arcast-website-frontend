@@ -10,10 +10,10 @@ type TotalCostProps = {
   step: number;
   onContinue: () => void;
   load: boolean;
-  customService?: {
+  customService?: Array<{
     name: string;
     price: string;
-  } | null;
+  }>;
 };
 
 const TotalCost = ({
@@ -30,14 +30,34 @@ const TotalCost = ({
 }: TotalCostProps) => {
   const hasBonusHour = duration === 3 || duration === '3';
   const displayDuration = hasBonusHour ? Number(duration) + 1 : duration;
+
+  // Calculate total from all custom services
+  const calculateServiceTotal = () => {
+    if (!customService || customService.length === 0) {
+      return 0;
+    }
+
+    return customService.reduce((sum, service) => {
+      // Extract numeric value from price string (e.g., "440 AED" -> 440)
+      const price = parseFloat(service.price.split(' ')[0]);
+      return sum + (isNaN(price) ? 0 : price);
+    }, 0);
+  };
+  const serviceTotal = calculateServiceTotal();
   return (
     <div className=' bg-zinc-50 shadow-lg md:w-[90%] mx-auto lg:w-full border border-[#989898] rounded-2xl border-opacity-50'>
       <div className='flex justify-between items-center mx-auto px-4 py-3 lg:px-6 font-nunitoSans 3xl:py-4 w-full 3xl:px-8'>
         <div className='flex flex-col flex-1 justify-center self-stretch my-auto basis-12 '>
           <p className='3xl:text-sm text-xs font-normal text-[#989898] leading-[16.37px] lg:leading-4 3xl:leading-[19.1px]'>
             {studioName} {description}{' '}
-            {customService && (
-              <span className='block'>{`+ ${customService.name}`}</span>
+            {customService && customService.length > 0 && (
+              <span className='block'>
+                {`+ ${customService[0].name}`}
+                {customService.length > 1 &&
+                  ` +${customService.length - 1} more service${
+                    customService.length > 2 ? 's' : ''
+                  }`}
+              </span>
             )}
           </p>
           <strong className='3xl:mt-1 mt-0.5 text-sm leading-[19.1px] lg:text-lg lg:leading-[24px] 3xl:text-xl font-semibold text-[#333333] 3xl:leading-[32.74px]'>
@@ -49,8 +69,8 @@ const TotalCost = ({
               </>
             )}
             {total} {currency}{' '}
-            {customService && (
-              <span className=''>{`+ ${customService.price}`}</span>
+            {customService && customService.length > 0 && (
+              <span className='ml-1'>{`+ ${serviceTotal} ${currency}`}</span>
             )}
           </strong>
         </div>
