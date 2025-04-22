@@ -322,7 +322,7 @@ const StudioBooking = ({
     const requiredFields = {
       fullName: form.fullName,
       email: form.email,
-      phoneNumber: form.phoneNumber,
+      // phoneNumber: form.phoneNumber,
       whatsappNumber: form.whatsappNumber,
       countryCode: form.countryCode,
       whatsappCountryCode: form.whatsappCountryCode,
@@ -342,7 +342,7 @@ const StudioBooking = ({
       try {
         if (bookingResult) {
           clearProgress();
-          router.push('/bookings/thank-you');
+          router.push('/bookings/confirmation');
         }
       } catch (error) {
         console.error('Booking failed:', error);
