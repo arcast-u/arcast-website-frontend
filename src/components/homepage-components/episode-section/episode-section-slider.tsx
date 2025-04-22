@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useSpring, animated, config, SpringValue } from '@react-spring/web';
 // import { TbCaretLeft, TbCaretRight } from 'react-icons/tb';
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-import { useRouter } from 'next/navigation';
+
 import Image from 'next/image';
 
 interface SlideData {
@@ -174,7 +174,7 @@ const EpisodeSectionSlider = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
-  const router = useRouter();
+//   const router = useRouter();
   const minSwipeDistance = 50;
 
   const onTouchStart = (e: React.TouchEvent) => {
@@ -252,10 +252,10 @@ const EpisodeSectionSlider = () => {
     });
   };
 
-  const handleBookSession = (setupId: number) => {
-    router.push(`/bookings?setup=${setupId}`);
-    localStorage.setItem('selectedStudio', setupId.toString());
-  };
+//   const _handleBookSession = (setupId: number) => {
+//     router.push(`/bookings?setup=${setupId}`);
+//     localStorage.setItem('selectedStudio', setupId.toString());
+//   };
 
   const handleNext = () => {
     setCurrentIndex((prev) => (prev + 1) % slides.length);
