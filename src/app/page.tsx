@@ -11,8 +11,8 @@ import Community from '@/components/homepage-components/community/community';
 import Footer from '@/components/homepage-components/footer/footer';
 import MarqueeSlider from '@/components/homepage-components/marquee/marquee';
 import DubaiStudioLocation from '@/components/homepage-components/location/location';
-import MicProfessionals from '@/components/homepage-components/mic-professionals';
-import EpisodeSection from '@/components/homepage-components/episode-section/section';
+// import MicProfessionals from '@/components/homepage-components/mic-professionals';
+// import EpisodeSection from '@/components/homepage-components/episode-section/section';
 // import AudioPlayer from "@/components/music";
 // import BookinPage from "./book-session/page";
 
@@ -23,14 +23,14 @@ export default function Home() {
       {/* <BookinPage/> */}
       {/* <AudioPlayer/> */}
       <Hero />
-      <MicProfessionals />
+      {/* <MicProfessionals /> */}
       <StudioSpace />
       <ProfessionalStudio />
       <Equipment />
       <ProductionPartners />
       {/* <Video/> */}
       <MarqueeSlider />
-      <EpisodeSection />
+      {/* <EpisodeSection /> */}
       <DubaiStudioLocation />
       <Community />
       <FAQSection />

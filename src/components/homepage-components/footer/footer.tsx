@@ -127,19 +127,21 @@ const Footer = () => {
                       </Link>
                     </li>
                     <li>
-                      <div
-                        onClick={() => {
-                          window.scrollTo({ top: 0, behavior: 'smooth' });
+                      <Link
+                          href='/bookings'
+                       rel='noopener noreferrer'
+                        // onClick={() => {
+                        //   window.scrollTo({ top: 0, behavior: 'smooth' });
 
-                          localStorage.setItem('openStudioDropdown', 'true');
+                        //   localStorage.setItem('openStudioDropdown', 'true');
 
-                          const event = new CustomEvent('openStudioDropdown');
-                          window.dispatchEvent(event);
-                        }}
+                        //   const event = new CustomEvent('openStudioDropdown');
+                        //   window.dispatchEvent(event);
+                        // }}
                         className='hover:underline underline-offset-2 cursor-pointer'
                       >
                         Studios
-                      </div>
+                      </Link>
                     </li>
                   </ul>
                 </div>

@@ -5,60 +5,63 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const CarouselContent = () => {
-  // Use state to store the value from localStorage
   const [setup, setSetup] = useState<string | null>(null);
-
-  // Retrieve setup from localStorage only on the client side
-  useEffect(() => {
-    const storedSetup = localStorage.getItem('selectedStudio');
-    setSetup(storedSetup);
-  }, []);
-
-  // Define a dynamic images array based on the setup parameter
-  let carouselImages: string[] = [];
-  if (setup === '0') {
-    carouselImages = [
-      '/images/setup2-1.webp',
-      '/images/setup2-2.webp',
-      '/images/setup2-3.webp',
-    ];
-  } else if (setup === '1') {
-    carouselImages = [
-      '/images/setup3-1.webp',
-      '/images/setup3-2.webp',
-      '/images/setup3-3.webp',
-      '/images/setup3-4.webp',
-    ];
-  } else if (setup === '2') {
-    carouselImages = [
-      '/images/setup6-1.webp',
-      '/images/setup6-2.webp',
-      '/images/setup6-3.webp',
-      '/images/setup6-4.webp',
-    ];
-  } else if (setup === '3') {
-    carouselImages = [
-      '/images/setup8-1.webp',
-      '/images/setup8-2.webp',
-      '/images/setup8-3.webp',
-    ];
-  }
-
+  const [carouselImages, setCarouselImages] = useState<string[]>([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const startX = useRef(0);
   const endX = useRef(0);
 
-  // Auto-slide effect
+  // Load setup from localStorage safely (client-side only)
+  const storedSetup = typeof window !== 'undefined' ? localStorage.getItem('selectedStudio') : null;
+  useEffect(() => {
+
+    setSetup(storedSetup);
+  }, [storedSetup]);
+
+  // Update carouselImages when setup changes
+  useEffect(() => {
+    let images: string[] = [];
+    if (setup === '0') {
+      images = [
+        '/images/setup2-1.webp',
+        '/images/setup2-2.webp',
+        '/images/setup2-3.webp',
+      ];
+    } else if (setup === '1') {
+      images = [
+        '/images/setup3-1.webp',
+        '/images/setup3-2.webp',
+        '/images/setup3-3.webp',
+        '/images/setup3-4.webp',
+      ];
+    } else if (setup === '2') {
+      images = [
+        '/images/setup6-1.webp',
+        '/images/setup6-2.webp',
+        '/images/setup6-3.webp',
+        '/images/setup6-4.webp',
+      ];
+    } else if (setup === '3') {
+      images = [
+        '/images/setup8-1.webp',
+        '/images/setup8-2.webp',
+        '/images/setup8-3.webp',
+      ];
+    }
+    setCarouselImages(images);
+  }, [setup]);
+
+  // Auto-slide effect (unchanged)
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) =>
         prev === carouselImages.length - 1 ? 0 : prev + 1
       );
     }, 5000);
-
     return () => clearInterval(interval);
   }, [carouselImages.length]);
 
+  // Rest of your component (unchanged)
   const prevSlide = () => {
     setCurrentIndex((prev) =>
       prev === 0 ? carouselImages.length - 1 : prev - 1
