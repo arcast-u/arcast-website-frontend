@@ -11,12 +11,16 @@ interface Language {
   code: string;
   name: string;
 }
-// interface LanguageSelectorProps {
-//   isOpen: boolean;
-//   isStudioOpen: boolean;
-//   pathname: string;
-// }
-export default function LanguageSelector() {
+interface LanguageSelectorProps {
+  isOpen: boolean;
+  isStudioOpen: boolean;
+  pathname: string;
+}
+export default function LanguageSelector({
+  isOpen,
+  isStudioOpen,
+  pathname,
+}: LanguageSelectorProps) {
   const [languages] = useState<Language[]>([
     { code: 'en', name: 'ENG' },
     { code: 'ru', name: 'RUS' },
@@ -24,6 +28,8 @@ export default function LanguageSelector() {
 
     // Add more languages as needed
   ]);
+
+  console.log(isOpen, isStudioOpen, pathname, 'isOpen');
 
   const [selectedLanguage, setSelectedLanguage] = useState<string>('en');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
