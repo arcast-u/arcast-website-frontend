@@ -14,7 +14,8 @@ export type ServiceOptionProps = {
 };
 
 const ServiceOption = ({
-  count,
+  // count,
+
   selected,
   onSelect,
   groupName,
@@ -25,12 +26,12 @@ const ServiceOption = ({
 
   return (
     <article
-      role='button'
-      tabIndex={0}
-      onClick={onSelect}
-      onKeyDown={(e) => e.key === 'Enter' && onSelect()}
+      // role='button'
+      // tabIndex={0}
+      // onClick={onSelect}
+      // onKeyDown={(e) => e.key === 'Enter' && onSelect()}
       className='flex flex-col justify-center px-5 3xl:px-6 py-4 3xl:py-5 shadow-xl shadow-[#80808050] mt-5w-full mb-5 rounded-xl bg-[#F5F5F7] '
-      aria-pressed={selected}
+      // aria-pressed={selected}
     >
       <header className='flex flex-wrap justify-between font-nunitoSans items-center w-full text-lg leading-[26px] 3xl:text-xl 3xl:leading-[27.28px] text-[#333333]'>
         <div className='flex flex-col flex-1 shrink self-stretch my-auto basis-0'>
@@ -39,20 +40,21 @@ const ServiceOption = ({
         </div>
         <input
           type='checkbox'
-          name={`${groupName}-${count}`}
+          name={`${groupName}`}
           aria-checked={selected}
           checked={selected}
           onChange={onSelect}
           className={`flex shrink-0 gap-2.5 self-stretch accent-[#333333] my-auto w-4 h-4 rounded-xl border border-solid`}
         />
       </header>
-      {count < 2 && (
+      {(
         <div className='w-full'>
           <SelectDuration
             hasBorder={true}
             duration={duration}
             setDuration={(value) => setDuration(services.title, value)}
             hasHeader={false}
+            services={services}
           />
         </div>
       )}

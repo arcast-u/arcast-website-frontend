@@ -1,26 +1,35 @@
 'use client'
-import React from 'react';
+import React, { useEffect } from 'react';
 import DurationSelector from './duration-selector';
+import { AdditionalServiceType } from '@/lib/types';
 
-type Selector= {
+type Selector = {
   hasBorder: boolean
   hasHeader: boolean;
   duration: number;
-  setDuration: (value: number) => void
+  setDuration: (value: number) => void;
+  services?: AdditionalServiceType;
 }
-function SelectDuration({hasBorder, hasHeader, duration, setDuration}: Selector) {
-     
+function SelectDuration({ hasBorder, hasHeader, duration, setDuration, services }: Selector) {
+  useEffect(() => {
+    if (services?.type === "STANDARD_EDIT_SHORT_FORM") {
+      setDuration(3)
+    } else {
+      setDuration(1)
+    }
+  }, [])
+
   return (
     <section className={`${hasHeader === true ? ' mt-8 lg:mt-10 md:w-[90%]' : 'md:w-full'}  mx-auto lg:w-full`}>
-        {hasHeader === true ? <h2 className="header-text">
-          How many hours would you need
-        </h2> : ''}
-        <DurationSelector
+      {hasHeader === true ? <h2 className="header-text">
+        How many hours would you need
+      </h2> : ''}
+      <DurationSelector
         duration={duration}
-        onIncrease={() => setDuration(Math.min(10, duration + 1))}
-        onDecrease={() => setDuration(Math.max(1, duration - 1))}
+        onIncrease={services?.type === "STANDARD_EDIT_SHORT_FORM" ? () => setDuration(Math.min(12, duration + 3)) : () => setDuration(Math.min(10, duration + 1))}
+        onDecrease={services?.type === "STANDARD_EDIT_SHORT_FORM" ? () => setDuration(Math.max(3, duration - 3)) : () => setDuration(Math.max(1, duration - 1))}
         hasBorder={hasBorder}
-        />
+      />
     </section>
   )
 }

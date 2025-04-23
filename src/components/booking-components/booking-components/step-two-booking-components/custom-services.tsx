@@ -161,6 +161,7 @@ const CustomServices = ({
               onSelect={() => handleServiceSelect(index)}
               duration={duration}
               setDuration={setDuration}
+
             />
           ))
         )}
