@@ -1,20 +1,10 @@
 'use client';
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense } from 'react';
 // import {GoogleAnalytics} from '@next/third-parties/google';
 import { Carousel } from '@/components/booking-components/carousel-components/carousel';
-import { useSearchParams } from 'next/navigation';
 import BookingFailedContent from './content';
 
 const BookingFailedPage = () => {
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    // Extract all query parameters into an object
-    const params: Record<string, string> = {};
-    searchParams.forEach((value, key) => {
-      params[key] = value;
-    });
-  }, [searchParams]);
   return (
     <>
       {/* <GoogleAnalytics gaId="G-M1E9W0FZ76" /> */}

@@ -16,7 +16,6 @@ const BookingFailedContent = () => {
       params[key] = value;
     });
   }, [searchParams]);
-
   return (
     <>
       <div className='w-full mt-5 '>
