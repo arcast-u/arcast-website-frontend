@@ -23,6 +23,7 @@ import { DurationProvider } from '@/contex/durationContext';
 import EquipmentSection from './step-one-bookingComponents/recording-EquipmentList';
 import { useRouter } from 'next/navigation';
 import CustomServices from './step-two-booking-components/custom-services';
+import axios from 'axios';
 // import CustomServices from './step-two-booking-components/custom-services';
 
 const initialFormState = {
@@ -67,6 +68,7 @@ const StudioBooking = ({
   const selectedPackage = packages?.[selectedPackageIndex] || null;
   const selectedStudio = studio?.[selectedStudioIndex] || null;
   const [loading, setLoading] = useState(true);
+  const [paymentLoading, setPaymentLoading] = useState(false);
   const [showWarning, setShowWarning] = useState<boolean>(false);
   const [form, setForm] = useState(initialFormState);
   const router = useRouter();
@@ -169,7 +171,6 @@ const StudioBooking = ({
 
           const dayData = await dayResponse.json();
           setTimeSlots(dayData.timeSlots);
-          // console.log(dayData.timeSlots);
         }
       } catch (error: unknown) {
         if (error instanceof Error) {
@@ -186,6 +187,7 @@ const StudioBooking = ({
   // submit form
   const bookStudio = async (): Promise<BookingProps | null> => {
     setIsBooking(true);
+    setPaymentLoading(true);
     const url = `https://arcast-ai-backend.vercel.app/api/bookings`;
 
     const actualDuration = duration === 3 ? duration + 1 : duration;
@@ -218,8 +220,15 @@ const StudioBooking = ({
 
       if (response.ok) {
         const data = await response.json();
+        const paymentlink = await createPaymentLink(data.id);
 
-        toast.success('Booking successful');
+        if (paymentlink) {
+          // Redirect to payment page if successful
+          router.push(paymentlink.paymentLink);
+          return data;
+        }
+        return null;
+        // toast.success('Booking successful');
         return data;
       } else {
         if (response.status === 500) {
@@ -239,6 +248,28 @@ const StudioBooking = ({
       return null;
     } finally {
       setIsBooking(false);
+      setPaymentLoading(false);
+    }
+  };
+
+  const createPaymentLink = async (
+    bookingId: string
+  ): Promise<{ paymentLink: string } | null> => {
+    const url = `https://arcast-ai-backend.vercel.app/api/bookings/${bookingId}/payment/link`;
+    try {
+      const res = await axios.post(url);
+      if (res.status === 201) {
+        router.push(res.data.paymentLink.url);
+      }
+      return null;
+    } catch (error) {
+      if (error instanceof Error) {
+        toast.error(`Payment link creation failed: ${error.message}`);
+      } else {
+        toast.error('Failed to create payment link');
+      }
+      router.push('/bookings/failed');
+      return null;
     }
   };
 
@@ -344,15 +375,10 @@ const StudioBooking = ({
         return;
       }
       const bookingResult = await bookStudio();
-      try {
-        if (bookingResult) {
-          clearProgress();
-          router.push('/bookings/confirmation');
-        }
-      } catch (error) {
-        console.error('Booking failed:', error);
-      }
 
+      if (bookingResult) {
+        clearProgress();
+      }
       return;
     }
 
@@ -479,7 +505,7 @@ const StudioBooking = ({
             currency={isStepOne ? '' : selectedPackage?.currency}
             buttonText={isStepFour ? 'Book Now' : 'Continue'}
             step={currentStep}
-            load={isBooking}
+            load={isBooking || paymentLoading}
             onContinue={handleContinue}
             customService={selectedCustomServices}
           />

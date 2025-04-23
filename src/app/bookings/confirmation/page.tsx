@@ -1,10 +1,21 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 // import {GoogleAnalytics} from '@next/third-parties/google';
 import { Carousel } from '@/components/booking-components/carousel-components/carousel';
 import BookingConfirmation from '@/components/booking-components/booking-components/step-three-booking-components/bookingConfirmation';
+import { useSearchParams } from 'next/navigation';
 
 const BookingConfirmationPage = () => {
+  const searchParams = useSearchParams();
+  // const [bookingData, setBookingData] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    // Extract all query parameters into an object
+    const params: Record<string, string> = {};
+    searchParams.forEach((value, key) => {
+      params[key] = value;
+    });
+  }, [searchParams]);
   return (
     <>
       {/* <GoogleAnalytics gaId="G-M1E9W0FZ76" /> */}

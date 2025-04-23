@@ -1,13 +1,23 @@
 'use client';
-import React from 'react';
+import React, { useEffect } from 'react';
 // import {GoogleAnalytics} from '@next/third-parties/google';
 import { Carousel } from '@/components/booking-components/carousel-components/carousel';
 import { TiCancel } from 'react-icons/ti';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const BookingFailedPage = () => {
   const router = useRouter();
   const onClose = () => router.push('/bookings');
+
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    // Extract all query parameters into an object
+    const params: Record<string, string> = {};
+    searchParams.forEach((value, key) => {
+      params[key] = value;
+    });
+  }, [searchParams]);
   return (
     <>
       {/* <GoogleAnalytics gaId="G-M1E9W0FZ76" /> */}
