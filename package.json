@@ -16,6 +16,7 @@
     "@react-spring/web": "^9.7.5",
     "@use-gesture/react": "^10.3.1",
     "add": "^2.0.6",
+    "arcast-website": "file:",
     "axios": "^1.8.2",
     "calendar": "^0.1.1",
     "class-variance-authority": "^0.7.1",

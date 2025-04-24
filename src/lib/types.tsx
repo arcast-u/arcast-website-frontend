@@ -179,4 +179,5 @@ export interface AdditionalServiceType {
   isActive: boolean;
   createdAt: string;
   updatedAt: string;
+  quantity?: number
 }

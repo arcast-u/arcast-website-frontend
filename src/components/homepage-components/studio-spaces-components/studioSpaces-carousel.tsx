@@ -48,7 +48,7 @@ const slides: SlideData[] = [
     title: 'Setup 1',
     buttonText: 'Book Your Session',
     images: [
-      '/images/newstudio2.png',
+      '/images/newstudioextra.png',
       // '/images/studio4.jpg',
       // '/images/studio3.jpg',
     ],
