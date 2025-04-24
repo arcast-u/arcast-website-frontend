@@ -1,50 +1,19 @@
-// 'use client'
-// import React from 'react'
-// import NavigationBar from './nav-bar';
-// import { useRouter } from 'next/navigation';
-
-// function Hero() {
-//   const router = useRouter();
-//   const bookSession = () => {router.push('/bookings');};
-//   return (
-//     <div className="h-screen w-full md:bg-[url('/images/heronew.png')] ipadPro:bg-[url('/images/heronew.png')] lg:bg-[url('/images/heronew.png')] bg-[url('/images/newHeroMobile.png')] bg-cover bg-center bg-no-repeat border-0 outline-none">
-//         <div className='max-w-[1728px] h-full flex flex-col mx-auto'>
-//           <NavigationBar/>
-//           <div className='w-[85%] mx-[21px] lg:w-[55%] lg:mx-10 mb-28 md:mb-10 3xl:mx-[100px] mt-auto'>
-//               <p className='text-[#FCFCFC] font-hankenGrotesk font-medium text-3xl leading-[39.09px] xl:text-4xl xl:leading-[45px] 3xl:text-[52px] 3xl:leading-[67.76px]'>
-//                 Where Dubai&apos;s Bold Voices Come to Life. Dubai&apos;s World-Class  Podcast Studio.
-//               </p>
-              
-//               <div onClick={bookSession} className="flex w-fit 3xl:mt-8 mt-6 hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#64391E] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] ">
-//                 <button className="flex-1 bg-[#FF8C42] w-fit px-3 py-2 3xl:px-4 3xl:py-3 rounded-lg">
-//                   Book Your Session
-//                 </button>
-//               </div>
-//           </div>
-//         </div>
-//     </div>
-//   )
-// }
-
-// export default Hero
-
-
-'use client'
-import React, { useEffect, useState } from 'react'
+'use client';
+import React, { useEffect, useState } from 'react';
 import NavigationBar from './nav-bar';
 import { useRouter } from 'next/navigation';
 
 function Hero() {
   const router = useRouter();
-  const bookSession = () => { router.push('/bookings'); };
-
 
   const [videoSrc, setVideoSrc] = useState('/video/bg-hero-video.mp4');
 
   useEffect(() => {
     const handleResize = () => {
       const isMobile = window.innerWidth < 768;
-      setVideoSrc(isMobile ? '/video/bg-hero-mobile.mp4' : '/video/bg-hero-video.mp4');
+      setVideoSrc(
+        isMobile ? '/video/bg-hero-mobile.mp4' : '/video/bg-hero-video.mp4'
+      );
     };
 
     handleResize(); // Set on load
@@ -53,9 +22,8 @@ function Hero() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-
   return (
-    <div className="relative h-screen w-full overflow-hidden border-0 outline-none">
+    <div className='relative h-screen w-full overflow-hidden border-0 outline-none'>
       {/* Background Video */}
       <video
         autoPlay
@@ -63,32 +31,32 @@ function Hero() {
         muted
         playsInline
         poster='/images/heronew.png'
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        className='absolute top-0 left-0 w-full h-full object-cover z-0'
       >
-        <source src={videoSrc} type="video/mp4" />
+        <source src={videoSrc} type='video/mp4' />
         Your browser does not support the video tag.
       </video>
 
       {/* Content Layer */}
-      <div className="relative z-10 max-w-[1728px] h-full flex flex-col mx-auto">
+      <div className='relative z-10 max-w-[1728px] h-full flex flex-col mx-auto'>
         <NavigationBar />
-        <div className="w-[85%] mx-[21px] lg:w-[55%] lg:mx-10 mb-28 md:mb-10 3xl:mx-[100px] mt-auto">
-          <p className="text-[#FCFCFC] font-hankenGrotesk font-medium text-3xl leading-[39.09px] xl:text-4xl xl:leading-[45px] 3xl:text-[52px] 3xl:leading-[67.76px]">
-            Where Dubai&apos;s Bold Voices Come to Life. Dubai&apos;s World-Class Podcast Studio.
+        <div className='w-[85%] mx-[21px] lg:w-[55%] lg:mx-10 mb-28 md:mb-10 3xl:mx-[100px] mt-auto'>
+          <p className='text-[#FCFCFC] font-hankenGrotesk font-medium text-3xl leading-[39.09px] xl:text-4xl xl:leading-[45px] 3xl:text-[52px] 3xl:leading-[67.76px]'>
+            Where Dubai&apos;s Bold Voices Come to Life. Dubai&apos;s
+            World-Class Podcast Studio.
           </p>
           <div
-            onClick={bookSession}
-            className="flex w-fit 3xl:mt-8 mt-6 hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#64391E] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px]"
+            onClick={() => router.push('/bookings')}
+            className='flex w-fit 3xl:mt-8 mt-6 hover:scale-105 lg:flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#64391E] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px]'
           >
-            <button className="flex-1 bg-[#FF8C42] w-fit px-3 py-2 3xl:px-4 3xl:py-3 rounded-lg">
+            <button className='flex-1 bg-[#FF8C42] w-fit px-3 py-2 3xl:px-4 3xl:py-3 rounded-lg'>
               Book Your Session
             </button>
           </div>
         </div>
       </div>
     </div>
-
-  )
+  );
 }
 
-export default Hero
+export default Hero;

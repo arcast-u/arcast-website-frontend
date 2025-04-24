@@ -440,7 +440,8 @@ const StudioBooking = ({
               {isStepThree && (
                 <div className='pb-10'>
                   <NumberOfPeople
-                    seats={selectedStudio?.totalSeats}
+                    // seats={selectedStudio?.totalSeats}
+                    seats={4}
                     selectedPeopleCount={selectedPeopleCount}
                     setSelectedPeopleCount={setSelectedPeopleCount}
                   />
