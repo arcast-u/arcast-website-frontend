@@ -87,7 +87,14 @@ const StudioBooking = ({
     if (onStepChange) {
       onStepChange(step);
     }
-    if (contentRef.current) {
+    const isMobile = window.innerWidth < 768;
+
+    if (isMobile) {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    } else if (contentRef.current) {
       contentRef.current.scrollTo({
         top: 0,
         behavior: 'smooth',
