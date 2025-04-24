@@ -8,7 +8,7 @@ function Hero() {
   const [videoSrc, setVideoSrc] = useState<string>('')
   const [isMobile, setIsMobile] = useState(false)
 
-  const bookSession = () => { router.push('/bookings') }
+  // const bookSession = () => { router.push('/bookings') }
 
   useEffect(() => {
     // Function to check and set device type
