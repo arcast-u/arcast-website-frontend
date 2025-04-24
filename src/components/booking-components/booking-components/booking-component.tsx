@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import TabList from './navigation-tabList';
 import StudioCardList from './step-one-bookingComponents/studio-cardList';
 import TotalCost from './total-cost';
@@ -74,6 +74,7 @@ const StudioBooking = ({
   const [form, setForm] = useState(initialFormState);
   const router = useRouter();
   const tabs = ['Step 1', 'Step 2', 'Step 3', 'Step 4'];
+  const contentRef = useRef<HTMLDivElement>(null);
 
   const handleServiceSelect = (
     services: { name: string; price: string; quantity: number }[]
@@ -85,6 +86,12 @@ const StudioBooking = ({
     setCurrentStep(step);
     if (onStepChange) {
       onStepChange(step);
+    }
+    if (contentRef.current) {
+      contentRef.current.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
     }
   };
   useEffect(() => {
@@ -400,7 +407,7 @@ const StudioBooking = ({
     <DurationProvider>
       <main className='relative border mx-auto lg:mx-0'>
         <div className='flex flex-col w-full lg:h-screen bg-[#FCFCFC]'>
-          <div className='flex-1 overflow-y-auto lg:pb-24'>
+          <div className='flex-1 overflow-y-auto lg:pb-24' ref={contentRef}>
             <div className=' relative mx-auto px-5 pt-11 3xl:px-8 3xl:pt-8'>
               <TabList
                 tabs={tabs}
