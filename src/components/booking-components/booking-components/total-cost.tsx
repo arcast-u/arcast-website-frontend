@@ -13,6 +13,7 @@ type TotalCostProps = {
   customService?: Array<{
     name: string;
     price: string;
+    quantity: number;
   }>;
 };
 
@@ -40,7 +41,7 @@ const TotalCost = ({
     return customService.reduce((sum, service) => {
       // Extract numeric value from price string (e.g., "440 AED" -> 440)
       const price = parseFloat(service.price.split(' ')[0]);
-      return sum + (isNaN(price) ? 0 : price);
+      return sum + (isNaN(price) ? 0 : price * service.quantity || 1);
     }, 0);
   };
   const serviceTotal = calculateServiceTotal();
@@ -54,8 +55,7 @@ const TotalCost = ({
               <span className='block'>
                 {`+ ${customService[0].name}`}
                 {customService.length > 1 &&
-                  ` +${customService.length - 1} more service${
-                    customService.length > 2 ? 's' : ''
+                  ` +${customService.length - 1} more service${customService.length > 2 ? 's' : ''
                   }`}
               </span>
             )}

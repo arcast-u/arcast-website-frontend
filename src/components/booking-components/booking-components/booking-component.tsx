@@ -57,8 +57,10 @@ const StudioBooking = ({
     Array<{
       name: string;
       price: string;
+      quantity: number;
     }>
   >([]);
+
 
   const [timeSlots, setTimeSlots] = useState<TimeSlotListProps[] | null>(null);
   const nowISO = new Date().toISOString();
@@ -74,9 +76,10 @@ const StudioBooking = ({
   const router = useRouter();
   const tabs = ['Step 1', 'Step 2', 'Step 3', 'Step 4'];
 
-  const handleServiceSelect = (services: { name: string; price: string }[]) => {
+  const handleServiceSelect = (services: { name: string; price: string; quantity: number }[]) => {
     setSelectedCustomServices(services);
   };
+
   const setCurrentStepWithNotify = (step: number) => {
     setCurrentStep(step);
     if (onStepChange) {

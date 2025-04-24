@@ -8,9 +8,11 @@ type Selector = {
   hasHeader: boolean;
   duration: number;
   setDuration: (value: number) => void;
+  keyIndex?: number;
+  onSelect?: (index: number, action: "toggle" | "increment" | "decrement") => void;
   services?: AdditionalServiceType;
 }
-function SelectDuration({ hasBorder, hasHeader, duration, setDuration, services }: Selector) {
+function SelectDuration({ keyIndex, onSelect, hasBorder, hasHeader, duration, setDuration, services }: Selector) {
   useEffect(() => {
     if (services?.type === "STANDARD_EDIT_SHORT_FORM") {
       setDuration(3)
@@ -26,8 +28,16 @@ function SelectDuration({ hasBorder, hasHeader, duration, setDuration, services 
       </h2> : ''}
       <DurationSelector
         duration={duration}
-        onIncrease={services?.type === "STANDARD_EDIT_SHORT_FORM" ? () => setDuration(Math.min(12, duration + 3)) : () => setDuration(Math.min(10, duration + 1))}
-        onDecrease={services?.type === "STANDARD_EDIT_SHORT_FORM" ? () => setDuration(Math.max(3, duration - 3)) : () => setDuration(Math.max(1, duration - 1))}
+        onIncrease={services?.type === "STANDARD_EDIT_SHORT_FORM" ? () => {
+          setDuration(Math.min(12, duration + 3));
+          onSelect?.(keyIndex!, "increment");
+        } : () => {
+          setDuration(Math.min(10, duration + 1));
+        }}
+        onDecrease={services?.type === "STANDARD_EDIT_SHORT_FORM" ? () => {
+          setDuration(Math.max(3, duration - 3));
+          onSelect?.(keyIndex!, "decrement");
+        } : () => setDuration(Math.max(1, duration - 1))}
         hasBorder={hasBorder}
       />
     </section>

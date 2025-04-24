@@ -8,7 +8,7 @@ import { toast } from 'react-toastify';
 type Selector = {
   duration: number;
   setDuration: (value: number) => void;
-  onServiceSelect: (services: { name: string; price: string }[]) => void;
+  onServiceSelect: (services: { name: string; price: string; quantity: number }[]) => void;
 };
 
 // const services = [
@@ -98,26 +98,63 @@ const CustomServices = ({
     AdditionalServiceType[]
   >([]);
 
-  const handleServiceSelect = (index: number) => {
+
+  const handleServiceSelect = (index: number, action: 'toggle' | 'increment' | 'decrement') => {
     // Check if the index is already selected
     const isSelected = selectedIndices.includes(index);
 
-    // Toggle selection: if already selected, remove it; otherwise, add it
-    const newSelectedIndices = isSelected
-      ? selectedIndices.filter((i) => i !== index)
-      : [...selectedIndices, index];
+    if (action === 'toggle') {
+      // Toggle selection: if already selected, remove it; otherwise, add it
+      const newSelectedIndices = isSelected
+        ? selectedIndices.filter((i) => i !== index)
+        : [...selectedIndices, index];
 
-    setSelectedIndices(newSelectedIndices);
+      setSelectedIndices(newSelectedIndices);
 
-    // Create an array of selected services
-    const selectedServices = newSelectedIndices.map((i) => ({
-      name: additionalServices[i].title,
-      price: additionalServices[i].price,
-    }));
+      // Create an array of selected services based on the new selected indices
+      const selectedServices = newSelectedIndices.map((i) => ({
+        name: additionalServices[i].title,
+        price: additionalServices[i].price,
+        quantity: 1 // Default quantity when adding a new service
+      }));
 
-    // Pass the array to the parent component
-    onServiceSelect(selectedServices);
+      // Pass the array to the parent component
+      onServiceSelect(selectedServices);
+
+    } else if (action === 'increment' || action === 'decrement') {
+      // Handle increment and decrement of the quantity for selected services
+      const updatedServices = selectedIndices.map((i) => {
+        if (i === index) {
+          const currentQuantity = additionalServices[i].quantity || 1;
+          if (action === 'increment') {
+            // Increment quantity
+            additionalServices[i].quantity = currentQuantity + 1;
+          } else if (action === 'decrement' && currentQuantity > 1) {
+            // Decrement quantity but not below 1
+            additionalServices[i].quantity = currentQuantity - 1;
+          }
+        }
+        return additionalServices[i];
+      })
+
+      // Update the state with the updated selected services
+      const updatedIndices = updatedServices.map((service) =>
+        additionalServices.findIndex((s) => s.title === service.title)
+      );
+      setSelectedIndices(updatedIndices);
+
+      // Update the parent component with the updated selected services
+      onServiceSelect(
+        updatedServices.map((service) => ({
+          name: service.title, // Assuming 'title' corresponds to 'name'
+          price: service.price,
+          quantity: service.quantity || 1,
+        }))
+      );
+    }
   };
+
+
 
   const fetchServices = async () => {
     try {
@@ -158,7 +195,8 @@ const CustomServices = ({
               count={index}
               groupName='service-options'
               selected={selectedIndices.includes(index)}
-              onSelect={() => handleServiceSelect(index)}
+              keyIndex={index}
+              onSelect={handleServiceSelect}
               duration={duration}
               setDuration={setDuration}
 
