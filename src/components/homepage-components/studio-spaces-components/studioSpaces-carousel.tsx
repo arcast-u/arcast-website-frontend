@@ -49,11 +49,11 @@ const slides: SlideData[] = [
     buttonText: 'Book Your Session',
     images: [
       '/images/newstudioextra.png',
-      // '/images/studio4.jpg',
+      // '/images/studio4.jpg',s
       // '/images/studio3.jpg',
     ],
     mobileImages: [
-      '/images/newstudio2mobile.png',
+      '/images/newstudioextramobile.png',
       // '/images/studio4.jpg',
       // '/images/studio3.jpg',
     ],
