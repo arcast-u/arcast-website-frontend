@@ -61,7 +61,6 @@ const StudioBooking = ({
     }>
   >([]);
 
-
   const [timeSlots, setTimeSlots] = useState<TimeSlotListProps[] | null>(null);
   const nowISO = new Date().toISOString();
   const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>(nowISO);
@@ -76,7 +75,9 @@ const StudioBooking = ({
   const router = useRouter();
   const tabs = ['Step 1', 'Step 2', 'Step 3', 'Step 4'];
 
-  const handleServiceSelect = (services: { name: string; price: string; quantity: number }[]) => {
+  const handleServiceSelect = (
+    services: { name: string; price: string; quantity: number }[]
+  ) => {
     setSelectedCustomServices(services);
   };
 
