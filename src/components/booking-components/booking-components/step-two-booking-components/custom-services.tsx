@@ -126,7 +126,7 @@ const CustomServices = ({
       const updatedServices = selectedIndices.map((i) => {
         if (i === index) {
           const currentQuantity = additionalServices[i].quantity || 1;
-          if (action === 'increment') {
+          if (action === 'increment' && currentQuantity < 10) {
             // Increment quantity
             additionalServices[i].quantity = currentQuantity + 1;
           } else if (action === 'decrement' && currentQuantity > 1) {

@@ -26,6 +26,7 @@ const CarouselContent = () => {
         '/images/setup2-1.webp',
         '/images/setup2-2.webp',
         '/images/setup2-3.webp',
+        '/images/setup2-4.png',
       ];
     } else if (setup === '1') {
       images = [

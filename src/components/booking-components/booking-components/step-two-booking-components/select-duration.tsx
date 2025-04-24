@@ -29,7 +29,7 @@ function SelectDuration({ keyIndex, onSelect, hasBorder, hasHeader, duration, se
       <DurationSelector
         duration={duration}
         onIncrease={services?.type === "STANDARD_EDIT_SHORT_FORM" ? () => {
-          setDuration(Math.min(12, duration + 3));
+          setDuration(Math.min(30, duration + 3));
           onSelect?.(keyIndex!, "increment");
         } : () => {
           setDuration(Math.min(10, duration + 1));
