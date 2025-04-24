@@ -1,8 +1,8 @@
 'use client';
-import React from 'react';
+import React, { Suspense } from 'react';
 // import {GoogleAnalytics} from '@next/third-parties/google';
 import { Carousel } from '@/components/booking-components/carousel-components/carousel';
-import BookingConfirmation from '@/components/booking-components/booking-components/step-three-booking-components/bookingConfirmation';
+import BookingConfirmationContent from './content';
 
 const BookingConfirmationPage = () => {
   return (
@@ -15,7 +15,9 @@ const BookingConfirmationPage = () => {
           </div>
 
           <div className='mt-[39vh] lg:mt-0 lg:w-[35.7%]'>
-            <BookingConfirmation />
+            <Suspense fallback={<div className='p-4'>Loading ...</div>}>
+              <BookingConfirmationContent />
+            </Suspense>
           </div>
         </main>
       </section>

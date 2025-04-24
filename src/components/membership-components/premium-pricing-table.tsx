@@ -52,7 +52,9 @@ const PremiumPricingTable = () => {
                   </p>
                   <div className=' mx-auto w-fit hover:scale-105 flex rounded-lg bg-gradient-to-b from-[#FFC49D] ring-2 ring-[#FAE2D2] to-[#FF8C42] text-[#FCFCFC] text-sm leading-[17.82px] font-nunitoSans text-medium font-normal 3xl:leading-[21.82px] 3xl:text-base p-[0.4px] '>
                     <button className='flex-1 bg-[#FF8C42] whitespace-nowrap w-fit px-3 py-2 3xl:px-4 3xl:py-3 rounded-lg'>
-                      Become a member
+                      <a href='https://api.whatsapp.com/send?phone=971508249795&text=Hi%20I%20would%20love%20to%20get%20some%20information%20about%20memberships'>
+                        Become a member
+                      </a>
                     </button>
                   </div>
                 </th>

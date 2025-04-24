@@ -41,14 +41,14 @@ const Footer = () => {
                     </p>
                   </div>
 
-                  <Link
+                  <a
                     href='https://maps.app.goo.gl/qNuFiZAdBqUnH3RE7?g_st=com.google.maps.preview.copy'
                     className='text-blue-500 underline hover:text-blue-400 font-normal text-sm leading-[19.1px] mb-6 block'
                     target='_blank'
                     rel='noopener noreferrer'
                   >
                     View location & direction
-                  </Link>
+                  </a>
 
                   <div className='flex gap-4 mt-4'>
                     <Link
@@ -128,8 +128,8 @@ const Footer = () => {
                     </li>
                     <li>
                       <Link
-                          href='/bookings'
-                       rel='noopener noreferrer'
+                        href='/bookings'
+                        rel='noopener noreferrer'
                         // onClick={() => {
                         //   window.scrollTo({ top: 0, behavior: 'smooth' });
 

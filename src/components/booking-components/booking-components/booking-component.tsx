@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useRef } from 'react';
 import TabList from './navigation-tabList';
 import StudioCardList from './step-one-bookingComponents/studio-cardList';
 import TotalCost from './total-cost';
@@ -23,6 +23,7 @@ import { DurationProvider } from '@/contex/durationContext';
 import EquipmentSection from './step-one-bookingComponents/recording-EquipmentList';
 import { useRouter } from 'next/navigation';
 import CustomServices from './step-two-booking-components/custom-services';
+import axios from 'axios';
 // import CustomServices from './step-two-booking-components/custom-services';
 
 const initialFormState = {
@@ -60,7 +61,6 @@ const StudioBooking = ({
     }>
   >([]);
 
-
   const [timeSlots, setTimeSlots] = useState<TimeSlotListProps[] | null>(null);
   const nowISO = new Date().toISOString();
   const [selectedTimeSlot, setSelectedTimeSlot] = useState<string>(nowISO);
@@ -69,12 +69,16 @@ const StudioBooking = ({
   const selectedPackage = packages?.[selectedPackageIndex] || null;
   const selectedStudio = studio?.[selectedStudioIndex] || null;
   const [loading, setLoading] = useState(true);
+  const [paymentLoading, setPaymentLoading] = useState(false);
   const [showWarning, setShowWarning] = useState<boolean>(false);
   const [form, setForm] = useState(initialFormState);
   const router = useRouter();
   const tabs = ['Step 1', 'Step 2', 'Step 3', 'Step 4'];
+  const contentRef = useRef<HTMLDivElement>(null);
 
-  const handleServiceSelect = (services: { name: string; price: string; quantity: number }[]) => {
+  const handleServiceSelect = (
+    services: { name: string; price: string; quantity: number }[]
+  ) => {
     setSelectedCustomServices(services);
   };
 
@@ -83,6 +87,22 @@ const StudioBooking = ({
     if (onStepChange) {
       onStepChange(step);
     }
+
+    setTimeout(() => {
+      if (contentRef.current) {
+        contentRef.current.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      }
+
+      if (window.innerWidth < 768) {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      }
+    }, 10);
   };
   useEffect(() => {
     async function fetchStudios() {
@@ -172,7 +192,6 @@ const StudioBooking = ({
 
           const dayData = await dayResponse.json();
           setTimeSlots(dayData.timeSlots);
-          // console.log(dayData.timeSlots);
         }
       } catch (error: unknown) {
         if (error instanceof Error) {
@@ -189,6 +208,7 @@ const StudioBooking = ({
   // submit form
   const bookStudio = async (): Promise<BookingProps | null> => {
     setIsBooking(true);
+    setPaymentLoading(true);
     const url = `https://arcast-ai-backend.vercel.app/api/bookings`;
 
     const actualDuration = duration === 3 ? duration + 1 : duration;
@@ -221,8 +241,15 @@ const StudioBooking = ({
 
       if (response.ok) {
         const data = await response.json();
+        const paymentlink = await createPaymentLink(data.id);
 
-        toast.success('Booking successful');
+        if (paymentlink) {
+          // Redirect to payment page if successful
+          router.push(paymentlink.paymentLink);
+          return data;
+        }
+        return null;
+        // toast.success('Booking successful');
         return data;
       } else {
         if (response.status === 500) {
@@ -242,6 +269,28 @@ const StudioBooking = ({
       return null;
     } finally {
       setIsBooking(false);
+      setPaymentLoading(false);
+    }
+  };
+
+  const createPaymentLink = async (
+    bookingId: string
+  ): Promise<{ paymentLink: string } | null> => {
+    const url = `https://arcast-ai-backend.vercel.app/api/bookings/${bookingId}/payment/link`;
+    try {
+      const res = await axios.post(url);
+      if (res.status === 201) {
+        router.push(res.data.paymentLink.url);
+      }
+      return null;
+    } catch (error) {
+      if (error instanceof Error) {
+        toast.error(`Payment link creation failed: ${error.message}`);
+      } else {
+        toast.error('Failed to create payment link');
+      }
+      router.push('/bookings/failed');
+      return null;
     }
   };
 
@@ -347,18 +396,12 @@ const StudioBooking = ({
         return;
       }
       const bookingResult = await bookStudio();
-      try {
-        if (bookingResult) {
-          clearProgress();
-          router.push('/bookings/confirmation');
-        }
-      } catch (error) {
-        console.error('Booking failed:', error);
-      }
 
+      if (bookingResult) {
+        clearProgress();
+      }
       return;
     }
-
     setCurrentStepWithNotify(currentStep + 1);
   }, [
     isStepFour,
@@ -373,7 +416,7 @@ const StudioBooking = ({
     <DurationProvider>
       <main className='relative border mx-auto lg:mx-0'>
         <div className='flex flex-col w-full lg:h-screen bg-[#FCFCFC]'>
-          <div className='flex-1 overflow-y-auto lg:pb-24'>
+          <div className='flex-1 overflow-y-auto lg:pb-24' ref={contentRef}>
             <div className=' relative mx-auto px-5 pt-11 3xl:px-8 3xl:pt-8'>
               <TabList
                 tabs={tabs}
@@ -417,7 +460,8 @@ const StudioBooking = ({
               {isStepThree && (
                 <div className='pb-10'>
                   <NumberOfPeople
-                    seats={selectedStudio?.totalSeats}
+                    // seats={selectedStudio?.totalSeats}
+                    seats={4}
                     selectedPeopleCount={selectedPeopleCount}
                     setSelectedPeopleCount={setSelectedPeopleCount}
                   />
@@ -482,7 +526,7 @@ const StudioBooking = ({
             currency={isStepOne ? '' : selectedPackage?.currency}
             buttonText={isStepFour ? 'Book Now' : 'Continue'}
             step={currentStep}
-            load={isBooking}
+            load={isBooking || paymentLoading}
             onContinue={handleContinue}
             customService={selectedCustomServices}
           />
