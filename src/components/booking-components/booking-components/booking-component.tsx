@@ -87,19 +87,22 @@ const StudioBooking = ({
     if (onStepChange) {
       onStepChange(step);
     }
-    const isMobile = window.innerWidth < 768;
 
-    if (isMobile) {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    } else if (contentRef.current) {
-      contentRef.current.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    }
+    setTimeout(() => {
+      if (contentRef.current) {
+        contentRef.current.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      }
+
+      if (window.innerWidth < 768) {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth',
+        });
+      }
+    }, 10);
   };
   useEffect(() => {
     async function fetchStudios() {
@@ -399,7 +402,6 @@ const StudioBooking = ({
       }
       return;
     }
-
     setCurrentStepWithNotify(currentStep + 1);
   }, [
     isStepFour,
