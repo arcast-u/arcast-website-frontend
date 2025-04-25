@@ -56,7 +56,12 @@ export const RecordingPackageCard = ({
         </div>
         <div className='flex flex-col justify-center mt-3 w-full font-semibold '>
           <del className='text-xs leading-[16.37px] text-red-500'>
-            {isDark ? '990' : '500'} {currency}
+            {isDark
+              ? '990'
+              : name === 'Recording + Live Video Cutting with Synced Media'
+              ? '600'
+              : '500'}
+            {currency}
           </del>
           <p
             className={`text-2xl leading-[32.74px] font-medium font-hankenGrotesk 3xl:leading-[43.65px] ${
