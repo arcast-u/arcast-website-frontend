@@ -29,7 +29,7 @@ const NavigationBar = () => {
     { label: 'Home', path: '/' },
     { label: 'Studios', path: '', hasDropdown: true },
     // { label: 'Bundles', path: '/bundles' },
-    { label: 'Memberships', path: '/memberships' },
+    // { label: 'Memberships', path: '/memberships' },
     { label: 'About Us', path: '/about-us' },
     { label: 'Contact Us', path: '' },
     // { label: 'Blog', path: '/blog'}
