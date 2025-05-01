@@ -205,30 +205,41 @@ const CarouselContent = () => {
     let images: string[] = [];
     if (setup === '0') {
       images = [
-        '/images/setup2-1.webp',
-        '/images/setup2-2.webp',
-        '/images/setup2-3.webp',
-        '/images/setup2-4.png',
+        '/images/setupSlides/setup1/1.webp',
+        '/images/setupSlides/setup1/2.webp',
+        '/images/setupSlides/setup1/3.webp',
+        '/images/setupSlides/setup1/4.webp',
       ];
     } else if (setup === '1') {
       images = [
-        '/images/setup3-1.webp',
-        '/images/setup3-2.webp',
-        '/images/setup3-3.webp',
-        '/images/setup3-4.webp',
+        '/images/setupSlides/setup2/1.webp',
+        '/images/setupSlides/setup2/2.webp',
+        '/images/setupSlides/setup2/3.webp',
+        '/images/setupSlides/setup2/4.webp',
+      '/images/setupSlides/setup2/5.webp',
+      '/images/setupSlides/setup2/6.webp',
+      '/images/setupSlides/setup2/7.webp',
+      '/images/setupSlides/setup2/8.webp',
+      '/images/setupSlides/setup2/9.webp',
+      '/images/setupSlides/setup2/10.webp',
+      '/images/setupSlides/setup2/11.webp',
+      '/images/setupSlides/setup2/12.png',
+     
       ];
     } else if (setup === '2') {
       images = [
-        '/images/setup6-1.webp',
-        '/images/setup6-2.webp',
-        '/images/setup6-3.webp',
-        '/images/setup6-4.webp',
+        '/images/setupSlides/setup3/1.webp',
+        '/images/setupSlides/setup3/2.webp',
+        '/images/setupSlides/setup3/3.webp',
+        '/images/setupSlides/setup3/4.webp',
       ];
     } else if (setup === '3') {
       images = [
-        '/images/setup8-1.webp',
-        '/images/setup8-2.webp',
-        '/images/setup8-3.webp',
+        '/images/setupSlides/setup4/1.webp',
+        '/images/setupSlides/setup4/2.webp',
+        '/images/setupSlides/setup4/3.webp',
+        '/images/setupSlides/setup4/4.webp',
+       
       ];
     }
 

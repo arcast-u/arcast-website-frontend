@@ -20,17 +20,21 @@ const setups = [
   {
     id: 2,
     name: 'Setup 3',
-    image: '/images/newstudio6.png',
-    mobileImage: '/images/newstudio6mobile.png',
-    available: true
+  
+    image:'/images/setupSlides/setup3/2.webp',
+    
+   mobileImage:'/images/setupSlides/setup3/3.webp',
+   available: true
+    
   },
   {
     id: 3,
     name: 'Setup 4',
-    image: '/images/newstudio8.png',
-    mobileImage: '/images/newstudio3mobile.png',
+    image: '/images/setupSlides/setup4/1.webp',
+    mobileImage: '/images/setupSlides/setup4/1.webp',
     available: true
   },
+
 ];
 
 const ChooseSetup = () => {

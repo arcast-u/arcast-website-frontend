@@ -103,19 +103,20 @@ const slides: SlideData[] = [
   //     '/images/studio2.jpg',
   //   ],
   // },
+ 
+
+
   {
     id: 2,
     title: 'Setup 3',
     buttonText: 'Book Your Session',
     images: [
-        '/images/episode-slides/slide-3.png',
-      // '/images/studio7.jpg',
-      // '/images/studio5.jpg',
+      '/images/setupSlides/setup3/2.webp',
+  
     ],
     mobileImages: [
-        '/images/episode-slides/slide-3.png',
-      // '/images/studio7.jpg',
-      // '/images/studio5.jpg',
+      '/images/setupSlides/setup3/3.webp',
+
     ],
   },
   // {
@@ -138,14 +139,12 @@ const slides: SlideData[] = [
     title: 'Setup 4',
     buttonText: 'Book Your Session',
     images: [
-        '/images/episode-slides/slide-4.png',
-      // '/images/studio9.jpg',
-      // '/images/studio6.jpg',
+      '/images/setupSlides/setup4/1.webp',
+   
     ],
     mobileImages: [
-        '/images/episode-slides/slide-4.png',
-      // '/images/studio9.jpg',
-      // '/images/studio6.jpg',
+      '/images/setupSlides/setup4/1.webp',
+     
     ],
   },
   // {
