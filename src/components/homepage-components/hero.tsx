@@ -1,35 +1,37 @@
-'use client'
-import React, { useEffect, useState } from 'react'
-import NavigationBar from './nav-bar'
-import { useRouter } from 'next/navigation'
+'use client';
+import React, { useEffect, useState } from 'react';
+import NavigationBar from './nav-bar';
+import { useRouter } from 'next/navigation';
 
 function Hero() {
-  const router = useRouter()
-  const [videoSrc, setVideoSrc] = useState<string>('')
-  const [isMobile, setIsMobile] = useState(false)
+  const router = useRouter();
+  const [videoSrc, setVideoSrc] = useState<string>('');
+  const [isMobile, setIsMobile] = useState(false);
 
   // const bookSession = () => { router.push('/bookings') }
 
   useEffect(() => {
     // Function to check and set device type
     const checkDevice = () => {
-      const mobileCheck = window.innerWidth < 768
-      setIsMobile(mobileCheck)
-      setVideoSrc(mobileCheck ? '/video/vdeo-mobile.MOV' : '/video/bg-hero-video.mp4')
-    }
+      const mobileCheck = window.innerWidth < 768;
+      setIsMobile(mobileCheck);
+      setVideoSrc(
+        mobileCheck ? '/video/video-mobile.MOV' : '/video/bg-hero-video.MOV'
+      );
+    };
 
     // Set initial state
-    checkDevice()
+    checkDevice();
 
     // Add event listener for window resize
-    window.addEventListener('resize', checkDevice)
+    window.addEventListener('resize', checkDevice);
 
     // Cleanup function
-    return () => window.removeEventListener('resize', checkDevice)
-  }, [])
+    return () => window.removeEventListener('resize', checkDevice);
+  }, []);
 
   return (
-    <div className="relative h-screen w-full overflow-hidden border-0 outline-none">
+    <div className='relative h-screen w-full overflow-hidden border-0 outline-none'>
       {/* Background Video with Fallback Image */}
       {videoSrc ? (
         <video
@@ -38,22 +40,22 @@ function Hero() {
           loop
           muted
           playsInline
-          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+          className='absolute top-0 left-0 w-full h-full object-cover z-0'
         >
-          <source src={videoSrc} type="video/mp4" />
+          <source src={videoSrc} type='video/mp4' />
           {/* Fallback image if video can't load */}
-          <img 
-            src={isMobile ? '/images/newHeroMobile.png' : '/images/heronew.png'} 
-            alt="Studio background"
-            className="w-full h-full object-cover"
+          <img
+            src={isMobile ? '/images/newHeroMobile.png' : '/images/heronew.png'}
+            alt='Studio background'
+            className='w-full h-full object-cover'
           />
         </video>
       ) : (
         // Static image fallback while determining device or if video fails
-        <img 
-          src={isMobile ? '/images/newHeroMobile.png' : '/images/heronew.png'} 
-          alt="Studio background"
-          className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        <img
+          src={isMobile ? '/images/newHeroMobile.png' : '/images/heronew.png'}
+          alt='Studio background'
+          className='absolute top-0 left-0 w-full h-full object-cover z-0'
         />
       )}
 
@@ -76,7 +78,7 @@ function Hero() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 export default Hero;
