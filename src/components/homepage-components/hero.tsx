@@ -16,7 +16,9 @@ function Hero() {
       const mobileCheck = window.innerWidth < 768;
       setIsMobile(mobileCheck);
       setVideoSrc(
-        mobileCheck ? '/video/video-mobile.mp4' : '/video/bg-hero-video.mp4'
+
+        mobileCheck ? '/video/mobile.MOV' : '/video/desk.MOV'
+
       );
     };
 
