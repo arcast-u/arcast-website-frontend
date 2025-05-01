@@ -235,10 +235,11 @@ const CarouselContent = () => {
       ];
     } else if (setup === '3') {
       images = [
-        '/images/setupSlides/setup4/1.webp',
-        '/images/setupSlides/setup4/2.webp',
-        '/images/setupSlides/setup4/3.webp',
-        '/images/setupSlides/setup4/4.webp',
+        '/images/setupSlides/setup4/5.png',
+        // '/images/setupSlides/setup4/1.webp',
+        // '/images/setupSlides/setup4/2.webp',
+        // '/images/setupSlides/setup4/3.webp',
+        // '/images/setupSlides/setup4/4.webp',
        
       ];
     }

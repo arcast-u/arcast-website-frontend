@@ -6,8 +6,8 @@ const setups = [
   {
     id: 0,
     name: 'Setup 1',
-    image: '/images/newstudio2.png',
-    mobileImage: '/images/newstudio2mobile.png', // Mobile-specific image
+    image: '/images/setupSlides/setup1/5.png',
+    mobileImage: '/images/setupSlides/setup1/5.png', // Mobile-specific image
     available: true
   },
   {
@@ -21,7 +21,7 @@ const setups = [
     id: 2,
     name: 'Setup 3',
   
-    image:'/images/setupSlides/setup3/2.webp',
+    image:'/images/setupSlides/setup3/3.webp',
     
    mobileImage:'/images/setupSlides/setup3/3.webp',
    available: true
@@ -30,8 +30,8 @@ const setups = [
   {
     id: 3,
     name: 'Setup 4',
-    image: '/images/setupSlides/setup4/1.webp',
-    mobileImage: '/images/setupSlides/setup4/1.webp',
+    image: '/images/setupSlides/setup4/5.png',
+    mobileImage: '/images/setupSlides/setup4/5.png',
     available: true
   },
 
