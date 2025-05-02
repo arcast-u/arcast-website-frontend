@@ -101,7 +101,7 @@ const BookingSummary = ({
                     height={64}
                     quality={100}
                     alt='Studio'
-                    className='object-fit shrink-0 h-16 lg:h-auto my-auto lg:w-20 rounded-lg aspect-square'
+                    className='object-cover shrink-0 h-16 lg:h-auto my-auto lg:w-20 rounded-lg aspect-square'
                   />
                   <div className='flex flex-col flex-1 shrink justify-between basis-0 '>
                     <div className='text-right text-xs leading-[19.1px] lg:text-sm  lg:leading-5'>

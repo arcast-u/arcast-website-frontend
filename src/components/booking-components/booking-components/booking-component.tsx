@@ -136,7 +136,7 @@ const StudioBooking = ({
         if (error instanceof Error) {
           toast.error(error.message);
         } else {
-          toast.error('An unexpected error occurred');
+          toast.error('Selected time slot is not available');
         }
         return null;
       } finally {
@@ -267,7 +267,9 @@ const StudioBooking = ({
           toast.error('Internal Server Error - Please try again later');
         } else {
           const errorData = await response.json();
-          toast.error(errorData.message || 'An unexpected error occurred');
+          toast.error(
+            errorData.message || 'Selected time slot is not available'
+          );
         }
         return null;
       }
@@ -275,7 +277,7 @@ const StudioBooking = ({
       if (error instanceof Error) {
         toast.error(error.message);
       } else {
-        toast.error('An unexpected error occurred');
+        toast.error('Selected time slot is not available');
       }
       return null;
     } finally {
