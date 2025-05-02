@@ -16,6 +16,7 @@ interface BookingComponentProps {
   customService?: Array<{
     name: string;
     price: string;
+    quantity: number;
   }>;
 }
 
@@ -70,10 +71,11 @@ const BookingSummary = ({
   const packageTotal = Number(price) * duration;
   const parsePrice = (priceString: string): number =>
     Number(priceString.replace(/[^0-9.-]+/g, ''));
+
   const customServiceTotal =
     customService && customService.length > 0
       ? customService.reduce(
-          (sum, service) => sum + parsePrice(service.price),
+          (sum, service) => sum + parsePrice(service.price) * service.quantity,
           0
         )
       : 0;
@@ -143,8 +145,14 @@ const BookingSummary = ({
                         key={index}
                         className='flex flex-wrap gap-3 items-center justify-between mt-3'
                       >
-                        <p>{service.name}</p>
-                        <p>{service.price}</p>
+                        <p>
+                          {service.name}{' '}
+                          {service.quantity > 1 ? `(x${service.quantity})` : ''}
+                        </p>
+                        <p>
+                          {parsePrice(service.price) * service.quantity}{' '}
+                          {currency ?? 'AED'}
+                        </p>
                       </div>
                     ))}
                   </>

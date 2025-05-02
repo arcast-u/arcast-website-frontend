@@ -32,7 +32,7 @@ const NavigationBar = () => {
     // { label: 'Memberships', path: '/memberships' },
     { label: 'About Us', path: '/about-us' },
     { label: 'Contact Us', path: '' },
-    // { label: 'Blog', path: '/blog' },
+    { label: 'Blog', path: '/blog' },
   ];
 
   useEffect(() => {

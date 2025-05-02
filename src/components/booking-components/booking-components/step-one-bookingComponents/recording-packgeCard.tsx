@@ -1,5 +1,5 @@
 import React from 'react';
-import { PackagePerkProps } from '@/lib/types';
+import { PackagePerkProps } from '@/utils/types';
 
 interface RecordingPackageCardProps {
   count: number;

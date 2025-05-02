@@ -7,6 +7,7 @@ type DurationSelectorProps = {
   onIncrease: () => void;
   onDecrease: () => void;
   hasBorder: boolean;
+  disabled?: boolean;
 };
 
 const DurationSelector = ({
@@ -14,45 +15,53 @@ const DurationSelector = ({
   onIncrease,
   onDecrease,
   hasBorder,
+  disabled = false,
 }: DurationSelectorProps) => {
   return (
     <div
-      className='flex gap-1 rounded-lg mt-3 w-full'
+      className={`flex gap-1 rounded-lg mt-3 w-full ${
+        disabled ? 'pointer-events-none' : ''
+      }`}
       role='group'
       aria-label='Duration selector'
     >
       <button
         onClick={(e) => {
           onDecrease();
-          e.stopPropagation()
+          e.stopPropagation();
         }}
         aria-label='Decrease duration'
-        className={`flex ${hasBorder === true
-          ? 'border-[0.4px] border-[#989898] py-2 px-3 3xl:py-3 3xl:px-4'
-          : 'py-2 px-3 3xl:py-3 3xl:px-5 '
-          } justify-center items-center w-16 rounded-l-lg bg-[#F5F5F7]`}
+        disabled={disabled}
+        className={`flex ${
+          hasBorder === true
+            ? 'border-[0.4px] border-[#989898] py-2 px-3 3xl:py-3 3xl:px-4'
+            : 'py-2 px-3 3xl:py-3 3xl:px-5 '
+        } justify-center items-center w-16 rounded-l-lg bg-[#F5F5F7]`}
       >
         <FiMinus className='size-5 text-black stroke-[1.5px]' />
       </button>
       <div
         aria-label='Current duration'
-        className={`flex-1 ${hasBorder === true
-          ? 'border-[0.4px] border-[#989898] py-2 px-3 3xl:py-3 3xl:px-4'
-          : 'py-2 px-3 3xl:py-3 3xl:px-5 '
-          }  h-full justify-center text-center font-nunitoSans text-base 3xl:text-xl leading-[27.8px] font-semibold whitespace-nowrap bg-[#F5F5F7] text-[#333333]`}
+        className={`flex-1 ${
+          hasBorder === true
+            ? 'border-[0.4px] border-[#989898] py-2 px-3 3xl:py-3 3xl:px-4'
+            : 'py-2 px-3 3xl:py-3 3xl:px-5 '
+        }  h-full justify-center text-center font-nunitoSans text-base 3xl:text-xl leading-[27.8px] font-semibold whitespace-nowrap bg-[#F5F5F7] text-[#333333]`}
       >
         {duration}
       </div>
       <button
         onClick={(e) => {
           onIncrease();
-          e.stopPropagation()
+          e.stopPropagation();
         }}
         aria-label='Increase duration'
-        className={`flex ${hasBorder === true
-          ? 'border-[0.4px] border-[#989898] py-2 px-3 3xl:py-3 3xl:px-4'
-          : '3xl:py-3 3xl:px-5 py-2 px-3'
-          }  gap-10 justify-center items-center w-16 rounded-r-lg bg-[#F5F5F7]`}
+        disabled={disabled}
+        className={`flex ${
+          hasBorder === true
+            ? 'border-[0.4px] border-[#989898] py-2 px-3 3xl:py-3 3xl:px-4'
+            : '3xl:py-3 3xl:px-5 py-2 px-3'
+        }  gap-10 justify-center items-center w-16 rounded-r-lg bg-[#F5F5F7]`}
       >
         <IoAddOutline className='size-5 text-black stroke-[1.5px]' />
       </button>

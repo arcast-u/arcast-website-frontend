@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import ServiceOption from './service-option';
 import axios from 'axios';
-import { AdditionalServiceType } from '@/lib/types';
+import { AdditionalServiceType } from '@/utils/types';
 import { toast } from 'react-toastify';
 
 type Selector = {

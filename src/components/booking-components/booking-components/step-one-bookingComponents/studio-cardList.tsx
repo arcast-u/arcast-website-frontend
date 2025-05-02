@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import StudioCard from './studio-card';
-import { StudioProps } from '@/lib/types';
+import { StudioProps } from '@/utils/types';
 
 interface StudioListProps {
   selectedStudioIndex: number;

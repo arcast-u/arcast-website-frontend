@@ -1,6 +1,6 @@
 'use client';
 import { RecordingPackageCard } from './recording-packgeCard';
-import { PackageProps } from '../../../../lib/types';
+import { PackageProps } from '../../../../utils/types';
 
 interface props {
   selectedPackageIndex: number;

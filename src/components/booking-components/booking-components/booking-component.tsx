@@ -16,7 +16,7 @@ import {
   AvailabilityItemProps,
   TimeSlotListProps,
   BookingProps,
-} from '@/lib/types';
+} from '@/utils/types';
 import { toast } from 'react-toastify';
 import Image from 'next/image';
 import { DurationProvider } from '@/contex/durationContext';
@@ -198,7 +198,7 @@ const StudioBooking = ({
         if (error instanceof Error) {
           toast.error(error.message);
         } else {
-          toast.error('An unexpected error occurred');
+          toast.error('Selected time slot is not available');
         }
       }
     }
@@ -391,7 +391,7 @@ const StudioBooking = ({
       fullName: form.fullName,
       email: form.email,
       // phoneNumber: form.phoneNumber,
-      whatsappNumber: form.whatsappNumber,
+      //whatsappNumber: form.whatsappNumber,
       countryCode: form.countryCode,
       whatsappCountryCode: form.whatsappCountryCode,
     };
