@@ -290,10 +290,13 @@ const StudioBooking = ({
     bookingId: string
   ): Promise<{ paymentLink: string } | null> => {
     const url = `https://arcast-ai-backend.vercel.app/api/bookings/${bookingId}/payment/link`;
+
     try {
       const res = await axios.post(url);
       if (res.status === 201) {
+        clearProgress();
         window.open(res.data.paymentLink.url, '_blank', 'noopener,noreferrer');
+        return res.data;
       }
       return null;
     } catch (error) {
@@ -382,7 +385,7 @@ const StudioBooking = ({
       setDate(new Date());
       setSelectedTimeSlot('10:00');
       setDuration(1);
-      setForm(initialFormState); // Make sure you have an initial form state defined
+      setForm(initialFormState);
     } catch (error) {
       console.error('Error clearing progress:', error);
     }
@@ -408,11 +411,7 @@ const StudioBooking = ({
         setShowWarning(true);
         return;
       }
-      const bookingResult = await bookStudio();
 
-      if (bookingResult) {
-        clearProgress();
-      }
       return;
     }
     setCurrentStepWithNotify(currentStep + 1);
