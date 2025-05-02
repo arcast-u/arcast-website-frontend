@@ -58,6 +58,7 @@ const StudioBooking = ({
       name: string;
       price: string;
       quantity: number;
+      id: string;
     }>
   >([]);
 
@@ -77,7 +78,7 @@ const StudioBooking = ({
   const contentRef = useRef<HTMLDivElement>(null);
 
   const handleServiceSelect = (
-    services: { name: string; price: string; quantity: number }[]
+    services: { name: string; price: string; quantity: number; id: string }[]
   ) => {
     setSelectedCustomServices(services);
   };
@@ -213,6 +214,15 @@ const StudioBooking = ({
 
     const actualDuration = duration === 3 ? duration + 1 : duration;
 
+    // Transform selectedCustomServices into the format expected by the API
+    const additionalServices =
+      selectedCustomServices.length > 0
+        ? selectedCustomServices.map((service) => ({
+            id: service.id,
+            quantity: service.quantity,
+          }))
+        : [];
+
     const requestBody = {
       studioId: selectedStudio?.id,
       packageId: selectedPackage?.id,
@@ -227,6 +237,7 @@ const StudioBooking = ({
         whatsappNumber: form.whatsappCountryCode + form.whatsappNumber,
         recordingLocation: form.recordingLocation,
       },
+      additionalServices: additionalServices,
     };
 
     try {
@@ -280,7 +291,7 @@ const StudioBooking = ({
     try {
       const res = await axios.post(url);
       if (res.status === 201) {
-        router.push(res.data.paymentLink.url);
+        window.open(res.data.paymentLink.url, '_blank', 'noopener,noreferrer');
       }
       return null;
     } catch (error) {

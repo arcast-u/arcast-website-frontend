@@ -79,9 +79,9 @@ function MicProfessionals() {
   const videoSrcs = ['/video/mic-vid.mp4', '/video/mic-vid1.mp4'];
 
   return (
-    <div className='bg-[#f5f5f7] w-full py-10 3xl:py-20 3xl:mt-0'>
+    <div className='bg-[#FCFCFC] w-full py-10 3xl:py-20 3xl:mt-0'>
       <div className='max-w-[1728px] h-full px-[21px] mx-auto md:px-10 3xl:px-[100px]'>
-        <header className='flex relative gap-5 justify-between mx-auto mb-[51px] 3xl:mb-[121px] w-full text-[#333333]'>
+        <header className='flex relative gap-5 justify-between mx-auto mb-[51px] 3xl:mb-[100px] w-full text-[#333333]'>
           <div className='flex flex-col font-hankenGrotesk'>
             <h2 className='text-[32px] leading-[41.7px] 3xl:text-5xl 3xl:leading-[62.54px] font-medium max-md:text-4xl'>
               Who&apos;s Been on the Mic?
@@ -115,7 +115,7 @@ function MicProfessionals() {
                     </div> */}
         </header>
 
-        <div className='flex flex-row gap-4 w-full overflow-x-scroll'>
+        <div className='flex flex-row gap-4 w-full overflow-x-scroll no-scrollbar justify-center'>
           {videoSrcs.map((videoSrc, index) => (
             <video
               key={index} // Force re-render when source changes
@@ -123,7 +123,7 @@ function MicProfessionals() {
               loop
               muted
               playsInline
-              className='w-full min-w-[350px] h-[430px] sm:h-[650px] rounded-[12px] object-cover object-center'
+              className='w-[200px] h-[350px] sm:w-[494px] sm:h-[600px] rounded-[12px] object-cover object-center'
               src={videoSrc}
             >
               {/* Fallback image if video can't load */}

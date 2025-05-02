@@ -23,6 +23,8 @@ interface CardProps {
   price: string;
   description: string;
   src: string;
+  videoSrc?: string;
+  isVideo: boolean;
   isMultiCamVisible: boolean;
   isVisible: () => void;
   inFocus: boolean;
@@ -40,6 +42,8 @@ const Card = ({
   style,
   description,
   src,
+  videoSrc,
+  isVideo,
   isMultiCamVisible,
   isVisible,
   onClick,
@@ -48,33 +52,52 @@ const Card = ({
   <AnimatedDiv
     style={style}
     onClick={onClick}
-    className={`${inFocus
-      ? 'h-[90%] w-[90%] top-4  left-4 3xl:top-9 3xl:left-7'
-      : 'h-full w-full left-0 top-0'
-      } absolute bg-transparent rounded-2xl  flex flex-col items-center text-center cursor-pointer`}
+    className={`${
+      inFocus
+        ? 'h-[90%] w-[90%] top-4  left-4 3xl:top-9 3xl:left-7'
+        : 'h-full w-full left-0 top-0'
+    } absolute bg-transparent rounded-2xl  flex flex-col items-center text-center cursor-pointer`}
   >
-    <Image
-      src={src}
-      alt={title}
-      quality={100}
-      width={520}
-      height={680}
-      loading='lazy'
-      className={`w-full ${inFocus ? 'h-full' : 'h-[85%]'
+    {isVideo ? (
+      <video
+        src={videoSrc}
+        autoPlay={true}
+        muted={true}
+        loop={true}
+        playsInline={true}
+        width={520}
+        height={680}
+        className={`w-full ${
+          inFocus ? 'h-full' : 'h-[85%]'
         } relative shadow-lg object-cover object-center rounded-2xl`}
-    />
+      />
+    ) : (
+      <Image
+        src={src}
+        alt={title}
+        quality={100}
+        width={520}
+        height={680}
+        loading='lazy'
+        className={`w-full ${
+          inFocus ? 'h-full' : 'h-[85%]'
+        } relative shadow-lg object-cover object-center rounded-2xl`}
+      />
+    )}
     {/* Multi-Cam Recording Toggle */}
     {inFocus && (
       <div
-        className={` p-3 3xl:p-4 absolute w-[88%] font-medium bottom-4 lg:bottom-7 font-nunitoSans rounded-2xl  cursor-pointer hover:shadow-lg transition ${isMultiCamVisible ? 'bg-white' : 'bg-transparent'
-          }`}
+        className={` p-3 3xl:p-4 absolute w-[88%] font-medium bottom-4 lg:bottom-7 font-nunitoSans rounded-2xl  cursor-pointer hover:shadow-lg transition ${
+          isMultiCamVisible ? 'bg-white' : 'bg-transparent'
+        }`}
         onClick={() => isVisible()}
       >
         <div
-          className={`flex items-center  ${isMultiCamVisible
-            ? 'text-[#333333] justify-between'
-            : 'text-[#FCFCFC] gap-1'
-            }`}
+          className={`flex items-center  ${
+            isMultiCamVisible
+              ? 'text-[#333333] justify-between'
+              : 'text-[#FCFCFC] gap-1'
+          }`}
         >
           <h3
             className={`text-base 3xl:text-[28px] 3xl:leading-[38.19px] font-medium`}
@@ -108,6 +131,8 @@ interface CardData {
   price: string;
   description: string;
   src: string;
+  videoSrc?: string;
+  isVideo: boolean;
 }
 
 const Carousel3D = () => {
@@ -168,12 +193,16 @@ const Carousel3D = () => {
       price: 'AED 500',
       title: 'Short Form Edit (Instagram / TikTok) ',
       src: '/images/Reel1.png',
+      videoSrc:
+        'https://res.cloudinary.com/dcluqgjqe/video/upload/v1746176301/animation_3_pvtm2g.mp4',
+      isVideo: true,
       description:
         'High-quality, premium reels with advanced editing, motion graphics, and engaging cuts.',
     },
     {
       price: 'AED 960',
       title: 'Long Form Edit (Youtube)',
+      isVideo: false,
       src: '/images/Reel7.png',
       description:
         'Professional-grade editing with in-depth sound design, smooth transitions, and high production quality.',
@@ -182,6 +211,7 @@ const Carousel3D = () => {
       price: 'AED 200',
       title: 'Episode Trailer (Short form)',
       src: '/images/Reel4.png',
+      isVideo: false,
       description:
         'Quick, impactful trailer editing to capture attention and drive excitement with key highlights in a concise format.',
     },
@@ -189,6 +219,9 @@ const Carousel3D = () => {
       price: 'AED 200',
       title: 'Episode Trailer (Long form)',
       src: '/images/Reelt.png',
+      isVideo: true,
+      videoSrc:
+        'https://res.cloudinary.com/dcluqgjqe/video/upload/v1746176328/video_2025-05-02_01-20-13_h6jthf.mp4',
       description:
         'Professional editing to create a captivating trailer that highlights key moments, engaging your audience with a polished, cinematic preview.',
     },
@@ -196,6 +229,9 @@ const Carousel3D = () => {
       price: 'AED 440',
       title: 'Subtitles (per session)',
       src: '/images/Reels.png',
+      isVideo: true,
+      videoSrc:
+        'https://res.cloudinary.com/dcluqgjqe/video/upload/v1746175875/gif_gtcokh.mp4',
       description:
         'Accurate subtitles and captions to improve accessibility and engagement for video content.',
     },
@@ -203,42 +239,18 @@ const Carousel3D = () => {
       price: 'AED 80',
       title: 'Teleprompter Support',
       src: '/images/3d4.png',
-      description: 'On-screen script assistance for seamless delivery, perfect for structured interviews and presentations.',
+      isVideo: false,
+      description:
+        'On-screen script assistance for seamless delivery, perfect for structured interviews and presentations.',
     },
     {
       price: 'AED 500',
       title: 'Wardrobe Styling Consultation',
       src: '/images/Reel-wardrobe.png',
-      description: 'Expert outfit guidance to enhance your on-camera presence and reflect your personal brand.',
+      isVideo: false,
+      description:
+        'Expert outfit guidance to enhance your on-camera presence and reflect your personal brand.',
     },
-    // {
-    //   price: 'AED 440',
-    //   title: 'Subtitles (per session)',
-    //   src: '/images/3d5.png',
-    //   description:
-    //     'Accurate subtitles and captions to improve accessibility and engagement for video content.',
-    // },
-    // {
-    //   price: 'AED 200',
-    //   title: 'Multi-Cam Recording',
-    //   src: '/images/3d3.png',
-    //   description:
-    //     'Upgrade from 3 cameras to 5 cameras total for maximum engagement.',
-    // },
-    // {
-    //   price: 'AED 2400',
-    //   title: 'Podcast Trailer',
-    //   src: '/images/3d1.png',
-    //   description:
-    //     "Craft a compelling intro video for your show's mission. Includes voiceover, music, tailored visuals, and a logo jingle for a lasting impression.",
-    // },
-    // {
-    //   price: 'AED 6400',
-    //   title: 'Podcast Branding',
-    //   src: '/images/3d2.png',
-    //   description:
-    //     'Complete A/V branding: professionally designed logo, color scheme, typography, cover art, jingle, social media visuals, and brand book.',
-    // },
   ];
 
   const CalculateStyles = (index: number) => {

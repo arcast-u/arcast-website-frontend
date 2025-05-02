@@ -8,7 +8,9 @@ import { toast } from 'react-toastify';
 type Selector = {
   duration: number;
   setDuration: (value: number) => void;
-  onServiceSelect: (services: { name: string; price: string; quantity: number }[]) => void;
+  onServiceSelect: (
+    services: { name: string; price: string; quantity: number; id: string }[]
+  ) => void;
 };
 
 // const services = [
@@ -98,8 +100,10 @@ const CustomServices = ({
     AdditionalServiceType[]
   >([]);
 
-
-  const handleServiceSelect = (index: number, action: 'toggle' | 'increment' | 'decrement') => {
+  const handleServiceSelect = (
+    index: number,
+    action: 'toggle' | 'increment' | 'decrement'
+  ) => {
     // Check if the index is already selected
     const isSelected = selectedIndices.includes(index);
 
@@ -115,12 +119,12 @@ const CustomServices = ({
       const selectedServices = newSelectedIndices.map((i) => ({
         name: additionalServices[i].title,
         price: additionalServices[i].price,
-        quantity: 1 // Default quantity when adding a new service
+        quantity: 1, // Default quantity when adding a new service
+        id: additionalServices[i].id,
       }));
 
       // Pass the array to the parent component
       onServiceSelect(selectedServices);
-
     } else if (action === 'increment' || action === 'decrement') {
       // Handle increment and decrement of the quantity for selected services
       const updatedServices = selectedIndices.map((i) => {
@@ -135,7 +139,7 @@ const CustomServices = ({
           }
         }
         return additionalServices[i];
-      })
+      });
 
       // Update the state with the updated selected services
       const updatedIndices = updatedServices.map((service) =>
@@ -149,12 +153,11 @@ const CustomServices = ({
           name: service.title, // Assuming 'title' corresponds to 'name'
           price: service.price,
           quantity: service.quantity || 1,
+          id: service.id,
         }))
       );
     }
   };
-
-
 
   const fetchServices = async () => {
     try {
@@ -199,7 +202,6 @@ const CustomServices = ({
               onSelect={handleServiceSelect}
               duration={duration}
               setDuration={setDuration}
-
             />
           ))
         )}

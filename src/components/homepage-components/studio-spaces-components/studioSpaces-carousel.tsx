@@ -137,14 +137,8 @@ const slides: SlideData[] = [
     id: 3,
     title: 'Setup 4',
     buttonText: 'Book Your Session',
-    images: [
-      '/images/setupSlides/setup4/5.png',
-   
-    ],
-    mobileImages: [
-      '/images/setupSlides/setup4/5.png',
-     
-    ],
+    images: ['/images/setupSlides/setup4/5.png'],
+    mobileImages: ['/images/setupSlides/setup4/5.png'],
   },
   // {
   //   id: 9,
@@ -289,7 +283,7 @@ const StudioSpacesCarousel = () => {
       className='relative w-full h-full overflow-hidden'
     >
       {/* Main Content */}
-      <div className='absolute top-0 left-1/2 -translate-x-1/2 w-[85%] h-[90%]'>
+      <div className='absolute top-0 left-1/2 -translate-x-1/2 w-[340px] h-[455px] sm:w-[85%] sm:h-[90%]'>
         {slides.map((slide, index) => (
           <AnimatedDiv
             key={slide.id}
@@ -328,12 +322,12 @@ const StudioSpacesCarousel = () => {
                   </button> */}
 
                   {/* Button for Booking */}
-                  <div className='absolute bottom-8 left-6 w-fit 3xl:px-6 3xl:py-4 py-3 px-[14px] bg-[#F5F5F7] font-nunitoSans rounded-lg'>
+                  <div className='absolute bottom-12 sm:bottom-8 left-6 w-fit 3xl:px-6 3xl:py-4 py-3 px-[14px] bg-[#F5F5F7] font-nunitoSans rounded-lg'>
                     <h3 className='text-sm 3xl:text-2xl font-medium text-[#333333] mb-2 3xl:mb-4'>
                       {slide.title}
                     </h3>
                     <button
-                     onClick={() => handleBookSession(slide.id)}
+                      onClick={() => handleBookSession(slide.id)}
                       className='px-4 py-2 3xl:py-3 bg-[#FF8C42] border border-[#FFC49D] text-[#FCFCFC] font-nunitoSans text-xs 3xl:text-base rounded-md shadow-md shadow-[#FAE2D2] transition-colors'
                     >
                       {slide.buttonText}
