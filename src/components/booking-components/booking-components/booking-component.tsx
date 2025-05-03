@@ -252,14 +252,14 @@ const StudioBooking = ({
 
       if (response.ok) {
         const data = await response.json();
-        const paymentlink = await createPaymentLink(data.id);
+        await createPaymentLink(data.id);
 
-        if (paymentlink) {
-          // Redirect to payment page if successful
-          router.push(paymentlink.paymentLink);
-          return data;
-        }
-        return null;
+        // if (paymentlink) {
+        //   // Redirect to payment page if successful
+        //   router.push(paymentlink.paymentLink.url);
+        //   return data;
+        // }
+        // return null;
         // toast.success('Booking successful');
         return data;
       } else {
@@ -295,7 +295,7 @@ const StudioBooking = ({
       const res = await axios.post(url);
       if (res.status === 201) {
         clearProgress();
-        window.open(res.data.paymentLink.url, '_blank', 'noopener,noreferrer');
+        router.push(res.data.paymentLink.url);
         return res.data;
       }
       return null;
@@ -405,13 +405,38 @@ const StudioBooking = ({
   };
 
   // Modified handle continue
+  // const handleContinue = useCallback(async () => {
+  //   if (isStepFour) {
+  //     if (!validateRequiredFields()) {
+  //       setShowWarning(true);
+  //       return;
+  //     }
+
+  //     return;
+  //   }
+  //   setCurrentStepWithNotify(currentStep + 1);
+  // }, [
+  //   isStepFour,
+  //   validateRequiredFields,
+  //   bookStudio,
+  //   clearProgress,
+  //   router,
+  //   currentStep,
+  // ]);
+
+
+
   const handleContinue = useCallback(async () => {
     if (isStepFour) {
       if (!validateRequiredFields()) {
         setShowWarning(true);
         return;
       }
+      const bookingResult = await bookStudio();
 
+      if (bookingResult) {
+        clearProgress();
+      }
       return;
     }
     setCurrentStepWithNotify(currentStep + 1);

@@ -202,7 +202,8 @@ const Carousel3D = () => {
     {
       price: 'AED 960',
       title: 'Long Form Edit (Youtube)',
-      isVideo: false,
+      isVideo: true,
+      videoSrc: 'https://res.cloudinary.com/dcluqgjqe/video/upload/v1746191867/copy_991BE8A0-EFF9-4A55-8069-E6999586889B_1_nqi38l.mov',
       src: '/images/Reel7.png',
       description:
         'Professional-grade editing with in-depth sound design, smooth transitions, and high production quality.',
@@ -211,6 +212,7 @@ const Carousel3D = () => {
       price: 'AED 200',
       title: 'Episode Trailer (Short form)',
       src: '/images/Reel4.png',
+      videoSrc: 'https://res.cloudinary.com/dcluqgjqe/image/upload/v1746183614/DAE1E047-0A9D-46DB-90F7-C3F22378A4D6_1_peeakz.gif',
       isVideo: false,
       description:
         'Quick, impactful trailer editing to capture attention and drive excitement with key highlights in a concise format.',
