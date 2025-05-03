@@ -212,8 +212,8 @@ const Carousel3D = () => {
       price: 'AED 200',
       title: 'Episode Trailer (Short form)',
       src: '/images/Reel4.png',
-      videoSrc: 'https://res.cloudinary.com/dcluqgjqe/image/upload/v1746183614/DAE1E047-0A9D-46DB-90F7-C3F22378A4D6_1_peeakz.gif',
-      isVideo: false,
+      videoSrc: 'https://res.cloudinary.com/deuvbiekl/video/upload/v1746275041/DAE1E047-0A9D-46DB-90F7-C3F22378A4D6-ezgif.com-gif-to-mp4-converter_dsrle6.mp4',
+      isVideo: true,
       description:
         'Quick, impactful trailer editing to capture attention and drive excitement with key highlights in a concise format.',
     },
