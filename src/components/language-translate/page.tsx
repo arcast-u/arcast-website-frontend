@@ -29,7 +29,7 @@ export default function LanguageSelector({
     // Add more languages as needed
   ]);
 
-  console.log(isOpen, isStudioOpen, pathname, 'isOpen');
+  
 
   const [selectedLanguage, setSelectedLanguage] = useState<string>('en');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
