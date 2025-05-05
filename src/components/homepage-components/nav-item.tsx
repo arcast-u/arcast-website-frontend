@@ -40,7 +40,9 @@ const NavigationItem: React.FC<NavigationItemProps> = ({
           onClick={clickHandler}
           className={`flex justify-center cursor-pointer ${
             isStudioOpen === true ||
-            (pathname !== '/' && pathname !== '/about-us')
+            (pathname !== '/' &&
+              pathname !== '/about-us' &&
+              pathname !== '/business')
               ? 'text-[#333333]'
               : 'text-[#FCFCFC]'
           } font-normal font-nunitoSans text-sm 3xl:text-base leading-[21.82px] items-center`}

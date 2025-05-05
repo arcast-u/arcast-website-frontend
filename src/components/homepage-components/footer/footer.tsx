@@ -11,10 +11,10 @@ const Footer = () => {
   return (
     <footer id='footer' className=' w-full mt-8 '>
       <div className='px-[21px] lg:px-16 3xl:px-[100px] mx-auto max-w-[1728px]'>
-        <div className=' font-nunitoSans pt-5 3xl:pt-10 h-full flex flex-col border-t border-[#989898]'>
+        <div className=' font-nunitoSans pt-5 3xl:pt-10 h-full flex flex-col '>
           <div className='flex-grow'>
             <div className='md:flex md:justify-between mb-32 text-[#989898]'>
-              <div className='mb-6 md:mb-0'>
+              <div className='mb-10 md:mb-0'>
                 <Link
                   href='/'
                   className='flex items-center'
@@ -86,7 +86,7 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-              <div className=' flex flex-col md:flex-row md:gap-12 3xl:gap-16 gap-6'>
+              <div className=' flex flex-col md:flex-row md:gap-12 3xl:gap-16 gap-10'>
                 <div className='text-base'>
                   <p className=' text-[#989898] mb-1'>Contact us</p>
                   <ul className='text-[#333333] text-sm 3xl:text-base space-y-1'>

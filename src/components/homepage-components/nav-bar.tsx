@@ -33,6 +33,7 @@ const NavigationBar = () => {
     { label: 'About Us', path: '/about-us' },
     { label: 'Contact Us', path: '' },
     { label: 'Blog', path: '/blog' },
+    { label: 'For Business', path: '/business' },
   ];
 
   useEffect(() => {
@@ -134,7 +135,9 @@ const NavigationBar = () => {
         >
           {isOpen ||
           isStudioOpen ||
-          (pathname !== '/' && pathname !== '/about-us') ? (
+          (pathname !== '/' &&
+            pathname !== '/about-us' &&
+            pathname !== '/business') ? (
             <Link href='/'>
               <Image
                 src='/icons/logodarv.svg'
@@ -181,7 +184,9 @@ const NavigationBar = () => {
               className={`w-fit ml-4 xl:ml-14 3xl:ml-16 hidden 
                   hover:scale-105 lg:flex rounded-lg bg-gradient-to-b 
                   from-[#FFC49D] ring-2 ${
-                    pathname === '/' || pathname === '/about-us'
+                    pathname === '/' ||
+                    pathname === '/about-us' ||
+                    pathname === '/business'
                       ? 'ring-[#64391E]'
                       : 'ring-[#FFEDE1]'
                   } to-[#FF8C42] 
@@ -206,7 +211,9 @@ const NavigationBar = () => {
                 className={`size-6 stroke-[1.5px] ${
                   isOpen ||
                   isStudioOpen ||
-                  (pathname !== '/' && pathname !== '/about-us')
+                  (pathname !== '/' &&
+                    pathname !== '/about-us' &&
+                    pathname !== '/business')
                     ? 'text-[#333333]'
                     : 'text-[#FCFCFC]'
                 }`}

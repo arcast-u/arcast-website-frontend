@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 'use client';
 import React, { useEffect, useState } from 'react';
 import NavigationBar from './nav-bar';
@@ -15,11 +16,7 @@ function Hero() {
     const checkDevice = () => {
       const mobileCheck = window.innerWidth < 768;
       setIsMobile(mobileCheck);
-      setVideoSrc(
-
-        mobileCheck ? '/video/mobile.MOV' : '/video/desk.MOV'
-
-      );
+      setVideoSrc(mobileCheck ? '/video/mobile.MOV' : '/video/desk.MOV');
     };
 
     // Set initial state
