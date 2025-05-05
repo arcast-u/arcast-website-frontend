@@ -86,7 +86,7 @@ const BookingSummary = ({
   const hasBonusHour = duration === 3;
 
 
-  console.log('customService', customService);
+
 
   return (
     <div className='flex flex-col md:w-[90%] mx-auto lg:w-full pb-10 mt-10 w-full '>
