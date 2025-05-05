@@ -49,7 +49,7 @@ const ServiceOption = ({
               // Start playing when video comes into view
               videoRefs.current[index]?.play().catch(err => {
                 // Handle autoplay errors silently - browsers may block autoplay
-              
+              console.error('Autoplay failed:', err);
               });
             } else {
               // Pause when out of view
