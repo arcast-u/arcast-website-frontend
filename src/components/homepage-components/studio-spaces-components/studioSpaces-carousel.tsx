@@ -48,12 +48,12 @@ const slides: SlideData[] = [
     title: 'Setup 1',
     buttonText: 'Book Your Session',
     images: [
-      '/images/setupSlides/setup1/5.png',
+      '/images/setupSlides/setup1/2.webp',
       // '/images/studio4.jpg',s
       // '/images/studio3.jpg',
     ],
     mobileImages: [
-      '/images/setupSlides/setup1/5.png',
+      '/images/1.webp',
       // '/images/studio4.jpg',
       // '/images/studio3.jpg',
     ],
@@ -68,7 +68,7 @@ const slides: SlideData[] = [
       // '/images/studio2.jpg',
     ],
     mobileImages: [
-      '/images/newstudio3mobile.png',
+      '/images/2.webp',
       // '/images/studio9.jpg',
       // '/images/studio2.jpg',
     ],
@@ -113,7 +113,7 @@ const slides: SlideData[] = [
       // '/images/studio5.jpg',
     ],
     mobileImages: [
-      '/images/setupSlides/setup3/3.webp',
+      '/images/3.webp',
       // '/images/studio7.jpg',
       // '/images/studio5.jpg',
     ],
@@ -137,8 +137,8 @@ const slides: SlideData[] = [
     id: 3,
     title: 'Setup 4',
     buttonText: 'Book Your Session',
-    images: ['/images/setupSlides/setup4/5.png'],
-    mobileImages: ['/images/setupSlides/setup4/5.png'],
+    images: ['/images/setupSlides/setup4/6.webp'],
+    mobileImages: ['/images/4.webp'],
   },
   // {
   //   id: 9,

@@ -49,6 +49,7 @@ const StudioBooking = ({
   const [selectedPackageIndex, setSelectedPackageIndex] = useState<number>(0);
   const [selectedStudioIndex, setSelectedStudioIndex] = useState<number>(0);
   const [selectedPeopleCount, setSelectedPeopleCount] = useState<number>(1);
+  // const [duration, setDuration] = useState<number>(1);
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [dateData, setDateData] = useState<AvailabilityItemProps[] | null>(
     null
@@ -435,7 +436,7 @@ const StudioBooking = ({
       const bookingResult = await bookStudio();
 
       if (bookingResult) {
-        clearProgress();
+        // clearProgress();
       }
       return;
     }
@@ -474,6 +475,7 @@ const StudioBooking = ({
                   </div>
 
                   <div className='w-full max-h-[250px] mt-4 rounded-[5px]'>
+                  <p className='header-text mb-3'>Production team</p>
                     <Image
                       src='/images/team.png'
                       quality={100}

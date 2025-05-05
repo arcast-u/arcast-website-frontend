@@ -6,39 +6,39 @@ export const ProductionPartners = () => {
     [
       {
         imageSrc: '/images/partner1.png',
-        title: 'Executive Producer',
+        title: 'Founder/Owner',
         description:
           'Oversees the entire production for a flawless experience.',
       },
       {
         imageSrc: '/images/partner2.png',
-        title: 'Live Editor',
-        description: 'Handles real-time edits for a polished final product.',
+        title: 'Chief Video Director ',
+        description: 'Manages camera angles, lighting, and visuals.',
       },
     ],
     [
       {
         imageSrc: '/images/partner3.png',
-        title: 'Audio Engineer',
-        description: 'Ensures pristine sound quality and mixing.',
+        title: 'Operations Manager',
+        description: 'Handles logistics and supports the team.',
       },
       {
         imageSrc: '/images/partner4.png',
-        title: 'Video Director',
-        description: 'Manages camera angles, lighting, and visuals.',
+        title: 'Production Manager',
+        description: 'Handles real-time edits for a polished final product.',
       },
     ],
     [
       {
         imageSrc: '/images/partner5.png',
         title: 'Studio Technician',
-        description: 'Sets up and maintains all equipment.',
+        description: 'Ensures pristine sound quality and mixing.',
       },
-      {
-        imageSrc: '/images/partner6.png',
-        title: 'Production Assistant',
-        description: 'Handles logistics and supports the team.',
-      },
+      // {
+      //   imageSrc: '/images/partner6.png',
+      //   title: 'Production Assistant',
+      //   description: 'Handles logistics and supports the team.',
+      // },
     ],
   ];
 

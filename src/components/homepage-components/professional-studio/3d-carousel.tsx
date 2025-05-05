@@ -191,7 +191,7 @@ const Carousel3D = () => {
   const cards: CardData[] = [
     {
       price: 'AED 500',
-      title: 'Short Form Edit (Instagram / TikTok) ',
+      title: 'Short Form Edit (Instagram / TikTok) / 3 videos ',
       src: '/images/Reel1.png',
       videoSrc:
         'https://res.cloudinary.com/dcluqgjqe/video/upload/v1746176301/animation_3_pvtm2g.mp4',

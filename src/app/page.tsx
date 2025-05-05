@@ -2,7 +2,7 @@
 import Hero from '@/components/homepage-components/hero';
 import StudioSpace from '@/components/homepage-components/studio-spaces-components/studioSpace';
 import Equipment from '@/components/homepage-components/equipment/equipment';
-// import { ProductionPartners } from '@/components/production-partners/production-partner';
+import { ProductionPartners } from '@/components/production-partners/production-partner';
 import FAQSection from '@/components/faq/faq-section';
 // import Video from "@/components/video-section/video";
 import ProfessionalStudio from '@/components/homepage-components/professional-studio/professional-studio';
@@ -27,7 +27,7 @@ export default function Home() {
       <StudioSpace />
       <ProfessionalStudio />
       <Equipment />
-      {/* <ProductionPartners /> */}
+      <ProductionPartners />
       {/* <Video/> */}
       <MarqueeSlider />
       {/* <EpisodeSection /> */}

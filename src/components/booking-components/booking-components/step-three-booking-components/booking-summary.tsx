@@ -85,6 +85,9 @@ const BookingSummary = ({
   const displayDuration = duration === 3 ? duration + 1 : duration;
   const hasBonusHour = duration === 3;
 
+
+  console.log('customService', customService);
+
   return (
     <div className='flex flex-col md:w-[90%] mx-auto lg:w-full pb-10 mt-10 w-full '>
       <>
@@ -140,6 +143,8 @@ const BookingSummary = ({
                 {customService && customService.length > 0 && (
                   <>
                     <div className='mt-5 3xl:mt-6 w-full min-h-[0.1px] bg-[#98989870]' />
+                    
+                
                     {customService.map((service, index) => (
                       <div
                         key={index}
@@ -147,7 +152,16 @@ const BookingSummary = ({
                       >
                         <p>
                           {service.name}{' '}
-                          {service.quantity > 1 ? `(x${service.quantity})` : ''}
+                          {service.name === 'Short Form Edit (Instagram/TikTok)' ? (
+                            <>
+                              {service.quantity > 1 ? `/ (${service.quantity * 3}  Videos)` : ''}
+                              </>
+                          ) : (
+                            <>
+                            {service.quantity > 1 ? `(x${service.quantity})` : ''}
+                            </>
+                          )}
+                          
                         </p>
                         <p>
                           {parsePrice(service.price) * service.quantity}{' '}

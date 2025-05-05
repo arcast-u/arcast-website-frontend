@@ -6,32 +6,32 @@ const setups = [
   {
     id: 0,
     name: 'Setup 1',
-    image: '/images/setupSlides/setup1/5.png',
-    mobileImage: '/images/setupSlides/setup1/5.png', // Mobile-specific image
+    image: '/images/dropdown-setup-1.webp',
+    mobileImage: '/images/dropdown-setup-1.webp', // Mobile-specific image
     available: true
   },
   {
     id: 1,
     name: 'Setup 2',
-    image: '/images/newstudio3.png',
-    mobileImage: '/images/newstudio3mobile.png',
+    image: '/images/dropdown-setup-2.webp',
+    mobileImage: '/images/dropdown-setup-2.webp',
     available: true
   },
   {
     id: 2,
     name: 'Setup 3',
   
-    image:'/images/setupSlides/setup3/3.webp',
+    image:'/images/dropdown-setup-3.webp',
     
-   mobileImage:'/images/setupSlides/setup3/3.webp',
+   mobileImage:'/images/dropdown-setup-3.webp',
    available: true
     
   },
   {
     id: 3,
     name: 'Setup 4',
-    image: '/images/setupSlides/setup4/5.png',
-    mobileImage: '/images/setupSlides/setup4/5.png',
+    image: '/images/dropdown-setup-4.webp',
+    mobileImage: '/images/dropdown-setup-4.webp',
     available: true
   },
 
