@@ -169,7 +169,7 @@ const CustomServices = ({
         setAdditionalServices(res.data.data);
       }
     } catch {
-      toast.error('Sorry, something went wrong');
+      toast.error('Network Error');
     } finally {
       setLoading(false);
     }

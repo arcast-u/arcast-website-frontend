@@ -70,7 +70,7 @@ const ContactOverlay = ({ isOpen, onClose }: ContactOverlayProps) => {
         onClose();
       }
     } catch {
-      toast.error('Failed to submit form');
+      toast.error('Network Error');
     } finally {
       setLoading(false);
     }

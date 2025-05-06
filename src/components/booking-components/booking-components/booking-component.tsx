@@ -115,16 +115,16 @@ const StudioBooking = ({
         const response = await fetch(apiUrl);
 
         if (!response.ok) {
-          const errorMessage =
-            {
-              400: 'Bad Request - Please check your request parameters',
-              401: 'Unauthorized - Please login to access this resource',
-              403: "Forbidden - You don't have permission to access this resource",
-              404: 'Studios not found',
-              500: 'Internal Server Error - Please try again later',
-              502: 'Bad Gateway - Server is temporarily unavailable',
-              503: 'Service Unavailable - Please try again later',
-            }[response.status] || `Server Error (${response.status})`;
+          const errorMessage = 'Network Error';
+          // {
+          //   400: 'Bad Request - Please check your request parameters',
+          //   401: 'Unauthorized - Please login to access this resource',
+          //   403: "Forbidden - You don't have permission to access this resource",
+          //   404: 'Studios not found',
+          //   500: 'Internal Server Error - Please try again later',
+          //   502: 'Bad Gateway - Server is temporarily unavailable',
+          //   503: 'Service Unavailable - Please try again later',
+          // }[response.status] || `Server Error (${response.status})`;
 
           toast.error(errorMessage);
           return;
@@ -133,12 +133,9 @@ const StudioBooking = ({
         const data = await response.json();
 
         setStudio(data);
-      } catch (error: unknown) {
-        if (error instanceof Error) {
-          toast.error(error.message);
-        } else {
-          toast.error('Selected time slot is not available');
-        }
+      } catch {
+        toast.error('Selected time slot is not available');
+
         return null;
       } finally {
         setLoading(false);
@@ -167,16 +164,16 @@ const StudioBooking = ({
       try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
-          const errorMessage =
-            {
-              400: 'Bad Request - Please check your request parameters',
-              401: 'Unauthorized - Please login to access this resource',
-              403: "Forbidden - You don't have permission to access this resource",
-              404: 'Studios not found',
-              500: 'Internal Server Error - Please try again later',
-              502: 'Bad Gateway - Server is temporarily unavailable',
-              503: 'Service Unavailable - Please try again later',
-            }[response.status] || `Server Error (${response.status})`;
+          const errorMessage = 'Network Error';
+          // {
+          //   400: 'Bad Request - Please check your request parameters',
+          //   401: 'Unauthorized - Please login to access this resource',
+          //   403: "Forbidden - You don't have permission to access this resource",
+          //   404: 'Studios not found',
+          //   500: 'Internal Server Error - Please try again later',
+          //   502: 'Bad Gateway - Server is temporarily unavailable',
+          //   503: 'Service Unavailable - Please try again later',
+          // }[response.status] || `Server Error (${response.status})`;
 
           toast.error(errorMessage);
           return;
@@ -195,12 +192,8 @@ const StudioBooking = ({
           const dayData = await dayResponse.json();
           setTimeSlots(dayData.timeSlots);
         }
-      } catch (error: unknown) {
-        if (error instanceof Error) {
-          toast.error(error.message);
-        } else {
-          toast.error('Selected time slot is not available');
-        }
+      } catch {
+        toast.error('Selected time slot is not available');
       }
     }
 
@@ -265,21 +258,15 @@ const StudioBooking = ({
         return data;
       } else {
         if (response.status === 500) {
-          toast.error('Internal Server Error - Please try again later');
+          toast.error('Selected time slot is not available');
         } else {
-          const errorData = await response.json();
-          toast.error(
-            errorData.message || 'Selected time slot is not available'
-          );
+          toast.error('Selected time slot is not available');
         }
         return null;
       }
-    } catch (error) {
-      if (error instanceof Error) {
-        toast.error(error.message);
-      } else {
-        toast.error('Selected time slot is not available');
-      }
+    } catch {
+      toast.error('Selected time slot is not available');
+
       return null;
     } finally {
       setIsBooking(false);
@@ -300,12 +287,9 @@ const StudioBooking = ({
         return res.data;
       }
       return null;
-    } catch (error) {
-      if (error instanceof Error) {
-        toast.error(`Payment link creation failed: ${error.message}`);
-      } else {
-        toast.error('Failed to create payment link');
-      }
+    } catch {
+      toast.error('Network Error');
+
       router.push('/bookings/failed');
       return null;
     }
@@ -425,8 +409,6 @@ const StudioBooking = ({
   //   currentStep,
   // ]);
 
-
-
   const handleContinue = useCallback(async () => {
     if (isStepFour) {
       if (!validateRequiredFields()) {
@@ -475,7 +457,7 @@ const StudioBooking = ({
                   </div>
 
                   <div className='w-full max-h-[250px] mt-4 rounded-[5px]'>
-                  <p className='header-text mb-3'>Production team</p>
+                    <p className='header-text mb-3'>Production team</p>
                     <Image
                       src='/images/team.png'
                       quality={100}
