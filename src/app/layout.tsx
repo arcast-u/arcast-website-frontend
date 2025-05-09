@@ -78,6 +78,20 @@ export default function RootLayout({
         />
         <AnalyticScripts />
         {/* <GoogleScripts/> */}
+        <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=AW-16991448779"
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-16991448779');
+          `,
+        }}
+      />
       </head>
       <body
         className={`${hankenGrotesk.variable} ${nunitoSans.variable}  ${mulish.variable} antialiased `}
