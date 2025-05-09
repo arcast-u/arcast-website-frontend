@@ -194,7 +194,7 @@ const Carousel3D = () => {
       title: 'Short Form Edit (Instagram / TikTok) / 3 videos ',
       src: '/images/Reel1.png',
       videoSrc:
-        'https://res.cloudinary.com/dcluqgjqe/video/upload/v1746176301/animation_3_pvtm2g.mp4',
+        '/video/mic/3.mp4',
       isVideo: true,
       description:
         'High-quality, premium reels with advanced editing, motion graphics, and engaging cuts.',
@@ -203,7 +203,7 @@ const Carousel3D = () => {
       price: 'AED 960',
       title: 'Long Form Edit (Youtube)',
       isVideo: true,
-      videoSrc: 'https://res.cloudinary.com/dcluqgjqe/video/upload/v1746191867/copy_991BE8A0-EFF9-4A55-8069-E6999586889B_1_nqi38l.mov',
+      videoSrc: '/video/mic/5.mp4',
       src: '/images/Reel7.png',
       description:
         'Professional-grade editing with in-depth sound design, smooth transitions, and high production quality.',

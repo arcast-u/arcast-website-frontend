@@ -1,7 +1,6 @@
 'use client';
-import React from 'react';
-// import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
-// import { ProfessionalCard } from './professionals-card';
+import React, { useRef, useState } from 'react';
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
 export interface CardData {
   name: string;
@@ -9,74 +8,61 @@ export interface CardData {
   src: string;
 }
 
-// const profCards: CardData[] = [
-//   {
-//     name: 'Layla Hariri',
-//     src: '/images/prof-1.png',
-//     description: '12.3M Followers',
-//   },
-//   {
-//     name: 'Zayd Al Mazrouei',
-//     src: '/images/prof-2.png',
-//     description: '6.8M Followers',
-//   },
-//   {
-//     name: 'Noura Khalid',
-//     src: '/images/prof-3.png',
-//     description: '3.7M Followers',
-//   },
-//   {
-//     name: 'Sofia Maree',
-//     src: '/images/prof-4.png',
-//     description: '2.8M Followers',
-//   },
-//   {
-//     name: 'DJ Kareem',
-//     src: '/images/prof-5.png',
-//     description: '10M Followers',
-//   },
-//   {
-//     name: 'Tariq Blaze',
-//     src: '/images/prof-6.png',
-//     description: '1.1M Followers',
-//   },
-// ];
-
 function MicProfessionals() {
-  // const cardsPerView = 3;
-  //   const [currentIndex, setCurrentIndex] = useState(0);
-  //   const maxIndex = Math.ceil(profCards.length / cardsPerView) - 1;
-  //   const [touchStart, setTouchStart] = useState(0);
-  //   const [touchEnd, setTouchEnd] = useState(0);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
 
-  //   const handlePrevious = () => {
-  //     setCurrentIndex((prev) => Math.max(prev - 1, 0));
-  //   };
+  const videoSrcs = [
+    '/video/mic/2.mp4', 
+    '/video/mic/1.mp4', 
+    '/video/mic/3.mp4', 
+    '/video/mic/4.mp4',
+    '/video/mic-vid.mp4', 
+    '/video/mic-vid1.mp4', 
+  ];
 
-  //   const handleNext = () => {
-  //     setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
-  //   };
+  const checkScrollability = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollContainerRef.current;
+      setCanScrollLeft(scrollLeft > 0);
+      setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 10); // 10px buffer for rounding errors
+    }
+  };
 
-  // Mobile swipe handlers only
-  //   const handleTouchStart = (e: React.TouchEvent) => {
-  //     setTouchStart(e.targetTouches[0].clientX);
-  //   };
+  const handleScroll = () => {
+    checkScrollability();
+  };
 
-  //   const handleTouchMove = (e: React.TouchEvent) => {
-  //     setTouchEnd(e.targetTouches[0].clientX);
-  //   };
+  const scrollLeft = () => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = scrollContainerRef.current.clientWidth * 0.75; // Scroll 75% of the container width
+      scrollContainerRef.current.scrollBy({
+        left: -scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
-  //   const handleTouchEnd = () => {
-  //     if (touchStart - touchEnd > 50) {
-  //       // Swipe left
-  //       handleNext();
-  //     } else if (touchStart - touchEnd < -50) {
-  //       // Swipe right
-  //       handlePrevious();
-  //     }
-  // };
+  const scrollRight = () => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = scrollContainerRef.current.clientWidth * 0.75; // Scroll 75% of the container width
+      scrollContainerRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
-  const videoSrcs = ['/video/mic-vid.mp4', '/video/mic-vid1.mp4'];
+  // Initialize scroll state on component mount
+  React.useEffect(() => {
+    checkScrollability();
+    // Add resize listener to recheck scrollability when window size changes
+    window.addEventListener('resize', checkScrollability);
+    return () => {
+      window.removeEventListener('resize', checkScrollability);
+    };
+  }, []);
 
   return (
     <div className='bg-[#FCFCFC] w-full py-10 3xl:py-20 3xl:mt-0'>
@@ -93,75 +79,63 @@ function MicProfessionals() {
               </span>
             </p>
           </div>
-          {/* Navigation Buttons */}
-          {/* <div className='md:relative md:top-0 absolute top-32 flex md:block justify-between space-x-3 lg:w-auto lg:right-10 gap-2'>
-                        <button
-                            onClick={handlePrevious}
-                            disabled={currentIndex === 0}
-                            className={`p-1 md:p-2 rounded-lg border-[1.5px] border-gray-500 shadow-sm ${currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
-                            aria-label="Previous slide"
-                        >
-                            <IoIosArrowBack className='size- text-gray-500' />
-                        </button>
-
-                        <button
-                            onClick={handleNext}
-                            disabled={currentIndex === maxIndex}
-                            className={`p-1 md:p-2 rounded-lg border-[1.5px] border-gray-500 shadow-sm ${currentIndex === maxIndex ? 'opacity-50 cursor-not-allowed' : ''}`}
-                            aria-label="Next slide"
-                        >
-                            <IoIosArrowForward className='size- text-gray-500' />
-                        </button>
-                    </div> */}
         </header>
 
-        <div className='flex flex-row gap-4 w-full overflow-x-scroll no-scrollbar justify-center'>
+        {/* Video slider with touch support */}
+        <div 
+          ref={scrollContainerRef}
+          className='flex flex-row gap-4 w-full overflow-x-scroll no-scrollbar scroll-smooth snap-x'
+          onScroll={handleScroll}
+        >
           {videoSrcs.map((videoSrc, index) => (
-            <video
-              key={index} // Force re-render when source changes
-              autoPlay
-              loop
-              muted
-              playsInline
-              className='w-[200px] h-[350px] sm:w-[494px] sm:h-[600px] rounded-[12px] object-cover object-center'
-              src={videoSrc}
+            <div 
+              key={index}
+              className="flex-shrink-0 snap-center" 
             >
-              {/* Fallback image if video can't load */}
-              <img
-                src={'/images/prof-1.png'}
-                alt='fallback'
-                className='w-full min-w-[350px] h-[430px] sm:h-[650px] rounded-[12px] object-cover object-center'
-              />
-            </video>
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                className='w-[200px] h-[350px] sm:w-[300px]  lg:w-[294px] sm:h-[600px] rounded-[12px] object-cover object-center'
+                src={videoSrc}
+              >
+                {/* Fallback image if video can't load */}
+                <img
+                  src={'/images/prof-1.png'}
+                  alt='fallback'
+                  className='w-full min-w-[350px] h-[430px] sm:h-[650px] rounded-[12px] object-cover object-center'
+                />
+              </video>
+            </div>
           ))}
         </div>
-      </div>
-      {/* Mobile-only swipe area */}
 
-      {/* <div 
-                className="lg:w-[100%] md:w-[800px] px-[21px] overflow-hidden relative"
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-            >
-                 Inner Slide Container 
-                <div
-                    className="flex transition-transform duration-500 ease-in-out"
-                    style={{
-                        transform: `translateX(-${(40 / cardsPerView) * currentIndex}%)`,
-                        width: `${(profCards.length / cardsPerView) * 40}%`,
-                    }}
-                >
-                    {profCards.map((data, index) => (
-                        <div
-                            key={index}
-                            className="w-[calc(1000px/3)] flex-shrink-0 p-2"
-                        >
-                            <ProfessionalCard {...data} />
-                        </div>
-                    ))}
-                </div>
-            </div> */}
+        {/* Navigation arrows at the bottom */}
+      
+        <div className='z-40 lg:flex bottom-0 w-[90%] mt-6 lg:w-auto lg:right-10 hidden justify-between lg:justify-end gap-2'>
+        <button
+          onClick={scrollLeft}
+          disabled={!canScrollLeft}
+       
+          aria-label="Scroll left"
+          className='p-1 md:p-2 rounded-lg ml-9 cursor-pointer lg:ml-0  border-[1.5px] border-gray-500 shadow-sm'
+        >
+          <IoIosArrowBack  className="text-gray-800 text-xl" />
+        </button>
+
+        <button
+        onClick={scrollRight}
+        disabled={!canScrollRight}
+      
+        aria-label="Scroll right"
+          className='p-1 md:p-2  cursor-pointer rounded-lg border-[1.5px] border-gray-500 shadow-sm'
+        >
+          <IoIosArrowForward  className="text-gray-800 text-xl"/>
+        </button>
+      </div>
+      
+      </div>
     </div>
   );
 }
