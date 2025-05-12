@@ -14,12 +14,12 @@ function MicProfessionals() {
   const [canScrollRight, setCanScrollRight] = useState(true);
 
   const videoSrcs = [
-    '/video/mic/2.mp4', 
-    '/video/mic/1.mp4', 
-    '/video/mic/3.mp4', 
-    '/video/mic/4.mp4',
-    '/video/mic-vid.mp4', 
-    '/video/mic-vid1.mp4', 
+    'https://res.cloudinary.com/deuvbiekl/video/upload/v1747050684/2_ssrr1a.mp4', 
+    'https://res.cloudinary.com/deuvbiekl/video/upload/v1747050720/mic-vid1_ugqam6.mp4', 
+    'https://res.cloudinary.com/deuvbiekl/video/upload/v1747050645/3_m2uegj.mp4', 
+    'https://res.cloudinary.com/deuvbiekl/video/upload/v1747050645/4_yskuov.mp4',
+    'https://res.cloudinary.com/deuvbiekl/video/upload/v1747050719/mic-vid_zmnyvj.mp4', 
+    'https://res.cloudinary.com/deuvbiekl/video/upload/v1747050640/1_sngfk4.mp4', 
   ];
 
   const checkScrollability = () => {

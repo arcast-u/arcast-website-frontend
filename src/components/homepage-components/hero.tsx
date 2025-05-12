@@ -16,7 +16,7 @@ function Hero() {
     const checkDevice = () => {
       const mobileCheck = window.innerWidth < 768;
       setIsMobile(mobileCheck);
-      setVideoSrc(mobileCheck ? '/video/mobile.MOV' : '/video/desk.MOV');
+      setVideoSrc(mobileCheck ? 'https://res.cloudinary.com/deuvbiekl/video/upload/v1747050215/mobile_kz761z.mp4' : 'https://res.cloudinary.com/deuvbiekl/video/upload/v1747050218/desk_bgzsdy.mp4');
     };
 
     // Set initial state
@@ -44,7 +44,7 @@ function Hero() {
           <source src={videoSrc} type='video/mp4' />
           {/* Fallback image if video can't load */}
           <img
-            src={isMobile ? '/images/newHeroMobile.png' : '/images/heronew.png'}
+            src={isMobile ? 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747050441/newHeroMobile_ha5h2k.png' : '/images/heronew.png'}
             alt='Studio background'
             className='w-full h-full object-cover'
           />
@@ -52,7 +52,7 @@ function Hero() {
       ) : (
         // Static image fallback while determining device or if video fails
         <img
-          src={isMobile ? '/images/newHeroMobile.png' : '/images/heronew.png'}
+          src={isMobile ? 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747050441/newHeroMobile_ha5h2k.png' : 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747052171/IMG_0757_qcvzqx.jpg'}
           alt='Studio background'
           className='absolute top-0 left-0 w-full h-full object-cover z-0'
         />
