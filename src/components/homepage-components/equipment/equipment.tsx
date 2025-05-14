@@ -20,7 +20,7 @@ function Equipment() {
           {/* desktop */}
           <Image
             quality={100}
-            src='/images/equipments.png'
+            src='https://res.cloudinary.com/deuvbiekl/image/upload/v1747055128/equipments_lhbjme.png'
             alt='all equipment'
             width={1555.03}
             height={1132}
@@ -29,7 +29,7 @@ function Equipment() {
           {/* tablet */}
           <Image
             quality={100}
-            src='/images/equipmentmd.png'
+            src='https://res.cloudinary.com/deuvbiekl/image/upload/v1747055127/equipmentmd_b7tii5.png'
             alt='all equipment'
             width={1124.07}
             height={1525}
@@ -38,7 +38,7 @@ function Equipment() {
           {/* mobile */}
           <Image
             quality={100}
-            src='/images/equipmentsmobile.png'
+            src='https://res.cloudinary.com/deuvbiekl/image/upload/v1747055130/equipmentsmobile_bewwev.png'
             alt='all equipment'
             width={327}
             height={1420}
