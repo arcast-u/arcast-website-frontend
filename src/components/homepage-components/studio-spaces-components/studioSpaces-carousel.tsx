@@ -28,34 +28,18 @@ interface AnimatedDivProps {
 const AnimatedDiv = animated.div as unknown as React.FC<AnimatedDivProps>;
 
 const slides: SlideData[] = [
-  // {
-  //   id: 1,
-  //   title: 'Mobile Studio',
-  //   buttonText: 'Book Your Session',
-  //   images: [
-  //     '/images/studio8.png',
-  //     // '/images/studio2.jpg',
-  //     // '/images/studio4.jpg',
-  //   ],
-  //   mobileImages: [
-  //     '/images/studio8.png',
-  //     // '/images/studio2.jpg',
-  //     // '/images/studio4.jpg',
-  //   ],
-  // },
+
   {
     id: 0,
     title: 'Setup 1',
     buttonText: 'Book Your Session',
     images: [
-      '/images/setupSlides/setup1/2.webp',
-      // '/images/studio4.jpg',s
-      // '/images/studio3.jpg',
+      'https://res.cloudinary.com/deuvbiekl/image/upload/v1747053609/2_wjhzy8.webp',
+    
     ],
     mobileImages: [
-      '/images/1.webp',
-      // '/images/studio4.jpg',
-      // '/images/studio3.jpg',
+      'https://res.cloudinary.com/deuvbiekl/image/upload/v1747053627/1_jjuxxw.webp',
+     
     ],
   },
   {
@@ -63,98 +47,39 @@ const slides: SlideData[] = [
     title: 'Setup 2',
     buttonText: 'Book Your Session',
     images: [
-      '/images/newstudio3.png',
-      // '/images/studio9.jpg',
-      // '/images/studio2.jpg',
+      'https://res.cloudinary.com/deuvbiekl/image/upload/v1747053700/newstudio3_kh29wg.png',
+
     ],
     mobileImages: [
-      '/images/2.webp',
-      // '/images/studio9.jpg',
-      // '/images/studio2.jpg',
+      'https://res.cloudinary.com/deuvbiekl/image/upload/v1747053720/2_d3zquf.webp',
+   
     ],
   },
-  // {
-  //   id: 4,
-  //   title: 'Setup 3',
-  //   buttonText: 'Book Your Session',
-  //   images: [
-  //     '/images/studio4.jpg',
-  //     '/images/studio9.jpg',
-  //     '/images/studio5.jpg',
-  //   ],
-  //   mobileImages: [
-  //     '/images/studio4.jpg',
-  //     '/images/studio9.jpg',
-  //     '/images/studio5.jpg',
-  //   ],
-  // },
-  // {
-  //   id: 5,
-  //   title: 'Setup 4',
-  //   buttonText: 'Book Your Session',
-  //   images: [
-  //     '/images/studio5.jpg',
-  //     '/images/studio6.jpg',
-  //     '/images/studio2.jpg',
-  //   ],
-  //   mobileImages: [
-  //     '/images/studio5.jpg',
-  //     '/images/studio6.jpg',
-  //     '/images/studio2.jpg',
-  //   ],
-  // },
+
   {
     id: 2,
     title: 'Setup 3',
     buttonText: 'Book Your Session',
     images: [
-      '/images/setupSlides/setup3/3.webp',
-      // '/images/studio7.jpg',
-      // '/images/studio5.jpg',
+      'https://res.cloudinary.com/deuvbiekl/image/upload/v1747053774/3_punbx2.webp',
+
     ],
     mobileImages: [
-      '/images/3.webp',
-      // '/images/studio7.jpg',
-      // '/images/studio5.jpg',
+      'https://res.cloudinary.com/deuvbiekl/image/upload/v1747053803/3_jsv0ln.webp',
+
     ],
   },
-  // {
-  //   id: 7,
-  //   title: 'Setup 6',
-  //   buttonText: 'Book Your Session',
-  //   images: [
-  //     '/images/studio7.jpg',
-  //     '/images/studio8.jpg',
-  //     '/images/studio5.jpg',
-  //   ],
-  //   mobileImages: [
-  //     '/images/studio7.jpg',
-  //     '/images/studio8.jpg',
-  //     '/images/studio5.jpg',
-  //   ],
-  // },
+  
   {
     id: 3,
     title: 'Setup 4',
     buttonText: 'Book Your Session',
-    images: ['/images/setupSlides/setup4/6.webp'],
-    mobileImages: ['/images/4.webp'],
+    images: [
+      'https://res.cloudinary.com/deuvbiekl/image/upload/v1747053839/6_rjojnw.webp'
+    ],
+    mobileImages: ['https://res.cloudinary.com/deuvbiekl/image/upload/v1747053886/4_yod3yq.webp'],
   },
-  // {
-  //   id: 9,
-  //   title: 'Setup 8',
-  //   buttonText: 'Book Your Session',
-  //   images: [
-  //     '/images/studio9.jpg',
-  //     '/images/studio3.jpg',
-  //     '/images/studio8.jpg',
-  //   ],
-  //   mobileImages: [
-  //     '/images/studio9.jpg',
-  //     '/images/studio3.jpg',
-  //     '/images/studio8.jpg',
-  //   ],
-  // },
+ 
 ];
 
 const StudioSpacesCarousel = () => {

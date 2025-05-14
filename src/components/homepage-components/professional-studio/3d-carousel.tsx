@@ -192,9 +192,9 @@ const Carousel3D = () => {
     {
       price: 'AED 500',
       title: 'Short Form Edit (Instagram / TikTok) / 3 videos ',
-      src: '/images/Reel1.png',
+      src: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747054736/Reel1_jfkji3.png',
       videoSrc:
-        '/video/mic/3.mp4',
+        'https://res.cloudinary.com/deuvbiekl/video/upload/v1747050645/3_m2uegj.mp4',
       isVideo: true,
       description:
         'High-quality, premium reels with advanced editing, motion graphics, and engaging cuts.',
@@ -203,8 +203,8 @@ const Carousel3D = () => {
       price: 'AED 960',
       title: 'Long Form Edit (Youtube)',
       isVideo: true,
-      videoSrc: '/video/mic/5.mp4',
-      src: '/images/Reel7.png',
+      videoSrc: 'https://res.cloudinary.com/deuvbiekl/video/upload/v1747054537/5_hbrqc3.mp4',
+      src: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747054864/Reel7_urr1jy.png',
       description:
         'Professional-grade editing with in-depth sound design, smooth transitions, and high production quality.',
     },
@@ -233,14 +233,14 @@ const Carousel3D = () => {
       src: '/images/Reels.png',
       isVideo: true,
       videoSrc:
-        'https://res.cloudinary.com/dcluqgjqe/video/upload/v1746175875/gif_gtcokh.mp4',
+        'https://res.cloudinary.com/deuvbiekl/video/upload/v1747054222/5_xbhehz.mp4',
       description:
         'Accurate subtitles and captions to improve accessibility and engagement for video content.',
     },
     {
       price: 'AED 80',
       title: 'Teleprompter Support',
-      src: '/images/3d4.png',
+      src: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747055022/3d4_lxnslu.png',
       isVideo: false,
       description:
         'On-screen script assistance for seamless delivery, perfect for structured interviews and presentations.',
@@ -248,7 +248,7 @@ const Carousel3D = () => {
     {
       price: 'AED 500',
       title: 'Wardrobe Styling Consultation',
-      src: '/images/Reel-wardrobe.png',
+      src: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747055033/Reel-wardrobe_s4q87m.png',
       isVideo: false,
       description:
         'Expert outfit guidance to enhance your on-camera presence and reflect your personal brand.',
