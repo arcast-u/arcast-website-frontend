@@ -15,6 +15,7 @@ function MicProfessionals() {
 
   const videoSrcs = [
     'https://res.cloudinary.com/deuvbiekl/video/upload/v1747050684/2_ssrr1a.mp4', 
+    'https://res.cloudinary.com/deuvbiekl/video/upload/v1747227007/2_wolyas.mp4',
     'https://res.cloudinary.com/deuvbiekl/video/upload/v1747050720/mic-vid1_ugqam6.mp4', 
     'https://res.cloudinary.com/deuvbiekl/video/upload/v1747050645/3_m2uegj.mp4', 
     'https://res.cloudinary.com/deuvbiekl/video/upload/v1747050645/4_yskuov.mp4',

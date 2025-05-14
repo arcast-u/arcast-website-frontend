@@ -212,7 +212,7 @@ const Carousel3D = () => {
       price: 'AED 200',
       title: 'Episode Trailer (Short form)',
       src: '/images/Reel4.png',
-      videoSrc: 'https://res.cloudinary.com/deuvbiekl/video/upload/v1746275041/DAE1E047-0A9D-46DB-90F7-C3F22378A4D6-ezgif.com-gif-to-mp4-converter_dsrle6.mp4',
+      videoSrc: 'https://res.cloudinary.com/deuvbiekl/video/upload/v1747054222/5_xbhehz.mp4',
       isVideo: true,
       description:
         'Quick, impactful trailer editing to capture attention and drive excitement with key highlights in a concise format.',
@@ -233,14 +233,14 @@ const Carousel3D = () => {
       src: '/images/Reels.png',
       isVideo: true,
       videoSrc:
-        'https://res.cloudinary.com/deuvbiekl/video/upload/v1747054222/5_xbhehz.mp4',
+        'https://res.cloudinary.com/deuvbiekl/video/upload/v1747227007/2_wolyas.mp4',
       description:
         'Accurate subtitles and captions to improve accessibility and engagement for video content.',
     },
     {
       price: 'AED 80',
       title: 'Teleprompter Support',
-      src: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747055022/3d4_lxnslu.png',
+      src: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747226589/DSC00628_xruzpe.webp',
       isVideo: false,
       description:
         'On-screen script assistance for seamless delivery, perfect for structured interviews and presentations.',
