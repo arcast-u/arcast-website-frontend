@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Hanken_Grotesk, Nunito_Sans, Mulish } from 'next/font/google';
 import { AnalyticScripts } from '@/lib/analyticScripts';
 import { LinkedInScripts } from '@/lib/linkedinscript';
@@ -45,6 +46,22 @@ export default function RootLayout({
   return (
     <html lang='en' suppressHydrationWarning={true}>
       <head>
+        <Script
+          async
+          strategy='afterInteractive'
+          src='https://www.googletagmanager.com/gtag/js?id=AW-16991448779'
+        ></Script>
+        <Script
+          id='google-analytics'
+          strategy='afterInteractive'
+          dangerouslySetInnerHTML={{
+            __html: ` window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'AW-16991448779');`,
+          }}
+        ></Script>
+
         <script
           src='https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit'
           defer
