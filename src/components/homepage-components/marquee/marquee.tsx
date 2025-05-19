@@ -15,7 +15,7 @@ const images = [
 
 const MarqueeSlider = () => {
   return (
-    <section className='w-full bg-[#0C0C0C] mb-[37px] mt-5 3xl:mt-10'>
+    <section className='w-full bg-[#0C0C0C] '>
       <div className=' max-w-[1728px]  py-3 3xl:py-6 mx-auto '>
         <Marquee gradient={true} gradientColor='#0C0C0C' speed={100}>
           <div className='flex items-center md:gap-10 gap-5 pl-10 '>

@@ -84,9 +84,7 @@ const slides: SlideData[] = [
 
 const StudioSpacesCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  // const [imageIndex, setImageIndex] = useState(
-  //   new Array(slides.length).fill(0)
-  // ); // Track which image is displayed for each slide
+ 
   const [gapSize, setGapSize] = useState(280);
   const [isMobile, setIsMobile] = useState(false);
   const [touchStart, setTouchStart] = useState<number | null>(null);
@@ -182,23 +180,7 @@ const StudioSpacesCarousel = () => {
     setCurrentIndex((prev) => (prev - 1 + slides.length) % slides.length);
   };
 
-  // const handleImageChange = (direction: 'next' | 'prev') => {
-  //   setImageIndex((prev) => {
-  //     const newIndexArray = [...prev];
-  //     const totalImages = isMobile
-  //       ? slides[currentIndex].mobileImages.length
-  //       : slides[currentIndex].images.length;
-
-  //     if (direction === 'next') {
-  //       newIndexArray[currentIndex] = (prev[currentIndex] + 1) % totalImages;
-  //     } else {
-  //       newIndexArray[currentIndex] =
-  //         (prev[currentIndex] - 1 + totalImages) % totalImages;
-  //     }
-
-  //     return newIndexArray;
-  //   });
-  // };
+ 
 
   return (
     <div
