@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import StudioBooking from '@/components/booking-components/booking-components/booking-component';
 import { Carousel } from '@/components/booking-components/carousel-components/carousel';
 import MarqueeBookingSlider from '@/components/homepage-components/marquee/marquee-booking-slider';
-import FloatingWhatsAppComponent from '@/components/homepage-components/floating-whatsapp/floating-whatsapp';
+
 
 const BookingPage = () => {
   const [currentStep, setCurrentStep] = useState(0);
@@ -13,7 +13,7 @@ const BookingPage = () => {
   return (
     <div className="relative max-h-[100vh] flex flex-col">
       {/* Main content wrapper */}
-        <FloatingWhatsAppComponent />
+        {/* <FloatingWhatsAppComponent /> */}
       <div className=" fixed top-0 left-0 right-0 w-full z-50">
         <MarqueeBookingSlider />
       </div>

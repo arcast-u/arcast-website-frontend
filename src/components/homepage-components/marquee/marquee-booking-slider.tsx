@@ -16,8 +16,8 @@ const images = [
 const MarqueeBookingSlider = () => {
   return (
     <section className='w-full bg-[#0C0C0C]'>
-      <div className='max-w-[1728px] py-[0.5] 3xl:py-2 mx-auto'>
-        <Marquee gradient={true} gradientColor='#0C0C0C' speed={180}>
+      <div className='max-w-[1728px] py-1 3xl:py-2 mx-auto'>
+        <Marquee gradient={true} gradientColor='#0C0C0C' speed={80}>
           <div className='flex items-center md:gap-18 gap-3 pl-18'>
             {/* Wide logo 1 */}
             <Image
@@ -25,7 +25,7 @@ const MarqueeBookingSlider = () => {
               alt='y!'
               width={200}
               height={18}
-              className='w-auto h-[14px] md:h-[18px]' // Smaller on mobile
+              className='w-auto h-[16px] md:h-[18px]' // Smaller on mobile
             />
             
             {/* Small divider logo */}
@@ -34,7 +34,7 @@ const MarqueeBookingSlider = () => {
               alt='business insider'
               width={13}
               height={18}
-              className='w-auto h-[12px] md:h-[18px]' // Smaller on mobile
+              className='w-auto h-[14px] md:h-[18px]' // Smaller on mobile
             />
             
             {/* Wide logo 2 */}
@@ -43,7 +43,7 @@ const MarqueeBookingSlider = () => {
               alt='the guardian'
               width={300}
               height={18}
-              className='w-auto h-[14px] md:h-[18px]' // Smaller on mobile
+              className='w-auto h-[16px] md:h-[18px]' // Smaller on mobile
             />
             
             {/* Small divider logo */}
@@ -52,7 +52,7 @@ const MarqueeBookingSlider = () => {
               alt='business insider'
               width={13}
               height={18}
-              className='w-auto h-[12px] md:h-[18px]' // Smaller on mobile
+              className='w-auto h-[14px] md:h-[18px]' // Smaller on mobile
             />
             
             {/* Wide logo 3 */}
@@ -61,7 +61,7 @@ const MarqueeBookingSlider = () => {
               alt='vanguard'
               width={200}
               height={18}
-              className='w-auto h-[14px] md:h-[18px]' // Smaller on mobile
+              className='w-auto h-[16px] md:h-[18px]' // Smaller on mobile
             />
             
             {/* Small divider logo */}
@@ -70,7 +70,7 @@ const MarqueeBookingSlider = () => {
               alt='business insider'
               width={13}
               height={18}
-              className='w-auto h-[12px] md:h-[18px]' // Smaller on mobile
+              className='w-auto h-[14px] md:h-[18px]' // Smaller on mobile
             />
             
             {/* Wide logo 4 */}
@@ -79,7 +79,7 @@ const MarqueeBookingSlider = () => {
               alt='this Day'
               width={300}
               height={18}
-              className='w-auto h-[14px] md:h-[18px]' // Smaller on mobile
+              className='w-auto h-[16px] md:h-[18px]' // Smaller on mobile
             />
             
             {/* Small divider logo */}
@@ -88,7 +88,7 @@ const MarqueeBookingSlider = () => {
               alt='business insider'
               width={13}
               height={18}
-              className='w-auto h-[12px] md:h-[18px]' // Smaller on mobile
+              className='w-auto h-[14px] md:h-[18px]' // Smaller on mobile
             />
           </div>
         </Marquee>
