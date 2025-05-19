@@ -134,7 +134,7 @@ const StudioBooking = ({
 
         setStudio(data);
       } catch {
-        toast.error('Selected time slot is not available');
+        // toast.error('Selected time slot is not available');
 
         return null;
       } finally {
@@ -193,87 +193,144 @@ const StudioBooking = ({
           setTimeSlots(dayData.timeSlots);
         }
       } catch {
-        toast.error('Selected time slot is not available');
+        // toast.error('Selected time slot is not available');
       }
     }
 
     fetchDateTime(selectedStudio.id);
   }, [selectedStudio?.id, date]);
 
-  // submit form
-  const bookStudio = async (): Promise<BookingProps | null> => {
+ /**
+ * Books a studio session and creates a payment link for the booking
+ * @returns Promise containing booking data or null if booking fails
+ */
+const bookStudio = async (): Promise<BookingProps | null> => {
+  try {
+    // Set loading states
     setIsBooking(true);
     setPaymentLoading(true);
-    const url = `https://arcast-ai-backend.vercel.app/api/bookings`;
-
+    console.log(selectedTimeSlot, 'selected time slot');
+    // Validate time slot selection
+    if (!selectedTimeSlot || selectedTimeSlot === '0') {
+      toast.error('Please select an available time slot');
+      return null;
+    }
+    
+    // Check required fields
+    if (!form.fullName || !form.email || !form.whatsappNumber) {
+      toast.error('Please fill in all required fields');
+      return null;
+    }
+    
+    // Check if studio and package are selected
+    if (!selectedStudio?.id || !selectedPackage?.id) {
+      toast.error('Please select a studio and package');
+      return null;
+    }
+    
+    // Calculate actual duration (accounting for bonus hour)
     const actualDuration = duration === 3 ? duration + 1 : duration;
-
-    // Transform selectedCustomServices into the format expected by the API
-    const additionalServices =
-      selectedCustomServices.length > 0
-        ? selectedCustomServices.map((service) => ({
-            id: service.id,
-            quantity: service.quantity,
-          }))
-        : [];
-
+    
+    // Format additional services
+    const additionalServices = selectedCustomServices.map((service) => ({
+      id: service.id,
+      quantity: service.quantity,
+    }));
+    
+    // Get discount information from localStorage
+    const hasDiscount = typeof window !== 'undefined' && localStorage.getItem('isDiscount') === 'true';
+    
+    // Prepare request body
     const requestBody = {
       studioId: selectedStudio?.id,
       packageId: selectedPackage?.id,
       numberOfSeats: selectedPeopleCount,
       startTime: selectedTimeSlot,
       duration: actualDuration,
-      discountCode: form.discountCode,
+      discountCode: hasDiscount ? form.discountCode : '', // Only send discount if valid
       lead: {
         fullName: form.fullName,
         email: form.email,
-        phoneNumber: form.countryCode + form.phoneNumber,
+        phoneNumber: form.whatsappCountryCode + form.whatsappNumber, // Using WhatsApp as primary phone
         whatsappNumber: form.whatsappCountryCode + form.whatsappNumber,
-        recordingLocation: form.recordingLocation,
+        recordingLocation: form.recordingLocation || '',
       },
       additionalServices: additionalServices,
     };
-
-    try {
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(requestBody),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        await createPaymentLink(data.id);
-
-        // if (paymentlink) {
-        //   // Redirect to payment page if successful
-        //   router.push(paymentlink.paymentLink.url);
-        //   return data;
-        // }
-        // return null;
-        // toast.success('Booking successful');
-        return data;
-      } else {
-        if (response.status === 500) {
-          toast.error('Selected time slot is not available');
-        } else {
-      
-          toast.error('Selected time slot is not available');
-        }
-        return null;
+    
+    // API endpoint
+    const url = `https://arcast-ai-backend.vercel.app/api/bookings`;
+    
+    // Make the API request
+    const response = await fetch(url, {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(requestBody),
+    });
+    
+    // Handle API response
+    if (!response.ok) {
+      // Extract error message from response if available
+      let errorMessage = 'Failed to book studio';
+      try {
+        const errorData = await response.json();
+        errorMessage = errorData.error|| errorMessage;
+ 
+      } catch {
+        // If error is not in JSON format, use status text
+        errorMessage = response.statusText || errorMessage;
       }
-    } catch {
-      toast.error('Selected time slot is not available');
+      
+      if (response.status === 409) {
+        toast.error('Selected time slot is no longer available');
+      } else if (response.status === 400) {
+        toast.error(errorMessage);
+      } else if (response.status === 500) {
+        toast.error('Server error. Please try again later.');
+      } else {
+        toast.error(errorMessage);
+      }
       
       return null;
-    } finally {
-      setIsBooking(false);
-      setPaymentLoading(false);
     }
-  };
+    
+    // Process successful response
+    const bookingData = await response.json();
+    
+    // Create payment link for the booking
+    const paymentResult = await createPaymentLink(bookingData.id);
+    
+    // If payment link creation failed
+ //@ts-expect-error the url is optional
+    if (!paymentResult || !paymentResult.paymentLink?.url) {
+      toast.error('Failed to create payment link');
+      return null;
+    }
+    
+    // Redirect to payment page
+    //@ts-expect-error the url is optional
+    router.push(paymentResult.paymentLink?.url);
+    
+    // Return booking data
+    return bookingData;
+    
+  } catch (error) {
+    // Log error for debugging
+    console.error('Booking error:', error);
+    
+    // Show user-friendly error message
+    toast.error('Unable to complete booking. Please try again.');
+    return null;
+    
+  } finally {
+    // Reset loading states
+    setIsBooking(false);
+    setPaymentLoading(false);
+  }
+};
 
   const createPaymentLink = async (
     bookingId: string
