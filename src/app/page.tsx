@@ -12,6 +12,7 @@ import Footer from '@/components/homepage-components/footer/footer';
 import MarqueeSlider from '@/components/homepage-components/marquee/marquee';
 import DubaiStudioLocation from '@/components/homepage-components/location/location';
 import MicProfessionals from '@/components/homepage-components/mic-professionals';
+import FloatingWhatsAppComponent from '@/components/homepage-components/floating-whatsapp/floating-whatsapp';
 // import EpisodeSection from '@/components/homepage-components/episode-section/section';
 // import AudioPlayer from "@/components/music";
 // import BookinPage from "./book-session/page";
@@ -19,9 +20,11 @@ import MicProfessionals from '@/components/homepage-components/mic-professionals
 export default function Home() {
   return (
     <main className='w-full bg-[#FCFCFC]'>
+      
       {/* <Cursor/> */}
       {/* <BookinPage/> */}
       {/* <AudioPlayer/> */}
+    <FloatingWhatsAppComponent />
       <Hero />
       <MicProfessionals />
       <StudioSpace />
@@ -29,7 +32,10 @@ export default function Home() {
       <Equipment />
       <ProductionPartners />
       {/* <Video/> */}
+      <div className='mb-[37px] mt-5 3xl:mt-10'>
       <MarqueeSlider />
+      </div>
+      
       {/* <EpisodeSection /> */}
       <DubaiStudioLocation />
       <Community />

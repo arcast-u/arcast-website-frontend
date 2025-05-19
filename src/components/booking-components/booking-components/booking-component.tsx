@@ -260,13 +260,14 @@ const StudioBooking = ({
         if (response.status === 500) {
           toast.error('Selected time slot is not available');
         } else {
+      
           toast.error('Selected time slot is not available');
         }
         return null;
       }
     } catch {
       toast.error('Selected time slot is not available');
-
+      
       return null;
     } finally {
       setIsBooking(false);
@@ -363,12 +364,12 @@ const StudioBooking = ({
     try {
       localStorage.removeItem('bookingProgress');
       // Reset all state variables that are saved in localStorage
-      setCurrentStep(0);
+      // setCurrentStep(0);
       setSelectedStudioIndex(0);
       setSelectedPackageIndex(0);
       setSelectedPeopleCount(1);
       setDate(new Date());
-      setSelectedTimeSlot('10:00');
+      // setSelectedTimeSlot('10:00');
       setDuration(1);
       setForm(initialFormState);
     } catch (error) {
