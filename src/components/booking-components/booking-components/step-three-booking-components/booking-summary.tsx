@@ -35,6 +35,37 @@ const BookingSummary = ({
   customService,
 }: BookingComponentProps) => {
   const img = '/images/checkout.webp';
+  const [isDiscount, setIsDiscount] = React.useState(true);
+  
+  // Check for discount in localStorage
+  React.useEffect(() => {
+    // Initial check
+    if (typeof window !== 'undefined') {
+      const checkDiscount = () => {
+        const discountStatus = localStorage.getItem('isDiscount');
+        setIsDiscount(discountStatus === 'true');
+      };
+      
+      // Check immediately
+      checkDiscount();
+      
+      // Set up listener for storage changes
+      const handleStorageChange = () => {
+        checkDiscount();
+      };
+      
+      window.addEventListener('storage', handleStorageChange);
+      
+      // Setup interval to check regularly (as a fallback)
+      const intervalId = setInterval(checkDiscount, 1000);
+      
+      return () => {
+        window.removeEventListener('storage', handleStorageChange);
+        clearInterval(intervalId);
+      };
+    }
+  }, []);
+
   const formatDate = (isoDate: Date) =>
     new Date(isoDate).toLocaleDateString('en-US', {
       year: 'numeric',
@@ -67,7 +98,7 @@ const BookingSummary = ({
       return new Date().toISOString();
     }
   };
-  // const total = Number(price) * duration;
+
   const packageTotal = Number(price) * duration;
   const parsePrice = (priceString: string): number =>
     Number(priceString.replace(/[^0-9.-]+/g, ''));
@@ -80,13 +111,18 @@ const BookingSummary = ({
         )
       : 0;
 
-  const total = packageTotal + customServiceTotal;
+  // Calculate subtotal before discount
+  const subtotal = packageTotal + customServiceTotal;
+  
+  // Calculate discount amount (50% of subtotal if discount is applied)
+  const discountAmount = isDiscount ? subtotal * 0.5 : 0;
+  
+  // Calculate final total after discount
+  const total = subtotal - discountAmount;
+  
   const actualDuration = duration;
   const displayDuration = duration === 3 ? duration + 1 : duration;
   const hasBonusHour = duration === 3;
-
-
-
 
   return (
     <div className='flex flex-col md:w-[90%] mx-auto lg:w-full pb-10 mt-10 w-full '>
@@ -132,12 +168,6 @@ const BookingSummary = ({
                       <p className='text-green-600 font-medium'>+1 hour free</p>
                     </div>
                   )}
-                  {/* <div className="flex flex-wrap gap-3 items-center justify-between">
-                    <p>{selectedPackage ?? "No Package Selected"}</p>
-                    <p><span className="text-xs leading-[19.1px]">{duration}hrs X </span>
-                      {price ?? "0"} {currency ?? "AED"}
-                    </p>
-                </div> */}
                 </div>
 
                 {customService && customService.length > 0 && (
@@ -212,7 +242,7 @@ const BookingSummary = ({
                 <div className='flex flex-wrap items-center justify-between'>
                   <p className='text-[#989898]'>Total Services</p>
                   <p>
-                    {total ?? '0'} {currency ?? 'AED'}
+                    {subtotal.toFixed(2)} {currency ?? 'AED'}
                   </p>
                 </div>
                 <div className='flex flex-wrap items-center mt-2 justify-between'>
@@ -222,18 +252,28 @@ const BookingSummary = ({
                   </p>
                 </div>
                 <div className='flex flex-wrap items-center mt-2 justify-between'>
-                  <p className='text-[#989898]'>Discount</p>
-                  <p>
-                    {'0'} {currency ?? 'AED'}
+                  <p className={`text-[#989898] ${isDiscount ? 'font-semibold text-green-600' : ''}`}>
+                    {isDiscount ? 'Discount (50%)' : 'Discount'}
+                  </p>
+                  <p className={isDiscount ? 'font-semibold text-green-600' : ''}>
+                    {discountAmount.toFixed(0)} {currency ?? 'AED'}
                   </p>
                 </div>
                 <div className='flex flex-wrap justify-between items-center 3xl:mt-6 mt-5 w-full text-[22px] leading-[27.28px]'>
                   <p className='self-stretch my-auto font-medium'>Total</p>
                   <p className='self-stretch my-auto font-semibold'>
                     {' '}
-                    {total ?? '0'} {currency ?? 'AED'}
+                    {total.toFixed(0)} {currency ?? 'AED'}
                   </p>
                 </div>
+{/*                 
+                {isDiscount && (
+                  <div className="mt-4 py-2 px-3 bg-green-50 border border-green-200 rounded-md">
+                    <p className="text-green-600 text-sm">
+                      Discount code ARCAST50 applied successfully!
+                    </p>
+                  </div>
+                )} */}
               </div>
             </div>
           </div>
