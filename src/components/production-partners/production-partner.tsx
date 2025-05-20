@@ -5,32 +5,32 @@ export const ProductionPartners = () => {
   const teamMembers = [
     [
       {
-        imageSrc: '/images/partner1.png',
+        imageSrc: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747741663/partner1_vm72i6.png',
         title: 'Founder/Owner',
         description:
           'Oversees the entire production for a flawless experience.',
       },
       {
-        imageSrc: '/images/partner2.png',
+        imageSrc: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747741666/partner2_ver3my.png',
         title: 'Chief Video Director ',
         description: 'Manages camera angles, lighting, and visuals.',
       },
     ],
     [
       {
-        imageSrc: '/images/partner3.png',
+        imageSrc: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747741667/partner3_nanc5z.png',
         title: 'Operations Manager',
         description: 'Handles logistics and supports the team.',
       },
       {
-        imageSrc: '/images/partner4.png',
+        imageSrc: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747741669/partner4_wczphp.png',
         title: 'Production Manager',
         description: 'Handles real-time edits for a polished final product.',
       },
     ],
     [
       {
-        imageSrc: '/images/partner5.png',
+        imageSrc: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747741671/partner5_kzoahh.png',
         title: 'Studio Technician',
         description: 'Ensures pristine sound quality and mixing.',
       },

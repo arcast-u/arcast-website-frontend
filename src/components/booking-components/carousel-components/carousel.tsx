@@ -58,40 +58,40 @@ const CarouselContent = () => {
     switch (setupValue) {
       case '0':
         return [
-          '/images/setupSlides/setup1/1.webp',
-          '/images/setupSlides/setup1/2.webp',
-          '/images/setupSlides/setup1/3.webp',
-          '/images/setupSlides/setup1/6.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747734893/1_detuzu.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747734893/2_jx3sux.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747734893/3_hqdcoo.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747734895/6_mu03n7.webp',
         ];
       case '1':
         return [
-          '/images/setupSlides/setup2/1.webp',
-          '/images/setupSlides/setup2/2.webp',
-          '/images/setupSlides/setup2/3.webp',
-          '/images/setupSlides/setup2/4.webp',
-          '/images/setupSlides/setup2/5.webp',
-          '/images/setupSlides/setup2/6.webp',
-          '/images/setupSlides/setup2/7.webp',
-          '/images/setupSlides/setup2/8.webp',
-          '/images/setupSlides/setup2/9.webp',
-          '/images/setupSlides/setup2/10.webp',
-          '/images/setupSlides/setup2/11.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747735054/1_oslw8r.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747735055/2_tchgxw.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747735055/3_mh6jk9.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747735055/4_hwbswp.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747735056/5_zx3279.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747735057/6_epzrn8.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747735097/7_y5vju0.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747735097/8_jxhxbs.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747735097/9_xgquai.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747735098/10_stpfuu.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747735098/11_epjf00.webp',
         ];
       case '2':
         return [
-          '/images/setupSlides/setup3/1.webp',
-          '/images/setupSlides/setup3/2.webp',
-          '/images/setupSlides/setup3/3.webp',
-          '/images/setupSlides/setup3/4.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747738092/1_g2cvda.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747738092/2_xwnyzi.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747738093/3_ysmhi7.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747738093/4_ebjoiz.webp',
         ];
       case '3':
         return [
-          '/images/setupSlides/setup4/6.webp',
-          '/images/setupSlides/setup4/7.webp',
-          '/images/setupSlides/setup4/8.webp',
-          '/images/setupSlides/setup4/9.webp',
-          '/images/setupSlides/setup4/10.webp',
-          '/images/setupSlides/setup4/11.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747738200/6_gwjbxr.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747738201/7_s3eg4d.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747738201/8_yrgmym.webp',
+          // '/images/setupSlides/setup4/9.webp',
+          // '/images/setupSlides/setup4/10.webp',
+          'https://res.cloudinary.com/deuvbiekl/image/upload/v1747738203/11_bvm0fa.webp',
         ];
       default:
         return [];
