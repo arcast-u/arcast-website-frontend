@@ -1,6 +1,6 @@
 'use client';
 
-import React, {useEffect} from 'react';
+import React from 'react';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
 import { PiInstagramLogo, PiTiktokLogo, PiLinkedinLogo } from 'react-icons/pi';
 import { FaXTwitter } from 'react-icons/fa6';
@@ -9,30 +9,22 @@ import Link from 'next/link';
 import Script from 'next/script';
 
 const Footer = () => {
-  useEffect(() => {
-    if (window.location.href.includes("/bookings/confirmation")) {
-      window.gtag("event", "conversion", {
-        send_to: "AW-16991448779/hQ1yCNK6_s0aEMvdk6Y_",
-      });
-    }
-  }, []);
+
   return (
     <footer id='footer' className=' w-full mt-8 '>
-        <Script
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=AW-16991448779`}
-      />
       <Script
-        id="gtag-init"
         strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-          `,
-        }}
+        src="https://www.googletagmanager.com/gtag/js?id=AW-16991448779"
       />
+      <Script id="google-ads-conversion-tracking" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          gtag('config', 'AW-16991448779');
+        `}
+      </Script>
       <div className='px-[21px] lg:px-16 3xl:px-[100px] mx-auto max-w-[1728px]'>
         <div className=' font-nunitoSans pt-5 3xl:pt-10 h-full flex flex-col '>
           <div className='flex-grow'>
