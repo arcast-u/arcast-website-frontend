@@ -7,11 +7,13 @@ import { FaXTwitter } from 'react-icons/fa6';
 import Image from 'next/image';
 import Link from 'next/link';
 import Script from 'next/script';
+import GoogleAdsConversion from '@/components/google-ads-conversion/google-ads-conversion';
 
 const Footer = () => {
 
   return (
     <footer id='footer' className=' w-full mt-8 '>
+      <GoogleAdsConversion />
       <Script
         strategy="afterInteractive"
         src="https://www.googletagmanager.com/gtag/js?id=AW-16991448779"
