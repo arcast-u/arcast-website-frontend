@@ -3,10 +3,24 @@ import React, { Suspense } from 'react';
 // import {GoogleAnalytics} from '@next/third-parties/google';
 import { Carousel } from '@/components/booking-components/carousel-components/carousel';
 import BookingConfirmationContent from './content';
+import Script from 'next/script';
 
 const BookingConfirmationPage = () => {
   return (
     <>
+     <Script
+        strategy="afterInteractive"
+        src="https://www.googletagmanager.com/gtag/js?id=AW-16991448779"
+      />
+      <Script id="google-ads-conversion-tracking" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          
+          gtag('config', 'AW-16991448779');
+        `}
+      </Script>
       {/* <GoogleAnalytics gaId="G-M1E9W0FZ76" /> */}
       <section className='w-full lg:h-screen bg-[#FCFCFC] lg:overflow-hidden'>
         <main className='w-full grid grid-cols-1 lg:flex '>
