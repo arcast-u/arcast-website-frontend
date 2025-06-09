@@ -8,7 +8,7 @@ export default function GoogleAdsConversion() {
   const pathname = usePathname();
 
   useEffect(() => {
-    if (pathname.includes('/bookings/confirmation')) {
+    if (pathname.includes('/')) {
       gtag('event', 'conversion', {
         send_to: 'AW-16991448779/hQ1yCNK6_s0aEMvdk6Y_',
       });

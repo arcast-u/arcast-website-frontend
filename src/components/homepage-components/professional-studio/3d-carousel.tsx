@@ -253,6 +253,14 @@ const Carousel3D = () => {
       description:
         'Expert outfit guidance to enhance your on-camera presence and reflect your personal brand.',
     },
+     {
+      price: 'AED 550',
+      title: 'Podacast distribution',
+      src: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1749460679/Frame_1618875758_lzs3th.png',
+      isVideo: false,
+      description:
+        'Seamless podcast distribution to amplify your reach and get your voice on all major streaming platforms.',
+    },
   ];
 
   const CalculateStyles = (index: number) => {
