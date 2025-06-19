@@ -6,6 +6,8 @@ interface TeamRowProps {
     imageSrc: string;
     title: string;
     description: string;
+    name: string;
+    experience?: string;
   }>;
 }
 
