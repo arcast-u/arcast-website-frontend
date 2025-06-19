@@ -4,36 +4,45 @@ import { TeamRow } from './teamRow';
 export const ProductionPartners = () => {
   const teamMembers = [
     [
+      // {
+      //   imageSrc: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747741663/partner1_vm72i6.png',
+      //   title: 'Founder/Owner',
+      //   description:
+      //     'Oversees the entire production for a flawless experience.',
+      // },
       {
-        imageSrc: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747741663/partner1_vm72i6.png',
-        title: 'Founder/Owner',
-        description:
-          'Oversees the entire production for a flawless experience.',
-      },
-      {
+        name: 'Abdulmuin Muhamedov',
+         experience: '(8+ years experience)',
         imageSrc: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747741666/partner2_ver3my.png',
-        title: 'Chief Video Director ',
-        description: 'Manages camera angles, lighting, and visuals.',
-      },
-    ],
-    [
-      {
-        imageSrc: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747741667/partner3_nanc5z.png',
-        title: 'Operations Manager',
-        description: 'Handles logistics and supports the team.',
+        title:  'Head of Video Production',
+        description: 'Leads filming and editing with expert precision and creative direction.',
       },
       {
-        imageSrc: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747741669/partner4_wczphp.png',
-        title: 'Production Manager',
-        description: 'Handles real-time edits for a polished final product.',
-      },
-    ],
-    [
-      {
+        name: 'Ahmed Mohsin Tarabay',
+         experience: '(4+ years experience)',
         imageSrc: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747741671/partner5_kzoahh.png',
         title: 'Studio Technician',
-        description: 'Ensures pristine sound quality and mixing.',
+        description: 'Handles the technical expertise, ensuring flawless audio and video setup for every session.',
       },
+    ],
+    [
+      {
+        name: 'Grace Gella Dayono',
+        experience: '(5+ years experience)',
+        imageSrc: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747741667/partner3_nanc5z.png',
+        title: 'Operations & Administrative Manager ',
+        description: 'Handles client bookings, scheduling, and team coordination, keeping every session organized and stress-free.',
+      },
+      {
+         name: 'Muinjon Ergashev',
+         experience: '(3+ years experience)',
+        imageSrc: 'https://res.cloudinary.com/deuvbiekl/image/upload/v1747741669/partner4_wczphp.png',
+        title: 'Videographer',
+        description: 'Handles creative videography and is known to capture fresh, dynamic visuals.',
+      },
+    ],
+    [
+      
       // {
       //   imageSrc: '/images/partner6.png',
       //   title: 'Production Assistant',
