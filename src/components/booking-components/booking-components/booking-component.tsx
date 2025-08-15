@@ -108,7 +108,7 @@ const StudioBooking = ({
   };
   useEffect(() => {
     async function fetchStudios() {
-      const apiUrl = `https://arcast-ai-backend.vercel.app/api/studios`;
+      const apiUrl = `https://arcast-ai-backend-lilac.vercel.app/api/studios`;
 
       try {
         setLoading(true);
@@ -159,7 +159,7 @@ const StudioBooking = ({
     const formattedDate = date.toISOString().split('T')[0];
 
     async function fetchDateTime(studioId: string) {
-      const apiUrl = `https://arcast-ai-backend.vercel.app/api/studios/${studioId}/availability?date=${formattedDate}`;
+      const apiUrl = `https://arcast-ai-backend-lilac.vercel.app/api/studios/${studioId}/availability?date=${formattedDate}`;
 
       try {
         const response = await fetch(apiUrl);
@@ -259,7 +259,7 @@ const bookStudio = async (): Promise<BookingProps | null> => {
     };
     
     // API endpoint
-    const url = `https://arcast-ai-backend.vercel.app/api/bookings`;
+    const url = `https://arcast-ai-backend-lilac.vercel.app/api/bookings`;
     
     // Make the API request
     const response = await fetch(url, {
@@ -335,7 +335,7 @@ const bookStudio = async (): Promise<BookingProps | null> => {
   const createPaymentLink = async (
     bookingId: string
   ): Promise<{ paymentLink: string } | null> => {
-    const url = `https://arcast-ai-backend.vercel.app/api/bookings/${bookingId}/payment/link`;
+    const url = `https://arcast-ai-backend-lilac.vercel.app/api/bookings/${bookingId}/payment/link`;
 
     try {
       const res = await axios.post(url);

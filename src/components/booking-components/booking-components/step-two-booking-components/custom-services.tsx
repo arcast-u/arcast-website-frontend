@@ -163,7 +163,7 @@ const CustomServices = ({
     try {
       setLoading(true);
       const res = await axios.get(
-        'https://arcast-ai-backend.vercel.app/api/additional-services'
+        'https://arcast-ai-backend-lilac.vercel.app/api/additional-services'
       );
       if (res.status === 200) {
         setAdditionalServices(res.data.data);
